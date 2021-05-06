@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ValidatePasswordDictionary implements PasswordCriteria {
 
-    public String filePath = "src/main/resources/Top10kCommonPasswords.txt";
+    public String filePath = "Server/src/main/resources/Top10kCommonPasswords.txt";
 
     @Override
     public Boolean validatePassword (String password) throws IOException {

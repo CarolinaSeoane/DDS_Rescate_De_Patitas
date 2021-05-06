@@ -22,44 +22,45 @@ public class PasswordMain {
         passwordCriteria.add(validatePasswordDictionary);
 
         validatePassword.setPasswordCriteria(passwordCriteria);
-        String password = "*_aroco20!-?";
-        //String password = "P4ssw0rd$";
+        //String password = "*_cmagna15!-?"; //No funciona
+        String password = "P4ssw0rd$"; //Funciona
 
+        //Overall resume
         if(validatePassword.validatePassword(password)){
-            System.out.println("domain.Password length... OK");
+            System.out.println("Password overall... OK");
         }else{
-            System.out.println("domain.Password length... NOT OK");
+            System.out.println("Password overall... NOT OK");
         }
 
 
         // Test password length
         if (validatePasswordLength.validatePassword(password))
-            System.out.println("domain.Password length... OK");
+            System.out.println("Password length... OK");
         else
-            System.out.println("domain.Password length... NOT OK");
+            System.out.println("Password length... NOT OK");
 
         // Test password number
         if (validatePasswordNumber.validatePassword(password))
-            System.out.println("domain.Password number... OK");
+            System.out.println("Password number... OK");
         else
-            System.out.println("domain.Password number... NOT OK");
+            System.out.println("Password number... NOT OK");
 
         // Test password capital letter
         if (validatePasswordCapitalLetter.validatePassword(password))
-            System.out.println("domain.Password capital letter... OK");
+            System.out.println("Password capital letter... OK");
         else
-            System.out.println("domain.Password capital letter... NOT OK");
+            System.out.println("Password capital letter... NOT OK");
 
         // Test password special character
         if (validatePasswordSpecialCharacter.validatePassword(password))
-            System.out.println("domain.Password special character... OK");
+            System.out.println("Password special character... OK");
         else
-            System.out.println("domain.Password special character... NOT OK");
+            System.out.println("Password special character... NOT OK");
 
-        // Test password capital letter
+        // Test password 10k commons
         if (validatePasswordDictionary.validatePassword(password))
-            System.out.println("domain.Password dictionary... OK");
+            System.out.println("Password dictionary... OK");
         else
-            System.out.println("domain.Password dictionary... NOT OK");
+            System.out.println("Password dictionary... NOT OK");
     }
 }
