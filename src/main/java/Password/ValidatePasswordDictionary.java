@@ -1,5 +1,5 @@
 
-package main.java.Password;
+package Password;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,6 +9,13 @@ import java.util.ArrayList;
 public class ValidatePasswordDictionary implements PasswordCriteria {
 
     public String filePath = "src/main/resources/Top10kCommonPasswords.txt";
+
+    private String descripcion = "No es debil";
+
+    @Override
+    public String getDescripcion(){
+        return this.descripcion;
+    }
 
     @Override
     public Boolean validatePassword (String password) throws IOException {

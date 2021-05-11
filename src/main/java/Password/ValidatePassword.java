@@ -1,4 +1,4 @@
-package main.java.Password;
+package Password;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,13 +11,25 @@ public class ValidatePassword {
         return this.passwordCriteria.stream()
                 .map(criteria -> {
                     try {
-                        return criteria.validatePassword(password);
+                        return this.validarSegun(criteria, password);
                     } catch (IOException exception) {
                         exception.printStackTrace();
                     }
                     return null;
                 })
                 .reduce(Boolean::logicalAnd).get();
+    }
+
+    public Boolean validarSegun(PasswordCriteria unCriterio, String unaPassword) throws IOException {
+        Boolean aceptada = unCriterio.validatePassword(unaPassword);
+        System.out.print(unCriterio.getDescripcion()+ ":  ");
+        if(aceptada){
+            System.out.println("OK");
+        }
+        else {
+            System.out.println("NOT OK");
+        }
+        return aceptada;
     }
 
     public List<PasswordCriteria> getPasswordCriteria() {
@@ -28,8 +40,8 @@ public class ValidatePassword {
         this.passwordCriteria = passwordCriteria;
     }
 
-    public void addCriteria(PasswordCriteria passwordCriteria) {
-        this.passwordCriteria.add(passwordCriteria);
+    public void addCriterios(List<PasswordCriteria> passwordCriteria) {
+        this.passwordCriteria = passwordCriteria;
     }
 }
 

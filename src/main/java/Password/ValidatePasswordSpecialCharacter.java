@@ -1,9 +1,16 @@
 
-package main.java.Password;
+package Password;
 
 import java.util.regex.Pattern;
 
 public class ValidatePasswordSpecialCharacter implements PasswordCriteria {
+
+    private String descripcion = "Contiene caracter especial";
+
+    @Override
+    public String getDescripcion(){
+        return this.descripcion;
+    }
 
     @Override
     public Boolean validatePassword (String password) {
