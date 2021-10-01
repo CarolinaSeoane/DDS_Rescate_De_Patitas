@@ -13,18 +13,18 @@ _TP Integrador - Diseño de Sistemas - Universidad Tecnológica Nacional_
 
 ## Información complementaria ⚙️
 * [Requerimientos](https://drive.google.com/file/d/1R0z2nj9Kg9f_WcMcrPsFBK0fatMrI3-m/view?usp=sharing)
-* [Diagrama de clases]()
-* [Diagrama Entidad Relación]()
+* [Diagrama de clases](https://drive.google.com/file/d/1Vltu32nsMnMfyJFRecBy-82zByil4ak_/view?usp=sharing)
+* [Diagrama Entidad Relación](https://drive.google.com/file/d/107ZuihQy1sXtveIljNbPmlutb7CqBZi5/view?usp=sharing)
 
 
 ## Alumnos 📌
 
 * **Bazzi Agustín**           
-* **Goncalves pablo**
+* **Goncalves Pablo**
 * **Huang Steven**  
 * **Molina Nicolás**
-* **Carolina Beatríz Seoane** 
-* **Facundo Vergé**           
+* **Seoane Carolina** 
+* **Vergé Facundo**           
 
 
 
