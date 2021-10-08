@@ -1,7 +1,6 @@
 package ddsutn.Business.Mascota.Caracteristica;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @Getter
