@@ -1,0 +1,5 @@
+mail_from=dds.cinema.project@gmail.com
+password=aguebot1041
+host=smtp.gmail.com
+subject=Rescate De Patitas
+port=465

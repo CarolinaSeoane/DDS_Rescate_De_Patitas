@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Iniciar Sesión</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../Resources/Letras.css" th:href="@{/Resources/Letras.css}">
+	<link rel="stylesheet" href="../Resources/Menu.css" th:href="@{/Resources/Menu.css}">
+	<link rel="stylesheet" href="../Iniciar_Sesion/Iniciar_Sesion.css" th:href="@{/Iniciar_Sesion/Iniciar_Sesion.css}">
+	<link rel="stylesheet" href="../Resources/normalize.css" th:href="@{/Resources/normalize.css}">
+	<link rel="icon" href="../Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+</head>
+
+<body>
+
+	<header>
+		<div class="contenedor-base">
+
+			<nav class="menu">
+				<a href="/Iniciar_Sesion">Iniciar Sesión</a>
+				<a href="/">Página Principal</a>
+				<a href="/organizaciones">Organizaciones</a>
+			</nav>
+
+				<div class="logo">
+					<img src="../Resources/img/logo_blanco.png" th:src="@{/Resources/img/logo_blanco.png}" alt="Logo">
+				</div>
+
+		</div>
+	</header>
+
+
+	<section class="main">
+		<div class="contenedor-base">
+
+			<div class="inicio-sesion">
+				
+				<h3 class="sub-titulo">Iniciar Sesión</h3>
+
+				<form action="" class="formulario">
+
+					<div class="input">
+						<p class="texto-simple">Nombre de usuario</p>
+						<input type="text" class="input-completo" name="nombre" required>
+					</div>
+				
+					<div class="input">
+						<p class="texto-simple">Contraseña</p>
+						<input type="password" class="input-completo" name="correo" required>
+						<p class="texto-sub">Mostrar contraseña</p>
+					</div>
+				
+					<input class="boton" type="submit" value="Iniciar Sesión">
+
+				</form>
+
+				<p class="texto-sub">¿Olvidaste tu contraseña?</p>
+
+			</div>
+			
+		</div>
+	</section>		
+
+</body>
+</html>

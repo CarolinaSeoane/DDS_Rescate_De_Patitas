@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Datos Personales</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../Resources/Menu.css" th:href="@{/Resources/Menu.css}">
+	<link rel="stylesheet" href="Datos_Dueño_Y_Contactos.css" th:href="@{/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css}">
+	<link rel="stylesheet" href="../Resources/normalize.css" th:href="@{/Resources/normalize.css}">
+	<link rel="icon" href="../Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+</head>
+
+<body>
+
+	<header>
+		<div class="contenedor-base">
+
+			<nav class="menu">
+				<a href="/Iniciar_Sesion">Iniciar Sesión</a>
+				<a href="/">Página Principal</a>
+				<a href="/organizaciones">Organizaciones</a>
+			</nav>
+
+				<div class="logo">
+					<img src="../Resources/img/logo_blanco.png" th:src="@{/Resources/img/logo_blanco.png}" alt="Logo">
+				</div>
+
+		</div>
+	</header>
+
+
+	<section class="main">
+		<div class="contenedor-base">
+
+			<div class="datos-personales">
+				
+				<h3 class="sub-titulo">Datos Personales</h3>
+
+				<form action="" class="formulario" id="form-datos-personales">
+
+					<div class="input">
+						<p class="texto-simple">Nombre</p>
+						<input type="text" class="input-completo" name="nombre" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple">Apellido</p>
+						<input type="text" class="input-completo" name="apellido" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple">Teléfono</p>
+						<input type="text" class="input-completo" name="nombre" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple">Email</p>
+						<input type="text" class="input-completo" name="email" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple">Quiero ser notificado por</p>
+						<input type="checkbox" id="WhatsApp" name="WhatsApp" class="input-completo">
+						<label for="WhatsApp">WhatsApp</label><br>
+						<input type="checkbox" id="SMS" name="SMS" class="input-completo">
+						<label for="WhatsApp">SMS</label><br>
+						<input type="checkbox" id="Email" name="Email" class="input-completo">
+						<label for="WhatsApp">Email</label><br>					
+					</div>
+
+					<div class="input">
+						<p class="texto-simple">Fecha de nacimiento</p>
+						<input type="date" class="input-completo" name="fechaDeNacimiento" required>
+					</div>
+
+					<div class="input">
+						<label for="tipoDoc">Tipo de documento</label>
+						<select name="tipoDoc" id="tipoDoc" required>
+							<option value="DNI">DNI</option>
+							<option value="Pasaporte">Pasaporte</option>
+						</select>
+					</div>		
+
+					<div class="input">
+						<p class="texto-simple">Número de documento</p>
+						<input type="number" class="input-completo" name="nroDoc" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple">Domicilio</p>
+						<input type="text" class="input-completo" name="domicilio" required>
+					</div>
+				
+					
+				
+					<input class="boton" type="submit" value="Continuar">
+
+				</form>
+
+				<p class="texto-sub">¿Olvidaste tu contraseña?</p>
+
+			</div>
+			
+		</div>
+	</section>		
+
+
+</body>
+</html>

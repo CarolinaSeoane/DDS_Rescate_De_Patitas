@@ -1,0 +1,12 @@
+
+/* Hide arrows in number type submit */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Same but for Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
