@@ -18,7 +18,7 @@ header .contendor-base {
 header .menu {
   margin: 40px 0;
   text-align: left;
-  position: absolute;
+  position: fixed;
   vertical-align: center;
 }
 
