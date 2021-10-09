@@ -83,5 +83,3 @@ INSERT INTO mascota (apodo, descripcion, edad, id_qr, nombre, sexo, tipo, id_per
     ('Elton', 'Es un gato bastante grande que disfruta de estar con gente. Solamente come comida para gatos adultos.', 10, '34dfgsd47', 'Elton', 'MACHO', 'GATO', 6, 2),
     ('Luna', 'Gatita de buen comportamiento aunque muy solitaria. No suele salir al patio.', 1, '367d45der', 'Luna', 'HEMBRA', 'GATO', 3, 3),
     ('Wilson', 'Perro joven. Amistoso con otros perros pero no se lleva bien con los gatos.', 4, 'i7f8h8u5f', 'Wilson', 'MACHO', 'PERRO', 1, 1);
-
-
