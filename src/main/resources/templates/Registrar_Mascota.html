@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head >
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registrar Mascota</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
+    <link rel="stylesheet" href="../static/Registrar_Mascota/index.css" th:href="@{/Registrar_Mascota/index.css}">
+    <link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
+    <link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+</head>
+
+<body>
+
+<header>
+    <div class="contenedor-base">
+
+        <nav class="menu">
+            <a href="/Iniciar_Sesion">Iniciar Sesión</a>
+            <a href="/">Página Principal</a>
+            <a href=".">Organizaciones</a>
+        </nav>
+
+    </div>
+</header>
+
+<section class="main">
+
+    <section class="acerca-de">
+        <div class="contenedor-base">
+
+            <div class="texto">
+                <h3 class="sub-titulo">¿Cómo registro a mi mascota?</h3>
+                <p class="texto-simple">Para registrar a tu mascota sólo necesitarás completar un breve formulario con tus datos personales y algunos datos de tu mascota. Luego, recibirás un collar con una chapita que contiene un código QR impreso para que cualquier persona pueda escanearlo y comunicarse contigo en caso de que tu mascota se pierda.</p>
+            </div>
+
+            <div class="imagenes-instructivas">
+                <div class="img-instructiva">
+                    <img src="../static/Registrar_Mascota/img/collar.jpg" th:src="@{/Registrar_Mascota/img/collar.jpg}" width="150" alt="Chapita con código QR impreso">
+                </div>
+                <div class="img-instructiva">
+                    <img src="../static/Registrar_Mascota/img/scan_qr.png" th:src="@{/Registrar_Mascota/img/scan_qr.png}" width="150" alt="Celular escaneando código QR">
+                </div>
+                <div class="img-instructiva">
+                    <img src="../static/Registrar_Mascota/img/notif.png" th:src="@{/Registrar_Mascota/img/notif.png}" width="150" alt="Notificación dando aviso al dueño">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="usuario">
+        <div class="contenedor-base">
+
+            <div class="texto">
+                <h3 class="sub-titulo">Usuario</h3>
+                <p class="texto-simple">Para registrar a tu mascota sólo necesitarás completar un breve formulario con tus datos personales y algunos datos de tu mascota. Luego, recibirás un collar con una chapita que contiene un código QR impreso para que cualquier persona pueda escanearlo y comunicarse contigo en caso de que tu mascota se pierda.</p>
+            </div>
+
+            <div class="formulario">
+                <form action="">
+                    <p>Para registrar a una mascota no es necesario poseer un usuario</p>
+                    <input type="radio" id="USER" name="formaDeRegistrar" value="conUsuario">
+                    <label for="USER">Registrar con usuario</label><br>
+                    <input type="radio" id="NO_USER" name="formaDeRegistrar" value="sinUsuario">
+                    <label for="NO_USER">Registrar sin usuario</label><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+</section>
+</body>
+</html>

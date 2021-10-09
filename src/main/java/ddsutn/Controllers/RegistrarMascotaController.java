@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RegistrarMascotaController {
 
-	@RequestMapping("/Datos_Dueño_Y_Contactos")
+	@RequestMapping("/Registrar_Mascota")
 	public String mostrarPantalla(){
-		return "Datos_Dueño_Y_Contactos";
+		return "Registrar_Mascota";
 	}
 
 }
