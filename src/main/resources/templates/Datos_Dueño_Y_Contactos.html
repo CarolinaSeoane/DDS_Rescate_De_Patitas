@@ -38,7 +38,7 @@
 				
 				<h3 class="sub-titulo">Datos Personales</h3>
 
-				<form action="" class="formulario" id="form-datos-personales">
+				<form action="" class="formulario" id="form-datos-personales" method="">
 
 					<div class="input">
 						<p class="texto-simple">Nombre</p>
@@ -52,7 +52,7 @@
 
 					<div class="input">
 						<p class="texto-simple">Teléfono</p>
-						<input type="text" class="input-completo" name="nombre" required>
+						<input type="text" class="input-completo" name="telefono" required>
 					</div>
 
 					<div class="input">
@@ -92,14 +92,44 @@
 						<p class="texto-simple">Domicilio</p>
 						<input type="text" class="input-completo" name="domicilio" required>
 					</div>
-				
-					
-				
+
+
+					<h3 class="sub-titulo">Mis contactos</h3>
+
+						<div class="input">
+							<p class="texto-simple">Nombre</p>
+							<input type="text" class="input-completo" name="nombre_contacto" required>
+						</div>
+
+						<div class="input">
+							<p class="texto-simple">Apellido</p>
+							<input type="text" class="input-completo" name="apellido_contacto" required>
+						</div>
+
+						<div class="input">
+							<p class="texto-simple">Teléfono</p>
+							<input type="text" class="input-completo" name="telefono_contacto" required>
+						</div>
+
+						<div class="input">
+							<p class="texto-simple">Email</p>
+							<input type="text" class="input-completo" name="email_contacto" required>
+						</div>
+
+						<div class="input">
+							<p class="texto-simple">Quiere ser notificado por</p>
+							<input type="checkbox" id="WhatsApp_contacto" name="WhatsApp" class="input-completo">
+							<label for="WhatsApp">WhatsApp</label><br>
+							<input type="checkbox" id="SMS_contacto" name="SMS" class="input-completo">
+							<label for="WhatsApp">SMS</label><br>
+							<input type="checkbox" id="Email_contacto" name="Email" class="input-completo">
+							<label for="WhatsApp">Email</label><br>
+						</div>
+
 					<input class="boton" type="submit" value="Continuar">
 
 				</form>
 
-				<p class="texto-sub">¿Olvidaste tu contraseña?</p>
 
 			</div>
 			

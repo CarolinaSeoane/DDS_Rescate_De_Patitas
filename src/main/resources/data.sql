@@ -22,17 +22,21 @@ INSERT INTO comodidad (comodidad) VALUES
 
 INSERT INTO organizacion (calidad, pixeles_alto, pixeles_ancho, id_ubicacion) VALUES
     ('png', 500, 500, (SELECT id FROM ubicacion WHERE direccion='CalleFalsa, Springfield')),
-    ('png', 450, 450, (SELECT id FROM ubicacion WHERE direccion='Av Siempre, Springfield')),
+    ('png', 450, 450, (SELECT id FROM ubicacion WHERE direccion='Av SiempreViva, Springfield')),
     ('png', 600, 700, (SELECT id FROM ubicacion WHERE direccion='Av Va, Springfield')),
     ('png', 500, 1000, (SELECT id FROM ubicacion WHERE direccion='Av Viva, Springfield'));
 
 INSERT INTO pregunta (pregunta, id_organizacion) VALUES
-	('¿Tenés mascotas actualmente en tu hogar?', NULL),
-	('¿Es la primera vez que adoptas?', 1),
-	('¿Tenés chicos en tu hogar?', 1),
+	('¿Tiene mascotas actualmente en su hogar?', NULL),
+	('¿Es la primera vez que adopta?', 1),
+	('¿Tiene chicos en su hogar?', 1),
 	('¿El animal que va a adoptar es para usted o para un tercero?', 2),
 	('¿Ha pensado qué hará con el animal en vacaciones?', 3),
-	('En caso de mudanza ¿qué haría con el animal?', NULL);
+	('En caso de mudanza ¿qué haría con el animal?', NULL),
+	('¿Tiene los recursos para cubrir sus necesidades?', NULL),
+	('¿Tiene alergias?', 2),
+	('¿Su familia está de acuerdo con la adopción?', NULL),
+	('¿Tiene el espacio físico adecuado y seguro para el perro o gato?', 2);
 
 INSERT INTO persona (rol, domicilio, fecha_de_nacimiento, nro_documento, tipo_documento, id_contacto_propio) VALUES
     ('Duenio', 'Calle123', CURRENT_DATE, 43025544, 'DNI', NULL),
@@ -83,3 +87,12 @@ INSERT INTO mascota (apodo, descripcion, edad, id_qr, nombre, sexo, tipo, id_per
     ('Elton', 'Es un gato bastante grande que disfruta de estar con gente. Solamente come comida para gatos adultos.', 10, '34dfgsd47', 'Elton', 'MACHO', 'GATO', 6, 2),
     ('Luna', 'Gatita de buen comportamiento aunque muy solitaria. No suele salir al patio.', 1, '367d45der', 'Luna', 'HEMBRA', 'GATO', 3, 3),
     ('Wilson', 'Perro joven. Amistoso con otros perros pero no se lleva bien con los gatos.', 4, 'i7f8h8u5f', 'Wilson', 'MACHO', 'PERRO', 1, 1);
+
+INSERT INTO usuario (tipo_usuario, password, usuario, id_organizacion, id_persona_duenia) VALUES
+    ('StandardUser', 'Carlos077**', 'mauroDiaz', NULL, 1),
+    ('StandardUser', 'MiPassword123_', 'sol_Sola', NULL, 3),
+    ('StandardUser', '*ChiChiLo456', 'elsaMarian', NULL, 6),
+    ('Administrador', 'Messi+1000', 'martinMatos', 1, NULL),
+    ('Administrador', 'fjdsafjds486**A', 'MilagrosRoldan', 2, NULL),
+    ('Administrador', '4524Aa**', 'JuanaTidan', 3, NULL),
+    ('Administrador', 'avengers123ABC#', 'SofiVal', 4, NULL);
