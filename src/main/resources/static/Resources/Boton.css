@@ -1,0 +1,11 @@
+.botonAzul {
+  background: #1AA3FF;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 14px 30px;
+}
+
+.botonAzul:hover {
+  background: #3db1ff;
+}

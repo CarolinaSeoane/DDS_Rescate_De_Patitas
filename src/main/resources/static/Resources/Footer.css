@@ -1,0 +1,33 @@
+.footer {
+    background-color: #57565B;
+    padding: 80px 0;
+}
+
+.imagenes-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 30%;
+}
+
+.img-footer {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.twitter:hover {
+    border: 2px solid black;
+}
+
+.facebook:hover {
+    border: 2px solid black;
+
+}
+
+.gmail:hover {
+    border: 2px solid black;
+}

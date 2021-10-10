@@ -7,8 +7,10 @@
     <title>Registrar Mascota</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
+    <link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
     <link rel="stylesheet" href="../static/Registrar_Mascota/Registrar_Mascota.css" th:href="@{/Registrar_Mascota/Registrar_Mascota.css}">
     <link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
+    <link rel="stylesheet" href="../static/Resources/Footer.css" th:href="@{/Resources/Footer.css}">
     <link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
 </head>
 
@@ -61,24 +63,48 @@
                 <div class="texto">
                     <h3 class="sub-titulo">Usuario</h3>
                     <p class="texto-simple">Para registrar a una mascota no es necesario poseer un usuario</p>
-                </div>
 
-                <div class="formulario">
-                    <form action="">
-                        <input type="radio" id="USER" name="formaDeRegistrar" value="conUsuario">
-                        <label for="USER">Registrar con usuario</label><br>
-                        <input type="radio" id="NO_USER" name="formaDeRegistrar" value="sinUsuario">
-                        <label for="NO_USER">Registrar sin usuario</label><br>
-                        <input type="submit" value="Continuar">
-                    </form>
+                    <div class="formulario">
+                        <form action="">
+                            <input type="radio" id="USER" name="formaDeRegistrar" value="conUsuario">
+                            <label for="USER">Registrar con usuario</label><br>
+                            <input type="radio" id="NO_USER" name="formaDeRegistrar" value="sinUsuario">
+                            <label for="NO_USER">Registrar sin usuario</label><br>
+                            <input class="botonAzul boton" type="submit" value="Continuar">
+                        </form>
+                    </div>
+
                 </div>
 
             </div>
         </section>
 
+    </section>
 
+    <section class="footer">
+        <div class="contenedor-base">
 
+            <div class="imagenes-footer">
 
+                <a href="">
+                    <div class="img-footer twitter">
+                        <img src="../static/Resources/img/twitter.png" th:src="@{/Resources/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
+                    </div>
+                </a>
+                <a href="">
+                    <div class="img-footer facebook">
+                        <img src="../static/Resources/img/fb.png" th:src="@{/Resources/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
+                    </div>
+                </a>
+                <a href="">
+                    <div class="img-footer gmail">
+                        <img src="../static/Resources/img/gmail.png" th:src="@{/Resources/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
     </section>
 </body>
 </html>
