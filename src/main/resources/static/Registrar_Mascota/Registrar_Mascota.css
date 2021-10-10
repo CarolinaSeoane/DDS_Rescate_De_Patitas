@@ -1,3 +1,16 @@
+.sub-titulo {
+    color: #C04335;
+    margin-bottom: 40px;
+}
+
+.texto-simple {
+    color: #331A00;
+}
+
+.texto {
+    width: 83%;
+    margin: 0px auto;
+}
 
 /* Agrego contenedor base aca */
 
@@ -52,11 +65,49 @@ header .contenedor-texto-header .titulo-principal {
 
 /* MAIN - ACERCA DE */
 
-.main .contenedor-base {
-  overflow: visible;
+.main {
+  text-align: center;
 }
 
-.main .acerca-de {
-  text-align: center;
-  align-content: center;
+.main .acerca-de .contenedor-base {
+    padding: 40px 0 100px 0;
 }
+
+.main .texto-simple {
+    margin-bottom: 40px;
+}
+
+.main .imagenes-instructivas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 141px;
+}
+
+.main .imagenes-instructivas img {
+      border-radius: 50%;
+      border: 7px solid rgba(26, 163, 255, 0.2);
+      width: 150px;
+      height: 150px;
+}
+
+/* MAIN - USUARIO */
+
+.main .usuario {
+    background-color: #F2F2F2;
+}
+
+.main .usuario .contenedor-base {
+    padding: 40px 0 100px 0;
+}
+
+.formulario {
+
+}
+
+
+
+
+
+
