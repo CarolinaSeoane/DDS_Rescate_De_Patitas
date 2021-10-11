@@ -7,9 +7,11 @@
 	<title>Datos Personales</title>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="../static/Resources/Menu.css" th:href="@{/Resources/Menu.css}">
+	<link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
 	<link rel="stylesheet" href="../static/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css" th:href="@{/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css}">
 	<link rel="stylesheet" href="../static/Resources/Footer.css" th:href="@{/Resources/Footer.css}">
 	<link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
+	<link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
 	<link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
 </head>
 
@@ -42,42 +44,42 @@
 				<form action="" class="formulario" id="form-datos-personales" method="">
 
 					<div class="input">
-						<p class="texto-simple">Nombre</p>
-						<input type="text" class="input-completo" name="nombre" required>
+						<p class="texto-simple pregunta">Nombre</p>
+						<input type="text" class="input-completo texto-simple" name="nombre" required>
 					</div>
 
 					<div class="input">
-						<p class="texto-simple">Apellido</p>
+						<p class="texto-simple pregunta">Apellido</p>
 						<input type="text" class="input-completo" name="apellido" required>
 					</div>
 
 					<div class="input">
-						<p class="texto-simple">Teléfono</p>
+						<p class="texto-simple pregunta">Teléfono</p>
 						<input type="text" class="input-completo" name="telefono" required>
 					</div>
 
 					<div class="input">
-						<p class="texto-simple">Email</p>
+						<p class="texto-simple pregunta">Email</p>
 						<input type="text" class="input-completo" name="email" required>
 					</div>
 
 					<div class="input">
-						<p class="texto-simple">Quiero ser notificado por</p>
-						<input type="checkbox" id="WhatsApp" name="WhatsApp" class="input-completo">
-						<label for="WhatsApp">WhatsApp</label><br>
-						<input type="checkbox" id="SMS" name="SMS" class="input-completo">
-						<label for="WhatsApp">SMS</label><br>
-						<input type="checkbox" id="Email" name="Email" class="input-completo">
-						<label for="WhatsApp">Email</label><br>					
+						<p class="texto-simple pregunta">Quiero ser notificado por</p>
+						<input type="checkbox" id="WPP" name="MedioNotif" class="check">
+						<label for="WPP" class="texto-simple">WhatsApp</label><br>
+						<input type="checkbox" id="SMS" name="MedioNotif" class="check">
+						<label for="SMS" class="texto-simple">SMS</label><br>
+						<input type="checkbox" id="EMAIL" name="MedioNotif" class="check">
+						<label for="EMAIL" class="texto-simple">Email</label><br>
 					</div>
 
 					<div class="input">
-						<p class="texto-simple">Fecha de nacimiento</p>
+						<p class="texto-simple pregunta">Fecha de nacimiento</p>
 						<input type="date" class="input-completo" name="fechaDeNacimiento" required>
 					</div>
 
 					<div class="input">
-						<label for="tipoDoc">Tipo de documento</label>
+						<label for="tipoDoc" class="texto-simple">Tipo de documento</label>
 						<select name="tipoDoc" id="tipoDoc" required>
 							<option value="DNI">DNI</option>
 							<option value="Pasaporte">Pasaporte</option>
@@ -85,12 +87,12 @@
 					</div>		
 
 					<div class="input">
-						<p class="texto-simple">Número de documento</p>
+						<p class="texto-simple pregunta">Número de documento</p>
 						<input type="number" class="input-completo" name="nroDoc" required>
 					</div>
 
 					<div class="input">
-						<p class="texto-simple">Domicilio</p>
+						<p class="texto-simple pregunta">Domicilio</p>
 						<input type="text" class="input-completo" name="domicilio" required>
 					</div>
 
@@ -98,36 +100,36 @@
 					<h3 class="sub-titulo">Mis contactos</h3>
 
 						<div class="input">
-							<p class="texto-simple">Nombre</p>
+							<p class="texto-simple pregunta">Nombre</p>
 							<input type="text" class="input-completo" name="nombre_contacto" required>
 						</div>
 
 						<div class="input">
-							<p class="texto-simple">Apellido</p>
+							<p class="texto-simple pregunta">Apellido</p>
 							<input type="text" class="input-completo" name="apellido_contacto" required>
 						</div>
 
 						<div class="input">
-							<p class="texto-simple">Teléfono</p>
+							<p class="texto-simple pregunta">Teléfono</p>
 							<input type="text" class="input-completo" name="telefono_contacto" required>
 						</div>
 
 						<div class="input">
-							<p class="texto-simple">Email</p>
+							<p class="texto-simple pregunta">Email</p>
 							<input type="text" class="input-completo" name="email_contacto" required>
 						</div>
 
 						<div class="input">
-							<p class="texto-simple">Quiere ser notificado por</p>
-							<input type="checkbox" id="WhatsApp_contacto" name="WhatsApp" class="input-completo">
-							<label for="WhatsApp">WhatsApp</label><br>
-							<input type="checkbox" id="SMS_contacto" name="SMS" class="input-completo">
-							<label for="WhatsApp">SMS</label><br>
-							<input type="checkbox" id="Email_contacto" name="Email" class="input-completo">
-							<label for="WhatsApp">Email</label><br>
+							<p class="texto-simple ">Quiere ser notificado por</p>
+							<input type="checkbox" id="WPP_CONTACTO" name="MedioNotif" class="check">
+							<label for="WPP_CONTACTO" class="texto-simple">WhatsApp</label><br>
+							<input type="checkbox" id="SMS_CONTACTO" name="MedioNotif" class="check">
+							<label for="SMS_CONTACTO" class="texto-simple">SMS</label><br>
+							<input type="checkbox" id="EMAIL_CONTACTO" name="MedioNotif" class="check">
+							<label for="EMAIL_CONTACTO" class="texto-simple">Email</label><br>
 						</div>
 
-					<input class="boton" type="submit" value="Continuar">
+					<input class="botonAzul boton" type="submit" value="Continuar">
 
 				</form>
 
@@ -136,33 +138,33 @@
 			
 		</div>
 
-		<section class="footer">
-			<div class="contenedor-base">
+	</section>
 
-				<div class="imagenes-footer">
+	<section class="footer">
+		<div class="contenedor-base">
 
-					<a href="">
-						<div class="img-footer twitter">
-							<img src="../static/Resources/img/twitter.png" th:src="@{/Resources/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
-						</div>
-					</a>
-					<a href="">
-						<div class="img-footer facebook">
-							<img src="../static/Resources/img/fb.png" th:src="@{/Resources/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
-						</div>
-					</a>
-					<a href="">
-						<div class="img-footer gmail">
-							<img src="../static/Resources/img/gmail.png" th:src="@{/Resources/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
-						</div>
-					</a>
+			<div class="imagenes-footer">
 
-				</div>
+				<a href="">
+					<div class="img-footer twitter">
+						<img src="../static/Resources/img/twitter.png" th:src="@{/Resources/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
+					</div>
+				</a>
+				<a href="">
+					<div class="img-footer facebook">
+						<img src="../static/Resources/img/fb.png" th:src="@{/Resources/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
+					</div>
+				</a>
+				<a href="">
+					<div class="img-footer gmail">
+						<img src="../static/Resources/img/gmail.png" th:src="@{/Resources/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
+					</div>
+				</a>
 
 			</div>
-		</section>
 
-	</section>		
+		</div>
+	</section>
 
 
 </body>
