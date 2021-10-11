@@ -102,8 +102,16 @@ header .contenedor-texto-header .titulo-principal {
     padding: 40px 0 100px 0;
 }
 
-.formulario {
+.option {
+    line-height: 40px;
+}
 
+.options {
+    text-align: left;
+}
+
+.boton {
+    margin-top: 40px;
 }
 
 

@@ -13,7 +13,6 @@ input[type=number] {
 /* MAIN - DATOS PERSONALES */
 
 .main .contenedor-base {
-    background-color: #f2f2f2;
     padding: 80px 0 100px 0;
 }
 
@@ -22,19 +21,48 @@ input[type=number] {
 }
 
 .input-completo {
-  width: 575px;
-  height: 60px;
-  border: 1px solid #C1C0C5;
-  box-sizing: border-box;
-  border-radius: 5px;
-  padding-left: 10px;
+    width: 575px;
+    height: 60px;
+    border: 1px solid #C1C0C5;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-bottom: 10px;
 }
 
 .sub-titulo {
     margin-bottom: 50px;
 }
 
-
 .pregunta {
     margin-bottom: 10px;
+}
+
+.opciones-notif {
+    margin-left: 10px;
+}
+
+.fecha {
+    height: 60px;
+    border: 1px solid #C1C0C5;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.tipoDoc {
+    border: 1px solid #C1C0C5;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px 0 10px 10px;
+}
+
+.contactos {
+    margin-top: 70px;
+}
+
+.boton {
+    display: block;
+    margin: 0 auto;
 }

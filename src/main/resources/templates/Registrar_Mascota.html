@@ -20,7 +20,7 @@
         <div class="contenedor-base">
 
             <nav class="menu">
-                <a href="/Iniciar_Sesion">Iniciar Sesión</a>
+                <a href="/Iniciar Sesion">Iniciar Sesión</a>
                 <a href="/">Página Principal</a>
                 <a href=".">Organizaciones</a>
             </nav>
@@ -66,10 +66,12 @@
 
                     <div class="formulario">
                         <form action="">
-                            <input type="radio" id="USER" name="formaDeRegistrar" value="conUsuario">
-                            <label for="USER">Registrar con usuario</label><br>
-                            <input type="radio" id="NO_USER" name="formaDeRegistrar" value="sinUsuario">
-                            <label for="NO_USER">Registrar sin usuario</label><br>
+                            <div class="options">
+                                <input type="radio" id="USER" name="formaDeRegistrar" value="conUsuario">
+                                <label for="USER" class="option">Registrar con usuario</label><br>
+                                <input type="radio" id="NO_USER" name="formaDeRegistrar" value="sinUsuario">
+                                <label for="NO_USER" class="option">Registrar sin usuario</label><br>
+                            </div>
                             <input class="botonAzul boton" type="submit" value="Continuar">
                         </form>
                     </div>
