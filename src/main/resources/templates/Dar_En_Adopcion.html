@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../static/Dar_En_Adopcion/Dar_En_Adopcion.css" th:href="@{/Dar_En_Adopcion/Dar_En_Adopcion.css}">
     <link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
     <link rel="stylesheet" href="../static/Resources/Footer.css" th:href="@{/Resources/Footer.css}">
+    <link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
     <link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
 </head>
 
@@ -32,6 +33,48 @@
 </header>
 
 <section class="main">
+
+    <div class="contenedor-base">
+
+        <div class="texto">
+            <h3 class="sub-titulo">¿Cómo Doy en Adopción a Mi Mascota?</h3>
+            <p class="texto-simple">Dar en adopción una mascota es muy sencillo. Antes de comenzar, lee atentamente los siguientes pasos.</p>
+        </div>
+
+        <div class="imagenes-instructivas">
+
+            <div class="contenedor-instruccion">
+                <div class="img-instructiva">
+                    <img src="../static/Dar_En_Adopcion/img/form.jpg" th:src="@{/Dar_En_Adopcion/img/form.jpg}" width="150" alt="Lupa">
+                </div>
+                <div class="instruccion texto-simple">
+                    <p>Primero deberás seleccionar alguna de tus mascotas registradas en la plataforma, o registrar una nueva, para empezar el proceso de darla en adopción.</p>
+                </div>
+            </div>
+
+            <div class="contenedor-instruccion">
+                <div class="img-instructiva">
+                    <img src="../static/Dar_En_Adopcion/img/preguntas.jpg" th:src="@{/Dar_En_Adopcion/img/preguntas.jpg}" width="150" alt="Match">
+                </div>
+                <div class="instruccion texto-simple">
+                    <p>Luego tendrás que responder una serie de preguntas, con información que servirá para poder otorgarle a tu mascota el mejor nuevo hogar posible.</p>
+                </div>
+            </div>
+
+            <div class="contenedor-instruccion">
+                <div class="img-instructiva">
+                    <img src="../static/Dar_En_Adopcion/img/bell.jpg" th:src="@{/Dar_En_Adopcion/img/bell.jpg}" width="150" alt="Form">
+                </div>
+                <div class="instruccion texto-simple">
+                    <p>Cuando aparezca algúna persona interesada en tu mascota, se te notificará para que puedas comunicarte con ella y finalizar la adopción.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <input class="botonAzul boton" type="button" onclick="/" value="Comenzar">
+
+    </div>
 
 </section>
 
