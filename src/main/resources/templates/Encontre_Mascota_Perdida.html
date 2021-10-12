@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
     <link rel="stylesheet" href="../static/Encontre_Mascota_Perdida/Encontre_Mascota_Perdida.css" th:href="@{/Encontre_Mascota_Perdida/Encontre_Mascota_Perdida.css}">
     <link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
+    <link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
     <link rel="stylesheet" href="../static/Resources/Footer.css" th:href="@{/Resources/Footer.css}">
     <link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
 </head>
@@ -32,7 +33,55 @@
 </header>
 
 <section class="main">
+  <div class="contenedor-base">
 
+      <div class="texto">
+          <h3 class="sub-titulo">¿Qué debo hacer?</h3>
+      </div>
+
+      <div class="imagenes-instructivas">
+
+          <div class="contenedor-instruccion">
+              <div class="img-instructiva">
+                  <img src="../static/Encontre_Mascota_Perdida/img/form.jpg" th:src="@{/Encontre_Mascota_Perdida/img/form.jpg}" width="150" alt="Lupa">
+              </div>
+              <div class="instruccion texto-simple">
+                  <p>Primero deberás completar un breve formulario con tus datos personales y algunos datos sobre el estado de la mascota.</p>
+              </div>
+          </div>
+
+          <div class="contenedor-instruccion">
+              <div class="img-instructiva">
+                  <img src="../static/Encontre_Mascota_Perdida/img/post.jpg" th:src="@{/Adoptar_Mascota/img/match.jpg}" width="150" alt="Match">
+              </div>
+              <div class="instruccion texto-simple">
+                  <p>Con estos datos se generará una publicación para que el dueño que esté buscando a su mascota perdida pueda identificarla y comunicarse contigo.</p>
+              </div>
+          </div>
+
+          <div class="contenedor-instruccion">
+              <div class="img-instructiva">
+                  <img src="../static/Encontre_Mascota_Perdida/img/seguridad.jpg" th:src="@{/Adoptar_Mascota/img/form.jpg}" width="150" alt="Form">
+              </div>
+              <div class="instruccion texto-simple">
+                  <p>En ningún momento compartiremos tus datos personales. La publicación sólo mostrará tus datos no sensibles para que el dueño pueda comunicarse contigo.</p>
+              </div>
+          </div>
+
+          <div class="contenedor-instruccion">
+              <div class="img-instructiva">
+                  <img src="../static/Encontre_Mascota_Perdida/img/house.jpg" th:src="@{/Adoptar_Mascota/img/email.jpg}" width="150" alt="Email">
+              </div>
+              <div class="instruccion texto-simple">
+                  <p>Si no puedes cuidar de la mascota hasta que aparezca su dueño puedes buscar un Hogar de Tránsito que cuide de ella.</p>
+              </div>
+          </div>
+
+      </div>
+
+      <input class="botonAzul boton" type="button" onclick="/" value="Comenzar">
+
+  </div>
 </section>
 
 <section class="footer">
