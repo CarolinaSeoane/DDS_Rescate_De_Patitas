@@ -5,10 +5,7 @@ import ddsutn.Servicios.PublicacionDarEnAdopcionSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
 import java.util.List;
@@ -40,7 +37,6 @@ public class IndexController {
 
 	@RequestMapping("/Adoptar/Publicaciones_Adopcion")
 	public String Mascotas_En_Adopción(Model model) {
-
 		List<PublicacionDarEnAdopcion> publicaciones =publicacionDarEnAdopcionSvc.publicaciones();
 
 		model.addAttribute("recientes",publicaciones.stream()
@@ -48,11 +44,48 @@ public class IndexController {
 						.reversed())
 				.limit(4)
 				.collect(Collectors.toList()));
-		model.addAttribute("publicaciones",publicaciones);
 
+		model.addAttribute("publicaciones",publicaciones.stream().limit(2).collect(Collectors.toList()));
+
+		model.addAttribute("cantidad",4);
+		model.addAttribute("ordenado","");
 		return "Publicaciones_Adopcion";
 
 	}
+	@GetMapping("/Adoptar/Publicaciones_Adopcion/{cantidad}")
+	public String cargarMas(Model model, @PathVariable int cantidad) {
+		List<PublicacionDarEnAdopcion> publicaciones =publicacionDarEnAdopcionSvc.publicaciones();
+
+		model.addAttribute("recientes",publicaciones.stream()
+				.sorted(Comparator.comparingLong( PublicacionDarEnAdopcion::getId )
+						.reversed())
+				.limit(4)
+				.collect(Collectors.toList()));
+
+		model.addAttribute("publicaciones",publicaciones.stream().limit(cantidad).collect(Collectors.toList()));
+		model.addAttribute("cantidad",cantidad+2);
+		model.addAttribute("ordenado","");
+		return "Publicaciones_Adopcion";
+	}
+	@GetMapping("/Adoptar/Publicaciones_Adopcion/{cantidad}/{ordenado}")
+	public String ordenar(Model model, @PathVariable int cantidad,@PathVariable String ordenado) {
+		List<PublicacionDarEnAdopcion> publicaciones =publicacionDarEnAdopcionSvc.publicaciones();
+
+		model.addAttribute("recientes",publicaciones.stream()
+				.sorted(Comparator.comparingLong( PublicacionDarEnAdopcion::getId )
+						.reversed())
+				.limit(4)
+				.collect(Collectors.toList()));
+
+		model.addAttribute("publicaciones",publicaciones.stream()
+						.sorted(Comparator.comparing(n->n.getMascota().getNombre()) )
+				.limit(cantidad)
+				.collect(Collectors.toList()));
+		model.addAttribute("cantidad",cantidad+2);
+		model.addAttribute("ordenado","ordenado");
+		return "Publicaciones_Adopcion";
+	}
+
 
 	@RequestMapping("/Registrar Mascota")
 	public String registrarMascota() {

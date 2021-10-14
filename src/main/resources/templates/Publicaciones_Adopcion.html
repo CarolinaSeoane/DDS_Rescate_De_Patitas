@@ -60,11 +60,12 @@
 				<div class="texto">
 					<p>Todas las publicaciones</p>
 				</div>
-				<div class="boton">
-					<p>Ordenar</p>
-					<img src="../static/Publicaciones_Adopcion/img/ordenar.png"  th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
-				</div>
-
+				<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${cantidad -2}+ '/ordenado'}"  style="text-decoration: none;">
+					<div class="boton">
+						<p>Ordenar</p>
+						<img src="../static/Publicaciones_Adopcion/img/ordenar.png"  th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
+					</div>
+				</a>
 				<div class="dropdown">
 				  <button class="dropbtn">
 						<p>Filtrar</p>
@@ -138,7 +139,7 @@
 				  </div>
 				</div>
 
-			<form action="validar" method="get" class="fotos">
+			<div th:action="@{/cargar-mas}" method="get" class="fotos">
 					<th:block th:each="publicacion: ${publicaciones}">
 						<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${publicacion.id}}"  class="foto">
 
@@ -147,10 +148,9 @@
 
 						</a>
 					</th:block>
-				<div class= "contenedor-mas"> <input class="boton-mas" type="submit" value="cargarMas"> </div>
+				<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${cantidad} + '/' + ${ordenado}}"  class= "contenedor-mas"> <button class="boton-mas">Cargar mas</button> </a>
+			</div>
 
-
-			</form>
 			</div>
 		</section>
 

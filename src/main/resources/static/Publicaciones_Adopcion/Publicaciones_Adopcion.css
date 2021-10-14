@@ -97,7 +97,7 @@ header .contenedor-texto-header .titulo-principal {
 /*publicaciones */
 .publicaciones {
   width: 50%;
-  min-width: 560px;
+  min-width: 570px;
   margin: auto;
   padding: 50px;
 }
@@ -117,7 +117,7 @@ header .contenedor-texto-header .titulo-principal {
 }
 .publicaciones .contenedor .boton{
   height: 40px;
-  width: 100px;
+  width: 110px;
   text-align: center;
   margin-left: 20px;
   border: solid 2px #C1C0C5;
@@ -126,7 +126,9 @@ header .contenedor-texto-header .titulo-principal {
   justify-content: space-evenly;
   align-items: center;
 }
-
+.publicaciones .contenedor .boton:hover{
+  background-color:#EFEFEF ;
+}
 
 
 /*----------------FILTROS------------------------------*/
