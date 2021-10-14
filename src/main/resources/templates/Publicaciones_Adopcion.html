@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head >
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Publicaciones Adopcion</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
+  	<link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
+	<link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
+	<link rel="stylesheet" href="../static/Resources/Footer.css" th:href="@{/Resources/Footer.css}">
+	<link rel="stylesheet" href="../static/Publicaciones_Adopcion/Publicaciones_Adopcion.css" th:href="@{/Publicaciones_Adopcion/Publicaciones_Adopcion.css}">
+	<link rel="j" href="/css/master.css">
+	<link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+
+</head>
+
+
+<body>
+
+
+  <header>
+    <div class="contenedor-base">
+      <nav class="menu">
+        <a href="/Iniciar_Sesion">Iniciar Sesión</a>
+        <a href=".">Página Principal</a>
+        <a href=".">Organizaciones</a>
+      </nav>
+			<div class="contenedor-texto-header">
+				<h1 class="titulo-principal">Mascotas en Adopción</h1>
+			</div>
+    </div>
+  </header>
+
+  <section class="main">
+		<h3 class="sub-titulo">¿Buscas una Mascota para Adoptar?</h3>
+
+		<section class="publicaciones recientes">
+
+			<div class="contenedor">
+				<div class="texto">
+					<p>Recientes</p>
+				</div>
+
+					<div class="fotos">
+						<th:block th:each="publicacion: ${recientes}">
+							<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${publicacion.id}}"  class="foto">
+								<img src="../static/Publicaciones_Adopcion/img/mascota.jpg" th:src="@{/Publicaciones_Adopcion/img/mascota.jpg}" alt="Mascota">
+								<p><td th:text="${publicacion.mascota.apodo}" /> </p>
+							</a>
+						</th:block>
+					</div>
+
+			</div>
+		</section>
+
+		<section class="publicaciones">
+			<div class="contenedor">
+				<div class="texto">
+					<p>Todas las publicaciones</p>
+				</div>
+				<div class="boton">
+					<p>Ordenar</p>
+					<img src="../static/Publicaciones_Adopcion/img/ordenar.png"  th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
+				</div>
+
+				<div class="dropdown">
+				  <button class="dropbtn">
+						<p>Filtrar</p>
+						<img src="../static/Publicaciones_Adopcion/img/filtro.png" th:src="@{/Publicaciones_Adopcion/img/filtro.png}" alt="Ordenar">
+					</button>
+				  <div class="dropdown-content">
+						<div class="seccion-filtro">
+
+							<div class="titulo-check">
+								<label >Admisiones</label>
+							</div>
+
+							<div class="opciones-check">
+								<input type="checkbox" id="TipoGato" name="tipoMascota">
+								<label class="texto-simple">Gatos</label>
+
+								<input type="checkbox" id="TipoPerro" name="tipoMascota">
+								<label class="texto-simple">Perros</label>
+							</div>
+
+						</div>
+
+						<div class="seccion-filtro">
+							<div class="titulo-check">
+								<label class="titulo-check">Características</label>
+							</div>
+
+							<div class="opciones-check">
+								<input type="checkbox" id="TipoGato" name="tipoMascota">
+								<label  class="texto-simple">Poseen Patio</label>
+
+								<input type="checkbox" id="TipoPerro" name="tipoMascota">
+								<label  class="texto-simple">Tienen Lugares Disponibles</label>
+							</div>
+						</div>
+
+						<div class="seccion-filtro">
+							<div class="titulo-check">
+								<label class="titulo-check">Radio de Cercanía</label>
+							</div>
+
+							<div class="opciones-radius">
+								<div class="opcion">
+									<input type="radio" name="Radio" checked="checked"> 1 km
+								</div>
+								<div class="opcion">
+									<input type="radio" name="Radio">  5 km
+								</div>
+								<div class="opcion">
+									<input type="radio" name="Radio">  10 km
+								</div>
+								<div class="opcion">
+									<input type="radio" name="Radio">  15 km
+								</div>
+								<div class="opcion">
+									<input type="radio" name="Radio">  25 km
+								</div>
+							</div>
+						</div>
+						<div class="reset-filtros">
+							<div class="texto-borrar">
+									<input class="boton-filtro" type="submit" value="Borrar Filtros" style="color: #B93122;">
+							</div>
+							<div class="texto-fin">
+									<input class="boton-filtro" type="submit" value="Cancelar" style="color:#57565B">
+							</div>
+							<div class="texto-fin">
+								<input class="boton-filtro" type="submit" value="Aceptar" style="color:#1DA1F2">
+							</div>
+					 	</div>
+				  </div>
+				</div>
+
+			<form action="validar" method="get" class="fotos">
+					<th:block th:each="publicacion: ${publicaciones}">
+						<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${publicacion.id}}"  class="foto">
+
+									<img src="../static/Publicaciones_Adopcion/img/mascota.jpg" th:src="@{/Publicaciones_Adopcion/img/mascota.jpg}" alt="Mascota">
+									<p><td th:text="${publicacion.mascota.apodo}" /> </p>
+
+						</a>
+					</th:block>
+				<div class= "contenedor-mas"> <input class="boton-mas" type="submit" value="cargarMas"> </div>
+
+
+			</form>
+			</div>
+		</section>
+
+		<section class="crear">
+			<h3>¿No encontraste tu mascota ideal? ¡No hay problema!</h3>
+			<input class="botonAzul boton" type="submit" value="Crear Publicación">
+		</section>
+
+		<section class="footer">
+			<div class="contenedor-base">
+
+				<div class="imagenes-footer">
+
+					<a href="">
+						<div class="img-footer twitter">
+							<img src="../static/Resources/img/twitter.png" th:src="@{/Resources/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
+						</div>
+					</a>
+					<a href="">
+						<div class="img-footer facebook">
+							<img src="../static/Resources/img/fb.png" th:src="@{/Resources/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
+						</div>
+					</a>
+					<a href="">
+						<div class="img-footer gmail">
+							<img src="../static/Resources/img/gmail.png" th:src="@{/Resources/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
+						</div>
+					</a>
+
+				</div>
+
+			</div>
+		</section>
+  </section>
+</body>
+</html>

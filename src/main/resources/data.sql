@@ -96,3 +96,10 @@ INSERT INTO usuario (tipo_usuario, password, usuario, id_organizacion, id_person
     ('Administrador', 'fjdsafjds486**A', 'MilagrosRoldan', 2, NULL),
     ('Administrador', '4524Aa**', 'JuanaTidan', 3, NULL),
     ('Administrador', 'avengers123ABC#', 'SofiVal', 4, NULL);
+
+INSERT INTO publicacion_dar_en_adopcion (id_mascota, id_organizacion) VALUES
+    (1, 1),
+    (2, 1),
+    (4, 1),
+    (7, 1),
+    (2, 1);
