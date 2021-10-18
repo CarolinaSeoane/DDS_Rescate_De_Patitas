@@ -24,7 +24,7 @@
     <div class="contenedor-base">
       <nav class="menu">
         <a href="/Iniciar_Sesion">Iniciar Sesión</a>
-        <a href=".">Página Principal</a>
+        <a href="/">Página Principal</a>
         <a href=".">Organizaciones</a>
       </nav>
 			<div class="contenedor-texto-header">
@@ -60,7 +60,7 @@
 				<div class="texto">
 					<p>Todas las publicaciones</p>
 				</div>
-				<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${cantidad -2}+ '/ordenado'}"  style="text-decoration: none;">
+				<a th:href="@{'/adoptar/publicaciones/' + ${cantidad -2}+ '/ordenado'}"  style="text-decoration: none;">
 					<div class="boton">
 						<p>Ordenar</p>
 						<img src="../static/Publicaciones_Adopcion/img/ordenar.png"  th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
@@ -141,14 +141,14 @@
 
 			<div th:action="@{/cargar-mas}" method="get" class="fotos">
 					<th:block th:each="publicacion: ${publicaciones}">
-						<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${publicacion.id}}"  class="foto">
+						<a th:href="@{'/adoptar/publicaciones/' + ${publicacion.id}}"  class="foto">
 
 									<img src="../static/Publicaciones_Adopcion/img/mascota.jpg" th:src="@{/Publicaciones_Adopcion/img/mascota.jpg}" alt="Mascota">
 									<p><td th:text="${publicacion.mascota.apodo}" /> </p>
 
 						</a>
 					</th:block>
-				<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${cantidad} + '/' + ${ordenado}}"  class= "contenedor-mas"> <button class="boton-mas">Cargar mas</button> </a>
+				<a th:href="@{'/adoptar/publicaciones/' + ${cantidad} + '/' + ${ordenado}}"  class= "contenedor-mas"> <button class="boton-mas">Cargar mas</button> </a>
 			</div>
 
 			</div>
