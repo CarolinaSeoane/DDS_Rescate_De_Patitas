@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../static/Buscar_Hogar/Buscar_Hogar.css" th:href="@{/Buscar_Hogar/Buscar_Hogar.css}">
     <link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
     <link rel="stylesheet" href="../static/Resources/Footer.css" th:href="@{/Resources/Footer.css}">
+    <link rel="stylesheet" href="../static/Resources/Filtro.css" th:href="@{/Resources/Footer.css}">
     <link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
 </head>
 
@@ -65,156 +66,163 @@
         </div>
     </section>
 
+
     <section class="hogares">
-        <div class="contenedor-hogares-opciones">
-            <div class="texto-simple">
-                <p>Todos los hogares</p>
-            </div>
-            <div class="dropdownOrdenar">
-                <button class="dropbtn">
-                    <p class="texto-boton">Ordenar</p>
-                    <img src="../static/Buscar_Hogar/img/ordenar.png"  th:src="@{/Buscar_Hogar/img/ordenar.png}" alt="Ordenar">
-                </button>
-                <div class="dropdown-content-ordenar">
 
+        <section class="filtro">
+            <div class="contenedor-base">
+                <div class="contenedor-hogares-opciones">
 
+                    <p class="sub-titulo" >Todos los hogares</p>
 
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">
-                    <p class="texto-boton">Filtrar</p>
-                    <img src="../static/Buscar_Hogar/img/filtro.png" th:src="@{/Buscar_Hogar/img/filtro.png}" alt="Filtrar">
-                </button>
-                <div class="dropdown-content">
-                    <div class="seccion-filtro">
-
-                        <div class="titulo-check">
-                            <label >Admisiones</label>
-                        </div>
-
-                        <div class="opciones-check">
-                            <input type="checkbox" id="TipoGato" name="tipoMascota">
-                            <label class="texto-simple">Gatos</label>
-
-                            <input type="checkbox" id="TipoPerro" name="tipoMascota">
-                            <label class="texto-simple">Perros</label>
-                        </div>
-
+                    <div class="dropdownOrdenar">
+                        <button class="dropbtn">
+                            <p class="texto-boton">Ordenar</p>
+                            <img src="../static/Buscar_Hogar/img/ordenar.png"  th:src="@{/Buscar_Hogar/img/ordenar.png}" alt="Ordenar">
+                        </button>
                     </div>
 
-                    <div class="seccion-filtro">
-                        <div class="titulo-check">
-                            <label class="titulo-check">Características</label>
-                        </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <p class="texto-boton">Filtrar</p>
+                            <img src="../static/Buscar_Hogar/img/filtro.png" th:src="@{/Buscar_Hogar/img/filtro.png}" alt="Filtrar">
+                        </button>
+                        <div class="dropdown-content">
+                            <div class="seccion-filtro">
 
-                        <div class="opciones-check">
-                            <input type="checkbox" id="TipoGato" name="tipoMascota">
-                            <label  class="texto-simple">Poseen Patio</label>
+                                <div class="titulo-check">
+                                    <label >Admisiones</label>
+                                </div>
 
-                            <input type="checkbox" id="TipoPerro" name="tipoMascota">
-                            <label  class="texto-simple">Tienen Lugares Disponibles</label>
-                        </div>
-                    </div>
+                                <div class="opciones-check">
+                                    <input type="checkbox" id="GATO" name="tipoMascota">
+                                    <label class="texto-simple">Gatos</label>
 
-                    <div class="seccion-filtro">
-                        <div class="titulo-check">
-                            <label class="titulo-check">Radio de Cercanía</label>
-                        </div>
+                                    <input type="checkbox" id="PERRO" name="tipoMascota">
+                                    <label class="texto-simple">Perros</label>
+                                </div>
 
-                        <div class="opciones-radius">
-                            <div class="opcion">
-                                <input type="radio" name="Radio" checked="checked"> 1 km
                             </div>
-                            <div class="opcion">
-                                <input type="radio" name="Radio">  5 km
-                            </div>
-                            <div class="opcion">
-                                <input type="radio" name="Radio">  10 km
-                            </div>
-                            <div class="opcion">
-                                <input type="radio" name="Radio">  15 km
-                            </div>
-                            <div class="opcion">
-                                <input type="radio" name="Radio">  25 km
-                            </div>
-                        </div>
-                    </div>
-                    <div class="reset-filtros">
-                        <div class="texto-borrar">
-                            <input class="boton-filtro" type="submit" value="Borrar Filtros" style="color: #B93122;">
-                        </div>
-                        <div class="texto-fin">
-                            <input class="boton-filtro" type="submit" value="Cancelar" style="color:#57565B">
-                        </div>
-                        <div class="texto-fin">
-                            <input class="boton-filtro" type="submit" value="Aceptar" style="color:#1DA1F2">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="publicaciones-hogar">
-            <div class="hogar">
-                <div class="contenedor-azul">
-                    <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
-                    <div class="contenedor-azul-informacion">
-                        <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
-                        <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
-                        <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
-                    </div>
-                </div>
-                <div class="contenedor-gris">
-                    <div class="contenedor-gris-informacion">
-                    <p class="texto-contenedor-gris">Admisiones:Si</p>
-                    <p class="texto-contenedor-gris">Patio: No</p>
-                    <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
-                    </div>
-                </div>
-            </div>
-            <div class="hogar">
-                <div class="contenedor-azul">
-                    <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
-                    <div class="contenedor-azul-informacion">
-                        <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
-                        <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
-                        <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
-                    </div>
-                </div>
-                <div class="contenedor-gris">
-                    <div class="contenedor-gris-informacion">
-                        <p class="texto-contenedor-gris">Admisiones:Si</p>
-                        <p class="texto-contenedor-gris">Patio: No</p>
-                        <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
-                    </div>
-                </div>
-            </div>
-            <div class="hogar">
-                <div class="contenedor-azul">
-                    <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
-                    <div class="contenedor-azul-informacion">
-                        <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
-                        <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
-                        <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
-                    </div>
-                </div>
-                <div class="contenedor-gris">
-                    <div class="contenedor-gris-informacion">
-                        <p class="texto-contenedor-gris">Admisiones:Si</p>
-                        <p class="texto-contenedor-gris">Patio: No</p>
-                        <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div th:action="@{/cargar-mas}" method="get" class="hogares">
-            <th:block >
 
-            </th:block>
-            <a  class= "contenedor-mas"> <button class="boton-mas">Cargar mas</button> </a>
-        </div>
+                            <div class="seccion-filtro">
+                                <div class="titulo-check">
+                                    <label class="titulo-check">Características</label>
+                                </div>
+
+                                <div class="opciones-check">
+                                    <input type="checkbox" id="PATIO" name="poseePatio">
+                                    <label  class="texto-simple">Poseen Patio</label>
+
+                                    <input type="checkbox" id="LUGARES_DISPONIBLES" name="hayLugares">
+                                    <label  class="texto-simple">Tienen Lugares Disponibles</label>
+                                </div>
+                            </div>
+
+                            <div class="seccion-filtro">
+                                <div class="titulo-check">
+                                    <label class="titulo-check">Radio de Cercanía</label>
+                                </div>
+
+                                <div class="opciones-radius">
+                                    <div class="opcion">
+                                        <input type="radio" name="Radio" checked="checked"> 1 km
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" name="Radio">  5 km
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" name="Radio">  10 km
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" name="Radio">  15 km
+                                    </div>
+                                    <div class="opcion">
+                                        <input type="radio" name="Radio">  25 km
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reset-filtros">
+                                <div class="texto-borrar">
+                                    <input class="boton-filtro" type="submit" value="Borrar Filtros" style="color: #B93122;">
+                                </div>
+                                <div class="texto-fin">
+                                    <input class="boton-filtro" type="submit" value="Cancelar" style="color:#57565B">
+                                </div>
+                                <div class="texto-fin">
+                                    <input class="boton-filtro" type="submit" value="Aceptar" style="color:#1DA1F2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="publicaciones">
+            <div class="contenedor-base">
+                <div class="publicaciones-hogar">
+                    <div class="hogar">
+                        <div class="contenedor-azul">
+                            <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
+                            <div class="contenedor-azul-informacion">
+                                <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
+                                <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
+                                <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
+                            </div>
+                        </div>
+                        <div class="contenedor-gris">
+                            <div class="contenedor-gris-informacion">
+                                <p class="texto-contenedor-gris">Admisiones:Si</p>
+                                <p class="texto-contenedor-gris">Patio: No</p>
+                                <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hogar">
+                        <div class="contenedor-azul">
+                            <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
+                            <div class="contenedor-azul-informacion">
+                                <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
+                                <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
+                                <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
+                            </div>
+                        </div>
+                        <div class="contenedor-gris">
+                            <div class="contenedor-gris-informacion">
+                                <p class="texto-contenedor-gris">Admisiones:Si</p>
+                                <p class="texto-contenedor-gris">Patio: No</p>
+                                <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hogar">
+                        <div class="contenedor-azul">
+                            <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
+                            <div class="contenedor-azul-informacion">
+                                <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
+                                <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
+                                <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
+                            </div>
+                        </div>
+                        <div class="contenedor-gris">
+                            <div class="contenedor-gris-informacion">
+                                <p class="texto-contenedor-gris">Admisiones:Si</p>
+                                <p class="texto-contenedor-gris">Patio: No</p>
+                                <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div th:action="@{/cargar-mas}" method="get" class="hogares">
+                    <th:block >
+
+                    </th:block>
+                    <a  class= "contenedor-mas"> <button class="boton-mas">Cargar mas</button> </a>
+                </div>
+            </div>
+        </section>
+
     </section>
-
 </section>
 
 <section class="footer">

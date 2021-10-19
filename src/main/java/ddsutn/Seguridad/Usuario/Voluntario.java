@@ -1,5 +1,6 @@
 package ddsutn.Seguridad.Usuario;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import ddsutn.Business.Organizacion.Organizacion;
 
 import ddsutn.Business.Publicacion.PublicacionMascotaEncontrada;
@@ -20,6 +21,7 @@ public class Voluntario extends Usuario {
 
 	@ManyToOne
 	@JoinColumn(name = "id_organizacion")
+    @JsonBackReference
 	private Organizacion organizacion;
 
     public void validarPublicacion(PublicacionMascotaEncontrada publicacion){

@@ -43,9 +43,4 @@ public class IndexController {
 		return "Encontre_Mascota_Perdida";
 	}
 
-	@RequestMapping("/Buscar Mascota Perdida")
-	public String buscarMascota() {
-		return "Buscar_Mascota_Perdida";
-	}
-
 }

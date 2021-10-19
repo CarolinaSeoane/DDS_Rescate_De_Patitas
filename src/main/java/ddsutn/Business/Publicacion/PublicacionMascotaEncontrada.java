@@ -1,5 +1,7 @@
 package ddsutn.Business.Publicacion;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Mascota.MascotaPerdidaSinQr;
 import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Persona.Rescatista;
@@ -25,10 +27,12 @@ public class PublicacionMascotaEncontrada {
 
 	@ManyToOne
 	@JoinColumn(name = "id_organizacion")
+	@JsonBackReference
 	private Organizacion organizacion;
 
 	@OneToOne
 	@JoinColumn(name = "id_mascota")
+	@JsonManagedReference
 	private MascotaPerdidaSinQr mascota;
 
 	@OneToOne

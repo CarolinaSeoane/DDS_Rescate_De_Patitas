@@ -3,7 +3,10 @@ INSERT INTO ubicacion (direccion, latitud, longitud) VALUES
     ('Av SiempreViva, Springfield', 742, 742),
     ('Av Va, Springfield', 741, 442),
     ('Av Viva, Springfield', 767, 246),
-    ('Springfield', 666, 942);
+    ('Springfield', 666, 942),
+    ('Bogota', 61545, 94),
+    ('Campana', 6445, 87485),
+    ('Pedro Lozano', 66, 4846);
 
 INSERT INTO caracteristica (caracteristica) VALUES
     ('amigable'),
@@ -38,34 +41,21 @@ INSERT INTO pregunta (pregunta, id_organizacion) VALUES
 	('¿Su familia está de acuerdo con la adopción?', NULL),
 	('¿Tiene el espacio físico adecuado y seguro para el perro o gato?', 2);
 
-INSERT INTO persona (rol, domicilio, fecha_de_nacimiento, nro_documento, tipo_documento, id_contacto_propio) VALUES
-    ('Duenio', 'Calle123', CURRENT_DATE, 43025544, 'DNI', NULL),
-    ('Rescatista', 'Nazca 5487', CURRENT_DATE, 44445544, 'DNI', NULL),
-    ('Duenio', 'Campana 3455', CURRENT_DATE, 44445889, 'DNI', NULL),
-    ('Rescatista', 'Libertador 741', CURRENT_DATE, 44443324, 'DNI', NULL),
-    ('Rescatista', 'Corrientes 456', CURRENT_DATE, 44446664, 'DNI', NULL),
-    ('Duenio', 'Gaona 4452', CURRENT_DATE, 22346664, 'DNI', NULL);
+INSERT INTO persona (rol, domicilio, fecha_de_nacimiento, nro_documento, tipo_documento, apellido, email, formas_notificacion, nombre, telefono) VALUES
+    ('Duenio', 'Calle123', CURRENT_DATE, 43025544, 'DNI', 'Diaz', 'mauroD@yahoo.com', 'WPP', 'Mauro', '1566547546'),
+    ('Rescatista', 'Nazca 5487', CURRENT_DATE, 44445544, 'DNI', 'Bianco', 'Bianco007@yahoo.com', 'WPP, SMS, MAIL', 'Fernando', '1566777546'),
+    ('Duenio', 'Campana 3455', CURRENT_DATE, 44445889, 'DNI', 'Sola', 'sol@yahoo.com', 'EMAIL', 'Sol', '1787547546'),
+    ('Rescatista', 'Libertador 741', CURRENT_DATE, 44443324, 'DNI', 'Gabo', 'gabRuth@yahoo.com', 'SMS', 'Ruth', '45032104'),
+    ('Rescatista', 'Corrientes 456', CURRENT_DATE, 44446664, 'DNI', 'Paulin', 'GabiPaul@gmail.com', 'WPP, SMS, EMAIL', 'Gabriel', '1566511146'),
+    ('Duenio', 'Gaona 4452', CURRENT_DATE, 22346664, 'DNI', 'Marian', 'elsiMarian@yahoo.com', 'EMAIL', 'Elsa', '45024450');
 
 INSERT INTO contacto (apellido,	email, formas_notificacion, nombre,	telefono, id_persona) VALUES
-    ('Diaz', 'mauroD@yahoo.com', 'WPP', 'Mauro', '1566547546', 1),
     ('Diaz', 'martuu@gmail.com', 'WPP, SMS', 'Martina', '1544447546', 1),
     ('Diaz', 'jessi@gmail.com', 'MAIL', 'Jessica', '45125447', 1),
-    ('Bianco', 'Bianco007@yahoo.com', 'WPP, SMS, MAIL', 'Fernando', '1566777546', 2),
-    ('Sola', 'sol@yahoo.com', 'EMAIL', 'Sol', '1787547546', 3),
     ('Sola', 'vicSola@gmail.com', 'EMAIL, SMS', 'Victoria', '1566547546', 3),
     ('Sola', 'Manu54@yahoo.com', 'WPP', 'Manuel', '1565667546', 3),
     ('Sola', 'SylSolaa@yahoo.com', 'WPP', 'Sylvina', '45067546', 3),
-    ('Gabo', 'gabRuth@yahoo.com', 'SMS', 'Ruth', '45032104', 4),
-    ('Paulin', 'GabiPaul@gmail.com', 'WPP, SMS, EMAIL', 'Gabriel', '1566511146', 5),
-    ('Marian', 'elsiMarian@yahoo.com', 'EMAIL', 'Elsa', '45024450', 6),
     ('Marian', 'micaaMarian@yahoo.com', 'WPP', 'Micaela', '45027546', 6);
-
-UPDATE persona SET id_contacto_propio = 1 WHERE id = 1;
-UPDATE persona SET id_contacto_propio = 4 WHERE id = 2;
-UPDATE persona SET id_contacto_propio = 5 WHERE id = 3;
-UPDATE persona SET id_contacto_propio = 9 WHERE id = 4;
-UPDATE persona SET id_contacto_propio = 10 WHERE id = 5;
-UPDATE persona SET id_contacto_propio = 11 WHERE id = 6;
 
 INSERT INTO preferencias (edad_max, edad_min, sexo, tipo_mascota) VALUES
     (5, 3, 'MACHO', 'GATO'),
@@ -95,11 +85,27 @@ INSERT INTO usuario (tipo_usuario, password, usuario, id_organizacion, id_person
     ('Administrador', 'Messi+1000', 'martinMatos', 1, NULL),
     ('Administrador', 'fjdsafjds486**A', 'MilagrosRoldan', 2, NULL),
     ('Administrador', '4524Aa**', 'JuanaTidan', 3, NULL),
-    ('Administrador', 'avengers123ABC#', 'SofiVal', 4, NULL);
+    ('Administrador', 'avengers123ABC#', 'SofiVal', 4, NULL),
+    ('Administrador', 'jamiroQ07*', 'Angel', 1, NULL),
+    ('Voluntario', 'ABc123***', 'Richard', 1, NULL),
+    ('Voluntario', '123456+-abdD', 'Eva', 2, NULL),
+    ('Voluntario', 'Brit900$', 'Juana', 3, NULL),
+    ('Voluntario', 'vdfaa321FSD8_', 'JuanMamani', 4, NULL),
+    ('Voluntario', 'fdsf5623DdD?', 'RamiroGonzalez', 1, NULL);
 
+/* La organizacion puede obtenerse de la mascota */
 INSERT INTO publicacion_dar_en_adopcion (id_mascota, id_organizacion) VALUES
     (1, 1),
-    (2, 1),
-    (4, 1),
-    (7, 1),
-    (2, 1);
+    (2, 2),
+    (3, 3),
+    (4, 3);
+
+INSERT INTO mascota_perdida (posee_qr, estado, id_rescatista, id_ubicacion, id_mascota) VALUES
+    ('sin_QR', 'Tranquila y en buen estado', 2, 6, NULL),
+    ('sin_QR', 'Violenta y asustada', 4, 7, NULL),
+    ('sin_QR', 'Se encuentra bien', 5, 8, NULL);
+
+INSERT INTO publicacion_mascota_encontrada (aceptada, id_mascota, id_organizacion, id_rescatista) VALUES
+    (0, 1, NULL, 2),
+    (1, 2, NULL, 4),
+    (0, 3, NULL, 5);

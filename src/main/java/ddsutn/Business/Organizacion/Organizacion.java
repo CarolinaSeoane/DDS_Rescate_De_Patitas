@@ -1,5 +1,6 @@
 package ddsutn.Business.Organizacion;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Hogares.Ubicacion;
 import ddsutn.Business.Mascota.Caracteristica.Caracteristica;
 import ddsutn.Business.Mascota.Foto.Resolucion;
@@ -32,6 +33,7 @@ public class Organizacion {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_ubicacion")
+	@JsonManagedReference
 	private Ubicacion ubicacion;
 
 	@Embedded
@@ -41,21 +43,27 @@ public class Organizacion {
 	private String calidad;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
+	@JsonManagedReference
 	private Set<Administrador> administradores;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
+	@JsonManagedReference
 	private Set<Voluntario> voluntarios;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
+	@JsonManagedReference
 	private Set<Mascota> mascotasRegistradas;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
+	@JsonManagedReference
 	private Set<Pregunta> preguntasAdicionales;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
+	@JsonManagedReference
 	private Set<PublicacionDarEnAdopcion> publicacionesDarEnAdopcion;
 
 	@OneToMany(mappedBy = "organizacion")
+	@JsonManagedReference
 	private Set<PublicacionMascotaEncontrada> publicacionesMascotasEncontradas;
 
 	@ManyToMany(cascade = {CascadeType.ALL})

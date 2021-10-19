@@ -1,5 +1,6 @@
 package ddsutn.Business.Publicacion.Pregunta;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
 
 import lombok.*;
@@ -22,10 +23,12 @@ public class PreguntaPublicacion {
 
 	@ManyToOne
 	@JoinColumn(name = "id_publicacion")
+	@JsonBackReference
 	private PublicacionDarEnAdopcion publicacion;
 
 	@ManyToOne
 	@JoinColumn(name = "id_pregunta")
+	@JsonBackReference
 	private Pregunta pregunta;
 
 	@Column(name = "respuesta")

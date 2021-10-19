@@ -1,5 +1,7 @@
 package ddsutn.Business.Publicacion.Pregunta;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Organizacion.Organizacion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,9 +27,11 @@ public class Pregunta {
 
 	@ManyToOne
 	@JoinColumn(name = "id_organizacion")
+	@JsonBackReference
 	private Organizacion organizacion;
 
 	@OneToMany(mappedBy = "pregunta")
+	@JsonManagedReference
 	private Set<PreguntaPublicacion> preguntasPublicacion;
 
 	@Column(name = "pregunta")

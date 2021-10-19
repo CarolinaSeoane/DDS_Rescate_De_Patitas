@@ -1,7 +1,10 @@
 package ddsutn.Business.Persona;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Mascota.Mascota;
 
+import ddsutn.Business.Mascota.MascotaPerdida;
+import ddsutn.Business.Notificacion.Notificar;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,13 +22,14 @@ import java.util.*;
 public class Duenio extends Persona {
 
 	@OneToMany(mappedBy = "duenio", cascade = {CascadeType.ALL})
+    @JsonManagedReference
 	private Set<Mascota> mascotas;
 
 
-	public Duenio(TipoDcto tipoDocumento, int nroDocumento, Date fechaDeNacimiento, Contacto contacto, List<Contacto> otrosContactos, String domicilio) {
-		super(tipoDocumento, nroDocumento, fechaDeNacimiento, contacto, otrosContactos, domicilio);
-		this.mascotas = new HashSet<>();
-	}
+    public Duenio(TipoDcto tipoDocumento, int nroDocumento, Date fechaDeNacimiento, List<Contacto> otrosContactos, String domicilio, String nombre, String apellido, String telefono, String email, List<Notificar> formasDeNotificacion, MascotaPerdida mascotaPerdida) {
+        super(tipoDocumento, nroDocumento, fechaDeNacimiento, otrosContactos, domicilio,nombre, apellido, telefono, email, formasDeNotificacion);
+        this.mascotas = new HashSet<>();
+    }
 
     public void mascotaEncontrada() {
         this.notificarAMisContactos("Su mascota fue encontrada");

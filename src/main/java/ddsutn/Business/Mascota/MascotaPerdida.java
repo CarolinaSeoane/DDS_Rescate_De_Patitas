@@ -1,5 +1,6 @@
 package ddsutn.Business.Mascota;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Hogares.Ubicacion;
 import ddsutn.Business.Mascota.Foto.Foto;
 import ddsutn.Business.Persona.Rescatista;
@@ -7,6 +8,7 @@ import ddsutn.Business.Persona.Rescatista;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.DiscriminatorOptions;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -19,6 +21,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "posee_qr", discriminatorType = DiscriminatorType.STRING)
 @Table(name = "mascota_perdida")
+@DiscriminatorOptions(force = true)
 
 public abstract class MascotaPerdida {
 
@@ -27,6 +30,7 @@ public abstract class MascotaPerdida {
 	private Long id;
 
 	@OneToMany(mappedBy = "mascotaPerdida", cascade = {CascadeType.ALL})
+	@JsonManagedReference
 	private Set<Foto> fotos;
 
 	@Column(name = "estado")
@@ -38,6 +42,7 @@ public abstract class MascotaPerdida {
 
 	@OneToOne
 	@JoinColumn(name = "id_rescatista")
+	@JsonManagedReference
 	private Rescatista rescatista;
 
 	public MascotaPerdida(Set<Foto> foto, String estado, Ubicacion ubicacion) {

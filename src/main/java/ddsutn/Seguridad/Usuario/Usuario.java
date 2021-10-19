@@ -1,8 +1,7 @@
 package ddsutn.Seguridad.Usuario;
 
 import lombok.*;
-//import sun.security.util.Password;
-
+import org.hibernate.annotations.DiscriminatorOptions;
 import javax.persistence.*;
 
 @Getter
@@ -12,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_usuario", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorOptions(force = true)
 
 public abstract class Usuario {
 

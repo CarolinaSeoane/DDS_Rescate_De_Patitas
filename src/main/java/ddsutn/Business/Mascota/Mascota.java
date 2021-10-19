@@ -1,5 +1,7 @@
 package ddsutn.Business.Mascota;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Mascota.Caracteristica.Caracteristica;
 import ddsutn.Business.Mascota.Foto.Foto;
 import ddsutn.Business.Organizacion.Organizacion;
@@ -40,6 +42,7 @@ public class Mascota {
 	private String descripcion;
 
 	@OneToMany(mappedBy = "mascota", cascade = {CascadeType.ALL})
+	@JsonManagedReference
 	private Set<Foto> fotos;
 
 	@ManyToMany(cascade = {CascadeType.ALL})
@@ -52,10 +55,12 @@ public class Mascota {
 
 	@ManyToOne
 	@JoinColumn(name = "id_persona_duenia")
+	@JsonBackReference
 	private Duenio duenio;
 
 	@ManyToOne
 	@JoinColumn(name = "id_organizacion")
+	@JsonBackReference
 	private Organizacion organizacion;
 
 	public void meEncontraron() throws IOException {

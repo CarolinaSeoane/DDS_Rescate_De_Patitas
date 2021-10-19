@@ -1,5 +1,6 @@
 package ddsutn.Business.Mascota;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import ddsutn.Business.Hogares.Ubicacion;
 import ddsutn.Business.Mascota.Foto.Foto;
 import ddsutn.Business.Publicacion.PublicacionMascotaEncontrada;
@@ -21,6 +22,7 @@ import java.util.Set;
 public class MascotaPerdidaSinQr extends MascotaPerdida {
 
 	@OneToOne(mappedBy = "mascota")
+	@JsonBackReference
 	private PublicacionMascotaEncontrada publicacion;
 
 	public MascotaPerdidaSinQr(Set<Foto> fotos, String estado, Ubicacion ubicacion) {

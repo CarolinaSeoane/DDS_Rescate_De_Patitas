@@ -1,5 +1,8 @@
 package ddsutn.Business.Persona;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import ddsutn.Business.Notificacion.Notificar;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,7 +11,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 
 @Entity
@@ -27,29 +29,37 @@ public class Persona {
 	protected int nroDocumento;
 	protected Date fechaDeNacimiento;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_contacto_propio")
-	protected Contacto contacto;
-
 	@OneToMany(mappedBy = "persona", cascade = {CascadeType.ALL})
+	@JsonManagedReference
 	protected List<Contacto> otrosContactos;
 
 	protected String domicilio;
+	protected String nombre;
+	protected String apellido;
+	protected String telefono;
+	protected String email;
 
+	@Transient
+	private List<Notificar> formasDeNotificacion;
 
-	// Pongo el constructor normal porque sino cuando Duenio hereda de Persona lombok me tiraba error
-	public Persona(TipoDcto tipoDocumento, int nroDocumento, Date fechaDeNacimiento, Contacto contacto, List<Contacto> otrosContactos, String domicilio) {
+	private String formasNotificacion;
+
+	public Persona(TipoDcto tipoDocumento, int nroDocumento, Date fechaDeNacimiento, List<Contacto> otrosContactos, String domicilio, String nombre, String apellido, String telefono, String email, List<Notificar> formasDeNotificacion) {
 		this.tipoDocumento = tipoDocumento;
 		this.nroDocumento = nroDocumento;
 		this.fechaDeNacimiento = fechaDeNacimiento;
-		this.contacto = contacto;
 		this.otrosContactos = otrosContactos;
 		this.domicilio = domicilio;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telefono = telefono;
+		this.email = email;
+		this.formasDeNotificacion = formasDeNotificacion;
 	}
 
-    public void notificarAMisContactos(String mensaje) {
-        this.contacto.recibirNotificacion(mensaje);
-        this.otrosContactos.forEach(unContacto -> unContacto.recibirNotificacion(mensaje));
-    }
+	public void notificarAMisContactos(String mensaje) {
+		// this.contacto.recibirNotificacion(mensaje);
+		this.otrosContactos.forEach(unContacto -> unContacto.recibirNotificacion(mensaje));
+	}
 
 }
