@@ -98,7 +98,9 @@ INSERT INTO publicacion_dar_en_adopcion (id_mascota, id_organizacion) VALUES
     (1, 1),
     (2, 2),
     (3, 3),
-    (4, 3);
+    (4, 3),
+    (5, 3),
+    (6, 3);
 
 INSERT INTO mascota_perdida (posee_qr, estado, id_rescatista, id_ubicacion, id_mascota) VALUES
     ('sin_QR', 'Tranquila y en buen estado', 2, 6, NULL),
