@@ -17,20 +17,26 @@ public class AdoptarController {
 
     @Autowired
     private PublicacionDarEnAdopcionSvc publicacionDarEnAdopcionSvc;
-
+    //respuestas vistas
     @GetMapping("")
     public String adoptar() {
         return "Adoptar_Mascota";
     }
 
-    @ResponseBody
     @GetMapping("/publicaciones")
+    public String publicaciones(){
+        return "Publicaciones_Adopcion";
+    }
+
+    //respuestas api
+    @ResponseBody
+    @GetMapping("/api/publicaciones")
     public List<PublicacionDarEnAdopcion> findAll(){
         return publicacionDarEnAdopcionSvc.findAll();
     }
 
     @ResponseBody
-    @GetMapping("/publicaciones/{id}")
+    @GetMapping("/api/publicaciones/{id}")
     public Optional<PublicacionDarEnAdopcion> findById(@PathVariable Long id) {
         return publicacionDarEnAdopcionSvc.findById(id);
     }

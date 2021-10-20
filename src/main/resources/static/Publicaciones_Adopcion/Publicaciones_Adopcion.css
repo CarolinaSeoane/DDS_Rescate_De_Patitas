@@ -7,8 +7,7 @@
     color: #331A00;
 }
 
-.texto {
-    width: 83%;
+.main .texto {
     margin: 0px auto;
 }
 
@@ -125,6 +124,7 @@ header .contenedor-texto-header .titulo-principal {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background-color: white;
 }
 .publicaciones .contenedor .boton:hover{
   background-color:#EFEFEF ;
@@ -257,6 +257,34 @@ header .contenedor-texto-header .titulo-principal {
 }
 .foto img{
   width: 100%;
+  height: 100%;
+}
+
+.square-box{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.square-box:before{
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.square-content{
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: white;
+  text-align: center;
+}
+
+.nombre-mascota{
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .publicaciones .contenedor .cargarMas{
@@ -290,3 +318,4 @@ header .contenedor-texto-header .titulo-principal {
 .crear .boton{
   margin-top: 20px;
 }
+

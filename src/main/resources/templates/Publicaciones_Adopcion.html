@@ -5,6 +5,7 @@
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Publicaciones Adopcion</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
   	<link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
@@ -33,157 +34,127 @@
     </div>
   </header>
 
-  <section class="main">
-		<h3 class="sub-titulo">¿Buscas una Mascota para Adoptar?</h3>
 
-		<section class="publicaciones recientes">
+  <section class="main" id="publicacionesAdopcion">
+	  <section class="publicaciones recientes" >
+		  <div class="contenedor">
+			  <div class="texto">
+				  <p>Recientes</p>
+			  </div>
 
-			<div class="contenedor">
-				<div class="texto">
-					<p>Recientes</p>
-				</div>
+			  <div class="fotos">
+				  <a   v-for="publicacion in recientes" :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" >
+					  <div class="square-box">
+						  <img class="square-content" :src="publicacion.mascota.fotos[0].path" :alt="publicacion.mascota.apodo"/>
+					  </div>
+					  <p class="nombre-mascota">{{publicacion.mascota.apodo}} </p>
+				  </a>
+			  </div>
+		  </div>
+	  </section>
 
-					<div class="fotos">
-						<th:block th:each="publicacion: ${recientes}">
-							<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${publicacion.id}}"  class="foto">
-								<img src="../static/Publicaciones_Adopcion/img/mascota.jpg" th:src="@{/Publicaciones_Adopcion/img/mascota.jpg}" alt="Mascota">
-								<p><td th:text="${publicacion.mascota.apodo}" /> </p>
-							</a>
-						</th:block>
-					</div>
+	  <section class="publicaciones">
+		  <div class="contenedor">
+			  <div class="texto">
+				  <p>Todas las publicaciones</p>
+			  </div>
 
-			</div>
-		</section>
-
-		<section class="publicaciones">
-			<div class="contenedor">
-				<div class="texto">
-					<p>Todas las publicaciones</p>
-				</div>
-				<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${cantidad -2}+ '/ordenado'}"  style="text-decoration: none;">
-					<div class="boton">
-						<p>Ordenar</p>
-						<img src="../static/Publicaciones_Adopcion/img/ordenar.png"  th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
-					</div>
-				</a>
-				<div class="dropdown">
+			  <a  style="text-decoration: none;">
+				  <button class="boton" v-on:click="orderByname">
+					  <p>Ordenar</p>
+					  <img src="../static/Publicaciones_Adopcion/img/ordenar.png"  th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
+				  </button>
+			  </a>
+			  <div class="dropdown">
 				  <button class="dropbtn">
-						<p>Filtrar</p>
-						<img src="../static/Publicaciones_Adopcion/img/filtro.png" th:src="@{/Publicaciones_Adopcion/img/filtro.png}" alt="Ordenar">
-					</button>
+					  <p>Filtrar</p>
+					  <img src="../static/Publicaciones_Adopcion/img/filtro.png" th:src="@{/Publicaciones_Adopcion/img/filtro.png}" alt="Ordenar">
+				  </button>
+
 				  <div class="dropdown-content">
-						<div class="seccion-filtro">
 
-							<div class="titulo-check">
-								<label >Admisiones</label>
-							</div>
+					  <div class="seccion-filtro">
+						  <div class="titulo-check">
+							  <label >Especie</label>
+						  </div>
 
-							<div class="opciones-check">
-								<input type="checkbox" id="TipoGato" name="tipoMascota">
-								<label class="texto-simple">Gatos</label>
+						  <div class="opciones-check">
 
-								<input type="checkbox" id="TipoPerro" name="tipoMascota">
-								<label class="texto-simple">Perros</label>
-							</div>
+							  <input type="checkbox" id="GATO" name="gato" value="GATO"  v-model="check">
+							  <label class="texto-simple">Gato</label>
 
-						</div>
 
-						<div class="seccion-filtro">
-							<div class="titulo-check">
-								<label class="titulo-check">Características</label>
-							</div>
+							  <input type="checkbox" id="PERRO" name="perro" value="PERRO"  v-model="check">
+							  <label class="texto-simple">Perro</label>
+						  </div>
 
-							<div class="opciones-check">
-								<input type="checkbox" id="TipoGato" name="tipoMascota">
-								<label  class="texto-simple">Poseen Patio</label>
+					  </div>
 
-								<input type="checkbox" id="TipoPerro" name="tipoMascota">
-								<label  class="texto-simple">Tienen Lugares Disponibles</label>
-							</div>
-						</div>
+					  <div class="reset-filtros">
+						  <div class="texto-borrar">
+							  <button class="boton-filtro" value="Borrar Filtros"  v-on:click="reset();filtrar();" style="color: #B93122;">Borrar Filtros</button>
+						  </div>
+						  <div class="texto-fin">
+							  <button class="boton-filtro"  value="Cancelar" style="color:#57565B"  v-on:click="reset">Cancelar</button>
+						  </div>
+						  <div class="texto-fin">
+							  <button  class="boton-filtro" style="color:#1DA1F2"  v-on:click="filtrar">Aceptar</button>
+						  </div>
+					  </div>
 
-						<div class="seccion-filtro">
-							<div class="titulo-check">
-								<label class="titulo-check">Radio de Cercanía</label>
-							</div>
 
-							<div class="opciones-radius">
-								<div class="opcion">
-									<input type="radio" name="Radio" checked="checked"> 1 km
-								</div>
-								<div class="opcion">
-									<input type="radio" name="Radio">  5 km
-								</div>
-								<div class="opcion">
-									<input type="radio" name="Radio">  10 km
-								</div>
-								<div class="opcion">
-									<input type="radio" name="Radio">  15 km
-								</div>
-								<div class="opcion">
-									<input type="radio" name="Radio">  25 km
-								</div>
-							</div>
-						</div>
-						<div class="reset-filtros">
-							<div class="texto-borrar">
-									<input class="boton-filtro" type="submit" value="Borrar Filtros" style="color: #B93122;">
-							</div>
-							<div class="texto-fin">
-									<input class="boton-filtro" type="submit" value="Cancelar" style="color:#57565B">
-							</div>
-							<div class="texto-fin">
-								<input class="boton-filtro" type="submit" value="Aceptar" style="color:#1DA1F2">
-							</div>
-					 	</div>
+
 				  </div>
-				</div>
+			  </div>
 
-			<div th:action="@{/cargar-mas}" method="get" class="fotos">
-					<th:block th:each="publicacion: ${publicaciones}">
-						<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${publicacion.id}}"  class="foto">
+			  <div th:action="@{/cargar-mas}" method="get" class="fotos" >
+				  <a :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
+					<div class="square-box">
+						<img class="square-content" :src="publicacion.mascota.fotos[0].path" :alt="publicacion.mascota.apodo"/>
+					</div>
 
-									<img src="../static/Publicaciones_Adopcion/img/mascota.jpg" th:src="@{/Publicaciones_Adopcion/img/mascota.jpg}" alt="Mascota">
-									<p><td th:text="${publicacion.mascota.apodo}" /> </p>
+					  <p class="nombre-mascota">{{publicacion.mascota.apodo}}</p>
+				  </a>
+				  <div class= "contenedor-mas">
+					  <button v-on:click="agregar($event)" class="boton-mas">Cargar mas</button>
+				  </div>
+			  </div>
 
-						</a>
-					</th:block>
-				<a th:href="@{'/Adoptar/Publicaciones_Adopcion/' + ${cantidad} + '/' + ${ordenado}}"  class= "contenedor-mas"> <button class="boton-mas">Cargar mas</button> </a>
-			</div>
+		  </div>
+	  </section>
+	  <section class="crear">
+		  <h3>¿No encontraste tu mascota ideal? ¡No hay problema!</h3>
+		  <input class="botonAzul boton" type="submit" value="Crear Publicación">
+	  </section>
 
-			</div>
-		</section>
-
-		<section class="crear">
-			<h3>¿No encontraste tu mascota ideal? ¡No hay problema!</h3>
-			<input class="botonAzul boton" type="submit" value="Crear Publicación">
-		</section>
-
-		<section class="footer">
-			<div class="contenedor-base">
-
-				<div class="imagenes-footer">
-
-					<a href="">
-						<div class="img-footer twitter">
-							<img src="../static/Resources/img/twitter.png" th:src="@{/Resources/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
-						</div>
-					</a>
-					<a href="">
-						<div class="img-footer facebook">
-							<img src="../static/Resources/img/fb.png" th:src="@{/Resources/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
-						</div>
-					</a>
-					<a href="">
-						<div class="img-footer gmail">
-							<img src="../static/Resources/img/gmail.png" th:src="@{/Resources/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
-						</div>
-					</a>
-
-				</div>
-
-			</div>
-		</section>
   </section>
+
+  <section class="footer">
+	  <div class="contenedor-base">
+
+		  <div class="imagenes-footer">
+
+			  <a href="">
+				  <div class="img-footer twitter">
+					  <img src="../static/Resources/img/twitter.png" th:src="@{/Resources/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
+				  </div>
+			  </a>
+			  <a href="">
+				  <div class="img-footer facebook">
+					  <img src="../static/Resources/img/fb.png" th:src="@{/Resources/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
+				  </div>
+			  </a>
+			  <a href="">
+				  <div class="img-footer gmail">
+					  <img src="../static/Resources/img/gmail.png" th:src="@{/Resources/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
+				  </div>
+			  </a>
+
+		  </div>
+
+	  </div>
+  </section>
+  <script src="../../static/Publicaciones_Adopcion/PublicacionesAdopcion.js"  th:src="@{/Publicaciones_Adopcion/PublicacionesAdopcion.js}" ></script>
+
 </body>
 </html>
