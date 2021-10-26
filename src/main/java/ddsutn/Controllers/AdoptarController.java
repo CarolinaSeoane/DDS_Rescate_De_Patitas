@@ -18,7 +18,7 @@ public class AdoptarController {
     @Autowired
     private PublicacionDarEnAdopcionSvc publicacionDarEnAdopcionSvc;
     //respuestas vistas
-    @GetMapping("")
+    @GetMapping
     public String adoptar() {
         return "Adoptar_Mascota";
     }

@@ -6,7 +6,8 @@ INSERT INTO ubicacion (direccion, latitud, longitud) VALUES
     ('Springfield', 666, 942),
     ('Bogota', 61545, 94),
     ('Campana', 6445, 87485),
-    ('Pedro Lozano', 66, 4846);
+    ('Pedro Lozano', 66, 4846),
+    ('Beiro', 43242, 48436);
 
 INSERT INTO caracteristica (caracteristica) VALUES
     ('amigable'),
@@ -23,11 +24,12 @@ INSERT INTO comodidad (comodidad) VALUES
     ('terraza'),
 	('campo');
 
-INSERT INTO organizacion (calidad, pixeles_alto, pixeles_ancho, id_ubicacion) VALUES
-    ('png', 500, 500, (SELECT id FROM ubicacion WHERE direccion='CalleFalsa, Springfield')),
-    ('png', 450, 450, (SELECT id FROM ubicacion WHERE direccion='Av SiempreViva, Springfield')),
-    ('png', 600, 700, (SELECT id FROM ubicacion WHERE direccion='Av Va, Springfield')),
-    ('png', 500, 1000, (SELECT id FROM ubicacion WHERE direccion='Av Viva, Springfield'));
+INSERT INTO organizacion (calidad, nombre, pixeles_alto, pixeles_ancho, id_ubicacion) VALUES
+    ('png', 'Pelusas', 500, 500, 1),
+    ('png', 'Pulguitas', 450, 450, 2),
+    ('png', 'Casa de Mascotas', 600, 700, 3),
+    ('png', 'Corazon Animal', 500, 1000, 4),
+    ('png', 'Imperio Animal', 500, 1000, 9);
 
 INSERT INTO pregunta (pregunta, id_organizacion) VALUES
 	('¿Tiene mascotas actualmente en su hogar?', NULL),

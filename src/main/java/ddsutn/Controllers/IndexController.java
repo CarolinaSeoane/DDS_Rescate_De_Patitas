@@ -23,11 +23,6 @@ public class IndexController {
 		return "Iniciar_Sesion";
 	}
 
-	@RequestMapping("/Registrar Mascota")
-	public String registrarMascota() {
-		return "Registrar_Mascota";
-	}
-
 	@RequestMapping("/Dar en Adopcion")
 	public String darEnAdopcion() {
 		return "Dar_En_Adopcion";

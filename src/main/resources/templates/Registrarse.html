@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../static/Registrarse/Registrarse.css" th:href="@{/Iniciar_Sesion/Iniciar_Sesion.css}">
 	<link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
 	<link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
-	<link rel="stylesheet" href="../static/Resources/Footer.css" th:href="@{/Resources/Footer.css}">
+	<link rel="stylesheet" href="/Footer/Footer.css">
 	<link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
 </head>
 
@@ -63,31 +63,9 @@
 		</div>
 	</section>
 
-	<section class="footer">
-		<div class="contenedor-base">
+	<main-footer></main-footer>
 
-			<div class="imagenes-footer">
-
-				<a href="">
-					<div class="img-footer twitter">
-						<img src="../static/Resources/img/twitter.png" th:src="@{/Resources/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
-					</div>
-				</a>
-				<a href="">
-					<div class="img-footer facebook">
-						<img src="../static/Resources/img/fb.png" th:src="@{/Resources/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
-					</div>
-				</a>
-				<a href="">
-					<div class="img-footer gmail">
-						<img src="../static/Resources/img/gmail.png" th:src="@{/Resources/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
-					</div>
-				</a>
-
-			</div>
-
-		</div>
-	</section>
+	<script src="/Footer/Footer.js"></script>
 
 </body>
 </html>

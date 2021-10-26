@@ -6,14 +6,11 @@ import ddsutn.Business.Mascota.Caracteristica.Caracteristica;
 import ddsutn.Business.Mascota.Foto.Resolucion;
 import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Publicacion.Pregunta.Pregunta;
-
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
 import ddsutn.Business.Publicacion.PublicacionMascotaEncontrada;
 import ddsutn.Seguridad.Usuario.Administrador;
 import ddsutn.Seguridad.Usuario.Voluntario;
-
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.*;
 
@@ -30,6 +27,9 @@ public class Organizacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(name = "nombre")
+	private String nombre;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_ubicacion")
@@ -86,6 +86,7 @@ public class Organizacion {
     }
 
     /* *** Administradores *** */
+
     public void agregarAdministrador(Administrador unAdministrador) {
         this.administradores.add(unAdministrador);
     }
