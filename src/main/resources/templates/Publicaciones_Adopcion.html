@@ -14,25 +14,20 @@
 	<link rel="stylesheet" href="../static/Publicaciones_Adopcion/Publicaciones_Adopcion.css" th:href="@{/Publicaciones_Adopcion/Publicaciones_Adopcion.css}">
 	<link rel="j" href="/css/master.css">
 	<link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
-
 </head>
-
 
 <body>
 
+ 	<header>
+    	<div class="contenedor-base">
 
-  <header>
-    <div class="contenedor-base">
-      <nav class="menu">
-        <a href="/Iniciar_Sesion">Iniciar Sesión</a>
-        <a href=".">Página Principal</a>
-        <a href=".">Organizaciones</a>
-      </nav>
+			<main-menu-simple></main-menu-simple>
+
 			<div class="contenedor-texto-header">
 				<h1 class="titulo-principal">Mascotas en Adopción</h1>
 			</div>
-    </div>
-  </header>
+    	</div>
+  	</header>
 
 
   <section class="main" id="publicacionesAdopcion">
@@ -131,8 +126,9 @@
 
   <main-footer></main-footer>
 
-  <script src="../../static/Publicaciones_Adopcion/PublicacionesAdopcion.js"  th:src="@{/Publicaciones_Adopcion/PublicacionesAdopcion.js}"></script>
-  <script src="/Footer/Footer.js"></script>
+	<script src="../../static/Publicaciones_Adopcion/PublicacionesAdopcion.js"  th:src="@{/Publicaciones_Adopcion/PublicacionesAdopcion.js}"></script>
+	<script src="/Footer/Footer.js"></script>
+	<script src="/Menu/Menu.js"></script>
 
 </body>
 </html>

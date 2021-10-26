@@ -7,68 +7,52 @@
 	<title>Iniciar Sesión</title>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}">
-	<link rel="stylesheet" href="../static/Resources/Menu.css" th:href="@{/Resources/Menu.css}">
+	<link rel="stylesheet" href="Menu/Menu.css">
 	<link rel="stylesheet" href="../static/Iniciar_Sesion/Iniciar_Sesion.css" th:href="@{/Iniciar_Sesion/Iniciar_Sesion.css}">
 	<link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
 	<link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
 	<link rel="stylesheet" href="/Footer/Footer.css">
+	<link rel="stylesheet" href="/Menu/Menu.css">
 	<link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
 </head>
 
 <body>
 
-	<header>
-		<div class="contenedor-base">
-
-			<nav class="menu">
-				<a href="/Iniciar Sesion">Iniciar Sesión</a>
-				<a href="/">Página Principal</a>
-				<a href="/organizaciones">Organizaciones</a>
-			</nav>
-
-			<div class="logo">
-				<img src="../static/Resources/img/logo_blanco.png" th:src="@{/Resources/img/logo_blanco.png}" alt="Logo">
-			</div>
-
-		</div>
-	</header>
-
+	<main-menu></main-menu>
 
 	<section class="main">
-		<div class="contenedor-base">
+			<div class="contenedor-base">
+				<div class="inicio-sesion">
 
-			<div class="inicio-sesion">
-				
-				<h3 class="sub-titulo">Iniciar Sesión</h3>
+					<h3 class="sub-titulo">Iniciar Sesión</h3>
 
-				<form action="" class="formulario" method="">
+					<form action="" class="formulario" method="">
 
-					<div class="input">
-						<p class="texto-simple pregunta">Nombre de usuario</p>
-						<input type="text" class="input-completo texto-simple" name="nombre_usuario" required>
-					</div>
-				
-					<div class="input">
-						<p class="texto-simple pregunta">Contraseña</p>
-						<input type="password" class="input-completo texto-simple" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$/%!_*?¿-]).{8,64}$" title="La contraseña debe tener entre 8 y 64 caracteres y contener como mínimo una mayúscula, un número y un caracter especial." required>
-						<p class="texto-sub">Mostrar contraseña</p>
-					</div>
-				
-					<input class="botonAzul boton" type="submit" value="Iniciar Sesión">
+						<div class="input">
+							<p class="texto-simple pregunta">Nombre de usuario</p>
+							<input type="text" class="input-completo texto-simple" name="nombre_usuario" required>
+						</div>
 
-				</form>
+						<div class="input">
+							<p class="texto-simple pregunta">Contraseña</p>
+							<input type="password" class="input-completo texto-simple" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$/%!_*?¿-]).{8,64}$" title="La contraseña debe tener entre 8 y 64 caracteres y contener como mínimo una mayúscula, un número y un caracter especial." required>
+							<p class="texto-sub">Mostrar contraseña</p>
+						</div>
 
-				<p class="texto-sub">¿Olvidaste tu contraseña?</p>
+						<input class="botonAzul boton" type="submit" value="Iniciar Sesión">
 
+					</form>
+
+					<p class="texto-sub">¿Olvidaste tu contraseña?</p>
+
+				</div>
 			</div>
-			
-		</div>
-
 	</section>
 
 	<main-footer></main-footer>
 
 	<script src="/Footer/Footer.js"></script>
+	<script src="/Menu/Menu.js"></script>
 
 </body>
 </html>

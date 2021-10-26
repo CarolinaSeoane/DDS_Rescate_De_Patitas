@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
 	<link rel="stylesheet" href="../static/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css" th:href="@{/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css}">
 	<link rel="stylesheet" href="/Footer/Footer.css">
+	<link rel="stylesheet" href="/Menu/Menu.css">
 	<link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
 	<link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
 	<link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
@@ -17,22 +18,7 @@
 
 <body>
 
-	<header>
-		<div class="contenedor-base">
-
-			<nav class="menu">
-				<a href="/Iniciar Sesion">Iniciar Sesión</a>
-				<a href="/">Página Principal</a>
-				<a href="/organizaciones">Organizaciones</a>
-			</nav>
-
-				<div class="logo">
-					<img src="/Resources/img/logo_blanco.png" alt="Logo">
-				</div>
-
-		</div>
-	</header>
-
+	<main-menu></main-menu>
 
 	<section class="main">
 		<div class="contenedor-base">
@@ -149,6 +135,7 @@
 	<main-footer></main-footer>
 
 	<script src="/Footer/Footer.js"></script>
+	<script src="/Menu/Menu.js"></script>
 
 </body>
 </html>

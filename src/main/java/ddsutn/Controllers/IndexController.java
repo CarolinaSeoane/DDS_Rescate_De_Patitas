@@ -18,7 +18,7 @@ public class IndexController {
 		return "index";
 	}
 
-	@RequestMapping("/Iniciar Sesion")
+	@RequestMapping("/iniciar-sesion")
 	public String iniciarSesion() {
 		return "Iniciar_Sesion";
 	}
