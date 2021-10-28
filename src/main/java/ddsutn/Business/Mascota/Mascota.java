@@ -42,7 +42,7 @@ public class Mascota {
 	private String descripcion;
 
 	@OneToMany(mappedBy = "mascota", cascade = {CascadeType.ALL})
-	@JsonManagedReference
+	@JsonManagedReference(value = "fotos")
 	private Set<Foto> fotos;
 
 	@ManyToMany(cascade = {CascadeType.ALL})
@@ -55,12 +55,12 @@ public class Mascota {
 
 	@ManyToOne
 	@JoinColumn(name = "id_persona_duenia")
-	@JsonBackReference
+	@JsonBackReference(value = "mascotas")
 	private Duenio duenio;
 
 	@ManyToOne
 	@JoinColumn(name = "id_organizacion")
-	@JsonBackReference
+	@JsonBackReference(value = "mascota")
 	private Organizacion organizacion;
 
 	public void meEncontraron() throws IOException {

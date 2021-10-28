@@ -1,6 +1,8 @@
 package ddsutn.Seguridad.Usuario;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Persona.Duenio;
 
 import lombok.Getter;
@@ -20,6 +22,13 @@ public class StandardUser extends Usuario {
 
 	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "id_persona_duenia")
-	@JsonBackReference
+	@JsonIgnore
 	private Duenio duenioAsociado;
+
+
+	public StandardUser(StandardUser body) {
+		this.usuario = body.getUsuario();
+		this.password = body.getPassword();
+		this.duenioAsociado = body.getDuenioAsociado();
+	}
 }

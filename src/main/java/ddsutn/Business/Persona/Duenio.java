@@ -22,7 +22,7 @@ import java.util.*;
 public class Duenio extends Persona {
 
 	@OneToMany(mappedBy = "duenio", cascade = {CascadeType.ALL})
-    @JsonManagedReference
+    @JsonManagedReference(value = "mascotas")
 	private Set<Mascota> mascotas;
 
 

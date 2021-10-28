@@ -27,11 +27,11 @@ public class Pregunta {
 
 	@ManyToOne
 	@JoinColumn(name = "id_organizacion")
-	@JsonBackReference
+	@JsonBackReference(value = "pregunta")
 	private Organizacion organizacion;
 
 	@OneToMany(mappedBy = "pregunta")
-	@JsonManagedReference
+	@JsonManagedReference(value = "preguntas")
 	private Set<PreguntaPublicacion> preguntasPublicacion;
 
 	@Column(name = "pregunta")

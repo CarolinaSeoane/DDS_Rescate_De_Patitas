@@ -1,5 +1,7 @@
 package ddsutn.Business.Mascota.Foto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Mascota.MascotaPerdida;
 import ddsutn.Business.Organizacion.Organizacion;
@@ -31,10 +33,12 @@ public class Foto {
 
 	@ManyToOne()
 	@JoinColumn(name = "id_mascota_perdida")
+	@JsonBackReference(value = "fotosPerdida")
 	private MascotaPerdida mascotaPerdida;
 
 	@ManyToOne()
 	@JoinColumn(name = "id_mascota")
+	@JsonBackReference(value = "fotos")
 	private Mascota mascota;
 
 

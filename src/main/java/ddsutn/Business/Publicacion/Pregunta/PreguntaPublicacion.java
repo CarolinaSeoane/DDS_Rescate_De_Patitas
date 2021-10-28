@@ -23,12 +23,12 @@ public class PreguntaPublicacion {
 
 	@ManyToOne
 	@JoinColumn(name = "id_publicacion")
-	@JsonBackReference
+	@JsonBackReference(value = "pubAdopcion")
 	private PublicacionDarEnAdopcion publicacion;
 
 	@ManyToOne
 	@JoinColumn(name = "id_pregunta")
-	@JsonBackReference
+	@JsonBackReference(value = "preguntas")
 	private Pregunta pregunta;
 
 	@Column(name = "respuesta")

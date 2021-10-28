@@ -1,5 +1,7 @@
 package ddsutn.Business.Organizacion;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Hogares.Ubicacion;
 import ddsutn.Business.Mascota.Caracteristica.Caracteristica;
@@ -25,7 +27,7 @@ import java.util.*;
 public class Organizacion {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
 	@Column(name = "nombre")
@@ -33,7 +35,7 @@ public class Organizacion {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_ubicacion")
-	@JsonManagedReference
+	//@JsonManagedReference
 	private Ubicacion ubicacion;
 
 	@Embedded
@@ -43,27 +45,27 @@ public class Organizacion {
 	private String calidad;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
-	@JsonManagedReference
+	@JsonManagedReference(value = "organizacion")
 	private Set<Administrador> administradores;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
-	@JsonManagedReference
+	@JsonManagedReference(value = "voluntario")
 	private Set<Voluntario> voluntarios;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
-	@JsonManagedReference
+	@JsonManagedReference(value = "mascota")
 	private Set<Mascota> mascotasRegistradas;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
-	@JsonManagedReference
+	@JsonManagedReference(value = "pregunta")
 	private Set<Pregunta> preguntasAdicionales;
 
 	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
-	@JsonManagedReference
+	@JsonManagedReference(value = "publicacion")
 	private Set<PublicacionDarEnAdopcion> publicacionesDarEnAdopcion;
 
 	@OneToMany(mappedBy = "organizacion")
-	@JsonManagedReference
+	@JsonManagedReference(value = "encontradas")
 	private Set<PublicacionMascotaEncontrada> publicacionesMascotasEncontradas;
 
 	@ManyToMany(cascade = {CascadeType.ALL})

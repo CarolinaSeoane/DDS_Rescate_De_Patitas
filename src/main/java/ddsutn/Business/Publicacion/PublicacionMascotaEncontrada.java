@@ -27,12 +27,11 @@ public class PublicacionMascotaEncontrada {
 
 	@ManyToOne
 	@JoinColumn(name = "id_organizacion")
-	@JsonBackReference
+	@JsonBackReference(value = "encontradas")
 	private Organizacion organizacion;
 
 	@OneToOne
 	@JoinColumn(name = "id_mascota")
-	@JsonManagedReference
 	private MascotaPerdidaSinQr mascota;
 
 	@OneToOne

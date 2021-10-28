@@ -21,7 +21,7 @@ import java.util.List;
 public class Rescatista extends Persona {
 
 	@OneToOne(mappedBy = "rescatista")
-	@JsonBackReference
+	@JsonBackReference(value = "rescatistaPerdida")
 	private MascotaPerdida mascotaPerdida;
 
 	public Rescatista(TipoDcto tipoDocumento, int nroDocumento, Date fechaDeNacimiento, List<Contacto> otrosContactos, String domicilio, String nombre, String apellido, String telefono, String email, List<Notificar> formasDeNotificacion, MascotaPerdida mascotaPerdida) {

@@ -22,7 +22,6 @@ import java.util.Set;
 public class MascotaPerdidaSinQr extends MascotaPerdida {
 
 	@OneToOne(mappedBy = "mascota")
-	@JsonBackReference
 	private PublicacionMascotaEncontrada publicacion;
 
 	public MascotaPerdidaSinQr(Set<Foto> fotos, String estado, Ubicacion ubicacion) {

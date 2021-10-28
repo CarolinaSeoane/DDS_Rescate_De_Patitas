@@ -1,6 +1,8 @@
 package ddsutn.Seguridad.Usuario;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Organizacion.Organizacion;
 
 import ddsutn.Business.Publicacion.PublicacionMascotaEncontrada;
@@ -21,8 +23,15 @@ public class Voluntario extends Usuario {
 
 	@ManyToOne
 	@JoinColumn(name = "id_organizacion")
-    @JsonBackReference
+    @JsonBackReference(value = "voluntario")
 	private Organizacion organizacion;
+
+
+    public Voluntario(Voluntario body) {
+        this.usuario = body.getUsuario();
+        this.password = body.getPassword();
+        this.organizacion = body.getOrganizacion();
+    }
 
     public void validarPublicacion(PublicacionMascotaEncontrada publicacion){
         publicacion.aceptarPublicacionMascotaEncontrada(); // cambiarlo por id

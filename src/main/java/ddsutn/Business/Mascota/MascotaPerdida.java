@@ -30,7 +30,7 @@ public abstract class MascotaPerdida {
 	private Long id;
 
 	@OneToMany(mappedBy = "mascotaPerdida", cascade = {CascadeType.ALL})
-	@JsonManagedReference
+	@JsonManagedReference(value = "fotosPerdida")
 	private Set<Foto> fotos;
 
 	@Column(name = "estado")
@@ -42,7 +42,7 @@ public abstract class MascotaPerdida {
 
 	@OneToOne
 	@JoinColumn(name = "id_rescatista")
-	@JsonManagedReference
+	@JsonManagedReference(value = "rescatistaPerdida")
 	private Rescatista rescatista;
 
 	public MascotaPerdida(Set<Foto> foto, String estado, Ubicacion ubicacion) {

@@ -1,5 +1,6 @@
 package ddsutn.Seguridad.Usuario;
 
+import ddsutn.Seguridad.Usuario.DTOs.UsuarioRDTO;
 import lombok.*;
 import org.hibernate.annotations.DiscriminatorOptions;
 import javax.persistence.*;
@@ -16,10 +17,13 @@ import javax.persistence.*;
 public abstract class Usuario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
 	protected String usuario;
 	protected String password;
 
+	public UsuarioRDTO toRDTO(){
+		return new UsuarioRDTO(this.id, this.usuario);
+	}
 }
