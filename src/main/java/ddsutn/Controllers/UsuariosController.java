@@ -2,6 +2,7 @@ package ddsutn.Controllers;
 
 import ddsutn.Seguridad.Usuario.Administrador;
 import ddsutn.Seguridad.Usuario.DTOs.UsuarioRDTO;
+import ddsutn.Seguridad.Usuario.DTOs.UsuarioSigninDTO;
 import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Seguridad.Usuario.Voluntario;
 import ddsutn.Servicios.UsuarioSvc;
@@ -20,6 +21,7 @@ public class UsuariosController {
     @Autowired
     UsuarioSvc usuarioSvc;
 
+    //Creacion de usuarios
     @PostMapping(value = "/signupAdmin")
     public ResponseEntity<UsuarioRDTO> signupAdmin(
             @RequestBody Administrador body
@@ -39,5 +41,13 @@ public class UsuariosController {
             @RequestBody Voluntario body
     ){
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSvc.signupVoluntario(body).toRDTO());
+    }
+
+    //Sign in
+    @PostMapping(value = "/signin")
+    public ResponseEntity<UsuarioRDTO> attemptSignin(
+            @RequestBody UsuarioSigninDTO body
+    ){
+        return ResponseEntity.ok(usuarioSvc.signinUsuario(body).toRDTO());
     }
 }
