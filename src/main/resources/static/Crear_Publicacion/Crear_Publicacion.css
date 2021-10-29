@@ -1,0 +1,67 @@
+.contenedor-base {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.main {
+    padding: 40px 0 100px 0;
+    justify-content: center;
+}
+
+.contenedor-informacion {
+	display: flex;
+	margin: auto;
+	align-items: center;
+
+}
+
+.datos {
+	width: 100%;
+}
+
+.texto-informacion {
+	padding-left: 15px;
+}
+
+.contenedor-informacion .img-informacion {
+	border-radius: 50%;
+    border: 7px solid rgba(26, 163, 255, 0.2);
+}
+
+.input {
+	display:flex;
+}
+
+.input .opcion-unica{
+	padding-left: 10%;
+}
+
+.input .opcion-multiple{
+	padding-left: 3%;
+}
+
+.input .opcion-multiple-comodidad{
+	padding-left: 3.5%;
+}
+
+.boton {
+	margin-left: 30%;
+}
+
+.contenedor-edad {
+	display: flex;
+	align-items: center;
+}
+
+.campo-numero {
+	width: 40px;
+	height: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.entre {
+	padding-left: 5px;
+}

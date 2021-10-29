@@ -11,7 +11,7 @@ class Menu extends HTMLElement {
         			</nav>
 
         			<div class="logo">
-        					<img src="/Resources/img/logo_blanco.png" alt="Logo">
+        					<img src="/Menu/img/logo_blanco.png" alt="Logo">
         			</div>
 
         		</div>

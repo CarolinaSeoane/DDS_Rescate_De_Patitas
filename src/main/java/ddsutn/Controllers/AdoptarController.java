@@ -41,4 +41,8 @@ public class AdoptarController {
         return publicacionDarEnAdopcionSvc.findById(id);
     }
 
+    @GetMapping("/crear_publicacion")
+    public String crear_Publicacion() {
+        return "Crear_Publicacion";
+    }
 }

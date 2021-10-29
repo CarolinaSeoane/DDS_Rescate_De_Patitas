@@ -12,7 +12,7 @@ public class ComodidadSvc {
     @Autowired
     ComodidadRepo comodidadRepo;
 
-    public List<Comodidad> findll() {
+    public List<Comodidad> findAll() {
         return (List<Comodidad>) comodidadRepo.findAll();
     }
 

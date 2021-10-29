@@ -10,6 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 
 @Entity
+@Table(name = "usuario")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_usuario", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorOptions(force = true)
@@ -17,7 +18,7 @@ import javax.persistence.*;
 public abstract class Usuario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	protected String usuario;
