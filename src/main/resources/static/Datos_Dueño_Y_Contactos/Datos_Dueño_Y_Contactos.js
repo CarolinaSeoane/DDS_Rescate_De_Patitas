@@ -8,7 +8,8 @@ new Vue({
         apellido: '',
         telefono: '',
         email: '',
-        formasnNotificacion: [],
+        formasNotificacion1: [],
+        formasNotificacion: '',
         fechaDeNacimiento: '',
         tipoDocumento: '',
         nroDocumento: '',
@@ -18,6 +19,7 @@ new Vue({
 
     methods: {
         enviar() {
+            this.form.formasNotificacion = (this.form.formasNotificacion1).join(', ');
             axios.post(apiUrl, this.form).then((result) => {console.log(result);})
         }
     }

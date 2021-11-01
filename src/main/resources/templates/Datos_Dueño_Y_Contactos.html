@@ -54,12 +54,9 @@
 					<div class="input">
 						<p class="texto-simple pregunta notif-inline">Quiero ser notificado por</p>
 						<div class="opciones-notif">
-							<input type="checkbox" id="WPP" name="WPP" v-model="form.formasnNotificacion">
-							<label class="texto-simple" for="WPP">WhatsApp</label><br>
-							<input type="checkbox" id="SMS" name="SMS" v-model="form.formasnNotificacion">
-							<label class="texto-simple" for="SMS">SMS</label><br>
-							<input type="checkbox" id="EMAIL" name="EMAIL" v-model="form.formasnNotificacion">
-							<label class="texto-simple" for="EMAIL">Email</label><br>
+							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" class="texto-simple" value="WPP">WhatsApp</p>
+							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="SMS">SMS</p>
+							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="EMAIL">EMAIL</p>
 						</div>
 					</div>
 
@@ -151,7 +148,7 @@
 
 					-->
 
-					<button @click="enviar">Submit</button>
+					<button @click="enviar" class="botonAzul">Submit</button>
 
 				</section>
 
