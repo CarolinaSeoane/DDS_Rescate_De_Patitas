@@ -2,10 +2,8 @@ package ddsutn.Controllers;
 
 import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Persona.Duenio;
-import ddsutn.Business.Persona.Persona;
 import ddsutn.Servicios.DuenioSvc;
 import ddsutn.Servicios.OrganizacionSvc;
-import ddsutn.Servicios.PersonaSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

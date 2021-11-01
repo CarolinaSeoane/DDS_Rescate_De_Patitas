@@ -4,16 +4,22 @@ new Vue({
     el: '#app',
     data: {
         form : {
-        nombre: '',
-        apellido: '',
-        telefono: '',
-        email: '',
-        formasNotificacion1: [],
-        formasNotificacion: '',
-        fechaDeNacimiento: '',
-        tipoDocumento: '',
-        nroDocumento: '',
-        domicilio: ''
+            nombre: '',
+            apellido: '',
+            telefono: '',
+            email: '',
+            formasNotificacion1: [],
+            formasNotificacion: '',
+            fechaDeNacimiento: '',
+            tipoDocumento: '',
+            nroDocumento: '',
+            domicilio: '',
+            otrosContactos: [{
+                nombre: '',
+                apellido: '',
+                telefono: '',
+                email: ''
+            }]
         }
     },
 
