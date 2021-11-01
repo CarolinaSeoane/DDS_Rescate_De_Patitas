@@ -94,6 +94,7 @@ input[type=number] {
 
 .gris {
     display: block;
+    margin-bottom: 50px;
 }
 
 span {

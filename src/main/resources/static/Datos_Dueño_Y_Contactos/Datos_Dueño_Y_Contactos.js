@@ -18,7 +18,9 @@ new Vue({
                 nombre: '',
                 apellido: '',
                 telefono: '',
-                email: ''
+                email: '',
+                formasNotificacion1: [],
+                formasNotificacion: ''
             }]
         }
     },
@@ -26,6 +28,11 @@ new Vue({
     methods: {
         enviar() {
             this.form.formasNotificacion = (this.form.formasNotificacion1).join(', ');
+
+            for (let i = 0; i < this.form.otrosContactos.length; i++) {
+                this.form.otrosContactos[i].formasNotificacion = (this.form.otrosContactos[i].formasNotificacion1).join(', ');
+            }
+
             axios.post(apiUrl, this.form).then((result) => {console.log(result);})
         },
 
@@ -34,7 +41,9 @@ new Vue({
                                     nombre: '',
                                     apellido: '',
                                     telefono: '',
-                                    email: ''
+                                    email: '',
+                                    formasNotificacion1: [],
+                                    formasNotificacion: ''
                                     })
         },
 
