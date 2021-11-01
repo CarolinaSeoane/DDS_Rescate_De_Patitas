@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset="UTF-8">
@@ -55,9 +55,9 @@
 					<div class="input">
 						<p class="texto-simple pregunta notif-inline">Quiero ser notificado por</p>
 						<div class="opciones-notif">
-							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" class="texto-simple" value="WPP">WhatsApp</p>
-							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="SMS">SMS</p>
-							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="EMAIL">EMAIL</p>
+							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="WPP">  WhatsApp</p>
+							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="SMS">  SMS</p>
+							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="EMAIL">  EMAIL</p>
 						</div>
 					</div>
 
@@ -90,30 +90,35 @@
 
 					<h3 class="sub-titulo contactos">Mis contactos</h3>
 
-					<div v-for="contacto in form.otrosContactos">
+					<div v-for="(contacto, counter) in form.otrosContactos" v-bind:key="counter" class="contacto-cuadro">
 
+						<h3 class="sub-titulo contacto-numero">Contacto #{{counter+1}}</h3>
+						<span @click="deleteContacto(counter)">X</span>
 
-					<div class="input">
-						<p class="texto-simple pregunta">Nombre</p>
-						<input type="text" class="input-completo" v-model="contacto.nombre" required>
+						<div class="input">
+							<p class="texto-simple pregunta">Nombre</p>
+							<input type="text" class="input-completo" v-model="contacto.nombre" required>
+						</div>
+
+						<div class="input">
+							<p class="texto-simple pregunta">Apellido</p>
+							<input type="text" class="input-completo" v-model="contacto.apellido" required>
+						</div>
+
+						<div class="input">
+							<p class="texto-simple pregunta">Teléfono</p>
+							<input type="text" class="input-completo" v-model="contacto.telefono" required>
+						</div>
+
+						<div class="input">
+							<p class="texto-simple pregunta">Email</p>
+							<input type="text" class="input-completo" v-model="contacto.email" required>
+						</div>
+
 					</div>
 
-					<div class="input">
-						<p class="texto-simple pregunta">Apellido</p>
-						<input type="text" class="input-completo" v-model="contacto.apellido" required>
-					</div>
+					<button class="botonGris gris" @click="addContacto">+ Agregar más contactos</button>
 
-					<div class="input">
-						<p class="texto-simple pregunta">Teléfono</p>
-						<input type="text" class="input-completo" v-model="contacto.telefono" required>
-					</div>
-
-					<div class="input">
-						<p class="texto-simple pregunta">Email</p>
-						<input type="text" class="input-completo" v-model="contacto.email" required>
-					</div>
-
-					</div>
 					<!--
 
 					<div class="input">
@@ -126,33 +131,8 @@
 					</div>
 
 					-->
-
-
-
+					
 					<!-- Boton para Agregar Mas Contactos. Falta hacer vue -->
-
-					<!--
-
-					<div id="agregarContactos">
-
-						<button class="botonGris" @click="addVisa">+ Agregar más contactos</button>
-
-						<div v-for="(applicant, counter) in applicants" v-bind:key="counter">
-
-
-							<input id="duration" type="text" v-model="applicant.previous" required>
-							<label for="duration">{{counter+1}}. Previous Visa:</label>
-							<input id="exp" type="text" v-model="applicant.expiration" required>
-							<label for="exp">Year of expiration:</label>
-
-
-						</div>
-
-					</div>
-
-					<input class="botonAzul boton" type="submit" value="Continuar">
-
-					-->
 
 					<button @click="enviar" class="botonAzul boton">Continuar</button>
 
