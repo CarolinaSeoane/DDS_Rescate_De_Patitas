@@ -1,6 +1,5 @@
 package ddsutn.Business.Persona;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Notificacion.Notificar;
 import lombok.*;
@@ -26,7 +25,7 @@ public class Persona {
 	@Enumerated(EnumType.STRING)
 	protected TipoDcto tipoDocumento;
 
-	protected int nroDocumento;
+	protected String nroDocumento;
 	protected Date fechaDeNacimiento;
 
 	@OneToMany(mappedBy = "persona", cascade = {CascadeType.ALL})
@@ -44,7 +43,7 @@ public class Persona {
 
 	private String formasNotificacion;
 
-	public Persona(TipoDcto tipoDocumento, int nroDocumento, Date fechaDeNacimiento, List<Contacto> otrosContactos, String domicilio, String nombre, String apellido, String telefono, String email, List<Notificar> formasDeNotificacion) {
+	public Persona(TipoDcto tipoDocumento, String nroDocumento, Date fechaDeNacimiento, List<Contacto> otrosContactos, String domicilio, String nombre, String apellido, String telefono, String email, List<Notificar> formasDeNotificacion) {
 		this.tipoDocumento = tipoDocumento;
 		this.nroDocumento = nroDocumento;
 		this.fechaDeNacimiento = fechaDeNacimiento;

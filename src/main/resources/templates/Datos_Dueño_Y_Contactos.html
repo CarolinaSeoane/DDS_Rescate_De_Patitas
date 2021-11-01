@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Datos Personales</title>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../static/Resources/Menu.css" th:href="@{/Resources/Menu.css}">
-	<link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
-	<link rel="stylesheet" href="../static/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css" th:href="@{/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css}">
-	<link rel="stylesheet" href="/Footer/Footer.css">
 	<link rel="stylesheet" href="/Menu/Menu.css">
-	<link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
-	<link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
-	<link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+	<link rel="stylesheet" href="/Resources/Letras.css">
+	<link rel="stylesheet" href="/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css">
+	<link rel="stylesheet" href="/Footer/Footer.css">
+	<link rel="stylesheet" href="/Resources/normalize.css">
+	<link rel="stylesheet" href="/Resources/Boton.css"/>
+	<link rel="icon" href="/Resources/img/logo.png" type="image/icon type">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 
 <body>
@@ -21,113 +23,140 @@
 	<main-menu></main-menu>
 
 	<section class="main">
-		<div class="contenedor-base">
+		<div class="contenedor-base" id="app">
 
 			<div class="datos-personales">
-				
+
 				<h3 class="sub-titulo">Datos Personales</h3>
 
-				<form action="" class="formulario" id="form-datos-personales" method="">
+				<section class="formulario">
 
 					<div class="input">
 						<p class="texto-simple pregunta">Nombre</p>
-						<input type="text" class="input-completo texto-simple" name="nombre" required>
+						<input type="text" class="input-completo texto-simple" v-model="form.nombre" required>
 					</div>
 
 					<div class="input">
 						<p class="texto-simple pregunta">Apellido</p>
-						<input type="text" class="input-completo" name="apellido" required>
+						<input type="text" class="input-completo" v-model="form.apellido" required>
 					</div>
 
 					<div class="input">
 						<p class="texto-simple pregunta">Teléfono</p>
-						<input type="text" class="input-completo" name="telefono" required>
+						<input type="text" class="input-completo" v-model="form.telefono" required>
 					</div>
 
 					<div class="input">
 						<p class="texto-simple pregunta">Email</p>
-						<input type="text" class="input-completo" name="email" required>
+						<input type="text" class="input-completo" v-model="form.email" required>
 					</div>
 
 					<div class="input">
-						<p class="texto-simple pregunta">Quiero ser notificado por</p>
+						<p class="texto-simple pregunta notif-inline">Quiero ser notificado por</p>
 						<div class="opciones-notif">
-							<input type="checkbox" id="WPP" name="MedioNotif">
-							<label for="WPP" class="texto-simple">WhatsApp</label><br>
-							<input type="checkbox" id="SMS" name="MedioNotif">
-							<label for="SMS" class="texto-simple">SMS</label><br>
-							<input type="checkbox" id="EMAIL" name="MedioNotif">
-							<label for="EMAIL" class="texto-simple">Email</label><br>
+							<input type="checkbox" id="WPP" name="WPP" v-model="form.formasnNotificacion">
+							<label class="texto-simple" for="WPP">WhatsApp</label><br>
+							<input type="checkbox" id="SMS" name="SMS" v-model="form.formasnNotificacion">
+							<label class="texto-simple" for="SMS">SMS</label><br>
+							<input type="checkbox" id="EMAIL" name="EMAIL" v-model="form.formasnNotificacion">
+							<label class="texto-simple" for="EMAIL">Email</label><br>
 						</div>
 					</div>
 
 					<div class="input">
-						<p class="texto-simple pregunta">Fecha de nacimiento</p>
-						<input type="date" class="fecha texto-simple pregunta" name="fechaDeNacimiento" required>
+						<p class="texto-simple pregunta fecha-inline">Fecha de nacimiento</p>
+						<input type="date" class="fecha texto-simple pregunta" v-model="form.fechaDeNacimiento" required>
 					</div>
 
 					<div class="input">
-						<label for="tipoDoc" class="texto-simple">Tipo de documento</label>
-						<select name="tipoDoc" id="tipoDoc" class="texto-simple tipoDoc pregunta" required>
-							<option value="DNI">DNI</option>
-							<option value="Pasaporte">Pasaporte</option>
+						<label class="texto-simple">Tipo de documento</label>
+						<select class="texto-simple tipoDoc pregunta" v-model="form.tipoDocumento" required>
+							<option>DNI</option>
+							<option>PASAPORTE</option>
+							<option>CUIT</option>
+							<option>CUIL</option>
 						</select>
-					</div>		
+					</div>
 
 					<div class="input">
 						<p class="texto-simple pregunta">Número de documento</p>
-						<input type="number" class="input-completo" name="nroDoc" required>
+						<input type="number" class="input-completo" v-model="form.nroDocumento" required>
 					</div>
 
 					<div class="input">
 						<p class="texto-simple pregunta">Domicilio</p>
-						<input type="text" class="input-completo" name="domicilio" required>
+						<input type="text" class="input-completo" v-model="form.domicilio" required>
 					</div>
 
+					<!--
 
 					<h3 class="sub-titulo contactos">Mis contactos</h3>
 
-						<div class="input">
-							<p class="texto-simple pregunta">Nombre</p>
-							<input type="text" class="input-completo" name="nombre_contacto" required>
+					<div class="input">
+						<p class="texto-simple pregunta">Nombre</p>
+						<input type="text" class="input-completo" name="nombre-contacto" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple pregunta">Apellido</p>
+						<input type="text" class="input-completo" name="apellido-contacto" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple pregunta">Teléfono</p>
+						<input type="text" class="input-completo" name="telefono-contacto" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple pregunta">Email</p>
+						<input type="text" class="input-completo" name="email-contacto" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple pregunta notif-inline">Quiere ser notificado por</p>
+						<div class="opciones-notif">
+							<input type="checkbox" id="WPP-contacto" name="WPP-contacto">
+							<label for="WPP-contacto" class="texto-simple">WhatsApp</label><br>
+							<input type="checkbox" id="SMS-contacto" name="SMS-contacto">
+							<label for="SMS-contacto" class="texto-simple">SMS</label><br>
+							<input type="checkbox" id="EMAIL-contacto" name="EMAIL-contacto">
+							<label for="EMAIL-contacto" class="texto-simple">Email</label><br>
+						</div>
+					</div>
+
+					-->
+
+					<!-- Boton para Agregar Mas Contactos. Falta hacer vue -->
+
+					<!--
+
+					<div id="agregarContactos">
+
+						<button class="botonGris" @click="addVisa">+ Agregar más contactos</button>
+
+						<div v-for="(applicant, counter) in applicants" v-bind:key="counter">
+
+
+							<input id="duration" type="text" v-model="applicant.previous" required>
+							<label for="duration">{{counter+1}}. Previous Visa:</label>
+							<input id="exp" type="text" v-model="applicant.expiration" required>
+							<label for="exp">Year of expiration:</label>
+
+
 						</div>
 
-						<div class="input">
-							<p class="texto-simple pregunta">Apellido</p>
-							<input type="text" class="input-completo" name="apellido_contacto" required>
-						</div>
-
-						<div class="input">
-							<p class="texto-simple pregunta">Teléfono</p>
-							<input type="text" class="input-completo" name="telefono_contacto" required>
-						</div>
-
-						<div class="input">
-							<p class="texto-simple pregunta">Email</p>
-							<input type="text" class="input-completo" name="email_contacto" required>
-						</div>
-
-						<div class="input">
-							<p class="texto-simple pregunta">Quiere ser notificado por</p>
-							<div class="opciones-notif">
-								<input type="checkbox" id="WPP_CONTACTO" name="MedioNotif">
-								<label for="WPP_CONTACTO" class="texto-simple">WhatsApp</label><br>
-								<input type="checkbox" id="SMS_CONTACTO" name="MedioNotif">
-								<label for="SMS_CONTACTO" class="texto-simple">SMS</label><br>
-								<input type="checkbox" id="EMAIL_CONTACTO" name="MedioNotif">
-								<label for="EMAIL_CONTACTO" class="texto-simple">Email</label><br>
-							</div>
-						</div>
-
-					<!-- Falta boton para Agregar Mas Contactos -->
+					</div>
 
 					<input class="botonAzul boton" type="submit" value="Continuar">
 
-				</form>
+					-->
 
+					<button @click="enviar">Submit</button>
+
+				</section>
 
 			</div>
-			
+
 		</div>
 
 	</section>
@@ -136,6 +165,7 @@
 
 	<script src="/Footer/Footer.js"></script>
 	<script src="/Menu/Menu.js"></script>
+	<script src="/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.js"></script>
 
 </body>
 </html>

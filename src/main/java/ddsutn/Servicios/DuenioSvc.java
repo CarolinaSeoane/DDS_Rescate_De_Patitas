@@ -1,18 +1,18 @@
 package ddsutn.Servicios;
 
-import ddsutn.Business.Persona.Persona;
+import ddsutn.Business.Persona.Duenio;
 import ddsutn.Repositorio.PersonaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonaSvc {
+public class DuenioSvc {
 
     @Autowired
     private PersonaRepo personaRepo;
 
-    public void save(Persona persona) {
-        personaRepo.save(persona);
+    public void save(Duenio duenio) {
+        personaRepo.save(duenio);
     }
 
 }

@@ -24,7 +24,7 @@ public class Rescatista extends Persona {
 	@JsonBackReference(value = "rescatistaPerdida")
 	private MascotaPerdida mascotaPerdida;
 
-	public Rescatista(TipoDcto tipoDocumento, int nroDocumento, Date fechaDeNacimiento, List<Contacto> otrosContactos, String domicilio, String nombre, String apellido, String telefono, String email, List<Notificar> formasDeNotificacion, MascotaPerdida mascotaPerdida) {
+	public Rescatista(TipoDcto tipoDocumento, String nroDocumento, Date fechaDeNacimiento, List<Contacto> otrosContactos, String domicilio, String nombre, String apellido, String telefono, String email, List<Notificar> formasDeNotificacion, MascotaPerdida mascotaPerdida) {
 		super(tipoDocumento, nroDocumento, fechaDeNacimiento, otrosContactos, domicilio,nombre, apellido, telefono, email, formasDeNotificacion);
 		this.mascotaPerdida = mascotaPerdida;
 	}

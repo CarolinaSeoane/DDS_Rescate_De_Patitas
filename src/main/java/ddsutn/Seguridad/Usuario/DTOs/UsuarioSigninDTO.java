@@ -11,4 +11,5 @@ public class UsuarioSigninDTO {
 
     String usuario;
     String password;
+
 }

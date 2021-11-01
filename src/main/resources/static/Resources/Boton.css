@@ -1,11 +1,24 @@
 .botonAzul {
-  background: #1AA3FF;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: 14px 30px;
+    background: #1AA3FF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 14px 30px;
 }
 
 .botonAzul:hover {
-  background: #3db1ff;
+    background: #3db1ff;
+}
+
+.botonGris {
+    border-radius: 5px;
+    background-color: white;
+    color: #C1C0C5;
+    border: 1px solid #C1C0C5;
+    padding: 9px 30px;
+}
+
+.botonGris:hover {
+    color: #57565B;
+    border: 1px solid #57565B;
 }

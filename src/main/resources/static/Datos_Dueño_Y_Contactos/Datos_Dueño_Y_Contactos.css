@@ -39,7 +39,13 @@ input[type=number] {
 }
 
 .opciones-notif {
-    margin-left: 10px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.notif-inline {
+    display: inline-block;
+    vertical-align: top;
 }
 
 .fecha {
@@ -47,8 +53,13 @@ input[type=number] {
     border: 1px solid #C1C0C5;
     box-sizing: border-box;
     border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 20px;
+    padding: 0 20px 0 10px;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.fecha-inline {
+    display: inline-block;
 }
 
 .tipoDoc {
@@ -56,6 +67,7 @@ input[type=number] {
     box-sizing: border-box;
     border-radius: 5px;
     padding: 10px 0 10px 10px;
+    margin-left: 38px;
 }
 
 .contactos {
