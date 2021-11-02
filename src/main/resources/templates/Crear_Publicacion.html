@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset="UTF-8"/>
@@ -13,7 +13,9 @@
 	<link rel="stylesheet" href="/Footer/Footer.css">
 	<link rel="stylesheet" href="/Menu/Menu.css">
 	<link rel="icon" href="/Resources/img/logo.png" type="image/icon type">
-	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 
 <body>
@@ -30,7 +32,7 @@
 
 <section class="main">
 
-	<div class="contenedor-base">
+	<div class="contenedor-base2" id="app">
 	<section class="acerca-de">
 
 		<div class="informacion">
@@ -38,9 +40,10 @@
 			<h3 class="sub-titulo">Creando Publicación</h3>
 			<br>
 			<div class="contenedor-informacion">
-				<img class="img-informacion" src="/Crear_Publicacion/img/img.jpg" :src="@{/Crear_Publicacion/img/img.jpg}" width="10%" height="10%" alt="Imagen">
+				<img class="img-informacion" src="/Crear_Publicacion/img/img.jpg" width="10%" height="10%" alt="Imagen">
 				<p class="texto-simple texto-informacion">Complete los datos a continuación con sus preferencias para encontrar a su mascota ideal.</p>
 			</div>
+			<br>
 			<br>
 		</div>
 
@@ -48,16 +51,21 @@
 
 	<section class="datos">
 
-		<form action="" class="formulario" id="form-datos-preferencias" method="">
-
+			<div class="input">
+				<p class="texto-simple pregunta">Tu Mail</p>
+				<div class="opcion-mail">
+					<input type="email" v-model="form.emailDelInteresado" class="campo-mail" required>
+				</div>
+			</div>
+			<br>
 			<div class="input">
 				<p class="texto-simple pregunta">Tipo</p>
 				<div class="opcion-unica">
-					<input type="radio" id="Gato" name="tipo">
+					<input type="radio" id="Gato" name="tipo"  value="GATO" v-model="form.preferencias.tipoMascota">
 					<label for="Gato" class="texto-simple">Gato</label><br>
-					<input type="radio" id="Perro" name="tipo">
+					<input type="radio" id="Perro" name="tipo" value="PERRO" v-model="form.preferencias.tipoMascota">
 					<label for="Perro" class="texto-simple">Perro</label><br>
-					<input type="radio" id="Cualquiera" name="tipo">
+					<input type="radio" id="Cualquiera" name="tipo" value="CUALQUIERA" v-model="form.preferencias.tipoMascota">
 					<label for="Cualquiera" class="texto-simple">Cualquiera</label><br>
 				</div>
 			</div>
@@ -65,11 +73,11 @@
 			<div class="input">
 				<p class="texto-simple pregunta">Sexo</p>
 				<div class="opcion-unica">
-					<input type="radio" id="Hembra" name="sexo">
+					<input type="radio" id="Hembra" name="sexo"  value="HEMBRA" v-model="form.preferencias.sexo">
 					<label for="Hembra" class="texto-simple">Hembra</label><br>
-					<input type="radio" id="Macho" name="sexo">
+					<input type="radio" id="Macho" name="sexo"  value="MACHO" v-model="form.preferencias.sexo">
 					<label for="Macho" class="texto-simple">Macho</label><br>
-					<input type="radio" id="Cualquier-Sexo" name="sexo">
+					<input type="radio" id="Cualquier-Sexo" name="sexo" value="CUALQUIERA" v-model="form.preferencias.sexo">
 					<label for="Cualquier-Sexo" class="texto-simple">Cualquiera</label><br>
 				</div>
 			</div>
@@ -80,40 +88,39 @@
 					<div class="contenedor-edad">
 						<input type="radio" id="entre" name="edad">
 						<label for="entre" class="texto-simple entre">Entre</label>
-						<input type="number" id="edadMin" name="edadMin" class="campo-numero" min="0" max="99">
+						<input type="number" id="edadMin" name="edadMin" class="campo-numero" min="0" max="99" v-model="form.preferencias.edadMin">
 						<p class="texto-simple">y</p>
-						<input type="number" id="edadMax" name="edadMax" class="campo-numero" min="0" max="99">
+						<input type="number" id="edadMax" name="edadMax" class="campo-numero" min="0" max="99" v-model="form.preferencias.edadMax">
 					</div>
 					<input type="radio" id="Cualquier-Edad" name="edad">
 					<label for="Cualquier-Edad" class="texto-simple">Cualquiera</label><br>
 				</div>
 			</div>
 			<br>
-			<div class="input" id="caracteristicas">
+			<div class="input">
 				<p class="texto-simple pregunta">Caracteristicas</p>
 				<div class="opcion-multiple">
-					<a v-for="caracteristica in caracteristicas">
-						<input type="checkbox" id="Caracteristica" name="caracteristica">
-						<label for="caracteristica" class="texto-simple">{{caracteristica.caracteristica}}</label><br>
+					<a v-for="caracteristica in caracteristicas2">
+						<input type="checkbox" id="caracteristicaNombre" v-model="form.preferencias.caracteristicas" true-value="yes" false-value="no" v-bind:value="caracteristica">
+						<label for="caracteristicaNombre" class="texto-simple">{{caracteristica.caracteristica}}</label><br>
 					</a>
 				</div>
-				<!-- Acá tiene que cargar los que hay en la BBDD -->
 			</div>
 			<br>
-			<div class="input" id="comodidades">
+			<div class="input">
 				<p class="texto-simple pregunta">Comodidades</p>
 				<div class="opcion-multiple-comodidad">
-					<a v-for="comodidad in comodidades">
-						<input type="checkbox" id="comodidad" name="comodidad">
-						<label for="comodidad" class="texto-simple">{{comodidad.comodidad}}</label><br>
+					<a v-for="comodidad in comodidades2">
+						<input type="checkbox" id="comodidadNombre" v-model="form.preferencias.comodidades" true-value="yes" false-value="no" v-bind:value="comodidad">
+						<label for="comodidadNombre" class="texto-simple">{{comodidad.comodidad}}</label><br>
 					</a>
 				</div>
-				<!-- Acá tiene que cargar los que hay en la BBDD -->
 			</div>
 			<br>
-			<input class="botonAzul boton" type="submit" value="Finalizar" >
+			<br>
+			<button class="botonAzul boton" type="submit" @click="enviar">Enviar</button>
 
-		</form>
+
 
 	</section>
 

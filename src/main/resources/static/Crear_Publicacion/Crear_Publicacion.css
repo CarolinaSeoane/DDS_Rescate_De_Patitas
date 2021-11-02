@@ -1,4 +1,4 @@
-.contenedor-base {
+.contenedor-base2 {
   width: 100%;
   max-width: 1000px;
   margin: auto;
@@ -38,6 +38,10 @@
 	padding-left: 10%;
 }
 
+.input .opcion-mail{
+	padding-left: 8%;
+}
+
 .input .opcion-multiple{
 	padding-left: 3%;
 }
@@ -47,12 +51,17 @@
 }
 
 .boton {
-	margin-left: 30%;
+	margin-left: 50%;
 }
 
 .contenedor-edad {
 	display: flex;
 	align-items: center;
+}
+
+.campo-mail {
+	width: 250px;
+	height: 25px;
 }
 
 .campo-numero {
