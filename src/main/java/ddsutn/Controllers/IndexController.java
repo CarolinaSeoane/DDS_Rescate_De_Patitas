@@ -12,30 +12,4 @@ public class IndexController {
 		return "redirect:/index";
 	}
 
-	@RequestMapping("/index")
-	public String index(Model model) {
-		model.addAttribute("mensaje", "Estas en la página principal.");
-		return "index";
-	}
-
-	@RequestMapping("/iniciar-sesion")
-	public String iniciarSesion() {
-		return "Iniciar_Sesion";
-	}
-
-	@RequestMapping("/Dar en Adopcion")
-	public String darEnAdopcion() {
-		return "Dar_En_Adopcion";
-	}
-
-	@RequestMapping("/Buscar Hogar")
-	public String buscarHogar() {
-		return "Buscar_Hogar";
-	}
-
-	@RequestMapping("/Encontre Mascota Perdida")
-	public String encontreMascotaPerdida() {
-		return "Encontre_Mascota_Perdida";
-	}
-
 }

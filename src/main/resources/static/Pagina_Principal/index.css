@@ -154,7 +154,7 @@ header .contenedor-texto-header .texto .descripcion-sistema {
 }
 
 .main .opciones .contenedor-base .contenedor-opciones .opcion .foto-opcion img:hover {
-  border: 4px solid rgba(26,163,255,.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .main .opciones .contenedor-base .contenedor-opciones .opcion .texto-opcion .texto-simple {

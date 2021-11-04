@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Buscar Hogar</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
-    <link rel="stylesheet" href="../static/Buscar_Hogar/Buscar_Hogar.css" th:href="@{/Buscar_Hogar/Buscar_Hogar.css}">
-    <link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
-    <link rel="stylesheet" href="/Footer/Footer.css">
-    <link rel="stylesheet" href="../static/Resources/Filtro.css" th:href="@{/Resources/Footer.css}">
-    <link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+    <link rel="stylesheet" href="../static/Resources/Letras.css">
+    <link rel="stylesheet" href="../static/Buscar_Hogar/Buscar_Hogar.css">
+    <link rel="stylesheet" href="../static/Resources/normalize.css">
+    <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <link rel="stylesheet" href="../static/Resources/Filtro.css">
+    <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
 <body>
@@ -41,19 +41,19 @@
             <div class="imagenes-instructivas">
                 <div class="contenedor-imagenes">
                     <div class="img-instructiva">
-                        <img src="../static/Buscar_Hogar/img/location.jpg" th:src="@{/Buscar_Hogar/img/location.jpg}" width="150" alt="Ubicacion">
+                        <img src="../static/Buscar_Hogar/img/location.jpg" width="150" alt="Ubicacion">
                         <p class="texto-simple">Ubicación</p>
                     </div>
                     <div class="img-instructiva">
-                        <img src="../static/Buscar_Hogar/img/bell.jpg" th:src="@{/Buscar_Hogar/img/bell.jpg}" width="150" alt="Disponibilidad">
+                        <img src="../static/Buscar_Hogar/img/bell.jpg" width="150" alt="Disponibilidad">
                         <p class="texto-simple">Disponibilidad</p>
                     </div>
                     <div class="img-instructiva">
-                        <img src="../static/Buscar_Hogar/img/admisiones.jpg" th:src="@{/Buscar_Hogar/img/admisiones.jpg}" width="150" alt="Admisiones">
+                        <img src="../static/Buscar_Hogar/img/admisiones.jpg" width="150" alt="Admisiones">
                         <p class="texto-simple">Admisiones</p>
                     </div>
                     <div class="img-instructiva">
-                        <img src="../static/Buscar_Hogar/img/hogar.jpg" th:src="@{/Buscar_Hogar/img/hogar.jpg}" width="150" alt="Comodidades">
+                        <img src="../static/Buscar_Hogar/img/hogar.jpg" width="150" alt="Comodidades">
                         <p class="texto-simple">Comodidades</p>
                     </div>
                 </div>
@@ -74,14 +74,14 @@
                     <div class="dropdownOrdenar">
                         <button class="dropbtn">
                             <p class="texto-boton">Ordenar</p>
-                            <img src="../static/Buscar_Hogar/img/ordenar.png"  th:src="@{/Buscar_Hogar/img/ordenar.png}" alt="Ordenar">
+                            <img src="../static/Buscar_Hogar/img/ordenar.png" alt="Ordenar">
                         </button>
                     </div>
 
                     <div class="dropdown">
                         <button class="dropbtn">
                             <p class="texto-boton">Filtrar</p>
-                            <img src="../static/Buscar_Hogar/img/filtro.png" th:src="@{/Buscar_Hogar/img/filtro.png}" alt="Filtrar">
+                            <img src="../static/Buscar_Hogar/img/filtro.png" alt="Filtrar">
                         </button>
                         <div class="dropdown-content">
                             <div class="seccion-filtro">
@@ -209,12 +209,9 @@
                         </div>
                     </div>
                 </div>
-                <div th:action="@{/cargar-mas}" method="get" class="hogares">
-                    <th:block >
 
-                    </th:block>
-                    <a  class= "contenedor-mas"> <button class="boton-mas">Cargar mas</button> </a>
-                </div>
+                <!-- Cargar Mas -->
+
             </div>
         </section>
 
@@ -223,8 +220,8 @@
 
 <main-footer></main-footer>
 
-<script src="/Footer/Footer.js"></script>
-<script src="/Menu/Menu.js"></script>
+<script src="../static/Footer/Footer.js"></script>
+<script src="../static/Menu/Menu.js"></script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:5000/registrar/datos-personales";
+const apiUrl = "http://localhost:5000/api/dueño/registrar";
 
 new Vue({
     el: '#app',

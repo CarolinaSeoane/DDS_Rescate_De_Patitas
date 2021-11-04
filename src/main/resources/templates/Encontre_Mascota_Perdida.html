@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Mascota Perdida</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
-    <link rel="stylesheet" href="../static/Encontre_Mascota_Perdida/Encontre_Mascota_Perdida.css" th:href="@{/Encontre_Mascota_Perdida/Encontre_Mascota_Perdida.css}">
-    <link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
-    <link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
-    <link rel="stylesheet" href="/Footer/Footer.css">
-    <link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+    <link rel="stylesheet" href="../static/Resources/Letras.css">
+    <link rel="stylesheet" href="../static/Encontre_Mascota_Perdida/Encontre_Mascota_Perdida.css">
+    <link rel="stylesheet" href="../static/Resources/normalize.css">
+    <link rel="stylesheet" href="../static/Resources/Boton.css">
+    <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
 
           <div class="contenedor-instruccion">
               <div class="img-instructiva">
-                  <img src="../static/Encontre_Mascota_Perdida/img/form.jpg" th:src="@{/Encontre_Mascota_Perdida/img/form.jpg}" width="150" alt="Lupa">
+                  <img src="../static/Encontre_Mascota_Perdida/img/form.jpg" width="150" alt="Lupa">
               </div>
               <div class="instruccion texto-simple">
                   <p>Primero deberás completar un breve formulario con tus datos personales y algunos datos sobre el estado de la mascota.</p>
@@ -48,7 +48,7 @@
 
           <div class="contenedor-instruccion">
               <div class="img-instructiva">
-                  <img src="../static/Encontre_Mascota_Perdida/img/post.jpg" th:src="@{/Adoptar_Mascota/img/match.jpg}" width="150" alt="Match">
+                  <img src="../static/Encontre_Mascota_Perdida/img/post.jpg" width="150" alt="Match">
               </div>
               <div class="instruccion texto-simple">
                   <p>Con estos datos se generará una publicación para que el dueño que esté buscando a su mascota perdida pueda identificarla y comunicarse contigo.</p>
@@ -57,7 +57,7 @@
 
           <div class="contenedor-instruccion">
               <div class="img-instructiva">
-                  <img src="../static/Encontre_Mascota_Perdida/img/seguridad.jpg" th:src="@{/Adoptar_Mascota/img/form.jpg}" width="150" alt="Form">
+                  <img src="../static/Encontre_Mascota_Perdida/img/seguridad.jpg" width="150" alt="Form">
               </div>
               <div class="instruccion texto-simple">
                   <p>En ningún momento compartiremos tus datos personales. La publicación sólo mostrará tus datos no sensibles para que el dueño pueda comunicarse contigo.</p>
@@ -66,7 +66,7 @@
 
           <div class="contenedor-instruccion">
               <div class="img-instructiva">
-                  <img src="../static/Encontre_Mascota_Perdida/img/house.jpg" th:src="@{/Adoptar_Mascota/img/email.jpg}" width="150" alt="Email">
+                  <img src="../static/Encontre_Mascota_Perdida/img/house.jpg" width="150" alt="Email">
               </div>
               <div class="instruccion texto-simple">
                   <p>Si no puedes cuidar de la mascota hasta que aparezca su dueño puedes buscar un Hogar de Tránsito que cuide de ella.</p>
@@ -75,15 +75,17 @@
 
       </div>
 
-      <input class="botonAzul boton" type="button" onclick="/" value="Comenzar">
+      <a href="">
+          <input class="botonAzul boton" type="button" value="Comenzar">
+      </a>
 
   </div>
 </section>
 
 <main-footer></main-footer>
 
-<script src="/Footer/Footer.js"></script>
-<script src="/Menu/Menu.js"></script>
+<script src="../static/Footer/Footer.js"></script>
+<script src="../static/Menu/Menu.js"></script>
 
 </body>
 </html>

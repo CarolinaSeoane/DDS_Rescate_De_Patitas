@@ -1,11 +1,11 @@
-const apiUrlPublicacion = "http://localhost:5000/adoptar/publicacion/crear_publicacion";
-const apiUrlCaracteristicas = "http://localhost:5000/caracteristicas";
-const apiUrlComodidades = "http://localhost:5000/comodidades";
+const apiUrlPublicacion = "http://localhost:5000/api/publicacion-interesaso/crear";
+const apiUrlCaracteristicas = "http://localhost:5000/api/caracteristicas";
+const apiUrlComodidades = "http://localhost:5000/api/comodidades";
 
 var app1 = new Vue({
 	el: '#app',
     data: {
-     	form : {
+     	form: {
 	        emailDelInteresado: '',
             preferencias: {
             	tipoMascota: '',

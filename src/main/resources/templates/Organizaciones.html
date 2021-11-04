@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizaciones</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Resources/Letras.css">
-    <link rel="stylesheet" href="/Menu/Menu.css">
-    <link rel="stylesheet" href="/Organizaciones/Organizaciones.css">
-    <link rel="stylesheet" href="/Resources/normalize.css">
-    <link rel="stylesheet" href="/Footer/Footer.css">
-    <link rel="icon" href="/Resources/img/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="../static/Resources/Letras.css">
+    <link rel="stylesheet" href="../static/Menu/Menu.css">
+    <link rel="stylesheet" href="../static/Organizaciones/Organizaciones.css">
+    <link rel="stylesheet" href="../static/Resources/normalize.css">
+    <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 
@@ -25,7 +25,7 @@
             <h3 class="sub-titulo">Seleccione una organización</h3>
             <div class="contenedor-organizaciones">
                 <a class="texto-simple opcion" href="" v-for="org in organizaciones">
-                    <img src="/Organizaciones/img/img.png" height="150">
+                    <img src="../static/Organizaciones/img/img_2.png" height="150">
                     <p>{{org.nombre}}</p>
                 </a>
             </div>
@@ -34,9 +34,9 @@
 
     <main-footer></main-footer>
 
-    <script src="/Footer/Footer.js"></script>
-    <script src="/Menu/Menu.js"></script>
-    <script src="/Organizaciones/Organizaciones.js"></script>
+    <script src="../static/Footer/Footer.js"></script>
+    <script src="../static/Menu/Menu.js"></script>
+    <script src="../static/Organizaciones/Organizaciones.js"></script>
 
 </body>
 </html>

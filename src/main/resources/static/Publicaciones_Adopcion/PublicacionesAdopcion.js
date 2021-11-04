@@ -1,6 +1,4 @@
-
-
-const apiUrl ="http://localhost:5000/adoptar/api/publicaciones";
+const apiUrl ="http://localhost:5000/api/adoptar/publicaciones";
 var cantidad =4;
 
 new Vue({

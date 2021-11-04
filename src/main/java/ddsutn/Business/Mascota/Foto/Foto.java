@@ -1,7 +1,6 @@
 package ddsutn.Business.Mascota.Foto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Mascota.MascotaPerdida;
 import ddsutn.Business.Organizacion.Organizacion;

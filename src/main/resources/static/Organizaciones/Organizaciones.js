@@ -1,5 +1,5 @@
 
-const apiUrl ="http://localhost:5000/registrar/api/organizaciones";
+const apiUrl ="http://localhost:5000/api/organizaciones";
 
 new Vue({
         el: '#id-organizaciones',

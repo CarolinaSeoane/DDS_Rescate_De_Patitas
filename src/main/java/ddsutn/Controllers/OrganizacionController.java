@@ -4,19 +4,21 @@ import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Servicios.OrganizacionSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/organizaciones")
+@RequestMapping("api/organizaciones")
+@CrossOrigin
 public class OrganizacionController {
 
     @Autowired
     private OrganizacionSvc organizacionSvc;
 
     @ResponseBody
-    @RequestMapping("")
+    @RequestMapping()
     public List<Organizacion> findAll(){
         return organizacionSvc.findAll();
     }

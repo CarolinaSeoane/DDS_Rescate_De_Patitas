@@ -5,13 +5,13 @@ class Menu extends HTMLElement {
         		<div class="contenedor-base">
 
         			<nav class="menu">
-        				<a href="/iniciar-sesion">Iniciar Sesión</a>
-        				<a href="/">Página Principal</a>
-        				<a href="/organizaciones">Organizaciones</a>
+        				<a href="Iniciar_Sesion.html">Iniciar Sesión</a>
+        				<a href="index.html">Página Principal</a>
+        				<a href=".">Organizaciones</a>
         			</nav>
 
         			<div class="logo">
-        					<img src="/Menu/img/logo_blanco.png" alt="Logo">
+        					<img src="../static/Menu/img/logo_blanco.png" alt="Logo">
         			</div>
 
         		</div>
@@ -24,8 +24,8 @@ class MenuSimple extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <nav class="menu">
-            <a href="/iniciar-sesion">Iniciar Sesión</a>
-            <a href="/">Página Principal</a>
+            <a href="Iniciar_Sesion.html">Iniciar Sesión</a>
+            <a href="index.html">Página Principal</a>
             <a href=".">Organizaciones</a>
         </nav>
     `;

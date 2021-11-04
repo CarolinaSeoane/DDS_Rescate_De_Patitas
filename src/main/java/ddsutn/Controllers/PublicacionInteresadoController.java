@@ -9,19 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value = "/adoptar/publicacion")
+@RequestMapping(value = "api/publicacion-interesaso")
 @CrossOrigin
 public class PublicacionInteresadoController {
 
 	@Autowired
 	private PublicacionInteresadoSvc publicacionInteresadoSvc;
 
-	@GetMapping("/crear_publicacion")
-	public String crear_Publicacion() {
-		return "Crear_Publicacion";
-	}
-
-	@PostMapping("/crear_publicacion")
+	@PostMapping("/crear")
 	public ResponseEntity<Object> guardar_publicacion(@RequestBody PublicacionInteresado publicacionInteresado) {
 		try {
 			publicacionInteresadoSvc.save(publicacionInteresado);
@@ -30,12 +25,5 @@ public class PublicacionInteresadoController {
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 		}
 	}
-
-	@GetMapping("/mensaje_final")
-	public String mensaje_final() {
-		return "Mensaje_Final";
-	}
-
-
 
 }

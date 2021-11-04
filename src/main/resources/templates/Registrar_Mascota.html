@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Registrar Mascota</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/Resources/Letras.css" th:href="@{/Resources/Letras.css}"/>
-    <link rel="stylesheet" href="../static/Resources/Boton.css" th:href="@{/Resources/Boton.css}"/>
-    <link rel="stylesheet" href="../static/Registrar_Mascota/Registrar_Mascota.css" th:href="@{/Registrar_Mascota/Registrar_Mascota.css}">
-    <link rel="stylesheet" href="../static/Resources/normalize.css" th:href="@{/Resources/normalize.css}">
-    <link rel="stylesheet" href="/Footer/Footer.css">
-    <link rel="icon" href="../static/Resources/img/logo.png" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+    <link rel="stylesheet" href="../static/Resources/Letras.css">
+    <link rel="stylesheet" href="../static/Resources/Boton.css">
+    <link rel="stylesheet" href="../static/Registrar_Mascota/Registrar_Mascota.css">
+    <link rel="stylesheet" href="../static/Resources/normalize.css">
+    <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
 <body>
@@ -40,13 +40,13 @@
 
                 <div class="imagenes-instructivas">
                     <div class="img-instructiva">
-                        <img src="../static/Registrar_Mascota/img/collar.jpg" th:src="@{/Registrar_Mascota/img/collar.jpg}" width="150" alt="Chapita con código QR impreso">
+                        <img src="../static/Registrar_Mascota/img/collar.jpg" width="150" alt="Chapita con código QR impreso">
                     </div>
                     <div class="img-instructiva">
-                        <img src="../static/Registrar_Mascota/img/scan_qr.png" th:src="@{/Registrar_Mascota/img/scan_qr.png}" width="150" alt="Celular escaneando código QR">
+                        <img src="../static/Registrar_Mascota/img/scan_qr.png" width="150" alt="Celular escaneando código QR">
                     </div>
                     <div class="img-instructiva">
-                        <img src="../static/Registrar_Mascota/img/notif.png" th:src="@{/Registrar_Mascota/img/notif.png}" width="150" alt="Notificación dando aviso al dueño">
+                        <img src="../static/Registrar_Mascota/img/notif.png" width="150" alt="Notificación dando aviso al dueño">
                     </div>
                 </div>
 
@@ -68,21 +68,20 @@
                                 <input type="radio" id="NO_USER" name="formaDeRegistrar" value="sinUsuario">
                                 <label for="NO_USER" class="option">Registrar sin usuario</label><br>
                             </div>
+
                             <input class="botonAzul boton" type="submit" value="Continuar">
+
                         </form>
                     </div>
-
                 </div>
-
             </div>
         </section>
-
     </section>
 
     <main-footer></main-footer>
 
-    <script src="/Footer/Footer.js"></script>
-    <script src="/Menu/Menu.js"></script>
+    <script src="../static/Footer/Footer.js"></script>
+    <script src="../static/Menu/Menu.js"></script>
 
 </body>
 </html>

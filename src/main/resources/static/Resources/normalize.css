@@ -5,6 +5,10 @@
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
 
+a {
+    text-decoration: none;
+}
+
 html {
   font-family: "Open Sans"; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
