@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../static/Resources/normalize.css">
     <link rel="stylesheet" href="../static/Footer/Footer.css">
     <link rel="stylesheet" href="../static/Resources/Filtro.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
@@ -39,29 +40,11 @@
             </div>
 
             <div class="imagenes-instructivas">
-                <div class="contenedor-imagenes">
-                    <div class="img-instructiva">
-                        <img src="../static/Buscar_Hogar/img/location.jpg" width="150" alt="Ubicacion">
-                        <p class="texto-simple">Ubicación</p>
-                    </div>
-                    <div class="img-instructiva">
-                        <img src="../static/Buscar_Hogar/img/bell.jpg" width="150" alt="Disponibilidad">
-                        <p class="texto-simple">Disponibilidad</p>
-                    </div>
-                    <div class="img-instructiva">
-                        <img src="../static/Buscar_Hogar/img/admisiones.jpg" width="150" alt="Admisiones">
-                        <p class="texto-simple">Admisiones</p>
-                    </div>
-                    <div class="img-instructiva">
-                        <img src="../static/Buscar_Hogar/img/hogar.jpg" width="150" alt="Comodidades">
-                        <p class="texto-simple">Comodidades</p>
-                    </div>
-                </div>
+                <img src="../static/Buscar_Hogar/img/img.png" alt="">
             </div>
 
         </div>
     </section>
-
 
     <section class="hogares">
 
@@ -154,63 +137,32 @@
             </div>
         </section>
 
-        <section class="publicaciones">
+        <section class="publicaciones" id="app">
             <div class="contenedor-base">
-                <div class="publicaciones-hogar">
-                    <div class="hogar">
-                        <div class="contenedor-azul">
-                            <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
-                            <div class="contenedor-azul-informacion">
-                                <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
-                                <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
-                                <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
+
+                <div class="flip-card" v-for="hogar in hogares">
+
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front box">
+
+                            <p class="card-title">{{hogar.nombre}}</p>
+                            <p class="texto-simple">{{hogar.ubicacion.direccion}}</p>
+                            <p class="texto-simple"> {{hogar.telefono}}</p>
+                            <br>
+                            <br>
+
+                            <div class="lugares-disponibles">
+                                <p>{{hogar.lugares_disponibles}} lugares disponibles</p>
                             </div>
+
                         </div>
-                        <div class="contenedor-gris">
-                            <div class="contenedor-gris-informacion">
-                                <p class="texto-contenedor-gris">Admisiones:Si</p>
-                                <p class="texto-contenedor-gris">Patio: No</p>
-                                <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hogar">
-                        <div class="contenedor-azul">
-                            <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
-                            <div class="contenedor-azul-informacion">
-                                <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
-                                <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
-                                <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
-                            </div>
-                        </div>
-                        <div class="contenedor-gris">
-                            <div class="contenedor-gris-informacion">
-                                <p class="texto-contenedor-gris">Admisiones:Si</p>
-                                <p class="texto-contenedor-gris">Patio: No</p>
-                                <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hogar">
-                        <div class="contenedor-azul">
-                            <p class="texto-contenedor-azul-titulo">Voluntario Animales del Sur. Lanús</p>
-                            <div class="contenedor-azul-informacion">
-                                <p class="texto-contenedor-azul">Dirección: Juan B. Justo 38, Lanús, Provincia de Buenos Aires</p>
-                                <p class="texto-contenedor-azul">Telefono: 4503-6621</p>
-                                <p class="texto-lugares-disponibles">Lugares Disponibles: 30</p>
-                            </div>
-                        </div>
-                        <div class="contenedor-gris">
-                            <div class="contenedor-gris-informacion">
-                                <p class="texto-contenedor-gris">Admisiones:Si</p>
-                                <p class="texto-contenedor-gris">Patio: No</p>
-                                <p class="texto-contenedor-gris">Requisitos: Manso, Amigable</p>
-                            </div>
+                        <div class="flip-card-back">
+                            <h1>John Doe</h1>
+                            <p>Architect & Engineer</p>
+                            <p>We love that guy</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Cargar Mas -->
 
             </div>
         </section>
@@ -222,6 +174,7 @@
 
 <script src="../static/Footer/Footer.js"></script>
 <script src="../static/Menu/Menu.js"></script>
+<script src="../static/Buscar_Hogar/Buscar_Hogar.js"></script>
 
 </body>
 </html>

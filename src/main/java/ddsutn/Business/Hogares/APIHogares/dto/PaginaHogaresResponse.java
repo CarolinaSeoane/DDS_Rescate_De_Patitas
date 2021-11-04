@@ -1,8 +1,6 @@
 package ddsutn.Business.Hogares.APIHogares.dto;
 
-
 import ddsutn.Business.Hogares.Hogar;
-
 import java.util.List;
 
 public class PaginaHogaresResponse {

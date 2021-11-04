@@ -10,19 +10,19 @@ INSERT INTO ubicacion (direccion, latitud, longitud) VALUES
     ('Beiro', 43242, 48436);
 
 INSERT INTO caracteristica (caracteristica) VALUES
-    ('amigable'),
-	('manso'),
-	('companiero'),
-	('jugueton'),
-	('tranquilo'),
-	('arisco'),
-	('travieso');
+    ('Amigable'),
+	('Manso'),
+	('Companiero'),
+	('Jugueton'),
+	('Tranquilo'),
+	('Arisco'),
+	('Travieso');
 
 INSERT INTO comodidad (comodidad) VALUES
-    ('patio'),
-    ('balcon'),
-    ('terraza'),
-	('campo');
+    ('Patio'),
+    ('Balcon'),
+    ('Terraza'),
+	('Campo');
 
 INSERT INTO organizacion (calidad, nombre, pixeles_alto, pixeles_ancho, id_ubicacion) VALUES
     ('png', 'Pelusas', 500, 500, 1),
