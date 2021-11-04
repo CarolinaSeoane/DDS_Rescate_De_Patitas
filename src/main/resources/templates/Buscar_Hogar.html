@@ -140,29 +140,37 @@
         <section class="publicaciones" id="app">
             <div class="contenedor-base">
 
-                <div class="flip-card" v-for="hogar in hogares">
+                <div class="contenedor-hogares">
+                    <div v-for="hogar in hogares">
+                        <div class="flip-card">
 
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front box">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front box">
 
-                            <p class="card-title">{{hogar.nombre}}</p>
-                            <p class="texto-simple">{{hogar.ubicacion.direccion}}</p>
-                            <p class="texto-simple"> {{hogar.telefono}}</p>
-                            <br>
-                            <br>
+                                    <p class="card-title">{{hogar.nombre}}</p>
+                                    <p class="texto-simple">Dirección: {{hogar.ubicacion.direccion}}</p>
+                                    <br>
+                                    <p class="texto-simple">Teléfono: {{hogar.telefono}}</p>
+                                    <br>
+                                    <br>
 
-                            <div class="lugares-disponibles">
-                                <p>{{hogar.lugares_disponibles}} lugares disponibles</p>
+                                    <div class="lugares-disponibles">
+                                        <p>{{hogar.lugares_disponibles}} lugares disponibles</p>
+                                    </div>
+
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
                             </div>
-
-                        </div>
-                        <div class="flip-card-back">
-                            <h1>John Doe</h1>
-                            <p>Architect & Engineer</p>
-                            <p>We love that guy</p>
                         </div>
                     </div>
+
                 </div>
+
+
 
             </div>
         </section>
