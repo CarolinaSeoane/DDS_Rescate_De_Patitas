@@ -185,5 +185,20 @@ header .contenedor-texto-header {
     margin: 0 5px;
 }
 
+/* CARGAR MAS */
+
+.boton-mas {
+    text-decoration: underline;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.boton-mas:hover {
+    cursor: pointer;
+}
+
 
 

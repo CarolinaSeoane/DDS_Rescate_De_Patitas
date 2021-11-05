@@ -29,13 +29,13 @@
     </div>
 </header>
 
-<section class="main">
+<section class="main" id="app">
 
     <section class="acerca-de">
         <div class="contenedor-base">
 
             <div class="texto">
-                <h3 class="sub-titulo">Acerca De Nuestros Hogares</h3>
+                <h3 class="sub-titulo">Acerca de Nuestros Hogares</h3>
                 <p class="texto-simple">Contamos con hogares de tránsito para alojar a las mascotas perdidas mientras esperamos a que aparezcan sus dueños. Cada hogar posee sus propias restricciones para la admisión de mascotas, por lo que al momento de elegir un hogar deberás tener en cuenta las siguientes características</p>
             </div>
 
@@ -52,10 +52,10 @@
             <div class="contenedor-base">
                 <div class="contenedor-hogares-opciones">
 
-                    <p class="sub-titulo" >Todos los hogares</p>
+                    <p class="sub-titulo" >Todos los Hogares</p>
 
                     <div class="dropdownOrdenar">
-                        <button class="dropbtn">
+                        <button class="dropbtn" @click="orderByName">
                             <p class="texto-boton">Ordenar</p>
                             <img src="../static/Buscar_Hogar/img/ordenar.png" alt="Ordenar">
                         </button>
@@ -74,10 +74,10 @@
                                 </div>
 
                                 <div class="opciones-check">
-                                    <input type="checkbox" id="GATO" name="tipoMascota">
+                                    <input type="checkbox" id="gatos" value="gatos" name="tipoMascota" v-model="check">
                                     <label class="texto-simple">Gatos</label>
 
-                                    <input type="checkbox" id="PERRO" name="tipoMascota">
+                                    <input type="checkbox" id="perros" value="perros" name="tipoMascota" v-model="check">
                                     <label class="texto-simple">Perros</label>
                                 </div>
 
@@ -97,38 +97,15 @@
                                 </div>
                             </div>
 
-                            <div class="seccion-filtro">
-                                <div class="titulo-check">
-                                    <label class="titulo-check">Radio de Cercanía</label>
-                                </div>
-
-                                <div class="opciones-radius">
-                                    <div class="opcion">
-                                        <input type="radio" name="Radio" checked="checked"> 1 km
-                                    </div>
-                                    <div class="opcion">
-                                        <input type="radio" name="Radio">  5 km
-                                    </div>
-                                    <div class="opcion">
-                                        <input type="radio" name="Radio">  10 km
-                                    </div>
-                                    <div class="opcion">
-                                        <input type="radio" name="Radio">  15 km
-                                    </div>
-                                    <div class="opcion">
-                                        <input type="radio" name="Radio">  25 km
-                                    </div>
-                                </div>
-                            </div>
                             <div class="reset-filtros">
                                 <div class="texto-borrar">
-                                    <input class="boton-filtro" type="submit" value="Borrar Filtros" style="color: #B93122;">
+                                    <input class="boton-filtro" type="submit" @click="reset" value="Borrar Filtros" style="color: #B93122;">
                                 </div>
                                 <div class="texto-fin">
-                                    <input class="boton-filtro" type="submit" value="Cancelar" style="color:#57565B">
+                                    <input class="boton-filtro" type="submit" @click="cancelar" value="Cancelar" style="color:#57565B">
                                 </div>
                                 <div class="texto-fin">
-                                    <input class="boton-filtro" type="submit" value="Aceptar" style="color:#1DA1F2">
+                                    <input class="boton-filtro" type="submit" value="Aceptar" @click="filtrar" style="color:#1DA1F2">
                                 </div>
                             </div>
                         </div>
@@ -137,7 +114,7 @@
             </div>
         </section>
 
-        <section class="publicaciones" id="app">
+        <section class="publicaciones">
             <div class="contenedor-base">
 
                 <div class="contenedor-hogares">
@@ -180,13 +157,11 @@
                         </div>
                     </div>
 
+                    <p @click="agregar" class="boton-mas">Cargar mas</p>
+
                 </div>
-
-
-
             </div>
         </section>
-
     </section>
 </section>
 
