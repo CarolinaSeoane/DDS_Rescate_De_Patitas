@@ -154,15 +154,27 @@
                                     <br>
                                     <br>
 
-                                    <div class="lugares-disponibles">
-                                        <p>{{hogar.lugares_disponibles}} lugares disponibles</p>
+                                    <div class="note">
+                                        <div class="admisiones" v-if="hogar.admisiones.gatos">
+                                            <p>Gatos</p>
+                                        </div>
+                                        <div class="admisiones" v-if="hogar.admisiones.perros">
+                                            <p>Perros</p>
+                                        </div>
+                                        <div class="lugares-disponibles">
+                                            <p>{{hogar.lugares_disponibles}} lugares disponibles</p>
+                                        </div>
                                     </div>
 
                                 </div>
+
                                 <div class="flip-card-back">
-                                    <h1>John Doe</h1>
-                                    <p>Architect & Engineer</p>
-                                    <p>We love that guy</p>
+                                    <p class="card-title">¡Conoce al hogar!</p>
+                                    <p class="texto-simple">Capacidad total: {{hogar.capacidad}} mascotas</p>
+                                    <br>
+                                    <p class="texto-simple">Aceptan mascotas que cumplan con las siguientes características: {{hogar.caracteristicas.join(', ')}} </p>
+                                    <br>
+                                    <p class="texto-simple" v-if="hogar.patio">Posee patio</p>
                                 </div>
                             </div>
                         </div>
