@@ -4,12 +4,10 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Mascota.MascotaPerdida;
 import ddsutn.Business.Organizacion.Organizacion;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.coobird.thumbnailator.Thumbnails;
-
 import javax.persistence.*;
 import java.io.File;
 import java.io.IOException;

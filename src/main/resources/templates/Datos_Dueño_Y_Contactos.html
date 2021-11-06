@@ -11,7 +11,8 @@
 	<link rel="stylesheet" href="../static/Datos_Dueño_Y_Contactos/Datos_Dueño_Y_Contactos.css">
 	<link rel="stylesheet" href="../static/Footer/Footer.css">
 	<link rel="stylesheet" href="../static/Resources/normalize.css">
-	<link rel="stylesheet" href="../static/Resources/Boton.css"/>
+	<link rel="stylesheet" href="../static/Resources/Boton.css">
+	<link rel="stylesheet" href="../static/Resources/Formulario.css">
 	<link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -53,8 +54,8 @@
 					</div>
 
 					<div class="input">
-						<p class="texto-simple pregunta notif-inline">Quiero ser notificado por</p>
-						<div class="opciones-notif">
+						<p class="texto-simple pregunta titulo-inline">Quiero ser notificado por</p>
+						<div class="opciones-inline">
 							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="WPP">  WhatsApp</p>
 							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="SMS">  SMS</p>
 							<p class="texto-simple"><input type="checkbox" v-model="form.formasNotificacion1" value="EMAIL">  EMAIL</p>
@@ -90,10 +91,10 @@
 
 					<h3 class="sub-titulo contactos">Mis contactos</h3>
 
-					<div v-for="(contacto, counter) in form.otrosContactos" v-bind:key="counter" class="contacto-cuadro">
+					<div v-for="(contacto, counter) in form.otrosContactos" v-bind:key="counter" class="nuevo-cuadro">
 
 						<h3 class="sub-titulo contacto-numero">Contacto #{{counter+1}}</h3>
-						<span @click="deleteContacto(counter)">X</span>
+						<span @click="deleteContacto(counter)">x</span>
 
 						<div class="input">
 							<p class="texto-simple pregunta">Nombre</p>
@@ -116,8 +117,8 @@
 						</div>
 
 						<div class="input">
-							<p class="texto-simple pregunta notif-inline">Quiere ser notificado por</p>
-							<div class="opciones-notif">
+							<p class="texto-simple pregunta titulo-inline">Quiere ser notificado por</p>
+							<div class="opciones-inline">
 								<p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="WPP">  WhatsApp</p>
 								<p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="SMS">  SMS</p>
 								<p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="EMAIL">  EMAIL</p>

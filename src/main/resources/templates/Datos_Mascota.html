@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Mascota</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/Menu/Menu.css">
+    <link rel="stylesheet" href="../static/Resources/Letras.css">
+    <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <link rel="stylesheet" href="../static/Resources/normalize.css">
+    <link rel="stylesheet" href="../static/Resources/Boton.css"/>
+    <link rel="stylesheet" href="../static/Resources/Formulario.css"/>
+    <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+</head>
+
+<body>
+
+    <main-menu></main-menu>
+
+    <section class="main">
+        <div class="contenedor-base" id="app">
+
+            <!-- MASCOTA -->
+
+            <h3 class="sub-titulo">Datos de Mi Mascota</h3>
+
+            <section class="formulario">
+
+                <div class="input">
+                    <p class="texto-simple pregunta">Nombre</p>
+                    <input type="text" class="input-completo texto-simple" v-model="form.nombre" required>
+                </div>
+
+                <div class="input">
+                    <p class="texto-simple pregunta">Apodo</p>
+                    <input type="text" class="input-completo" v-model="form.apodo" required>
+                </div>
+
+                <div class="input">
+                    <p class="texto-simple pregunta titulo-inline">Tipo</p>
+                    <div class="opciones-inline">
+                        <input type="radio" id="GATO" name="GATO" value="GATO">
+                        <label class="texto-simple" for="GATO" class="option">Gato</label><br>
+                        <input type="radio" id="PERRO" name="PERRO" value="PERRO">
+                        <label class="texto-simple" for="PERRO" class="option">Perro</label><br>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <p class="texto-simple pregunta">Edad</p>
+                    <input type="text" class="input-chico" v-model="form.edad" required>
+                </div>
+
+                <div class="input">
+                    <p class="texto-simple pregunta titulo-inline">Sexo</p>
+                    <div class="opciones-inline">
+                        <input type="radio" id="MACHO" name="MACHO" value="MACHO">
+                        <label class="texto-simple" for="MACHO" class="option">Macho</label><br>
+                        <input type="radio" id="HEMBRA" name="HEMBRA" value="HEMBRA">
+                        <label class="texto-simple" for="HEMBRA" class="option">Hembra</label><br>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <p class="texto-simple pregunta">Descripción</p>
+                    <p><textarea name="mensaje"></textarea></p>
+                </div>
+
+                <div class="">
+                    <p class="texto-simple pregunta">Adjunte fotos de la mascota</p>
+                </div>
+
+                <div class="">
+                    <p class="texto-simple pregunta">Seleccione las características que mejor describan a su mascota</p>
+                </div>
+
+                <!-- AGREGAR MASCOTAS -->
+
+                <button class="botonGris gris">+ Agregar más mascotas</button>
+
+                <button class="botonAzul boton">Finalizar</button>
+
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <main-footer></main-footer>
+
+    <script src="../static/Footer/Footer.js"></script>
+    <script src="../static/Menu/Menu.js"></script>
+    <script src="../static/Datos_Mascota/Datos_Mascota.js"></script>
+
+</body>
+</html>
