@@ -82,14 +82,12 @@
 					<p class="texto-simple pregunta">Edad</p>
 					<div class="opcion-unica">
 						<div class="contenedor-edad">
-							<input type="radio" id="entre" name="edad" v-on:change="habilitar">
-							<label for="entre" class="texto-simple entre">Entre</label>
+							<p class="texto-simple"><input type="radio" id="entre" name="edad" v-on:change="habilitar">  Entre</p>
 							<input disabled type="number" id="edadMin" name="edadMin" class="campo-numero" min="0" max="99" v-model="form.preferencias.edadMin">
 							<p class="texto-simple">y</p>
-							<input disabled type="number" id="edadMax" name="edadMax" class="campo-numero" min="0" max="99" v-model="form.preferencias.edadMax">
+							<input disabled type="number" id="edadMax" name="edadMax" class="campo-numero" min="1" max="99" v-model="form.preferencias.edadMax">
 						</div>
-						<input type="radio" id="Cualquier-Edad" name="edad" v-on:change="deshabilitar">
-						<label for="Cualquier-Edad" class="texto-simple">Cualquiera</label><br>
+						<p class="texto-simple"><input type="radio" id="cualquier-Edad" name="edad" v-on:change="deshabilitar">  Cualquiera</p>
 					</div>
 				</div>
 				<br>
