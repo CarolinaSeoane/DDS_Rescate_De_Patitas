@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Mascota Perdida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/Menu/Menu.css">
+    <link rel="stylesheet" href="../static/Resources/Letras.css">
+    <link rel="stylesheet" href="../static/Datos_Mascota_Perdida/Datos_Mascota_Perdida.css">
+    <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <link rel="stylesheet" href="../static/Resources/normalize.css">
+    <link rel="stylesheet" href="../static/Resources/Boton.css">
+    <link rel="stylesheet" href="../static/Resources/Formulario.css">
+    <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+</head>
+
+<body>
+
+    <main-menu></main-menu>
+
+    <section class="main">
+        <div class="contenedor-base" id="app">
+
+            <!-- MASCOTA -->
+
+            <h3 class="sub-titulo">Datos de la Mascota</h3>
+
+            <section class="formulario">
+
+                <div class="input">
+                    <p class="texto-simple pregunta">Describa el estado en el cual la encontró</p>
+                    <p><textarea name="mensaje"></textarea></p>
+                </div>
+
+                <div class="">
+                    <p class="texto-simple pregunta">Adjunte fotos de la mascota</p>
+                    <div class="fotos">
+                        <input type="file" class="texto-simple" id="foto"><br>
+                    </div>
+
+                    <br>
+
+                </div>
+
+                <div class="input">
+                    <p class="texto-simple pregunta">Seleccione la ubicación en donde la encontró</p>
+                </div>
+
+                <!-- MAPA -->
+
+                <div id="map"></div>
+
+                <form method="post">
+                    <div class="lat_long">
+                        <p class="texto-simple pregunta">Latitud</p>
+                        <input type="text" class="texto-simple input_lat_long" id="lat" readonly="yes"><br>
+                    </div>
+                    <div class="lat_long">
+                        <p class="texto-simple pregunta">Longitud</p>
+                        <input type="text" class="texto-simple input_lat_long" id="lng" readonly="yes">
+                    </div>
+
+                </form>
+
+                <button @click="" class="botonAzul boton">Finalizar</button>
+
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <main-footer></main-footer>
+
+    <script src="../static/Footer/Footer.js"></script>
+    <script src="../static/Menu/Menu.js"></script>
+    <script src="../static/Datos_Mascota_Perdida/map.js"></script>
+
+</body>
+</html>
