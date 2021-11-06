@@ -27,8 +27,8 @@ public class Foto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "path")
-	private String path;
+	@Column(name = "contenido_base_64")
+	private String contenidoBase64;
 
 	@ManyToOne()
 	@JoinColumn(name = "id_mascota_perdida")
@@ -44,7 +44,7 @@ public class Foto {
 	public void convertirFoto(Organizacion organizacion) {
 		Resolucion resolucion = organizacion.getResolucion();
 		String calidad = organizacion.getCalidad();
-		this.adaptarFoto(path, resolucion.getPixelesAlto(), resolucion.getPixelesAncho(), calidad);
+		this.adaptarFoto(contenidoBase64, resolucion.getPixelesAlto(), resolucion.getPixelesAncho(), calidad);
 	}
 
 	// La imagen se guarda en el mismo directorio donde está la imagen original, pero con la nueva extension
