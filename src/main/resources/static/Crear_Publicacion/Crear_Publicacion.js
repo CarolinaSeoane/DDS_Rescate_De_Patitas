@@ -24,6 +24,8 @@ var app1 = new Vue({
     	enviar() {
     		if(this.elFormEsValido()){
     			axios.post(apiUrlPublicacion, this.form).then((result) => {console.log(result);})
+    			/* Redireccion a la página Mensaje_Final.html
+    			window.location = '/Mensaje_Final.html' */
     		}
         },
         habilitar: function() {
