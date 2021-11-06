@@ -45,23 +45,24 @@ var app1 = new Vue({
             return re.test(email);
         },
         elFormEsValido: function() {
+        	this.errors = [];
         	let esValido = true
 
         	if(this.form.emailDelInteresado == null) {
-        		alert("El email es un campo obligatorio")
+        		this.errors.push("El correo electrónico es obligatorio.");
         		esValido = false
         	}else if(!this.validEmail(this.form.emailDelInteresado)) {
-        		alert("El email que escribiste no es válido. Revisa la dirección")
+        		this.errors.push("El email que escribiste no es válido. Revisa la dirección.");
         		esValido = false
         	}
 
         	if(this.form.preferencias.tipoMascota == null) {
-        		alert("El tipo de mascota es un campo obligatorio")
+        		this.errors.push("El tipo de mascota es un campo obligatorio.");
         		esValido = false
         	}
 
 			if(this.form.preferencias.sexo == null) {
-                alert("El sexo de la mascota es un campo obligatorio")
+				this.errors.push("El sexo de la mascota es un campo obligatorio.");
                 esValido = false
             }
 
@@ -69,11 +70,11 @@ var app1 = new Vue({
 			let cualquierEdad 	= document.getElementById("cualquier-Edad")
 
 			if(!entre.checked && !cualquierEdad.checked) {
-				alert("La edad es un campo obligatorio")
+				this.errors.push("La edad es un campo obligatorio.");
 				esValido = false
 			} else if(entre.checked) {
 				if(this.form.preferencias.edadMax <= this.form.preferencias.edadMin) {
-					alert("La edad máxima no puede ser menor ni igual que la edad mínima. Revise el rango de edad")
+					this.errors.push("La edad máxima no puede ser menor ni igual que la edad mínima. Revise el rango de edad.");
 					esValido = false
 				}
 			} else {

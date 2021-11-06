@@ -47,6 +47,17 @@
 
 		<section class="datos">
 
+				<div v-if="errors.length">
+					<div class="tarjeta-error">
+						<b class="texto-error">¡Atención! Tienes datos incorrectos:</b>
+						<ul>
+							<li v-for="error in errors">{{ error }}</li>
+						</ul>
+					</div>
+					<br>
+					<br>
+				</div>
+
 				<div class="input">
 					<p class="texto-simple pregunta">Tu Mail</p>
 					<div class="opcion-mail">
