@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/Menu/Menu.css">
+    <link rel="stylesheet" href="../static/Resources/Letras.css">
+    <link rel="stylesheet" href="../static/Admin_Pantalla_Principal/Admin_Pantalla_Principal.css">
+    <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <link rel="stylesheet" href="../static/Resources/normalize.css">
+    <link rel="stylesheet" href="../static/Resources/Boton.css">
+    <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
+</head>
+
+<body>
+
+    <main-menu-admin></main-menu-admin>
+
+    <section class="main">
+        <div class="contenedor-base" id="app">
+
+            <!-- PARAMETROS DE LA ORGANIZACION -->
+
+            <h3 class="sub-titulo">Parámetros Generales de la Organización</h3>
+
+            <div class="parametros">
+
+                <p class="texto-simple">Características</p>
+
+                <!-- No se si va una tabla aca. Capaz es mejor ponerlos sueltos y solo darles formato de tabla con flex -->
+                <div class="tabla">
+                    <div id="table-wrapper">
+                        <div id="table-scroll">
+                            <table class="texto-simple filas">
+                                <thead>
+                                    <tr>
+                                        <th><span></span></th>
+                                        <th><span></span></th>
+                                        <th><span></span></th>
+                                        <th><span></span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr> <td>0</td> <td>1</td> <td>2</td> <td>3</td> </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="texto-simple">Formato de Imágenes</p>
+
+                <!-- Hacer -->
+
+            </div>
+
+            <button class="botonGris editar" @click="">Editar</button>
+
+            <br>
+
+            <!-- CREACION DE USUARIOS -->
+
+            <h3 class="sub-titulo">Creación de Usuarios</h3>
+
+            <div class="botones">
+                <button @click="" class="botonAzul">+ Crear Voluntario</button>
+                <button @click="" class="botonAzul">+ Crear Administrador</button>
+            </div>
+
+
+        </div>
+    </section>
+
+    <main-footer></main-footer>
+
+    <script src="../static/Footer/Footer.js"></script>
+    <script src="../static/Menu/Menu.js"></script>
+
+</body>
+</html>
