@@ -82,7 +82,8 @@
 	color:red;
 }
 
-.notif-inline {
-    display: inline-block;
-    vertical-align: top;
+.tarjeta-error {
+	border-radius: 5%;
+	border: 7px solid #57565B;
+	padding: 3%;
 }
