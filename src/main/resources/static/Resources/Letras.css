@@ -21,3 +21,11 @@
   text-decoration-line: underline;
   color: #57565B;
 }
+
+.texto-error {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+  color: red;
+}
