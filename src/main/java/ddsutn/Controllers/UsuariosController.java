@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@CrossOrigin
 @RequestMapping(value = "/usuarios")
 public class UsuariosController {
 
@@ -36,7 +38,7 @@ public class UsuariosController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSvc.signupStandardUser(body).toRDTO());
     }
 
-    @PostMapping(value = "/signupVoluntario")
+    @PostMapping(value = "/registrar-voluntario")
     public ResponseEntity<UsuarioRDTO> signupVoluntario(
             @RequestBody Voluntario body
     ){

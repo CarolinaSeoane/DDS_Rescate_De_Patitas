@@ -1,4 +1,5 @@
-const apiUrl = "http://localhost:5000/usuarios/registrar-admin";
+const apiAdmin = "http://localhost:5000/usuarios/registrar-admin";
+const apiVoluntario = "http://localhost:5000/usuarios/registrar-voluntario";
 
 new Vue({
 	el:"#app",
@@ -10,28 +11,28 @@ new Vue({
 				{ message: "Mínimo de 8 caracteres", regex:/.{8,}/ },
 				{ message: "Requiere un número", regex:/[0-9]+/ }
 			],
-			usuario: '',
-			password: '',
+			form: {
+			    usuario: '',
+            	password: '',
+			},
 			checkPassword: '',
-			passwordVisible: false,
-			submitted: false
+			submitted: false,
+			rol: ''
 		}
 	},
 	computed: {
 		notSamePasswords () {
-			if (this.passwordsFilled) {
-				return (this.password !== this.checkPassword)
-			} else {
-				return false
-			}
+			return (this.form.password !== this.checkPassword)
 		},
+
 		passwordsFilled () {
-			return (this.password !== '' && this.checkPassword !== '')
+			return (this.form.password !== '' && this.checkPassword !== '')
 		},
+
 		passwordValidation () {
 			let errors = []
 			for (let condition of this.rules) {
-				if (!condition.regex.test(this.password)) {
+				if (!condition.regex.test(this.form.password)) {
 					errors.push(condition.message)
 				}
 			}
@@ -41,5 +42,22 @@ new Vue({
 				return { valid:false, errors }
 			}
 		}
+
+	},
+
+	methods: {
+	    enviar: function() {
+	        var api;
+	        if(this.rol == "ADMINISTRADOR") {
+	            api = apiAdmin;
+	        } else {
+	            api = apiVoluntario;
+	        }
+
+            if(!this.notSamePasswords && this.passwordsFilled && this.passwordValidation.valid) {
+                axios.post(api, this.form).then((result) => {console.log(result);})
+            }
+	    }
 	}
+
 })
