@@ -22,7 +22,7 @@ public class UsuariosController {
     UsuarioSvc usuarioSvc;
 
     //Creacion de usuarios
-    @PostMapping(value = "/signupAdmin")
+    @PostMapping(value = "/registrar-admin")
     public ResponseEntity<UsuarioRDTO> signupAdmin(
             @RequestBody Administrador body
     ){

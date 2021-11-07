@@ -113,3 +113,17 @@ INSERT INTO publicacion_mascota_encontrada (aceptada, id_mascota, id_organizacio
     (0, 1, NULL, 2),
     (1, 2, NULL, 4),
     (0, 3, NULL, 5);
+
+/* Por ahora dejo el contenido_base_64 en nulo porque es un string muy largo pero estas son todas las fotos que deberiamos tener.
+ Las primeras 7 son de las mascotas que tenemos cargadas y las otras 3 de las mascotas perdidas */
+INSERT INTO foto (contenido_base_64, id_mascota, id_mascota_perdida) VALUES
+    (NULL, 1, NULL),
+    (NULL, 2, NULL),
+    (NULL, 3, NULL),
+    (NULL, 4, NULL),
+    (NULL, 5, NULL),
+    (NULL, 6, NULL),
+    (NULL, 7, NULL),
+    (NULL, NULL, 1),
+    (NULL, NULL, 2),
+    (NULL, NULL, 3);

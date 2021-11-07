@@ -8,10 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/Menu/Menu.css">
     <link rel="stylesheet" href="../static/Resources/Letras.css">
+    <link rel="stylesheet" href="../static/Admin_Crear_Usuario/Admin_Crear_Usuario.css">
     <link rel="stylesheet" href="../static/Footer/Footer.css">
     <link rel="stylesheet" href="../static/Resources/normalize.css">
     <link rel="stylesheet" href="../static/Resources/Boton.css">
     <link rel="stylesheet" href="../static/Resources/Formulario.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
@@ -28,23 +31,38 @@
 
                 <div class="input">
                     <p class="texto-simple pregunta">Nombre de Usuario</p>
-                    <input type="text" class="input-completo texto-simple" required>
+                    <input type="text" class="input-completo texto-simple" v-model="usuario" required>
                 </div>
 
                 <div class="input">
                     <p class="texto-simple pregunta">Contraseña</p>
-                    <input type="password" class="input-completo" required>
+                    <input type="password" class="input-completo" v-model="password" required>
+
+                    <div v-if='passwordValidation.errors.length > 0 && !submitted && password!=""' class="hints">
+                        <p class="hint" v-for='error in passwordValidation.errors'>{{error}}</p>
+                    </div>
+
                 </div>
 
                 <div class="input">
                     <p class="texto-simple pregunta">Repetir Contraseña</p>
-                    <input type="password" class="input-completo" required>
+                    <input type="password" class="input-completo" v-model.lazy='checkPassword' required>
+                </div>
+
+                <div class="input">
+                    <p class="texto-simple pregunta titulo-inline">Rol del nuevo usuario</p>
+                    <div class="opciones-inline">
+                        <input type="radio" id="ADMINISTRADOR" name="ADMINISTRADOR" value="ADMINISTRADOR">
+                        <label class="texto-simple option" for="ADMINISTRADOR">Administrador</label><br>
+                        <input type="radio" id="VOLUNTARIO" name="VOLUNTARIO" value="VOLUNTARIO">
+                        <label class="texto-simple option" for="VOLUNTARIO">Voluntario</label><br>
+                    </div>
                 </div>
 
                 <br>
                 <br>
 
-                <button @click="enviar" class="botonAzul boton">+ Crear Usuario</button>
+                <button @click="" class="botonAzul boton">+ Crear Usuario</button>
 
             </section>
 
@@ -55,6 +73,7 @@
 
     <script src="../static/Footer/Footer.js"></script>
     <script src="../static/Menu/Menu.js"></script>
+    <script src="../static/Admin_Crear_Usuario/Admin_Crear_Usuario.js"></script>
 
 </body>
 </html>

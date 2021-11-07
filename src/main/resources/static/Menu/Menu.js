@@ -39,7 +39,7 @@ class MenuAdmin extends HTMLElement {
         		<div class="contenedor-base">
 
         			<nav class="menu">
-        				<a href=".">Mi Usuario</a>
+        				<a href="Admin_Pantalla_Principal.html">Página Principal</a>
         				<a href=".">Cerrar Sesión</a>
         			</nav>
 
