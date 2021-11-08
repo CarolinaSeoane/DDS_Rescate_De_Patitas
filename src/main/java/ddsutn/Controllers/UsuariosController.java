@@ -31,7 +31,7 @@ public class UsuariosController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSvc.signupAdmin(body).toRDTO());
     }
 
-    @PostMapping(value = "/signupStandard")
+    @PostMapping(value = "/registrar-estandar")
     public ResponseEntity<UsuarioRDTO> signupStandardUser(
             @RequestBody StandardUser body
     ){

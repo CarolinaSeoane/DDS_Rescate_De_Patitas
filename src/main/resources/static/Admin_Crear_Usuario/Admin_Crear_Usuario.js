@@ -55,7 +55,12 @@ new Vue({
 	        }
 
             if(!this.notSamePasswords && this.passwordsFilled && this.passwordValidation.valid) {
-                axios.post(api, this.form).then((result) => {console.log(result);})
+                axios.post(api, this.form)
+                .then((result) => {
+                                    console.log(result);
+                                    alert("El usuario se ha creado correctamente. Pulse Aceptar para volver a la pantalla principal");
+                                    /* no se como hacer que lleve a la pagina principal*/
+                                    })
             }
 	    }
 	}
