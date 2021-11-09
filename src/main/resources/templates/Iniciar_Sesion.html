@@ -12,6 +12,9 @@
 	<link rel="stylesheet" href="../static/Resources/normalize.css">
 	<link rel="stylesheet" href="../static/Footer/Footer.css">
 	<link rel="stylesheet" href="../static/Menu/Menu.css">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 	<link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
@@ -25,22 +28,22 @@
 
 					<h3 class="sub-titulo">Iniciar Sesión</h3>
 
-					<form action="" class="formulario" method="">
+					<section class="formulario" id="app">
 
 						<div class="input">
 							<p class="texto-simple pregunta">Nombre de usuario</p>
-							<input type="text" class="input-completo texto-simple" name="nombre_usuario" required>
+							<input type="text" class="input-completo texto-simple" v-model="usuario" required>
 						</div>
 
 						<div class="input">
 							<p class="texto-simple pregunta">Contraseña</p>
-							<input type="password" class="input-completo texto-simple" name="password" required>
+							<input type="password" class="input-completo texto-simple" v-model="password" required>
 							<p class="texto-sub">Mostrar contraseña</p>
 						</div>
 
-						<input class="botonAzul boton" type="submit" value="Iniciar Sesión">
+						<button @click="login" class="botonAzul boton">Iniciar Sesion</button>
 
-					</form>
+					</section>
 
 					<p class="texto-sub">¿Olvidaste tu contraseña?</p>
 
@@ -52,6 +55,7 @@
 
 	<script src="../static/Footer/Footer.js"></script>
 	<script src="../static/Menu/Menu.js"></script>
+	<script src="../static/Iniciar_Sesion/Iniciar_Sesion.js"></script>
 
 </body>
 </html>

@@ -1,21 +1,22 @@
 package ddsutn.Controllers;
 
+import ddsutn.Seguridad.Sesion.LoginResponse;
+import ddsutn.Seguridad.Sesion.SesionManager;
 import ddsutn.Seguridad.Usuario.Administrador;
 import ddsutn.Seguridad.Usuario.DTOs.UsuarioRDTO;
 import ddsutn.Seguridad.Usuario.DTOs.UsuarioSigninDTO;
 import ddsutn.Seguridad.Usuario.StandardUser;
+import ddsutn.Seguridad.Usuario.Usuario;
 import ddsutn.Seguridad.Usuario.Voluntario;
 import ddsutn.Servicios.UsuarioSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import javax.persistence.DiscriminatorValue;
+import javax.servlet.http.HttpServletResponse;
 
-@Controller
+@RestController
 @CrossOrigin
 @RequestMapping(value = "/usuarios")
 public class UsuariosController {
@@ -46,11 +47,18 @@ public class UsuariosController {
     }
 
     //Sign in
-    @PostMapping(value = "/signin")
-    public ResponseEntity<UsuarioRDTO> attemptSignin(
-            @RequestBody UsuarioSigninDTO body
-    ){
-        return ResponseEntity.ok(usuarioSvc.signinUsuario(body).toRDTO());
+
+    @PostMapping(value = "/iniciar-sesion")
+    public LoginResponse login(@RequestBody UsuarioSigninDTO usuarioSigninDTO, HttpServletResponse response) {
+
+        Usuario usr = usuarioSvc.signinUsuario(usuarioSigninDTO);
+
+        SesionManager sesionManager = SesionManager.get();
+        String rol = usr.getClass().getAnnotation(DiscriminatorValue.class).value();
+        System.out.println(rol);
+        String idSesion = sesionManager.crear(rol, usr);
+
+        return new LoginResponse(idSesion);
     }
 
 }

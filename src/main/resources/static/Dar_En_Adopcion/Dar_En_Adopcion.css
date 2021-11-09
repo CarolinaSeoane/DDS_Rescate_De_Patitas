@@ -19,11 +19,13 @@
 /* HEADER */
 
 header {
-  background: url("img/header1.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 550px;
-  background-color: #070707;
+    background: url("img/header.png");
+
+    height: 550px;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+
 }
 
 header .menu {

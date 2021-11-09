@@ -61,7 +61,7 @@ public class UsuarioSvc {
             if (!encoder.matches(body.getPassword(), usuario.getPassword())) {
                 throw new RuntimeException();
             }
-        }else throw new RuntimeException();
+        } else throw new RuntimeException();
 
         return usuario;
     }
@@ -69,4 +69,5 @@ public class UsuarioSvc {
     public Usuario findByUsuario(String usuario){
         return usuarioRepo.findByUsuario(usuario).orElse(null);
     }
+
 }
