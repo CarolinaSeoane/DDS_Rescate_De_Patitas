@@ -81,19 +81,19 @@ INSERT INTO mascota (apodo, descripcion, edad, id_qr, nombre, sexo, tipo, id_per
     ('Wilson', 'Perro joven. Amistoso con otros perros pero no se lleva bien con los gatos.', 4, 'i7f8h8u5f', 'Wilson', 'MACHO', 'PERRO', 1, 1);
 
 INSERT INTO usuario (tipo_usuario, password, usuario, id_organizacion, id_persona_duenia) VALUES
-    ('StandardUser', 'Carlos077**', 'mauroDiaz', NULL, 1),
-    ('StandardUser', 'MiPassword123_', 'sol_Sola', NULL, 3),
-    ('StandardUser', '*ChiChiLo456', 'elsaMarian', NULL, 6),
-    ('Administrador', 'Messi+1000', 'martinMatos', 1, NULL),
-    ('Administrador', 'fjdsafjds486**A', 'MilagrosRoldan', 2, NULL),
-    ('Administrador', '4524Aa**', 'JuanaTidan', 3, NULL),
-    ('Administrador', 'avengers123ABC#', 'SofiVal', 4, NULL),
-    ('Administrador', 'jamiroQ07*', 'Angel', 1, NULL),
-    ('Voluntario', 'ABc123***', 'Richard', 1, NULL),
-    ('Voluntario', '123456+-abdD', 'Eva', 2, NULL),
-    ('Voluntario', 'Brit900$', 'Juana', 3, NULL),
-    ('Voluntario', 'vdfaa321FSD8_', 'JuanMamani', 4, NULL),
-    ('Voluntario', 'fdsf5623DdD?', 'RamiroGonzalez', 1, NULL);
+    ('StandardUser', '$2a$10$DAS3KCt0oQr4wkPJM0NbMOE1Jd4QKvoHKEBpsT.lPI8mVlPouDy.i', 'mauroDiaz', NULL, 1),         /* Contraseña: Carlos077**          */
+    ('StandardUser', '$2a$10$GCxJz1YIzcUAqXc.p2C65uaoIrSy4Lms1FDsChUbCkgCoI4OV2qmG', 'sol_Sola', NULL, 3),          /* Contraseña: MiPassword123_       */
+    ('StandardUser', '$2a$10$WAXgQ5ciRvv8D4JUq0CKVupHS60knxC/QRnPCSrwrBSbWvjHz5Lua', 'elsaMarian', NULL, 6),        /* Contraseña: *ChiChiLo456         */
+    ('Administrador', '$2a$10$9LDFW94Ijag9Kg2pKRqpy.kMLh.uGRcH8i1LPclZatGyeohz6oB76', 'martinMatos', 1, NULL),      /* Contraseña: Messi+1000           */
+    ('Administrador', '$2a$10$O/ESTdP9Hb1rpVach22WQOXJiyqNOyO9OUj2bVGMj/LT/x467IoUe', 'MilagrosRoldan', 2, NULL),   /* Contraseña: fjdsafjds486**A      */
+    ('Administrador', '$2a$10$/0l1OTrviI21doHpsDXW6OtjYyoX0FmM7QwLMyoTvHHqqoLYnY/Tq', 'JuanaTidan', 3, NULL),       /* Contraseña: 4524Aa**             */
+    ('Administrador', '$2a$10$GUi4zszBLq09UTeo6C9O1O8IE0E48lSb7JQvdJwHWB.kNNWY2cccu', 'SofiVal', 4, NULL),          /* Contraseña: avengers123ABC#      */
+    ('Administrador', '$2a$10$TfVg1z94h8.UZOGxO7gEXe4syAQ.xgAsNGpmcBLDAn2qsmVcNJAIe', 'Angel', 1, NULL),            /* Contraseña: jamiroQ07*           */
+    ('Voluntario', '$2a$10$k0F0Q.xrugC4E.X9wtFK/OKCzK24Fa7GT4QRj3kFmchiW8hkaSiJa', 'Richard', 1, NULL),             /* Contraseña: ABc123***            */
+    ('Voluntario', '$2a$10$bkUkxaYd0fn1hD7AzQucx.PUmWuMcoA2CeE7FQgfjRYDg5DBuNzfa', 'Eva', 2, NULL),                 /* Contraseña: 123456+-abdD         */
+    ('Voluntario', '$2a$10$pYu3e25YWokn18MR3RRYIe05pOrcl9ergY8m/PP2Mel9CusRGhOmC', 'Juana', 3, NULL),               /* Contraseña: Brit900$             */
+    ('Voluntario', '$2a$10$fUjWfYP3aMBDN.sEB.zu0e2B9sxMugfYuc7jXGfDfaIrRNV6c1Gbi', 'JuanMamani', 4, NULL),          /* Contraseña: vdfaa321FSD8_        */
+    ('Voluntario', '$2a$10$S16Ssd1d3rEu/1IYZr2c4.v68NyPkvV2t01tepultzbHvR9jSH7vK', 'RamiroGonzalez', 1, NULL);      /* Contraseña: fdsf5623DdD?         */
 
 /* La organizacion puede obtenerse de la mascota */
 INSERT INTO publicacion_dar_en_adopcion (id_mascota, id_organizacion) VALUES

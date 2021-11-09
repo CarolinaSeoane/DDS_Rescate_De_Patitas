@@ -55,7 +55,8 @@ public class UsuariosController {
 
         SesionManager sesionManager = SesionManager.get();
         String rol = usr.getClass().getAnnotation(DiscriminatorValue.class).value();
-        System.out.println(rol);
+//        System.out.println(rol);
+
         String idSesion = sesionManager.crear(rol, usr);
 
         return new LoginResponse(idSesion);
