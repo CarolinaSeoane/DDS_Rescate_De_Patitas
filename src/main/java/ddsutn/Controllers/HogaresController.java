@@ -4,14 +4,12 @@ import ddsutn.Business.Hogares.APIHogares.HogaresAPI;
 import ddsutn.Business.Hogares.APIHogares.dto.PaginaHogaresResponse;
 import ddsutn.Business.Hogares.Hogar;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(value = "/api/hogares")
 @CrossOrigin
 public class HogaresController {

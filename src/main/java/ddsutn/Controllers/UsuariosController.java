@@ -9,12 +9,14 @@ import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Seguridad.Usuario.Usuario;
 import ddsutn.Seguridad.Usuario.Voluntario;
 import ddsutn.Servicios.UsuarioSvc;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.persistence.DiscriminatorValue;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -57,9 +59,9 @@ public class UsuariosController {
         String rol = usr.getClass().getAnnotation(DiscriminatorValue.class).value();
 //        System.out.println(rol);
 
-        String idSesion = sesionManager.crear(rol, usr);
+        String idSesion = sesionManager.crear(usr);
 
-        return new LoginResponse(idSesion);
+        return new LoginResponse(idSesion, rol);
     }
 
 }

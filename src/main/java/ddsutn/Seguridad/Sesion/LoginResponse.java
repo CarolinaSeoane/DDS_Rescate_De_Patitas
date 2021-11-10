@@ -10,5 +10,6 @@ import lombok.Setter;
 public class LoginResponse {
 
     private String idSesion;
+    private String rol;
 
 }

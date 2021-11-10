@@ -59,7 +59,7 @@ new Vue({
                 .then((result) => {
                                     console.log(result);
                                     alert("El usuario se ha creado correctamente. Pulse Aceptar para volver a la pantalla principal");
-                                    /* no se como hacer que lleve a la pagina principal*/
+                                    window.location.href = 'Admin_Pantalla_Principal.html';
                                     })
             }
 	    }
