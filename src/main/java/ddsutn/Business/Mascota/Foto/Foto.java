@@ -25,7 +25,7 @@ public class Foto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "contenido_base_64")
+	@Column(name = "contenido_base_64", columnDefinition = "LONGTEXT")
 	private String contenidoBase64;
 
 	@ManyToOne()

@@ -15,26 +15,6 @@ new Vue({
         fetch(apiUrl)
             .then(response =>{return response.json()})
             .then(publicaciones =>{
-                publicaciones.forEach(p =>{
-                    var fotogato ={
-                        "id":"1",
-                        "path":"https://previews.123rf.com/images/yommy8008/yommy80081610/yommy8008161000081/67376534-square-photo-with-head-detail-of-few-weeks-old-tabby-cat-kitten-has-blue-eyes-and-dark-nose-baby-ani.jpg"
-                    }
-                    var fotoperro ={
-                        "id":"1",
-                        "path":"https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
-                    }
-                    if(p.mascota.tipo=="PERRO"){
-                        p.mascota.fotos.push(fotoperro);
-                    }else{
-                        p.mascota.fotos.push(fotogato);
-                    }
-
-
-                    p.mascota.fotos.sort((f1,f2) =>{
-                        return f1.id -f2.id;
-                    });
-                });
                 this.allPublicaciones = publicaciones;
                 this.recientes = publicaciones.slice().sort((p1,p2) => {
                     return -(p1.id-p2.id);

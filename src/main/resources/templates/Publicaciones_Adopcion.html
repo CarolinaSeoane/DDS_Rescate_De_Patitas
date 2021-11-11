@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset="UTF-8"/>
@@ -40,9 +40,9 @@
 			  <div class="fotos">
 				  <a   v-for="publicacion in recientes" :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" >
 					  <div class="square-box">
-						  <img class="square-content" :src="publicacion.mascota.fotos[0].path" :alt="publicacion.mascota.apodo"/>
+						  <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo"/>
 					  </div>
-					  <p class="nombre-mascota">{{publicacion.mascota.apodo}} </p>
+					  <p class="nombre-mascota">{{publicacion.mascota.apodo}}</p>
 				  </a>
 			  </div>
 		  </div>
@@ -103,7 +103,7 @@
 			  <div th:action="@{/cargar-mas}" method="get" class="fotos" >
 				  <a :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
 					<div class="square-box">
-						<img class="square-content" :src="publicacion.mascota.fotos[0].path" :alt="publicacion.mascota.apodo"/>
+						<img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo"/>
 					</div>
 
 					  <p class="nombre-mascota">{{publicacion.mascota.apodo}}</p>
