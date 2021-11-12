@@ -60,8 +60,8 @@
                     <h3 class="sub-titulo">Usuario</h3>
                     <p class="texto-simple">Para registrar a una mascota no es necesario poseer un usuario</p>
 
-                    <div class="formulario">
-                        <form action="">
+                    <div class="formulario" id="app">
+
                             <div class="options">
                                 <input type="radio" id="USER" name="formaDeRegistrar" value="conUsuario">
                                 <label for="USER" class="option">Registrar con usuario</label><br>
@@ -69,9 +69,8 @@
                                 <label for="NO_USER" class="option">Registrar sin usuario</label><br>
                             </div>
 
-                            <input class="botonAzul boton" type="submit" value="Continuar">
+                            <button @click="redirect" class="botonAzul boton">Continua</button>
 
-                        </form>
                     </div>
                 </div>
             </div>
@@ -82,6 +81,7 @@
 
     <script src="../static/Footer/Footer.js"></script>
     <script src="../static/Menu/Menu.js"></script>
+    <script src="../static/Registrar_Mascota/Registrar_Mascota.js"></script>
 
 </body>
 </html>

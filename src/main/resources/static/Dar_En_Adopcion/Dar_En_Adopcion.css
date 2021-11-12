@@ -20,10 +20,9 @@
 
 header {
     background: url("img/header.png");
-
     height: 550px;
-    background-size:     cover;
-    background-repeat:   no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center center;
 
 }
