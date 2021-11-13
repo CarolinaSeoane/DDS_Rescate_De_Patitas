@@ -17,3 +17,18 @@ header {
     margin-top: 50px;
     margin-bottom: 100px;
 }
+
+.contenedor-texto-header {
+  margin-top: 70px;
+  max-width: 40%;
+  float: right;
+}
+
+.titulo-principal {
+  color: white;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 55px;
+  margin: 0;
+  text-align: right;
+}

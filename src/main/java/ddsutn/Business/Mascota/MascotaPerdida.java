@@ -45,6 +45,9 @@ public abstract class MascotaPerdida {
 	@JsonManagedReference(value = "rescatistaPerdida")
 	private Rescatista rescatista;
 
+	@Enumerated(EnumType.STRING)
+	private TipoMascota tipo;
+
 	public MascotaPerdida(Set<Foto> foto, String estado, Ubicacion ubicacion) {
 		this.fotos = foto;
 		this.estado = estado;

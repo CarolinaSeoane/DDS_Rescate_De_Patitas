@@ -16,11 +16,14 @@ new Vue({
         fetch(apiUrl)
             .then(response =>{return response.json()})
             .then(publicaciones =>{
-                this.allPublicaciones = publicaciones;
-                this.recientes = publicaciones.slice().sort((p1,p2) => {
+                var aceptadas = publicaciones.filter(p => {
+                                                            return p.aceptada == '1';
+                                                            });
+                this.allPublicaciones = aceptadas;
+                this.recientes = aceptadas.slice().sort((p1,p2) => {
                     return -(p1.id-p2.id);
                 }).slice(0,4);
-                this.publicacionesMacotas = publicaciones.slice(0,cantidad);
+                this.publicacionesMacotas = aceptadas.slice(0,cantidad);
             })
     },
 
@@ -34,25 +37,24 @@ new Vue({
                 this.publicacionesMacotas =  this.allPublicaciones.slice(0,cantidad);
             }
         },
-        agregar: function(){
+        agregar: function() {
             cantidad +=4;
             this.filtrar();
         },
-        orderByName: function(){
+        orderByName: function() {
             this.allPublicaciones.sort((p1,p2) =>{
                 if (p1.mascota.nombre>p2.mascota.nombre) return 1
                 return -1;
             });
-
             this.filtrar();
-
         },
-        reset: function(){
+        reset: function() {
             document.getElementById("GATO").checked = false;
             document.getElementById("PERRO").checked = false;
             this.check = this.check.slice(0,0);
+            this.filtrar();
         },
-        pedirInicio: function(){
+        pedirInicio: function() {
             alert("Por favor inicie sesion");
         },
         cancelar: function() {

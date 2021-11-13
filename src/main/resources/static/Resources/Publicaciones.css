@@ -41,22 +41,6 @@ header .contenedor-base {
  border-bottom: 2px solid white;
 }
 
-.contenedor-texto-header {
-  justify-content: right;
-  margin-top: 118px;
-  max-width: 30%;
-  float: right;
-}
-
-.titulo-principal {
-  color: #331A00;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 55px;
-  margin: 0;
-  text-align: right;
-}
-
 
 /* ACERCA DE */
 
