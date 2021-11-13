@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../static/Footer/Footer.css">
     <link rel="stylesheet" href="../static/Resources/Filtro.css">
     <link rel="stylesheet" href="../static/Resources/Boton.css">
+    <link rel="stylesheet" href="../static/Resources/Publicaciones.css">
     <link rel="stylesheet" href="../static/Mascotas_Perdidas/Mascotas_Perdidas.css">
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
@@ -88,7 +89,7 @@
                                 <div class="seccion-filtro">
 
                                     <div class="titulo-check">
-                                        <label >Admisiones</label>
+                                        <label>Admisiones</label>
                                     </div>
 
                                     <div class="opciones-check">
@@ -136,7 +137,7 @@
 
             <section class="publicaciones">
                 <div class="contenedor-grande">
-                    <div th:action="@{/cargar-mas}" method="get" class="fotos" >
+                    <div th:action="@{/cargar-mas}" method="get" class="fotos">
                         <a :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
                             <div class="square-box">
                                 <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo">
@@ -149,8 +150,6 @@
 
                 </div>
             </section>
-
-
         </section>
     </section>
 

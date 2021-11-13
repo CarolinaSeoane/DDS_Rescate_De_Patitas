@@ -11,8 +11,9 @@
   	<link rel="stylesheet" href="../static/Resources/Boton.css">
 	<link rel="stylesheet" href="../static/Resources/normalize.css">
 	<link rel="stylesheet" href="../static/Footer/Footer.css">
+	<link rel="stylesheet" href="../static/Resources/Filtro.css">
+	<link rel="stylesheet" href="../static/Resources/Publicaciones.css">
 	<link rel="stylesheet" href="../static/Publicaciones_Adopcion/Publicaciones_Adopcion.css">
-	<link rel="j" href="/css/master.css">
 	<link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
@@ -31,90 +32,110 @@
 
 
   <section class="main" id="publicacionesAdopcion">
-	  <section class="publicaciones recientes" >
-		  <div class="contenedor">
-			  <div class="texto">
-				  <p>Recientes</p>
-			  </div>
+
+	  <!-- ACERCA - DE -->
+
+	  <section class="acerca-de">
+		  <div class="contenedor-base">
+
+			  <h3 class="sub-titulo">¿Buscas una Mascota para Adoptar?</h3>
+
+		  </div>
+	  </section>
+
+	  <!-- PUBLICACIONES RECIENTES -->
+
+	  <section class="recientes">
+		  <div class="contenedor-base">
+
+			  <p class="sub-titulo">Publicaciones Recientes</p>
 
 			  <div class="fotos">
 				  <a   v-for="publicacion in recientes" :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" >
 					  <div class="square-box">
-						  <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo"/>
+						  <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo">
 					  </div>
-					  <p class="nombre-mascota">{{publicacion.mascota.apodo}}</p>
 				  </a>
 			  </div>
 		  </div>
 	  </section>
+
+	  <!-- TODAS LAS PUBLICACIONES -->
 
 	  <section class="publicaciones">
-		  <div class="contenedor">
-			  <div class="texto">
-				  <p>Todas las publicaciones</p>
-			  </div>
 
-			  <a  style="text-decoration: none;">
-				  <button class="boton" v-on:click="orderByname">
-					  <p>Ordenar</p>
-					  <img src="../static/Publicaciones_Adopcion/img/ordenar.png"  th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
-				  </button>
-			  </a>
-			  <div class="dropdown">
-				  <button class="dropbtn">
-					  <p>Filtrar</p>
-					  <img src="../static/Publicaciones_Adopcion/img/filtro.png" th:src="@{/Publicaciones_Adopcion/img/filtro.png}" alt="Ordenar">
-				  </button>
+		  <!-- FILTROS -->
 
-				  <div class="dropdown-content">
+		  <section class="filtro">
+			  <div class="contenedor-base">
+				  <div class="contenedor-opciones">
 
-					  <div class="seccion-filtro">
-						  <div class="titulo-check">
-							  <label >Especie</label>
+					  <p class="sub-titulo">Todas las Publicaciones</p>
+
+					  <a class="dropdownOrdenar">
+						  <button class="dropbtn" @click="orderByname">
+							  <p class="texto-boton">Ordenar</p>
+							  <img src="../static/Publicaciones_Adopcion/img/ordenar.png" alt="Ordenar">
+						  </button>
+					  </a>
+					  <div class="dropdown">
+						  <button class="dropbtn">
+							  <p class="texto-boton">Filtrar</p>
+							  <img src="../static/Publicaciones_Adopcion/img/filtro.png" alt="Ordenar">
+						  </button>
+
+						  <div class="dropdown-content">
+
+							  <div class="seccion-filtro">
+								  <div class="titulo-check">
+									  <label>Especie</label>
+								  </div>
+
+								  <div class="opciones-check">
+									  <input type="checkbox" id="GATO" name="gato" value="GATO"  v-model="check">
+									  <label class="texto-simple">Gato</label>
+
+									  <input type="checkbox" id="PERRO" name="perro" value="PERRO"  v-model="check">
+									  <label class="texto-simple">Perro</label>
+								  </div>
+							  </div>
+
+							  <div class="reset-filtros">
+								  <div class="texto-borrar">
+									  <button class="boton-filtro" value="Borrar Filtros"  @click="reset();filtrar();" style="color: #B93122;">Borrar Filtros</button>
+								  </div>
+								  <div class="texto-fin">
+									  <button class="boton-filtro"  value="Cancelar" style="color:#57565B"  @click="reset">Cancelar</button>
+								  </div>
+								  <div class="texto-fin">
+									  <button  class="boton-filtro" style="color:#1DA1F2"  @click="filtrar">Aceptar</button>
+								  </div>
+							  </div>
 						  </div>
-
-						  <div class="opciones-check">
-
-							  <input type="checkbox" id="GATO" name="gato" value="GATO"  v-model="check">
-							  <label class="texto-simple">Gato</label>
-
-
-							  <input type="checkbox" id="PERRO" name="perro" value="PERRO"  v-model="check">
-							  <label class="texto-simple">Perro</label>
-						  </div>
-
 					  </div>
-
-					  <div class="reset-filtros">
-						  <div class="texto-borrar">
-							  <button class="boton-filtro" value="Borrar Filtros"  v-on:click="reset();filtrar();" style="color: #B93122;">Borrar Filtros</button>
-						  </div>
-						  <div class="texto-fin">
-							  <button class="boton-filtro"  value="Cancelar" style="color:#57565B"  v-on:click="reset">Cancelar</button>
-						  </div>
-						  <div class="texto-fin">
-							  <button  class="boton-filtro" style="color:#1DA1F2"  v-on:click="filtrar">Aceptar</button>
-						  </div>
-					  </div>
-
 				  </div>
 			  </div>
+		  </section>
 
-			  <div th:action="@{/cargar-mas}" method="get" class="fotos" >
-				  <a :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
-					<div class="square-box">
-						<img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo"/>
-					</div>
+		  <!-- PUBLICACIONES -->
 
-					  <p class="nombre-mascota">{{publicacion.mascota.apodo}}</p>
-				  </a>
-				  <div class= "contenedor-mas">
-					  <button v-on:click="agregar($event)" class="boton-mas">Cargar mas</button>
+		  <section class="publicaciones">
+			  <div class="contenedor-grande">
+				  <div th:action="@{/cargar-mas}" method="get" class="fotos">
+					  <a :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
+						  <div class="square-box">
+							  <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo"/>
+						  </div>
+
+						  <p class="texto-simple">{{publicacion.mascota.apodo}}</p>
+					  </a>
 				  </div>
+				  <p @click="agregar" class="boton-mas">Cargar mas</p>
 			  </div>
-
+		  </section>
 		  </div>
 	  </section>
+
 	  <section class="crear">
 		  <h3 class="sub-titulo">¿No encontraste tu mascota ideal? ¡No hay problema!</h3>
 		  <a href="Crear_Publicacion.html">
