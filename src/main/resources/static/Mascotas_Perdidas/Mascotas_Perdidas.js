@@ -11,6 +11,7 @@ new Vue({
             check: []
         }
     },
+
     created() {
         fetch(apiUrl)
             .then(response =>{return response.json()})
@@ -21,10 +22,11 @@ new Vue({
                 }).slice(0,4);
                 this.publicacionesMacotas = publicaciones.slice(0,cantidad);
             })
-    }/*,
-    methods:{
-        filtrar: function(){
-            if(this.check.length>0){
+    },
+
+    methods: {
+        filtrar: function() {
+            if(this.check.length > 0) {
                 this.publicacionesMacotas =  this.allPublicaciones.slice().filter(p =>{
                     return  this.check.includes(p.mascota.tipo);
                 }).slice(0,cantidad);
@@ -36,7 +38,7 @@ new Vue({
             cantidad +=4;
             this.filtrar();
         },
-        orderByname: function(){
+        orderByName: function(){
             this.allPublicaciones.sort((p1,p2) =>{
                 if (p1.mascota.nombre>p2.mascota.nombre) return 1
                 return -1;
@@ -52,6 +54,10 @@ new Vue({
         },
         pedirInicio: function(){
             alert("Por favor inicie sesion");
+        },
+        cancelar: function() {
+            document.getElementById("gatos").checked = false;
+            document.getElementById("perros").checked = false;
         }
-    }*/
+    }
 });

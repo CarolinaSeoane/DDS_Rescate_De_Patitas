@@ -8,9 +8,10 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/Resources/Letras.css">
-    <link rel="stylesheet" href="../static/Resources/Boton.css">
     <link rel="stylesheet" href="../static/Resources/normalize.css">
     <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <link rel="stylesheet" href="../static/Resources/Filtro.css">
+    <link rel="stylesheet" href="../static/Resources/Boton.css">
     <link rel="stylesheet" href="../static/Mascotas_Perdidas/Mascotas_Perdidas.css">
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
@@ -58,75 +59,99 @@
                 </div>
             </div>
         </section>
-<!--
-        <section class="publicaciones">
-            <div class="contenedor">
-                <div class="texto">
-                    <p>Todas las publicaciones</p>
-                </div>
 
-                <a>
-                    <button class="boton" v-on:click="orderByname">
-                        <p>Ordenar</p>
-                        <img src="../static/Publicaciones_Adopcion/img/ordenar.png"  th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
-                    </button>
-                </a>
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        <p>Filtrar</p>
-                        <img src="../static/Publicaciones_Adopcion/img/filtro.png" th:src="@{/Publicaciones_Adopcion/img/filtro.png}" alt="Ordenar">
-                    </button>
+        <!-- TODAS LAS PUBLICACIONES -->
 
-                    <div class="dropdown-content">
+        <section class="todas-publicaciones">
 
-                        <div class="seccion-filtro">
-                            <div class="titulo-check">
-                                <label >Especie</label>
-                            </div>
+            <!-- FILTROS -->
 
-                            <div class="opciones-check">
+            <section class="filtro">
+                <div class="contenedor-base">
+                    <div class="contenedor-opciones">
 
-                                <input type="checkbox" id="GATO" name="gato" value="GATO"  v-model="check">
-                                <label class="texto-simple">Gato</label>
+                        <p class="sub-titulo">Todas las Publicaciones</p>
 
-
-                                <input type="checkbox" id="PERRO" name="perro" value="PERRO"  v-model="check">
-                                <label class="texto-simple">Perro</label>
-                            </div>
-
+                        <div class="dropdownOrdenar">
+                            <button class="dropbtn" @click="orderByName">
+                                <p class="texto-boton">Ordenar</p>
+                                <img src="../static/Buscar_Hogar/img/ordenar.png" alt="Ordenar">
+                            </button>
                         </div>
 
-                        <div class="reset-filtros">
-                            <div class="texto-borrar">
-                                <button class="boton-filtro" value="Borrar Filtros"  v-on:click="reset();filtrar();" style="color: #B93122;">Borrar Filtros</button>
-                            </div>
-                            <div class="texto-fin">
-                                <button class="boton-filtro"  value="Cancelar" style="color:#57565B"  v-on:click="reset">Cancelar</button>
-                            </div>
-                            <div class="texto-fin">
-                                <button  class="boton-filtro" style="color:#1DA1F2"  v-on:click="filtrar">Aceptar</button>
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <p class="texto-boton">Filtrar</p>
+                                <img src="../static/Buscar_Hogar/img/filtro.png" alt="Filtrar">
+                            </button>
+                            <div class="dropdown-content">
+                                <div class="seccion-filtro">
+
+                                    <div class="titulo-check">
+                                        <label >Admisiones</label>
+                                    </div>
+
+                                    <div class="opciones-check">
+                                        <input type="checkbox" id="gatos" value="gatos" name="tipoMascota" v-model="check">
+                                        <label class="texto-simple">Gatos</label>
+
+                                        <input type="checkbox" id="perros" value="perros" name="tipoMascota" v-model="check">
+                                        <label class="texto-simple">Perros</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="seccion-filtro">
+                                    <div class="titulo-check">
+                                        <label class="titulo-check">Características</label>
+                                    </div>
+
+                                    <div class="opciones-check">
+                                        <input type="checkbox" id="PATIO" name="poseePatio">
+                                        <label  class="texto-simple">Poseen Patio</label>
+
+                                        <input type="checkbox" id="LUGARES_DISPONIBLES" name="hayLugares">
+                                        <label  class="texto-simple">Tienen Lugares Disponibles</label>
+                                    </div>
+                                </div>
+
+                                <div class="reset-filtros">
+                                    <div class="texto-borrar">
+                                        <input class="boton-filtro" type="submit" @click="reset" value="Borrar Filtros" style="color: #B93122;">
+                                    </div>
+                                    <div class="texto-fin">
+                                        <input class="boton-filtro" type="submit" @click="cancelar" value="Cancelar" style="color:#57565B">
+                                    </div>
+                                    <div class="texto-fin">
+                                        <input class="boton-filtro" type="submit" value="Aceptar" @click="filtrar" style="color:#1DA1F2">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
+            </section>
 
-                <div th:action="@{/cargar-mas}" method="get" class="fotos" >
-                    <a :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
-                        <div class="square-box">
-                            <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo"/>
-                        </div>
+            <!-- PUBLICACIONES -->
 
-                        <p class="nombre-mascota">{{publicacion.mascota.apodo}}</p>
-                    </a>
-                    <div class= "contenedor-mas">
-                        <button v-on:click="agregar($event)" class="boton-mas">Cargar mas</button>
+            <section class="publicaciones">
+                <div class="contenedor-grande">
+                    <div th:action="@{/cargar-mas}" method="get" class="fotos" >
+                        <a :href="'/adoptar/publicaciones/' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
+                            <div class="square-box">
+                                <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo">
+                            </div>
+
+                            <p class="texto-simple">{{publicacion.mascota.ubicacion.direccion}}</p>
+                        </a>
                     </div>
-                </div>
+                    <p @click="agregar" class="boton-mas">Cargar mas</p>
 
-            </div>
+                </div>
+            </section>
+
+
         </section>
--->
     </section>
 
 <main-footer></main-footer>
