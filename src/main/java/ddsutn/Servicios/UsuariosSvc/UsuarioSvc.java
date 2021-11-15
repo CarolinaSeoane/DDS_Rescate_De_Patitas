@@ -1,10 +1,8 @@
-package ddsutn.Servicios;
+package ddsutn.Servicios.UsuariosSvc;
 
 import ddsutn.Repositorio.UsuarioRepo;
 import ddsutn.Seguridad.Usuario.DTOs.UsuarioSigninDTO;
-import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Seguridad.Usuario.Usuario;
-import ddsutn.Seguridad.Usuario.Voluntario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,24 +20,6 @@ public class UsuarioSvc {
     //Guardar usuario en bd
     protected Usuario save(Usuario usuario){
         return usuarioRepo.save(usuario);
-    }
-
-    public Usuario signupStandardUser(StandardUser body){
-        body.setPassword(encoder.encode(body.getPassword()));
-
-        if(findByUsuario(body.getUsuario()) != null)
-            throw new RuntimeException();
-
-        return save(new StandardUser(body));
-    }
-
-    public Usuario signupVoluntario(Voluntario body){
-        body.setPassword(encoder.encode(body.getPassword()));
-
-        if(findByUsuario(body.getUsuario()) != null)
-            throw new RuntimeException();
-
-        return save(new Voluntario(body));
     }
 
     //Singin

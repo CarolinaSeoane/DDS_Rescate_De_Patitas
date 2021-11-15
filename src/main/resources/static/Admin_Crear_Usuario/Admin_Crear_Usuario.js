@@ -2,7 +2,6 @@ const apiRegistrarAdmin = "http://localhost:5000/usuarios/registrar-admin";
 const apiVoluntario = "http://localhost:5000/usuarios/registrar-voluntario";
 const apiDatosAdmin = "http://localhost:5000/usuarios/datos-administrador";
 
-
 new Vue({
 	el:"#app",
 	data () {

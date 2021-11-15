@@ -1,4 +1,4 @@
-package ddsutn.Servicios;
+package ddsutn.Servicios.UsuariosSvc;
 
 import ddsutn.Repositorio.UsuarioRepo;
 import ddsutn.Seguridad.Usuario.Administrador;
@@ -13,7 +13,7 @@ public class AdministradorSvc {
     private UsuarioRepo usuarioRepo;
 
     @Autowired
-    PasswordEncoder encoder;
+    private PasswordEncoder encoder;
 
     public Administrador save(Administrador administrador) {
         return usuarioRepo.save(administrador);

@@ -9,8 +9,10 @@ import ddsutn.Seguridad.Usuario.DTOs.UsuarioSigninDTO;
 import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Seguridad.Usuario.Usuario;
 import ddsutn.Seguridad.Usuario.Voluntario;
-import ddsutn.Servicios.AdministradorSvc;
-import ddsutn.Servicios.UsuarioSvc;
+import ddsutn.Servicios.UsuariosSvc.AdministradorSvc;
+import ddsutn.Servicios.UsuariosSvc.StandardSvc;
+import ddsutn.Servicios.UsuariosSvc.UsuarioSvc;
+import ddsutn.Servicios.UsuariosSvc.VoluntarioSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,31 +26,31 @@ import javax.servlet.http.HttpServletResponse;
 public class UsuariosController {
 
     @Autowired
-    UsuarioSvc usuarioSvc;
+    private UsuarioSvc usuarioSvc;
 
     @Autowired
-    AdministradorSvc administradorSvc;
+    private AdministradorSvc administradorSvc;
+
+    @Autowired
+    private StandardSvc standardSvc;
+
+    @Autowired
+    private VoluntarioSvc voluntarioSvc;
 
     //Creacion de usuarios
     @PostMapping(value = "/registrar-admin")
-    public ResponseEntity<AdministradorDTO> signupAdmin(
-            @RequestBody Administrador body
-    ){
+    public ResponseEntity<AdministradorDTO> signupAdmin(@RequestBody Administrador body) {
         return ResponseEntity.status(HttpStatus.CREATED).body(administradorSvc.signupAdmin(body).toDTO());
     }
 
     @PostMapping(value = "/registrar-estandar")
-    public ResponseEntity<UsuarioRDTO> signupStandardUser(
-            @RequestBody StandardUser body
-    ){
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSvc.signupStandardUser(body).toRDTO());
+    public ResponseEntity<UsuarioRDTO> signupStandardUser(@RequestBody StandardUser body) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(standardSvc.signupStandardUser(body).toRDTO());
     }
 
     @PostMapping(value = "/registrar-voluntario")
-    public ResponseEntity<UsuarioRDTO> signupVoluntario(
-            @RequestBody Voluntario body
-    ){
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSvc.signupVoluntario(body).toRDTO());
+    public ResponseEntity<UsuarioRDTO> signupVoluntario(@RequestBody Voluntario body) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(voluntarioSvc.signupVoluntario(body).toRDTO());
     }
 
     //Sign in
