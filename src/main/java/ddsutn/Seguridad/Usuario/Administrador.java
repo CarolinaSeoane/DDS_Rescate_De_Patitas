@@ -3,11 +3,10 @@ package ddsutn.Seguridad.Usuario;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import ddsutn.Business.Mascota.Caracteristica.Caracteristica;
 import ddsutn.Business.Organizacion.Organizacion;
-import ddsutn.Seguridad.Usuario.DTOs.UsuarioRDTO;
+import ddsutn.Seguridad.Usuario.DTOs.AdministradorDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Getter
@@ -41,7 +40,6 @@ public class Administrador extends Usuario {
         this.organizacion = body.getOrganizacion();
     }
 
-
     public void agregarCaracteristica(Caracteristica caracteristica) {
 		organizacion.agregarCaracteristica(caracteristica);
 	}
@@ -61,6 +59,10 @@ public class Administrador extends Usuario {
         nuevoAdmin.setOrganizacion(this.organizacion);
 
         organizacion.agregarAdministrador(nuevoAdmin);
+    }
+
+    public AdministradorDTO toDTO() {
+        return new AdministradorDTO(this.id, this.usuario, this.password, this.organizacion);
     }
 
 }

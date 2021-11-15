@@ -19,7 +19,7 @@ public abstract class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	protected Long id;
 
 	protected String usuario;
 	protected String password;
@@ -27,4 +27,5 @@ public abstract class Usuario {
 	public UsuarioRDTO toRDTO(){
 		return new UsuarioRDTO(this.id, this.usuario);
 	}
+
 }

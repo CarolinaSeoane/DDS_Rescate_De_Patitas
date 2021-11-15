@@ -26,9 +26,9 @@ public class SesionManager {
     }*/
 
 
-    public String crear(Object obj) {
+    public String crear(Object usuarioSesion) {
         String id = UUID.randomUUID().toString();
-        this.sesiones.put(id, obj);
+        this.sesiones.put(id, usuarioSesion);
         return id;
     }
 
