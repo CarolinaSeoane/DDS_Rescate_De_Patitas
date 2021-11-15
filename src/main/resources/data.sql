@@ -85,6 +85,7 @@ INSERT INTO publicacion_interesado (email, id_preferencias) VALUES
     ('perro@gmail.com', 3),
     ('gato@gmail.com', 4);
 
+/* Setear id QR cuando se registra a la mascota */
 INSERT INTO mascota (apodo, descripcion, edad, id_qr, nombre, sexo, tipo, id_persona_duenia, id_organizacion) VALUES
     ('Benny', 'Gato amistoso que se lleva bien con todos y le encanta jugar, correr y disfrutar del aire libre.', 3, 'asdfgh456', 'Benito', 'MACHO', 'GATO', 1, 1),
     ('Mora', 'Perrita Border Collie joven, muy buena y compañera con las personas.', 2, '45erty987', 'Mora', 'HEMBRA', 'PERRO', 1, 2),

@@ -1,0 +1,23 @@
+Cosas importantes para hacer:
+
+[1] Al registrarse te debe pedir los datos personales. La pantalla ya esta hecha, hay que ver como usarla para cosas distintas (la pantalla de datos personales se usaria al
+    Registrarse, al registrar una mascota y al pedirle los datos al rescatista creo si no me olvido nada).
+[2] Registrar mascota: estan hechas las pantallas, hay que conectarlas.
+[3] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
+[4] Pantallas de Dar En Adopcion (son 3 en total).
+
+********************************************************************************************
+
+Cosas NO importantes para hacer:
+
+[1] Hacer que ande el filtro en la pantalla Buscar Hogar.
+[2] Chequear que las pantallas que muestran publicaciones recientes muestren las últimas.
+[3] Hacer un Menu único para todas las pantallas y que muestre Mi Usuario si se inicio sesion.
+
+********************************************************************************************
+
+En proceso:
+
+[Facu] Agregar Vue a pantalla principal del Administrador.
+[Caro] Hacer que un rescatista reporte a una mascota perdida. Esto incluye que el backend se fije si es con QR o sin QR. Si es con QR se tiene que notificar al dueño. Tambien
+       hay que procesar las imagenes.
