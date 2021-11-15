@@ -1,7 +1,6 @@
 package ddsutn.Servicios;
 
 import ddsutn.Repositorio.UsuarioRepo;
-import ddsutn.Seguridad.Usuario.Administrador;
 import ddsutn.Seguridad.Usuario.DTOs.UsuarioSigninDTO;
 import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Seguridad.Usuario.Usuario;
@@ -23,16 +22,6 @@ public class UsuarioSvc {
     //Guardar usuario en bd
     protected Usuario save(Usuario usuario){
         return usuarioRepo.save(usuario);
-    }
-
-    //Creacion de usuarios
-    public Usuario signupAdmin(Administrador body){
-        body.setPassword(encoder.encode(body.getPassword()));
-
-        if(findByUsuario(body.getUsuario()) != null)
-            throw new RuntimeException();
-
-        return save(new Administrador(body));
     }
 
     public Usuario signupStandardUser(StandardUser body){

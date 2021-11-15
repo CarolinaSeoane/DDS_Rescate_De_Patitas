@@ -29,13 +29,12 @@ public class UsuariosController {
     @Autowired
     AdministradorSvc administradorSvc;
 
-
     //Creacion de usuarios
     @PostMapping(value = "/registrar-admin")
-    public ResponseEntity<UsuarioRDTO> signupAdmin(
+    public ResponseEntity<AdministradorDTO> signupAdmin(
             @RequestBody Administrador body
     ){
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSvc.signupAdmin(body).toRDTO());
+        return ResponseEntity.status(HttpStatus.CREATED).body(administradorSvc.signupAdmin(body).toDTO());
     }
 
     @PostMapping(value = "/registrar-estandar")

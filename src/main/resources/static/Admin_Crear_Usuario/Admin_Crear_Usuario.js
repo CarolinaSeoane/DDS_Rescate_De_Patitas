@@ -1,5 +1,7 @@
-const apiAdmin = "http://localhost:5000/usuarios/registrar-admin";
+const apiRegistrarAdmin = "http://localhost:5000/usuarios/registrar-admin";
 const apiVoluntario = "http://localhost:5000/usuarios/registrar-voluntario";
+const apiDatosAdmin = "http://localhost:5000/usuarios/datos-administrador";
+
 
 new Vue({
 	el:"#app",
@@ -14,12 +16,28 @@ new Vue({
 			form: {
 			    usuario: '',
             	password: '',
+            	organizacion: {}
 			},
 			checkPassword: '',
 			submitted: false,
 			rol: ''
 		}
 	},
+
+    created() {
+        var idSesion = localStorage.getItem("IDSESION"); //recupera ID
+
+        fetch(apiDatosAdmin, {
+            headers: {
+            "Authorization": idSesion //se envia el IDSESION para identificar al usuario en backend
+        }})
+        .then(response =>{
+            return response.json()})
+        .then(adminObtenido => {
+            this.form.organizacion = adminObtenido.organizacion;
+        })
+    },
+
 	computed: {
 		notSamePasswords () {
 			return (this.form.password !== this.checkPassword)
@@ -42,14 +60,13 @@ new Vue({
 				return { valid:false, errors }
 			}
 		}
-
 	},
 
 	methods: {
 	    enviar: function() {
 	        var api;
 	        if(this.rol == "ADMINISTRADOR") {
-	            api = apiAdmin;
+	            api = apiRegistrarAdmin;
 	        } else {
 	            api = apiVoluntario;
 	        }

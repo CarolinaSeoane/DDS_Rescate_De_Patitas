@@ -27,40 +27,30 @@
 
             <h3 class="sub-titulo">Parámetros Generales de la Organización</h3>
 
-            <div class="parametros">
+            <section class="parametros">
 
-                <p class="texto-simple">Características</p>
+                <section class="caracteristicas">
+                    <p class="sub-titulo texto-titulo">Características</p>
+                    <div class="contenedor-caracteristicas">
+                        <div v-for="caracteristica in caracteristicasGlobales">
+                            <div class="caracteristica-div">
+                                <p class="texto-simple caracteristica"><input type="checkbox" id="caracteristicaNombre" v-model="caracteristicasGlobales">  {{caracteristica.caracteristica}}</p>
 
-                <!-- No se si va una tabla aca. Capaz es mejor ponerlos sueltos y solo darles formato de tabla con flex -->
-                <div class="tabla">
-                    <div id="table-wrapper">
-                        <div id="table-scroll">
-                            <table class="texto-simple filas">
-                                <thead>
-                                    <tr>
-                                        <th><span></span></th>
-                                        <th><span></span></th>
-                                        <th><span></span></th>
-                                        <th><span></span></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr> <td>0</td> <td>1</td> <td>2</td> <td>3</td> </tr>
-                                </tbody>
-                            </table>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <p class="texto-simple">Formato de Imágenes</p>
+                <section class="imagenes texto-titulo">
+                    <p class="sub-titulo">Formato de Imágenes</p>
 
-                <!-- Hacer -->
+                </section>
 
-            </div>
+            </section>
 
             <button class="botonGris editar" @click="">Editar</button>
 
-            <br>
+
 
             <!-- CREACION DE USUARIOS -->
 
