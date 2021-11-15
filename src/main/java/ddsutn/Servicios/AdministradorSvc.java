@@ -19,14 +19,14 @@ public class AdministradorSvc {
         return usuarioRepo.save(administrador);
     }
 
-    public Administrador findByUsuario(String usuario) {
-        return usuarioRepo.findByUsuario(usuario).orElse(null);
+    public Administrador findAdminByUsuario(String usuario) {
+        return usuarioRepo.findAdminByUsuario(usuario).orElse(null);
     }
 
     public Administrador signupAdmin(Administrador body){
         body.setPassword(encoder.encode(body.getPassword()));
 
-        if(findByUsuario(body.getUsuario()) != null)
+        if(findAdminByUsuario(body.getUsuario()) != null)
             throw new RuntimeException();
 
         return save(new Administrador(body));

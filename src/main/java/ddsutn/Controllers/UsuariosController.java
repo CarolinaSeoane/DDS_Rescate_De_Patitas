@@ -72,7 +72,7 @@ public class UsuariosController {
         SesionManager sesionManager = SesionManager.get();
         Usuario usr = (Usuario) sesionManager.obtenerAtributo(idSesion);                // Obtengo el usuario asociado a la sesion
 
-        Administrador administrador = administradorSvc.findByUsuario(usr.getUsuario()); // Con el nombre de usuario obtengo todos los datos de ese usuario
+        Administrador administrador = administradorSvc.findAdminByUsuario(usr.getUsuario()); // Con el nombre de usuario obtengo todos los datos de ese usuario
 
         AdministradorDTO administradorDTO = administrador.toDTO();                      // Paso esos datos a un DTO
 
