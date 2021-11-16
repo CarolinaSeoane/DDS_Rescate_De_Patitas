@@ -1,0 +1,34 @@
+.contenedor-descripcion {
+	display: flex;
+	align-items: center;
+}
+
+/* SOBRE EL DIV GENERAL DE LA MASCOTA */
+
+.contenedor-mascota {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+}
+
+/* SOBRE EL DIV QUE TIENE LOS DATOS PERO NO INCLUYE EL BOTON */
+
+.contenedor-datos-mascota{
+	border-radius: 20%;
+	background: #F2F2F2;
+}
+
+.contenedor-datos-mascota {
+	display: flex;
+	align-items: center;
+}
+
+.contenedor-datos-mascota .informacion-mascota{
+	padding: 10px;
+}
+
+.carrousel-fotos-mascota {
+	display: flex;
+	align-items: center;
+}
+
