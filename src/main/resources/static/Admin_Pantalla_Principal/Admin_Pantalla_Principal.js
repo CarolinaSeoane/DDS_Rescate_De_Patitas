@@ -8,13 +8,13 @@ new Vue({
         caracteristicasGlobales: [],
     },
 	methods: {
-		mostrarCaracteristicasAgregadas() {
-			for(let i = 0; i < this.caracteristicasGlobales.length; i++) {
-				for(let j = 0; j < this.administrador.organizacion.caracPropias.length; j++){
-					if(this.administrador.organizacion.caracPropias[j].id == this.caracteristicasGlobales[i].id) {
-                    }
+		laCaracteristicaEstaEnLaOrg(caracteristica) {
+			for(let i=0; i<this.administrador.organizacion.caracPropias.length; i++) {
+				if(this.administrador.organizacion.caracPropias[i].id == caracteristica.id) {
+					return true
 				}
 			}
+			return false
 		}
 	},
     created() {
@@ -30,12 +30,10 @@ new Vue({
                     this.administrador = adminObtenido;
             })
 
-            fetch(apiCaracteristicasGlobales)   //traigo todas las caracteristicas porque el admin puede agregar las que quiera
-                .then(response => response.json())
-                .then(caracObtenidas => {
-        	        this.caracteristicasGlobales = caracObtenidas
-        	        this.mostrarCaracteristicasAgregadas()
-            	})
-
+        fetch(apiCaracteristicasGlobales)   //traigo todas las caracteristicas porque el admin puede agregar las que quiera
+       		.then(response => response.json())
+            .then(caracObtenidas => {
+        		this.caracteristicasGlobales = caracObtenidas
+            })
         }
 })
