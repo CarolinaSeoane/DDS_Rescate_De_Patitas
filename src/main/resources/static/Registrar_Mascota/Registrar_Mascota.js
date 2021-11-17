@@ -27,7 +27,6 @@ new Vue({
                     }
                 })
 
-                //window.location.href = 'Formulario_Registrar_Mascota.html';
             }
         },
 

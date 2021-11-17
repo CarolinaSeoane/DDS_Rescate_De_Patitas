@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -26,6 +26,58 @@
 <section class="main">
     <div class="contenedor-base" id="app">
 
+        <h3 class="sub-titulo">Mascota a dar en adopción</h3>
+
+        <div class="contenedor-descripcion">
+            <div class="img-instructiva">
+                <img src="../static/Seleccionar_Mascota/img/form.jpg" width="100" alt="Form">
+            </div>
+            <div class="instruccion texto-simple">
+                <p>Seleccioná la mascota que desees dar en adopción</p>
+            </div>
+        </div>
+
+        <div class="contenedor-mascotas">
+
+            <div v-for="mascota in usuarioEstandar.duenioAsociado.mascotas" :key="mascota.id" class="contenedor-mascota">
+
+                <div class="contenedor-datos-mascota">
+
+                    <div class="nombre-mascota" class="informacion-mascota">
+                        <p>{{mascota.apodo}}</p>
+                    </div>
+
+                    <div class="carrousel-fotos-mascota" class="informacion-mascota">
+
+                        <a v-on:click="anteriorFoto(mascota.id)" class="left-arrow"><img src="../static/Seleccionar_Mascota/img/left-arrow.png" width="25"/></a>
+
+                        <div class="carrusel">
+                            <div class="foto-mascota">
+                                <img :src="mascota.fotos[indices[i].index].contenidoBase64" width="100">
+                            </div>
+                        </div>
+
+                        <a v-on:click="siguienteFoto(mascota.id)" class="right-arrow"><img src="../static/Seleccionar_Mascota/img/right-arrow.png" width="25"/></a>
+
+
+                    </div>
+
+                    <div class="informacion-mascota">
+                        <p>{{mascota.tipo}}</p>
+                        <p>{{mascota.sexo}}</p>
+                        <p>Edad: {{mascota.edad}}</p>
+                    </div>
+
+                </div>
+
+                <div class="boton">
+
+                    <input class="botonAzul boton" type="button" value="Seleccionar">
+                </div>
+
+            </div>
+
+        </div>
 
 
     </div>
@@ -35,7 +87,7 @@
 
 <script src="../static/Footer/Footer.js"></script>
 <script src="../static/Menu/Menu.js"></script>
-
+<script src="../static/Seleccionar_Mascota/Seleccionar_Mascota.js"></script>
 
 </body>
 </html>

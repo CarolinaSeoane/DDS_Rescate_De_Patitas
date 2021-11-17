@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -34,8 +34,7 @@
                     <div class="contenedor-caracteristicas">
                         <div v-for="caracteristica in caracteristicasGlobales">
                             <div class="caracteristica-div">
-                                <p class="texto-simple caracteristica"><input type="checkbox" id="caracteristicaNombre" v-model="caracteristicasGlobales">  {{caracteristica.caracteristica}}</p>
-
+                                <p class="texto-simple caracteristica"><input type="checkbox" :checked="laCaracteristicaEstaEnLaOrg(caracteristica)">  {{caracteristica.caracteristica}}</p>
                             </div>
                         </div>
                     </div>

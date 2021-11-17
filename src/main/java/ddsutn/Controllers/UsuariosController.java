@@ -4,6 +4,7 @@ import ddsutn.Seguridad.Sesion.LoginResponse;
 import ddsutn.Seguridad.Sesion.SesionManager;
 import ddsutn.Seguridad.Usuario.Administrador;
 import ddsutn.Seguridad.Usuario.DTOs.AdministradorDTO;
+import ddsutn.Seguridad.Usuario.DTOs.StandardDTO;
 import ddsutn.Seguridad.Usuario.DTOs.UsuarioRDTO;
 import ddsutn.Seguridad.Usuario.DTOs.UsuarioSigninDTO;
 import ddsutn.Seguridad.Usuario.StandardUser;
@@ -79,6 +80,19 @@ public class UsuariosController {
         AdministradorDTO administradorDTO = administrador.toDTO();                      // Paso esos datos a un DTO
 
         return ResponseEntity.status(200).body(administradorDTO);                       // Retorno el DTO
+    }
+
+    @GetMapping(value = "/datos-estandar") // usando sesion
+    public ResponseEntity<StandardDTO> obtenerMisDatosEstandar(@RequestHeader("Authorization") String idSesion) {
+
+        SesionManager sesionManager = SesionManager.get();
+        Usuario usr = (Usuario) sesionManager.obtenerAtributo(idSesion);                // Obtengo el usuario asociado a la sesion
+
+        StandardUser estandar = standardSvc.findStandardByUsuario(usr.getUsuario()); // Con el nombre de usuario obtengo todos los datos de ese usuario
+
+        StandardDTO standardDTO = estandar.toDTO();   //                      // Paso esos datos a un DTO
+
+        return ResponseEntity.status(200).body(standardDTO);                       // Retorno el DTO
     }
 
 }
