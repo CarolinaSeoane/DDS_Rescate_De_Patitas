@@ -1,33 +1,10 @@
 const apiRegistrar = "http://localhost:5000/api/dueño/registrar";
 const apiOrganizaciones = "http://localhost:5000/api/organizaciones";
 
-/*
-
-const apiUrl ="http://localhost:5000/api/organizaciones";
-
-new Vue({
-        el: '#id-organizaciones',
-        data() {
-            return{
-                organizaciones: []
-            }
-        },
-        created() {
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(organizacionesObtenidas => {
-                    this.organizaciones = organizacionesObtenidas
-                })
-        }
-    })
-
-*/
-
-
 new Vue({
     el: '#app',
     data: {
-        form : {
+        duenio : {
             nombre: '',
             apellido: '',
             telefono: '',
@@ -51,38 +28,66 @@ new Vue({
                 apodo: '',
                 edad: '',
                 descripcion: '',
-                fotos: {
+                fotos: [{
                     contenidoBase64: '',
-                    }
-                    /* Faltan datos */
+                }],
+                organizacion: {},
+                caracteristicas: [{}]
             }]
-        }
+        },
+        organizaciones: []
+    },
+
+    created() {
+        fetch(apiOrganizaciones)
+            .then(response => response.json())
+            .then(organizacionesObtenidas => {
+                this.organizaciones = organizacionesObtenidas;
+        })
     },
 
     methods: {
         enviar() {
-            this.form.formasNotificacion = (this.form.formasNotificacion1).join(', ');
+            this.duenio.formasNotificacion = (this.duenio.formasNotificacion1).join(', ');
 
-            for (let i = 0; i < this.form.otrosContactos.length; i++) {
-                this.form.otrosContactos[i].formasNotificacion = (this.form.otrosContactos[i].formasNotificacion1).join(', ');
+            for (let i = 0; i < this.duenio.otrosContactos.length; i++) {
+                this.duenio.otrosContactos[i].formasNotificacion = (this.duenio.otrosContactos[i].formasNotificacion1).join(', ');
             }
 
-            axios.post(apiRegistrar, this.form).then((result) => {console.log(result);})
+            axios.post(apiRegistrar, this.duenio).then((result) => {console.log(result);})
         },
 
         addContacto() {
-            this.form.otrosContactos.push({
+            this.duenio.otrosContactos.push({
                                     nombre: '',
                                     apellido: '',
                                     telefono: '',
                                     email: '',
                                     formasNotificacion1: [],
                                     formasNotificacion: ''
-                                    })
+            })
+        },
+
+        addMascota() {
+            this.duenio.mascotas.push({
+                                    nombre: '',
+                                    apodo: '',
+                                    edad: '',
+                                    descripcion: '',
+                                    fotos: [{
+                                        contenidoBase64: '',
+                                    }],
+                                    organizacion: {},
+                                    caracteristicas: [{}]
+            })
         },
 
         deleteContacto(counter) {
-              this.form.otrosContactos.splice(counter,1);
+              this.duenio.otrosContactos.splice(counter,1);
+        },
+
+        deleteMascota(i) {
+              this.duenio.mascotas.splice(i,1);
         }
     }
 })
