@@ -1,5 +1,6 @@
-const apiUrl = "http://localhost:5000/usuarios/datos-administrador";
+const apiUrlDatosAdmin = "http://localhost:5000/usuarios/datos-administrador";
 const apiCaracteristicasGlobales = "http://localhost:5000/api/caracteristicas";
+const apiGuardarCambios = "http://localhost:5000/"
 
 new Vue({
 	el: '#app',
@@ -15,12 +16,16 @@ new Vue({
 				}
 			}
 			return false
+		},
+		guardarCambios() {
+			
+
 		}
 	},
     created() {
         var idSesion = localStorage.getItem("IDSESION"); //recupera ID
 
-        fetch(apiUrl, {
+        fetch(apiUrlDatosAdmin, {
             headers: {
                "Authorization": idSesion //se envia el IDSESION para identificar al usuario en backend
                 }})
