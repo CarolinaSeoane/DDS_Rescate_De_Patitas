@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="../static/Footer/Footer.css">
 	<link rel="stylesheet" href="../static/Resources/normalize.css">
 	<link rel="stylesheet" href="../static/Resources/Boton.css">
-	<link rel="stylesheet" href="../static/Resources/Formulario.css">
 	<link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -32,24 +31,44 @@
 
 			<section class="formulario">
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Nombre</p>
 					<input type="text" class="input-completo texto-simple" v-model="form.nombre" required>
 				</div>
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Apellido</p>
 					<input type="text" class="input-completo" v-model="form.apellido" required>
 				</div>
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Teléfono</p>
 					<input type="text" class="input-completo" v-model="form.telefono" required>
 				</div>
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Email</p>
 					<input type="text" class="input-completo" v-model="form.email" required>
+				</div>
+
+				<div class="input misma-linea">
+					<p class="texto-simple pregunta">Número de documento</p>
+					<input type="number" class="input-completo" v-model="form.nroDocumento" required>
+				</div>
+
+				<div class="input misma-linea">
+					<label class="texto-simple">Tipo de documento</label>
+					<select class="texto-simple tipoDoc pregunta" v-model="form.tipoDocumento" required>
+						<option>DNI</option>
+						<option>PASAPORTE</option>
+						<option>CUIT</option>
+						<option>CUIL</option>
+					</select>
+				</div>
+
+				<div class="input">
+					<p class="texto-simple pregunta">Domicilio</p>
+					<input type="text" class="input-completo" v-model="form.domicilio" required>
 				</div>
 
 				<div class="input">
@@ -62,30 +81,9 @@
 				</div>
 
 				<div class="input">
-							<p class="texto-simple pregunta fecha-inline">Fecha de nacimiento</p>
-							<input type="date" class="fecha texto-simple pregunta" v-model="form.fechaDeNacimiento" required>
+					<p class="texto-simple pregunta fecha-inline">Fecha de nacimiento</p>
+					<input type="date" class="fecha texto-simple pregunta" v-model="form.fechaDeNacimiento" required>
 				</div>
-
-				<div class="input">
-					<label class="texto-simple">Tipo de documento</label>
-					<select class="texto-simple tipoDoc pregunta" v-model="form.tipoDocumento" required>
-						<option>DNI</option>
-						<option>PASAPORTE</option>
-						<option>CUIT</option>
-						<option>CUIL</option>
-					</select>
-				</div>
-
-				<div class="input">
-					<p class="texto-simple pregunta">Número de documento</p>
-					<input type="number" class="input-completo" v-model="form.nroDocumento" required>
-				</div>
-
-				<div class="input">
-					<p class="texto-simple pregunta">Domicilio</p>
-					<input type="text" class="input-completo" v-model="form.domicilio" required>
-				</div>
-
 
 				<!-- CONTACTOS -->
 
@@ -93,25 +91,26 @@
 
 				<div v-for="(contacto, counter) in form.otrosContactos" v-bind:key="counter" class="nuevo-cuadro">
 
-				<h3 class="sub-titulo contacto-numero">Contacto #{{counter+1}}</h3>
-				<span @click="deleteContacto(counter)">x</span>
+				<h2 class="texto-simple contacto-numero">Contacto #{{counter+1}}</h2>
+				<span @click="deleteContacto(counter)">Eliminar</span>
 
-				<div class="input">
+					<br>
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Nombre</p>
 					<input type="text" class="input-completo" v-model="contacto.nombre" required>
 				</div>
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Apellido</p>
 					<input type="text" class="input-completo" v-model="contacto.apellido" required>
 				</div>
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Teléfono</p>
 					<input type="text" class="input-completo" v-model="contacto.telefono" required>
 				</div>
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Email</p>
 					<input type="text" class="input-completo" v-model="contacto.email" required>
 				</div>
@@ -133,14 +132,19 @@
 
 				<h3 class="sub-titulo">Datos de Mi Mascota</h3>
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Nombre</p>
 					<input type="text" class="input-completo texto-simple" v-model="form.nombre" required>
 				</div>
 
-				<div class="input">
+				<div class="input misma-linea">
 					<p class="texto-simple pregunta">Apodo</p>
-								<input type="text" class="input-completo" v-model="form.apodo" required>
+					<input type="text" class="input-completo" v-model="form.apodo" required>
+				</div>
+				<br>
+				<div class="">
+					<p class="texto-simple pregunta">Descripción</p>
+					<p><textarea name="mensaje"></textarea></p>
 				</div>
 
 				<div class="input">
@@ -166,11 +170,6 @@
 						<input type="radio" id="HEMBRA" name="HEMBRA" value="HEMBRA">
 						<label class="texto-simple" for="HEMBRA" class="option">Hembra</label><br>
 					</div>
-				</div>
-
-				<div class="input">
-					<p class="texto-simple pregunta">Descripción</p>
-					<p><textarea name="mensaje"></textarea></p>
 				</div>
 
 				<div class="">
