@@ -20,4 +20,7 @@ public class OrganizacionSvc {
     }
 
 
+	public void save(Organizacion organizacion) {
+    	organizacionRepo.save(organizacion);
+	}
 }

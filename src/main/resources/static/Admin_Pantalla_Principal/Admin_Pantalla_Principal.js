@@ -1,13 +1,14 @@
 const apiUrlDatosAdmin = "http://localhost:5000/usuarios/datos-administrador";
 const apiCaracteristicasGlobales = "http://localhost:5000/api/caracteristicas";
-const apiGuardarCambios = "http://localhost:5000/api/organizaciones/guardarCambios"
+const apiUrlOrganizacion = "http://localhost:5000/api/organizaciones/modificar"
 
 new Vue({
 	el: '#app',
     data: {
       	administrador: {
       		organizacion: {
-      			caracPropias: null,
+      			id: null,
+      			caracPropias: [],
       			calidad: null,
       			resolucion: {
       				pixelesAlto: null,
@@ -16,12 +17,8 @@ new Vue({
       		}
       	},
         caracteristicasGlobales: [],
-        jsonFinal: {
-        	caracteristicasMarcadas: [],
-        	calidad: '',
-        	pixelesAlto: '',
-        	pixelesAncho: ''
-        }
+        caracteristicasMarcadas: [],
+        organizacion2: {}
     },
 	methods: {
 		laCaracteristicaEstaEnLaLista(unaCaracteristica, unaLista) {
@@ -33,13 +30,13 @@ new Vue({
 			return false
 		},
 		sacarCaracteristicaDeLaLista(caracteristica, listaDeCaracteristicas) {
-			this.jsonFinal.caracteristicasMarcadas = listaDeCaracteristicas.filter(function(unaCaracteristica) { return unaCaracteristica.id != caracteristica.id})
+			this.caracteristicasMarcadas = listaDeCaracteristicas.filter(function(unaCaracteristica) { return unaCaracteristica.id != caracteristica.id})
 		},
 		agregarOSacarDeLista(caracteristica) {
-			if(this.laCaracteristicaEstaEnLaLista(caracteristica, this.jsonFinal.caracteristicasMarcadas)){
-				this.sacarCaracteristicaDeLaLista(caracteristica, this.jsonFinal.caracteristicasMarcadas)
+			if(this.laCaracteristicaEstaEnLaLista(caracteristica, this.caracteristicasMarcadas)){
+				this.sacarCaracteristicaDeLaLista(caracteristica, this.caracteristicasMarcadas)
 			}else{
-				this.jsonFinal.caracteristicasMarcadas.push(caracteristica)
+				this.caracteristicasMarcadas.push(caracteristica)
 			}
 
 		},
@@ -49,38 +46,38 @@ new Vue({
 		agregarLasMarcadasALaLista() {
 			for(let j=0; j<this.caracteristicasGlobales.length; j++) {
             	if(this.laCaracteristicaEstaEnLaLista(this.caracteristicasGlobales[j], this.administrador.organizacion.caracPropias)) {
-            		this.agregarOSacarDeLista(this.caracteristicasGlobales[j])
+            		this.caracteristicasMarcadas.push(this.caracteristicasGlobales[j])
             	}
          	}
 		},
 		obtenerCalidadElegida() {
 			let calidad = document.getElementById("calidad")
-			this.jsonFinal.calidad = calidad.value
-			console.log(calidad.value)
+			this.organizacion2.calidad = calidad.value
 		},
 		obtenerResolucionElegida() {
 			let pixelesAlto = document.getElementById("pixelesAlto")
-			this.jsonFinal.pixelesAlto = pixelesAlto.value
-            console.log(pixelesAlto.value)
+			this.organizacion2.resolucion.pixelesAlto = pixelesAlto.value
 
             let pixelesAncho = document.getElementById("pixelesAncho")
-            this.jsonFinal.pixelesAncho = pixelesAncho.value
-            console.log(pixelesAncho.value)
+            this.organizacion2.resolucion.pixelesAncho = pixelesAncho.value
 		},
 		losDatosSonValidos() {
-			return this.jsonFinal.pixelesAlto > 0 && this.jsonFinal.pixelesAncho > 0
+			return this.organizacion2.resolucion.pixelesAlto > 0 && this.organizacion2.resolucion.pixelesAncho > 0
 		},
 		guardarCambios() {
 
+			this.organizacion2 = this.administrador.organizacion
 			this.obtenerCalidadElegida()
 			this.obtenerResolucionElegida()
-			console.log(this.jsonFinal.caracteristicasMarcadas)
+			this.organizacion2.caracPropias = this.caracteristicasMarcadas
+
 			if(this.losDatosSonValidos()){
-				//axios.post(apiUrlPublicacion, this.jsonFinal).then((result) => {console.log(result);})
+				axios.post(apiUrlOrganizacion, this.organizacion2).then((result) => {console.log(result);})
+				this.caracteristicasMarcadas = []
+				window.location.href = 'Admin_Pantalla_Principal.html';
 			}else{
 				alert("Los pixeles de alto y de ancho deben ser mayores que 0")
 			}
-
 
 		}
 	},
