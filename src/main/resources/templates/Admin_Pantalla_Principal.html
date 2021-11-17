@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../static/Footer/Footer.css">
     <link rel="stylesheet" href="../static/Resources/normalize.css">
     <link rel="stylesheet" href="../static/Resources/Boton.css">
+    <link rel="stylesheet" href="../static/Resources/Formulario.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
@@ -40,14 +41,31 @@
                     </div>
                 </section>
 
-                <section class="imagenes texto-titulo">
-                    <p class="sub-titulo">Formato de Imágenes</p>
+                <section class="imagenes">
+                    <p class="sub-titulo texto-titulo">Formato de Imágenes</p>
+                    <div class="contenedor-formato-imagenes">
+                        <div class="contenedor-item">
+                            <p class="texto-simple texto-item">Calidad:  </p>
+                            <select name="calidad" class="texto-simple input-chico">
+                                <option selected value="this.administrador.organizacion.calidad">{{this.administrador.organizacion.calidad}}</option>
+                                <option v-show="this.administrador.organizacion.calidad != 'png'" value="png">png</option>
+                                <option v-show="this.administrador.organizacion.calidad != 'jpg'" value="jpg">jpg</option>
+                                <option v-show="this.administrador.organizacion.calidad != 'jpeg'" value="jpeg">jpeg</option>
+                            </select>
+                        </div>
+                        <div class="contenedor-item">
+                            <p class="texto-simple texto-item">Pixeles Alto:  </p><input type="number" class="pixeles input-chico" :placeholder="this.administrador.organizacion.resolucion.pixelesAlto" min="0">
+                        </div>
+                        <div class="contenedor-item">
+                            <p class="texto-simple texto-item">Pixeles Ancho:  </p><input type="number" class="pixeles input-chico" :placeholder="this.administrador.organizacion.resolucion.pixelesAncho" min="0">
+                        </div>
 
+                    </div>
                 </section>
 
             </section>
 
-            <button class="botonGris editar" @click="">Editar</button>
+            <button class="botonGris editar" @click="this.guardarCambios()">Guardar Cambios</button>
 
 
 
