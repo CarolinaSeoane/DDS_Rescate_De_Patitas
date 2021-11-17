@@ -1,3 +1,4 @@
+SET @@auto_increment_increment = 1;
 INSERT INTO ubicacion (direccion, latitud, longitud) VALUES
     ('Echeverría 5764, C1431 CABA', -34.583138, -58.488450),
     ('Av. Cabildo, C1426 CABA', -34.568757, -58.447788),
