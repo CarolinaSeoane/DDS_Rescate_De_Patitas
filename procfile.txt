@@ -1,0 +1,1 @@
+web: java -jar target/TPDDS_Grupo5_K3002-1.0-SNAPSHOT.jar
