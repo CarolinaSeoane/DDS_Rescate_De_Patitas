@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../static/Resources/Boton.css">
     <link rel="stylesheet" href="../static/Resources/Formulario.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
@@ -35,7 +36,7 @@
                     <div class="contenedor-caracteristicas">
                         <div v-for="caracteristica in caracteristicasGlobales">
                             <div class="caracteristica-div">
-                                <p class="texto-simple caracteristica"><input type="checkbox" :checked="laCaracteristicaEstaEnLaOrg(caracteristica)">  {{caracteristica.caracteristica}}</p>
+                                <p class="texto-simple caracteristica"><input type="checkbox" :checked="laCaracteristicaEstaEnLaOrg(caracteristica)" @change="agregarOSacarDeLista(caracteristica)">  {{caracteristica.caracteristica}}</p>
                             </div>
                         </div>
                     </div>
@@ -46,18 +47,18 @@
                     <div class="contenedor-formato-imagenes">
                         <div class="contenedor-item">
                             <p class="texto-simple texto-item">Calidad:  </p>
-                            <select name="calidad" class="texto-simple input-chico">
-                                <option selected value="this.administrador.organizacion.calidad">{{this.administrador.organizacion.calidad}}</option>
+                            <select name="calidad" class="texto-simple input-chico" id="calidad">
+                                <option selected :value="this.administrador.organizacion.calidad">{{this.administrador.organizacion.calidad}}</option>
                                 <option v-show="this.administrador.organizacion.calidad != 'png'" value="png">png</option>
                                 <option v-show="this.administrador.organizacion.calidad != 'jpg'" value="jpg">jpg</option>
                                 <option v-show="this.administrador.organizacion.calidad != 'jpeg'" value="jpeg">jpeg</option>
                             </select>
                         </div>
                         <div class="contenedor-item">
-                            <p class="texto-simple texto-item">Pixeles Alto:  </p><input type="number" class="pixeles input-chico" :placeholder="this.administrador.organizacion.resolucion.pixelesAlto" min="0">
+                            <p class="texto-simple texto-item">Pixeles Alto:  </p><input type="number" class="pixeles input-chico" id="pixelesAlto" :value="this.administrador.organizacion.resolucion.pixelesAlto">
                         </div>
                         <div class="contenedor-item">
-                            <p class="texto-simple texto-item">Pixeles Ancho:  </p><input type="number" class="pixeles input-chico" :placeholder="this.administrador.organizacion.resolucion.pixelesAncho" min="0">
+                            <p class="texto-simple texto-item">Pixeles Ancho:  </p><input type="number" class="pixeles input-chico" id="pixelesAncho" :value="this.administrador.organizacion.resolucion.pixelesAncho">
                         </div>
 
                     </div>
@@ -65,7 +66,7 @@
 
             </section>
 
-            <button class="botonGris editar" @click="this.guardarCambios()">Guardar Cambios</button>
+            <button class="botonGris editar" @click="guardarCambios()">Guardar Cambios</button>
 
 
 

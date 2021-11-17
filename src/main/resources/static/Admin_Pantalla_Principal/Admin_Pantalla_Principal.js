@@ -1,24 +1,83 @@
 const apiUrlDatosAdmin = "http://localhost:5000/usuarios/datos-administrador";
 const apiCaracteristicasGlobales = "http://localhost:5000/api/caracteristicas";
-const apiGuardarCambios = "http://localhost:5000/"
+const apiUrlOrganizacion = "http://localhost:5000/api/organizaciones/modificar"
 
 new Vue({
 	el: '#app',
     data: {
-      	administrador: {},
+      	administrador: {
+      		organizacion: {
+      			id: null,
+      			caracPropias: [],
+      			calidad: null,
+      			resolucion: {
+      				pixelesAlto: null,
+      				pixelesAncho: null
+      			}
+      		}
+      	},
         caracteristicasGlobales: [],
+        caracteristicasMarcadas: [],
+        organizacion2: {}
     },
 	methods: {
-		laCaracteristicaEstaEnLaOrg(caracteristica) {
-			for(let i=0; i<this.administrador.organizacion.caracPropias.length; i++) {
-				if(this.administrador.organizacion.caracPropias[i].id == caracteristica.id) {
+		laCaracteristicaEstaEnLaLista(unaCaracteristica, unaLista) {
+			for (let i = 0; i < unaLista.length; i++) {
+				if(unaCaracteristica.id == unaLista[i].id) {
 					return true
 				}
 			}
 			return false
 		},
+		sacarCaracteristicaDeLaLista(caracteristica, listaDeCaracteristicas) {
+			this.caracteristicasMarcadas = listaDeCaracteristicas.filter(function(unaCaracteristica) { return unaCaracteristica.id != caracteristica.id})
+		},
+		agregarOSacarDeLista(caracteristica) {
+			if(this.laCaracteristicaEstaEnLaLista(caracteristica, this.caracteristicasMarcadas)){
+				this.sacarCaracteristicaDeLaLista(caracteristica, this.caracteristicasMarcadas)
+			}else{
+				this.caracteristicasMarcadas.push(caracteristica)
+			}
+
+		},
+		laCaracteristicaEstaEnLaOrg(caracteristica) {
+			return this.laCaracteristicaEstaEnLaLista(caracteristica, this.administrador.organizacion.caracPropias)
+		},
+		agregarLasMarcadasALaLista() {
+			for(let j=0; j<this.caracteristicasGlobales.length; j++) {
+            	if(this.laCaracteristicaEstaEnLaLista(this.caracteristicasGlobales[j], this.administrador.organizacion.caracPropias)) {
+            		this.caracteristicasMarcadas.push(this.caracteristicasGlobales[j])
+            	}
+         	}
+		},
+		obtenerCalidadElegida() {
+			let calidad = document.getElementById("calidad")
+			this.organizacion2.calidad = calidad.value
+		},
+		obtenerResolucionElegida() {
+			let pixelesAlto = document.getElementById("pixelesAlto")
+			this.organizacion2.resolucion.pixelesAlto = pixelesAlto.value
+
+            let pixelesAncho = document.getElementById("pixelesAncho")
+            this.organizacion2.resolucion.pixelesAncho = pixelesAncho.value
+		},
+		losDatosSonValidos() {
+			return this.organizacion2.resolucion.pixelesAlto > 0 && this.organizacion2.resolucion.pixelesAncho > 0
+		},
 		guardarCambios() {
-			
+
+			this.organizacion2 = this.administrador.organizacion
+			this.obtenerCalidadElegida()
+			this.obtenerResolucionElegida()
+			this.organizacion2.caracPropias = this.caracteristicasMarcadas
+
+			if(this.losDatosSonValidos()){
+				axios.post(apiUrlOrganizacion, this.organizacion2).then((result) => {console.log(result);})
+				this.caracteristicasMarcadas = []
+				window.location.href = 'Admin_Pantalla_Principal.html';
+			}else{
+				alert("Los pixeles de alto y de ancho deben ser mayores que 0")
+			}
 
 		}
 	},
@@ -29,16 +88,17 @@ new Vue({
             headers: {
                "Authorization": idSesion //se envia el IDSESION para identificar al usuario en backend
                 }})
-                .then(response =>{
-                    return response.json()})
-                .then(adminObtenido => {
-                    this.administrador = adminObtenido;
-            })
+                .then(response => response.json())
+                .then(adminObtenido => { this.administrador = adminObtenido; })
+            	.then(
+            		fetch(apiCaracteristicasGlobales)   //traigo todas las caracteristicas porque el admin puede agregar las que quiera
+                		.then(response => response.json())
+                    	.then(caracObtenidas => {
+                    		this.caracteristicasGlobales = caracObtenidas;
+                  	   		this.agregarLasMarcadasALaLista();
+                    	})
+            	)
 
-        fetch(apiCaracteristicasGlobales)   //traigo todas las caracteristicas porque el admin puede agregar las que quiera
-       		.then(response => response.json())
-            .then(caracObtenidas => {
-        		this.caracteristicasGlobales = caracObtenidas
-            })
+
         }
 })

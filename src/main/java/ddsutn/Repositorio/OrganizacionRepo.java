@@ -8,5 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface OrganizacionRepo extends CrudRepository<Organizacion, Long> {
-
 }
