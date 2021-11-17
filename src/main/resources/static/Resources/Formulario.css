@@ -63,7 +63,7 @@ textarea {
 .nuevo-cuadro {
     padding: 40px;
     display: inline-block;
-    border: 1px solid #A4B1D1;
+    border: dashed 2px #A4B1D1;
     border-radius: 10px;
     margin-bottom: 50px;
 }

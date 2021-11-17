@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../static/Registrar_Mascota/Registrar_Mascota.css">
     <link rel="stylesheet" href="../static/Resources/normalize.css">
     <link rel="stylesheet" href="../static/Footer/Footer.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
@@ -28,8 +29,7 @@
         </div>
     </header>
 
-    <section class="main">
-
+    <section class="main" id="app">
         <section class="acerca-de">
             <div class="contenedor-base">
 
@@ -53,28 +53,20 @@
             </div>
         </section>
 
-        <section class="usuario">
-            <div class="contenedor-base">
+        <button @click="redirect" class="botonAzul boton">Comenzar</button>
 
-                <div class="texto">
-                    <h3 class="sub-titulo">Usuario</h3>
-                    <p class="texto-simple">Para registrar a una mascota no es necesario poseer un usuario</p>
-
-                    <div class="formulario" id="app">
-
-                            <div class="options">
-                                <input type="radio" id="USER" name="formaDeRegistrar" value="conUsuario">
-                                <label for="USER" class="option">Registrar con usuario</label><br>
-                                <input type="radio" id="NO_USER" name="formaDeRegistrar" value="sinUsuario">
-                                <label for="NO_USER" class="option">Registrar sin usuario</label><br>
-                            </div>
-
-                            <button @click="redirect" class="botonAzul boton">Continua</button>
-
-                    </div>
+        <div class="aviso-usuario contenedor-base" v-show="unlocked">
+            <div class="contenedor-error">
+                <img src="../static/Registrar_Mascota/img/usuario.png" alt="usuario" width="100">
+                <h3 class="sub-titulo">Parece que no tienes usuario</h3>
+                <p class="texto-simple">Hemos notado que aún no has iniciado sesión o no te has registrado. No hay problema, puedes continuar sin usuario o puedes crear uno rápidamente.</p>
+                <div class="botones">
+                    <button @click="goToRegistrarse" class="botonGris">Registrarme</button>
+                    <button @click="goToRegistrarMascota" class="botonAzul">Continuar sin usuario</button>
                 </div>
             </div>
-        </section>
+        </div>
+
     </section>
 
     <main-footer></main-footer>

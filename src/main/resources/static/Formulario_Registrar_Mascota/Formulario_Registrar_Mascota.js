@@ -1,4 +1,28 @@
-const apiUrl = "http://localhost:5000/api/dueño/registrar";
+const apiRegistrar = "http://localhost:5000/api/dueño/registrar";
+const apiOrganizaciones = "http://localhost:5000/api/organizaciones";
+
+/*
+
+const apiUrl ="http://localhost:5000/api/organizaciones";
+
+new Vue({
+        el: '#id-organizaciones',
+        data() {
+            return{
+                organizaciones: []
+            }
+        },
+        created() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(organizacionesObtenidas => {
+                    this.organizaciones = organizacionesObtenidas
+                })
+        }
+    })
+
+*/
+
 
 new Vue({
     el: '#app',
@@ -21,6 +45,16 @@ new Vue({
                 email: '',
                 formasNotificacion1: [],
                 formasNotificacion: ''
+            }],
+            mascotas: [{
+                nombre: '',
+                apodo: '',
+                edad: '',
+                descripcion: '',
+                fotos: {
+                    contenidoBase64: '',
+                    }
+                    /* Faltan datos */
             }]
         }
     },
@@ -33,7 +67,7 @@ new Vue({
                 this.form.otrosContactos[i].formasNotificacion = (this.form.otrosContactos[i].formasNotificacion1).join(', ');
             }
 
-            axios.post(apiUrl, this.form).then((result) => {console.log(result);})
+            axios.post(apiRegistrar, this.form).then((result) => {console.log(result);})
         },
 
         addContacto() {

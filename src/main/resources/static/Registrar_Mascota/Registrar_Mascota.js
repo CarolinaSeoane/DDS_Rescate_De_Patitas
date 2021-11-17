@@ -1,34 +1,42 @@
+const apiSesion = "http://localhost:5000/sesion/validar";
 
-var app = new Vue({
+new Vue({
     el: "#app",
     data: {
-
+        unlocked: false
     },
 
     methods: {
         redirect: function() {
-            if() {
-                window.location.href = 'Datos_Dueño_Y_Contactos.html';
+            var idSesion = localStorage.getItem("IDSESION");
+            if(idSesion == null) {
+                this.unlocked = true
             } else {
+                fetch(apiSesion, {
+                    method: "GET",
+                        headers: {
+                        "Authorization": idSesion
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data) {
+                        window.location.href = 'Formulario_Registrar_Mascota.html';
+                    } else {
+                        this.unlocked = true;
+                    }
+                })
 
+                //window.location.href = 'Formulario_Registrar_Mascota.html';
             }
+        },
+
+        goToRegistrarse: function() {
+            window.location.href = 'Registrarse.html';
+        },
+
+        goToRegistrarMascota: function() {
+            window.location.href = 'Formulario_Registrar_Mascota.html';
         }
-
     }
-
-    /*
-
-    Redireccion:
-                                                   SI --> Organizaciones.html
-                                                  /
-    REGISTRAR CON USUARIO----> ¿Hay id de sesion?
-                                                  \
-                                                   NO --> Registrarse.html o Iniciar_Sesion.html
-
-
-    REGSTRAR SIN USUARIO----> Datos_Dueño_Y_Contactos.html
-
-    */
-
-
 })

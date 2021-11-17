@@ -11,16 +11,16 @@
 }
 
 .botonGris {
-    border-radius: 5px;
+    border-radius: 3px;
+    padding: 14px 30px;
     background-color: white;
-    color: #C1C0C5;
-    border: 1px solid #C1C0C5;
-    padding: 5px 15px;
+    color: #57565B;
+    border: 1px solid #57565B;
 }
 
 .botonGris:hover {
-    color: #57565B;
-    border: 1px solid #57565B;
+    color: #C1C0C5;
+    border: 1px solid #C1C0C5;
 }
 
 .boton-mas {

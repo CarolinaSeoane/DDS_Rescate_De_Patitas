@@ -1,14 +1,10 @@
 package ddsutn.Seguridad.Usuario;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Persona.Duenio;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Getter
@@ -25,10 +21,10 @@ public class StandardUser extends Usuario {
 	@JsonIgnore
 	private Duenio duenioAsociado;
 
-
 	public StandardUser(StandardUser body) {
 		this.usuario = body.getUsuario();
 		this.password = body.getPassword();
 		this.duenioAsociado = body.getDuenioAsociado();
 	}
+
 }
