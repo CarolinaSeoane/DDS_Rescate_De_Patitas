@@ -88,7 +88,7 @@
 				<!-- CONTACTOS -->
 
 				<div> <!-- Este div tiene que estar encerrando al for porque sino la :key interfiere con la key de la seccion de abajo-->
-					<h3 class="sub-titulo contactos">Mis contactos</h3>
+					<h3 class="sub-titulo contactos">Mis Contactos</h3>
 					<div v-for="(contacto, counter) in duenio.otrosContactos" :key="counter" class="nuevo-cuadro">
 
 						<h2 class="texto-simple contacto-numero">Contacto #{{counter+1}}</h2>
@@ -133,7 +133,7 @@
 				<!-- MASCOTAS -->
 
 				<div> <!-- Lo mismo para este div -->
-					<h3 class="sub-titulo">Datos de Mi Mascota</h3>
+					<h3 class="sub-titulo">Mis Mascotas</h3>
 
 					<div v-for="(mascota, i) in duenio.mascotas" :key="i" class="nuevo-cuadro">
 
@@ -179,10 +179,10 @@
 						<div class="input misma-linea">
 							<p class="texto-simple pregunta titulo-inline">Sexo</p>
 							<div class="opciones-inline">
-								<input type="radio" id="MACHO" name="MACHO" value="MACHO">
-								<label class="texto-simple" for="MACHO" class="option">Macho</label><br>
-								<input type="radio" id="HEMBRA" name="HEMBRA" value="HEMBRA">
-								<label class="texto-simple" for="HEMBRA" class="option">Hembra</label><br>
+								<input type="radio" id="Macho" value="MACHO" v-model="mascota.sexo">
+								<label class="texto-simple" for="Macho" class="option">Macho</label><br>
+								<input type="radio" id="Hembra" value="HEMBRA" v-model="mascota.sexo">
+								<label class="texto-simple" for="Hembra" class="option">Hembra</label><br>
 							</div>
 						</div>
 
@@ -199,9 +199,19 @@
 							</select>
 						</div>
 
-						<div class="">
-							<p class="texto-simple pregunta">Seleccione las características que mejor describan a su mascota</p>
+						<br>
+						<br>
+<!--
+						<div class="input-check">
+							<p class="texto-simple pregunta titulo-inline">Seleccione las características que mejor describan a su mascota</p>
+
+							<div v-for="carac in mascota.organizacion.caracPropias">
+								<p class="texto-simple"><input type="checkbox" v-model="mascota.caracteristicas" :value="carac">  {{carac.caracteristica}}</p>
+							</div>
+
+
 						</div>
+-->
 
 					</div>
 				</div>

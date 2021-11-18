@@ -27,15 +27,17 @@ new Vue({
                 nombre: '',
                 apodo: '',
                 edad: '',
+                sexo: '',
                 descripcion: '',
+                caracteristicas: [],
                 fotos: [{
                     contenidoBase64: '',
                 }],
-                organizacion: {},
-                caracteristicas: [{}]
+                organizacion: {}
             }]
         },
-        organizaciones: []
+        organizaciones: [],
+        caracteristicasSeleccionadas: []
     },
 
     created() {
@@ -53,6 +55,8 @@ new Vue({
             for (let i = 0; i < this.duenio.otrosContactos.length; i++) {
                 this.duenio.otrosContactos[i].formasNotificacion = (this.duenio.otrosContactos[i].formasNotificacion1).join(', ');
             }
+
+        // console.log(this.duenio);
 
             axios.post(apiRegistrar, this.duenio).then((result) => {console.log(result);})
         },
