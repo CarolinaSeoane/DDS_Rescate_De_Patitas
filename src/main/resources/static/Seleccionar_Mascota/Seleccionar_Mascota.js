@@ -4,51 +4,47 @@ var app1 = new Vue({
 	el: '#app',
     data: {
     	usuarioEstandar: {
+    	id: null,
+    	password: null,
+    	usuario: null,
+    	duenioAsociado: {
     		id: null,
-    		password: null,
-    		usuario: null,
-    		duenioAsociado: {
-    			id: null,
-    			tipoDocumento: null,
-    			nroDocumento: null,
-    			fechaDeNacimiento: null,
-    			otrosContactos: null,
-    			domicilio: null,
-    			nombre: null,
-    			apellido: null,
-    			telefono: null,
-    			email: null,
-    			formasDeNotificacion: null,
-    			formasNotificacion: null,
-    			mascotas: [{
-    			}]
+    		tipoDocumento: null,
+    		nroDocumento: null,
+    		fechaDeNacimiento: null,
+    		otrosContactos: null,
+    		domicilio: null,
+    		nombre: null,
+    		apellido: null,
+    		telefono: null,
+    		email: null,
+    		formasDeNotificacion: null,
+    		formasNotificacion: null,
+    		mascotas: []
     		}
     	},
-    	i: 0,
-    	indices: [{
-    		id: null,
-    		index: 0
-    	}]
+    	indices: []
     },
     methods: {
-    	anteriorFoto(idMascota) {
-
-
-    		if(this.indices[i].index <= '0'){
-    			console.log("No modifica porque esta en el limite inferior")
+    	anteriorFoto(counter, fotos) {
+			if(this.indices[counter] == 0) {
+				Vue.set(app1.indices, counter, fotos.length - 1)
+			}else{
+				Vue.set(app1.indices, counter, this.indices[counter] - 1)
+			}
+    	},
+    	siguienteFoto(counter, fotos) {
+    		if(this.indices[counter] >= fotos.length - 1) {
+    			Vue.set(app1.indices, counter, 0)
     		}else{
-	    		this.indices[i].index = this.indices[i].index - 1
+    			Vue.set(app1.indices, counter, this.indices[counter] + 1)
     		}
     	},
-    	siguienteFoto(i) {
-    		console.log(this.indices[i].index)
-    		console.log(this.usuarioEstandar.duenioAsociado.mascotas[i].fotos.length)
-    		if(this.indices[i].index == (this.usuarioEstandar.duenioAsociado.mascotas[i].fotos.length-1)){
-    			console.log("No modifica porque ya esta en el limite")
-            }else{
-    			this.indices[i].index = this.indices[i].index + 1
+    	agregarIndices() {
+    		for (let i=0; i<this.usuarioEstandar.duenioAsociado.mascotas.length; i++) {
+    			this.indices.push(0);
     		}
-    	}
+    	},
     },
     created() {
 		var idSesion = localStorage.getItem("IDSESION");
@@ -58,8 +54,9 @@ var app1 = new Vue({
         		"Authorization": idSesion //se envia el IDSESION para identificar al usuario en backend
         	}})
         .then(response =>{ return response.json()})
-        .then(estandar => { this.usuarioEstandar = estandar;
+        .then(estandar => {
+        	this.usuarioEstandar = estandar;
+        	this.agregarIndices();
         })
     }
-
 })
