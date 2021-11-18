@@ -44,8 +44,7 @@ new Vue({
                 axios.post(apiEstandar, this.form)
                 .then((result) => {
                     console.log(result);
-                    alert("Ir a pantala principal o a completar datos personales?");
-                    /* no se como hacer que lleve a la pagina principal*/
+                    window.location.href = 'Registrar_Datos_Personales.html';
                     })
             }
 	    }

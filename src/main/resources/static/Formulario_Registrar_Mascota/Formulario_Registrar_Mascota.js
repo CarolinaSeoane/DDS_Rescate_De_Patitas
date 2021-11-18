@@ -1,33 +1,10 @@
 const apiRegistrar = "http://localhost:5000/api/dueño/registrar";
 const apiOrganizaciones = "http://localhost:5000/api/organizaciones";
 
-/*
-
-const apiUrl ="http://localhost:5000/api/organizaciones";
-
-new Vue({
-        el: '#id-organizaciones',
-        data() {
-            return{
-                organizaciones: []
-            }
-        },
-        created() {
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(organizacionesObtenidas => {
-                    this.organizaciones = organizacionesObtenidas
-                })
-        }
-    })
-
-*/
-
-
 new Vue({
     el: '#app',
     data: {
-        form : {
+        duenio : {
             nombre: '',
             apellido: '',
             telefono: '',
@@ -50,39 +27,90 @@ new Vue({
                 nombre: '',
                 apodo: '',
                 edad: '',
+                sexo: '',
                 descripcion: '',
-                fotos: {
-                    contenidoBase64: '',
-                    }
-                    /* Faltan datos */
+                caracteristicas: [],
+                fotos: [{
+                    contenidoBase64: ''
+                }],
+                organizacion: {}
             }]
-        }
+        },
+        organizaciones: []
+    },
+
+    created() {
+        fetch(apiOrganizaciones)
+            .then(response => response.json())
+            .then(organizacionesObtenidas => {
+                this.organizaciones = organizacionesObtenidas;
+        })
     },
 
     methods: {
         enviar() {
-            this.form.formasNotificacion = (this.form.formasNotificacion1).join(', ');
+            this.duenio.formasNotificacion = (this.duenio.formasNotificacion1).join(', ');
 
-            for (let i = 0; i < this.form.otrosContactos.length; i++) {
-                this.form.otrosContactos[i].formasNotificacion = (this.form.otrosContactos[i].formasNotificacion1).join(', ');
+            for (let i = 0; i < this.duenio.otrosContactos.length; i++) {
+                this.duenio.otrosContactos[i].formasNotificacion = (this.duenio.otrosContactos[i].formasNotificacion1).join(', ');
             }
 
-            axios.post(apiRegistrar, this.form).then((result) => {console.log(result);})
+            console.log(this.duenio);
+
+            axios.post(apiRegistrar, this.duenio).then((result) => {console.log(result);})
         },
 
         addContacto() {
-            this.form.otrosContactos.push({
+            this.duenio.otrosContactos.push({
                                     nombre: '',
                                     apellido: '',
                                     telefono: '',
                                     email: '',
                                     formasNotificacion1: [],
                                     formasNotificacion: ''
-                                    })
+            })
+        },
+
+        addMascota() {
+            this.duenio.mascotas.push({
+                                    nombre: '',
+                                    apodo: '',
+                                    edad: '',
+                                    descripcion: '',
+                                    fotos: [],
+                                    organizacion: {},
+                                    caracteristicas: []
+            })
         },
 
         deleteContacto(counter) {
-              this.form.otrosContactos.splice(counter,1);
+              this.duenio.otrosContactos.splice(counter,1);
+        },
+
+        deleteMascota(i) {
+              this.duenio.mascotas.splice(i,1);
+        },
+
+        subirFoto: function (event, i) {
+            var file = event.target.files[0]
+            this.getBase64(file)
+                .then(img => {
+                    this.duenio.mascotas[i].fotos[0].contenidoBase64 = img;
+                    // console.dir(request)
+                })
+        },
+
+        getBase64: function (file) {
+            return new Promise((resolve, reject) => {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+                    resolve(reader.result)
+                };
+                reader.onerror = function (error) {
+                    reject('Error: ', error);
+                }
+            })
         }
     }
 })

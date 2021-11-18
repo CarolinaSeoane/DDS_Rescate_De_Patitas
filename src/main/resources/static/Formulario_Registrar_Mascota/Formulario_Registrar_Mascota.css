@@ -39,20 +39,15 @@ h3 {
 }
 
 .input-chico {
-    width: 150px;
-    height: 60px;
-    border: 1px solid #C1C0C5;
-    box-sizing: border-box;
-    border-radius: 5px;
-    padding-left: 10px;
     margin-bottom: 10px;
+    width: 25%;
+    margin-right: 30px;
 }
 
 textarea {
-    width: 83%;
+    width: 82%;
     height: 150px;
     border: 1px solid #C1C0C5;
-    
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
@@ -92,6 +87,7 @@ span {
 .boton {
     display: block;
     margin: 0 auto;
+    margin-bottom: 100px;
 }
 
 .gris {
@@ -127,7 +123,6 @@ span {
 
 .tipoDoc {
     border: 1px solid #C1C0C5;
-    box-sizing: border-box;
     border-radius: 5px;
     padding: 10px 0 10px 10px;
     margin-left: 38px;

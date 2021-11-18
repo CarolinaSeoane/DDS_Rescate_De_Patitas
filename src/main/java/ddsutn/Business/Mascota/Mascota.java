@@ -45,7 +45,7 @@ public class Mascota {
 	@JsonManagedReference(value = "fotos")
 	private Set<Foto> fotos;
 
-	@ManyToMany(cascade = {CascadeType.ALL})
+	@ManyToMany(cascade = {CascadeType.MERGE})
 	@JoinTable(
 		name = "caracteristica_X_mascota",
 		joinColumns = { @JoinColumn(name = "id_mascota") },

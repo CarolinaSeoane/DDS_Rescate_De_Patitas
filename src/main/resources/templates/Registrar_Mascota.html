@@ -53,7 +53,7 @@
             </div>
         </section>
 
-        <button @click="redirect" class="botonAzul boton">Comenzar</button>
+        <button @click="redirect" class="botonAzul boton" v-show="!unlocked">Comenzar</button>
 
         <div class="aviso-usuario contenedor-base" v-show="unlocked">
             <div class="contenedor-error">
