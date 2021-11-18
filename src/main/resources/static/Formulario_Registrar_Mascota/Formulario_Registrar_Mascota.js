@@ -30,7 +30,9 @@ new Vue({
                 sexo: '',
                 descripcion: '',
                 caracteristicas: [],
-                fotos: [],
+                fotos: [{
+                    contenidoBase64: ''
+                }],
                 organizacion: {}
             }]
         },
@@ -53,7 +55,7 @@ new Vue({
                 this.duenio.otrosContactos[i].formasNotificacion = (this.duenio.otrosContactos[i].formasNotificacion1).join(', ');
             }
 
-        console.log(this.duenio);
+            console.log(this.duenio);
 
             axios.post(apiRegistrar, this.duenio).then((result) => {console.log(result);})
         },
@@ -75,11 +77,9 @@ new Vue({
                                     apodo: '',
                                     edad: '',
                                     descripcion: '',
-                                    fotos: [{
-                                        contenidoBase64: '',
-                                    }],
+                                    fotos: [],
                                     organizacion: {},
-                                    caracteristicas: [{}]
+                                    caracteristicas: []
             })
         },
 
@@ -89,6 +89,28 @@ new Vue({
 
         deleteMascota(i) {
               this.duenio.mascotas.splice(i,1);
+        },
+
+        subirFoto: function (event, i) {
+            var file = event.target.files[0]
+            this.getBase64(file)
+                .then(img => {
+                    this.duenio.mascotas[i].fotos[0].contenidoBase64 = img;
+                    // console.dir(request)
+                })
+        },
+
+        getBase64: function (file) {
+            return new Promise((resolve, reject) => {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+                    resolve(reader.result)
+                };
+                reader.onerror = function (error) {
+                    reject('Error: ', error);
+                }
+            })
         }
     }
 })

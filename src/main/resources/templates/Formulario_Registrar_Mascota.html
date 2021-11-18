@@ -191,7 +191,7 @@
 						<div class="">
 							<p class="texto-simple pregunta">Adjunte fotos de la mascota</p>
 							<br>
-							<input type="file" accept="image/png, image/jpeg" @change="">
+							<input type="file" accept="image/png, image/jpeg" @change="subirFoto($event, i)">
 						</div>
 
 						<br>
@@ -203,18 +203,13 @@
 							</select>
 						</div>
 
-
-						<br>
-						<br>
+						<br><br>
 
 						<div class="input-check">
 							<p class="texto-simple pregunta titulo-inline">Seleccione las características que mejor describan a su mascota</p>
-
 							<div v-for="carac in mascota.organizacion.caracPropias">
 								<p class="texto-simple"><input type="checkbox" v-model="mascota.caracteristicas" :value="carac">  {{carac.caracteristica}}</p>
 							</div>
-
-
 						</div>
 
 					</div>

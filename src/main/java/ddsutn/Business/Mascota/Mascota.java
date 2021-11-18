@@ -41,7 +41,7 @@ public class Mascota {
 	private int edad;
 	private String descripcion;
 
-	@OneToMany(mappedBy = "mascota", cascade = {CascadeType.MERGE})
+	@OneToMany(mappedBy = "mascota", cascade = {CascadeType.ALL})
 	@JsonManagedReference(value = "fotos")
 	private Set<Foto> fotos;
 
