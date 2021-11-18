@@ -154,7 +154,7 @@
 
 						<div class="input-chico misma-linea">
 							<p class="texto-simple pregunta">Edad</p>
-							<input type="text" class="input-completo" v-model="mascota.edad" required>
+							<input type="number" class="input-completo" v-model="mascota.edad" required>
 						</div>
 
 						<br>
@@ -190,7 +190,11 @@
 
 						<div class="">
 							<p class="texto-simple pregunta">Adjunte fotos de la mascota</p>
+							<br>
+							<input type="file" accept="image/png, image/jpeg" @change="">
 						</div>
+
+						<br>
 
 						<div class="misma-linea">
 							<label class="texto-simple">Seleccione una organización</label>
@@ -199,9 +203,10 @@
 							</select>
 						</div>
 
+
 						<br>
 						<br>
-<!--
+
 						<div class="input-check">
 							<p class="texto-simple pregunta titulo-inline">Seleccione las características que mejor describan a su mascota</p>
 
@@ -211,7 +216,6 @@
 
 
 						</div>
--->
 
 					</div>
 				</div>

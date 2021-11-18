@@ -30,14 +30,11 @@ new Vue({
                 sexo: '',
                 descripcion: '',
                 caracteristicas: [],
-                fotos: [{
-                    contenidoBase64: '',
-                }],
+                fotos: [],
                 organizacion: {}
             }]
         },
-        organizaciones: [],
-        caracteristicasSeleccionadas: []
+        organizaciones: []
     },
 
     created() {
@@ -56,7 +53,7 @@ new Vue({
                 this.duenio.otrosContactos[i].formasNotificacion = (this.duenio.otrosContactos[i].formasNotificacion1).join(', ');
             }
 
-        // console.log(this.duenio);
+        console.log(this.duenio);
 
             axios.post(apiRegistrar, this.duenio).then((result) => {console.log(result);})
         },

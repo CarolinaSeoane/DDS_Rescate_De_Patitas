@@ -41,11 +41,11 @@ public class Mascota {
 	private int edad;
 	private String descripcion;
 
-	@OneToMany(mappedBy = "mascota", cascade = {CascadeType.ALL})
+	@OneToMany(mappedBy = "mascota", cascade = {CascadeType.MERGE})
 	@JsonManagedReference(value = "fotos")
 	private Set<Foto> fotos;
 
-	@ManyToMany(cascade = {CascadeType.ALL})
+	@ManyToMany(cascade = {CascadeType.MERGE})
 	@JoinTable(
 		name = "caracteristica_X_mascota",
 		joinColumns = { @JoinColumn(name = "id_mascota") },
