@@ -1,4 +1,5 @@
-const apiEstandar = "http://localhost:5000/usuarios/registrar-estandar";
+const apiRegistrarEstandar = "http://localhost:5000/usuarios/registrar-estandar";
+const apiIniciarSesion = "http://localhost:5000/usuarios/iniciar-sesion";
 
 new Vue({
 	el:"#app",
@@ -14,7 +15,8 @@ new Vue({
 			    usuario: '',
             	password: '',
 			},
-			submitted: false
+			submitted: false,
+			status: ''
 		}
 	},
 	computed: {
@@ -40,14 +42,36 @@ new Vue({
 
 	methods: {
 	    enviar: function() {
-	            if(this.passwordsFilled && this.passwordValidation.valid) {
-                axios.post(apiEstandar, this.form)
-                .then((result) => {
-                    console.log(result);
-                    window.location.href = 'Registrar_Datos_Personales.html';
-                    })
-            }
-	    }
-	}
+	        if(this.passwordsFilled && this.passwordValidation.valid) {
+                    axios.post(apiRegistrarEstandar, this.form)
+                        .then(response => {
+                        console.log('status: ', response.status);
 
+                            switch (response.status) {
+                                case 201:
+                                    console.log('good to go!');
+                                    fetch(apiIniciarSesion, {
+                                        method: "POST",
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            usuario: this.form.usuario,
+                                            password: this.form.password
+                                        })
+                                    })
+                                    .then(response => response.json())
+                                    .then(datos => {
+                                        localStorage.setItem("IDSESION", datos.idSesion); //guarda ID
+                                        window.location.href = 'Registrar_Datos_Personales.html';
+                                    })
+                                    break;
+
+                                default:
+                                    console.log('error');
+                                    break;
+                                    }})
+	        }
+	    }
+    }
 })

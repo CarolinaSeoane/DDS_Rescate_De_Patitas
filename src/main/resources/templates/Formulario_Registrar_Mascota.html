@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset="UTF-8">
@@ -31,59 +31,62 @@
 
 			<section class="formulario">
 
-				<div class="input misma-linea">
-					<p class="texto-simple pregunta">Nombre</p>
-					<input type="text" class="input-completo texto-simple" v-model="duenio.nombre" required>
-				</div>
-
-				<div class="input misma-linea">
-					<p class="texto-simple pregunta">Apellido</p>
-					<input type="text" class="input-completo" v-model="duenio.apellido" required>
-				</div>
-
-				<div class="input misma-linea">
-					<p class="texto-simple pregunta">Teléfono</p>
-					<input type="text" class="input-completo" v-model="duenio.telefono" required>
-				</div>
-
-				<div class="input misma-linea">
-					<p class="texto-simple pregunta">Email</p>
-					<input type="text" class="input-completo" v-model="duenio.email" required>
-				</div>
-
-				<div class="input misma-linea">
-					<p class="texto-simple pregunta">Número de documento</p>
-					<input type="number" class="input-completo" v-model="duenio.nroDocumento" required>
-				</div>
-
-				<div class="input misma-linea">
-					<label class="texto-simple">Tipo de documento</label>
-					<select class="texto-simple tipoDoc pregunta" v-model="duenio.tipoDocumento" required>
-						<option>DNI</option>
-						<option>PASAPORTE</option>
-						<option>CUIT</option>
-						<option>CUIL</option>
-					</select>
-				</div>
-
-				<div class="input">
-					<p class="texto-simple pregunta">Domicilio</p>
-					<input type="text" class="input-completo" v-model="duenio.domicilio" required>
-				</div>
-
-				<div class="input">
-					<p class="texto-simple pregunta titulo-inline">Quiero ser notificado por</p>
-					<div class="opciones-inline">
-						<p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="WPP">  WhatsApp</p>
-						<p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="SMS">  SMS</p>
-						<p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="EMAIL">  EMAIL</p>
+				<section>
+					<div class="input misma-linea">
+						<p class="texto-simple pregunta">Nombre</p>
+						<input type="text" class="input-completo texto-simple" v-model="duenio.nombre" id="duenioNombre" required>
 					</div>
-				</div>
 
-				<div class="input">
-					<p class="texto-simple pregunta fecha-inline">Fecha de nacimiento</p>
-					<input type="date" class="fecha texto-simple pregunta" v-model="duenio.fechaDeNacimiento" required>
-				</div>
+					<div class="input misma-linea">
+						<p class="texto-simple pregunta">Apellido</p>
+						<input type="text" class="input-completo" v-model="duenio.apellido" id="duenioApellido" required>
+					</div>
+
+					<div class="input misma-linea">
+						<p class="texto-simple pregunta">Teléfono</p>
+						<input type="text" class="input-completo" v-model="duenio.telefono" required>
+					</div>
+
+					<div class="input misma-linea">
+						<p class="texto-simple pregunta">Email</p>
+						<input type="text" class="input-completo" v-model="duenio.email" required>
+					</div>
+
+					<div class="input misma-linea">
+						<p class="texto-simple pregunta">Número de documento</p>
+						<input type="number" class="input-completo" v-model="duenio.nroDocumento" required>
+					</div>
+
+					<div class="input misma-linea">
+						<label class="texto-simple">Tipo de documento</label>
+						<select class="texto-simple tipoDoc pregunta" v-model="duenio.tipoDocumento" required>
+							<option>DNI</option>
+							<option>PASAPORTE</option>
+							<option>CUIT</option>
+							<option>CUIL</option>
+						</select>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple pregunta">Domicilio</p>
+						<input type="text" class="input-completo" v-model="duenio.domicilio" required>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple pregunta titulo-inline">Quiero ser notificado por</p>
+						<div class="opciones-inline">
+							<p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="WPP">  WhatsApp</p>
+							<p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="SMS">  SMS</p>
+							<p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="EMAIL">  EMAIL</p>
+						</div>
+					</div>
+
+					<div class="input">
+						<p class="texto-simple pregunta fecha-inline">Fecha de nacimiento</p>
+						<input type="date" class="fecha texto-simple pregunta" v-model="duenio.fechaDeNacimiento" required>
+					</div>
+
+				</section>
 
 				<!-- CONTACTOS -->
 

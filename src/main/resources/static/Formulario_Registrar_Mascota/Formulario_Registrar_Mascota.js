@@ -1,5 +1,6 @@
 const apiRegistrar = "http://localhost:5000/api/dueño/registrar";
 const apiOrganizaciones = "http://localhost:5000/api/organizaciones";
+const apiSesion = "http://localhost:5000/sesion/validar";
 
 new Vue({
     el: '#app',
@@ -34,7 +35,8 @@ new Vue({
                 organizacion: {}
             }]
         },
-        organizaciones: []
+        organizaciones: [],
+        sesionInvalida: true
     },
 
     created() {
@@ -43,9 +45,31 @@ new Vue({
             .then(organizacionesObtenidas => {
                 this.organizaciones = organizacionesObtenidas;
         })
+
+        /* Valido la sesion, si hay */
+        var idSesion = localStorage.getItem("IDSESION");
+        console.log(idSesion);
+
+        if(idSesion == null) {
+            this.sesionInvalida = true
+        } else {
+            fetch(apiSesion, {
+                method: "GET",
+                headers: {
+                    "Authorization": idSesion
+                }
+            })
+            .then(response => response.json())
+            .then(esValida => {
+                this.sesionInvalida = !esValida;
+            })
+        }
     },
 
     methods: {
+
+    /* FUNCIONES PARA ENVIAR DATOS AL SERVIDOR Y FUNCIONES DE COMPORTAMIENTO DE BOTONES */
+
         enviar() {
             this.duenio.formasNotificacion = (this.duenio.formasNotificacion1).join(', ');
 
@@ -116,6 +140,19 @@ new Vue({
                     this.duenio.mascotas[i].fotos.push(request);
                     })
             }
+        },
+
+        /* FUNCIONES PARA AUTOCOMPLETADO DE DATOS */
+
+        disable: function() {
+        	let duenioNombre = document.getElementById("duenioNombre")
+        	let duenioApellido = document.getElementById("duenioApellido")
+        	duenioNombre.disabled = true
+            duenioApellido.disabled = true
         }
+
+        /* FUNCIONES PARA VALIDACION DE DATOS */
+
+
     }
 })

@@ -13,6 +13,7 @@ Cosas NO importantes para hacer:
 [1] Hacer que ande el filtro en la pantalla Buscar Hogar.
 [2] Chequear que las pantallas que muestran publicaciones recientes muestren las últimas.
 [3] Hacer un Menu único para todas las pantallas y que muestre Mi Usuario si se inicio sesion.
+[4] Hacer "mostrar" contraseña en registrarse e iniciar sesion
 
 ********************************************************************************************
 
