@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -72,8 +72,8 @@
 
 
 
-                <div class="boton">
-                    <input class="botonAzul boton" type="button" value="Seleccionar">
+                <div>
+                    <button class="botonAzul"><a class="seleccionar" v-bind:href="'Completar_Preguntas.html?id=' + mascota.id">Seleccionar</a></button>
                 </div>
 
             </div>

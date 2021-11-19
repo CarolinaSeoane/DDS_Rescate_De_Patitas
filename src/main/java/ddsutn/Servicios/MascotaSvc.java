@@ -15,4 +15,8 @@ public class MascotaSvc {
         mascotaRepo.save(mascota);
     }
 
+	public Mascota findById(Long id) {
+    	return mascotaRepo.findById(id).orElse(null);
+	}
+
 }

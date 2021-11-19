@@ -16,4 +16,6 @@ public class PreguntaSvc {
         return (List<Pregunta>) preguntaRepo.findAll();
     }
 
+	public List<Pregunta> findAllGlobales() { return preguntaRepo.findAllGlobales(); }
+
 }

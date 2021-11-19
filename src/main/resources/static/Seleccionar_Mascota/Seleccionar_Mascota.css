@@ -49,6 +49,10 @@
 	cursor: pointer;
 }
 
+.seleccionar {
+	color: white;
+}
+
 /* NUEVA MASCOTA */
 
 .centrado {

@@ -3,8 +3,10 @@ package ddsutn.Business.Mascota;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Mascota.Caracteristica.Caracteristica;
+import ddsutn.Business.Mascota.DTOs.MascotaDTO;
 import ddsutn.Business.Mascota.Foto.Foto;
 import ddsutn.Business.Organizacion.Organizacion;
+import ddsutn.Business.Organizacion.OrganizacionDTO;
 import ddsutn.Business.Persona.Duenio;
 
 import lombok.*;
@@ -66,5 +68,29 @@ public class Mascota {
 	public void meEncontraron() throws IOException {
         duenio.mascotaEncontrada();
     }
+
+    public MascotaDTO toDTO() {
+		return new MascotaDTO(
+				this.id,
+				this.id_QR,
+				this.tipo,
+				this.sexo,
+				this.nombre,
+				this.apodo,
+				this.edad,
+				this.descripcion,
+				this.fotos,
+				this.caracteristicas,
+				new OrganizacionDTO(
+						this.organizacion.getId(),
+						this.organizacion.getNombre(),
+						this.organizacion.getUbicacion(),
+						this.organizacion.getResolucion(),
+						this.organizacion.getCalidad(),
+						this.organizacion.getPreguntasAdicionales(),
+						this.organizacion.getCaracPropias()
+				)
+		);
+	}
 
 }
