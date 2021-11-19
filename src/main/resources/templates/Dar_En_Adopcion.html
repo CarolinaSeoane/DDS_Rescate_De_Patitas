@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../static/Resources/normalize.css">
     <link rel="stylesheet" href="../static/Footer/Footer.css">
     <link rel="stylesheet" href="../static/Resources/Boton.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 </head>
 
@@ -28,7 +29,7 @@
     </div>
 </header>
 
-<section class="main">
+<section class="main" id="app">
 
     <div class="contenedor-base">
 
@@ -68,9 +69,18 @@
 
         </div>
 
-        <a href="Seleccionar_Mascota.html">
-            <input class="botonAzul boton" type="button" value="Comenzar">
-        </a>
+        <button @click="redirect" class="botonAzul boton" v-show="!unlocked">Comenzar</button>
+
+        <div class="aviso-usuario contenedor-base" v-show="unlocked">
+            <div class="contenedor-error">
+                <img src="../static/Registrar_Mascota/img/usuario.png" alt="usuario" width="100">
+                <h3 class="sub-titulo">Parece que no tienes usuario</h3>
+                <p class="texto-simple">Hemos notado que aún no has iniciado sesión o no te has registrado. Para poder dar en adopción a alguna de tus mascotas debes tener un usuario.</p>
+                <div class="botones">
+                    <button @click="goToRegistrarse" class="botonAzul">Registrarme</button>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -80,6 +90,7 @@
 
 <script src="../static/Footer/Footer.js"></script>
 <script src="../static/Menu/Menu.js"></script>
+<script src="../static/Dar_En_Adopcion/Dar_En_Adopcion.js"></script>
 
 </body>
 </html>

@@ -61,12 +61,13 @@ header .contenedor-texto-header {
 /* MAIN */
 
 .main {
-    padding: 40px 0 100px 0;
+    padding-top: 40px;
     text-align: center;
 }
 
 .boton {
     margin-top: 60px;
+    margin-bottom: 100px;
 }
 
 .contenedor-instruccion {
@@ -91,4 +92,19 @@ header .contenedor-texto-header {
 
 .instruccion {
     padding-left: 40px;
+}
+
+/* ERROR */
+
+.contenedor-error {
+    max-width: 60%;
+    margin: auto;
+    border-radius: 15px;
+    border: 3px solid black;
+    margin-bottom: 100px;
+    padding: 10px;
+}
+
+.main .texto-simple {
+    margin-bottom: 40px;
 }

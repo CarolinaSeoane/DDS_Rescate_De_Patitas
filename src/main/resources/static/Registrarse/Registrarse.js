@@ -43,13 +43,13 @@ new Vue({
 	methods: {
 	    enviar: function() {
 	        if(this.passwordsFilled && this.passwordValidation.valid) {
-                    axios.post(apiRegistrarEstandar, this.form)
+                axios.post(apiRegistrarEstandar, this.form)
                         .then(response => {
                         console.log('status: ', response.status);
 
                             switch (response.status) {
                                 case 201:
-                                    console.log('good to go!');
+                                    console.log('loging in...');
                                     fetch(apiIniciarSesion, {
                                         method: "POST",
                                         headers: {
@@ -70,7 +70,8 @@ new Vue({
                                 default:
                                     console.log('error');
                                     break;
-                                    }})
+                            }
+                        })
 	        }
 	    }
     }
