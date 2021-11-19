@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -191,7 +191,7 @@
 						<div class="">
 							<p class="texto-simple pregunta">Adjunte fotos de la mascota</p>
 							<br>
-							<input type="file" accept="image/png, image/jpeg" @change="subirFoto($event, i)">
+							<input type="file" accept="image/png, image/jpeg" @change="subirFotos($event, i)" multiple>
 						</div>
 
 						<br>

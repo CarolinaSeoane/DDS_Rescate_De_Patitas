@@ -74,7 +74,7 @@ new Vue({
                 axios.post(api, this.form)
                 .then((result) => {
                                     console.log(result);
-                                    alert("El usuario se ha creado correctamente. Pulse Aceptar para volver a la pantalla principal");
+                                    alert("El usuario se ha creado correctamente. Pulse aceptar para volver a la pantalla principal");
                                     window.location.href = 'Admin_Pantalla_Principal.html';
                                     })
             }

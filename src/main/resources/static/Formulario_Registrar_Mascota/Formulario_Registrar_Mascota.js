@@ -30,9 +30,7 @@ new Vue({
                 sexo: '',
                 descripcion: '',
                 caracteristicas: [],
-                fotos: [{
-                    contenidoBase64: ''
-                }],
+                fotos: [],
                 organizacion: {}
             }]
         },
@@ -57,7 +55,11 @@ new Vue({
 
             console.log(this.duenio);
 
-            axios.post(apiRegistrar, this.duenio).then((result) => {console.log(result);})
+            axios.post(apiRegistrar, this.duenio)
+                .then((result) => {
+                    alert("¡Se ha registrado a su mascota correctamente! Pulse aceptar para volver a la pantalla principal");
+                    window.location.href = 'index.html';
+                })
         },
 
         addContacto() {
@@ -91,15 +93,6 @@ new Vue({
               this.duenio.mascotas.splice(i,1);
         },
 
-        subirFoto: function (event, i) {
-            var file = event.target.files[0]
-            this.getBase64(file)
-                .then(img => {
-                    this.duenio.mascotas[i].fotos[0].contenidoBase64 = img;
-                    // console.dir(request)
-                })
-        },
-
         getBase64: function (file) {
             return new Promise((resolve, reject) => {
                 var reader = new FileReader();
@@ -111,6 +104,18 @@ new Vue({
                     reject('Error: ', error);
                 }
             })
+        },
+
+        subirFotos: function (event, i) {
+            for (let j = 0; j < event.target.files.length; j++) {
+                this.getBase64(event.target.files[j])
+                    .then(img => {
+                    var request = {
+                        contenidoBase64: img
+                    }
+                    this.duenio.mascotas[i].fotos.push(request);
+                    })
+            }
         }
     }
 })
