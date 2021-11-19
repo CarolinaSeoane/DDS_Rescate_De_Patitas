@@ -45,6 +45,9 @@ var app1 = new Vue({
     			this.indices.push(0);
     		}
     	},
+    	redirect() {
+    		window.location.href = 'Formulario_Registrar_Mascota.html'
+    	}
     },
     created() {
 		var idSesion = localStorage.getItem("IDSESION");

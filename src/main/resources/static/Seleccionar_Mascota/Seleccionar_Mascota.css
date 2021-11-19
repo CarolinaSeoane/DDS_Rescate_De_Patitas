@@ -48,3 +48,10 @@
 .arrow:hover {
 	cursor: pointer;
 }
+
+/* NUEVA MASCOTA */
+
+.centrado {
+	text-align: center;
+	margin-top: 10%;
+}
