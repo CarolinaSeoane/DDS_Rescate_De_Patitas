@@ -33,7 +33,6 @@ public class Organizacion {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_ubicacion")
-	//@JsonManagedReference
 	private Ubicacion ubicacion;
 
 	@Embedded
