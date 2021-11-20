@@ -1,8 +1,7 @@
 Cosas importantes para hacer:
 
-[1] Hacer que un rescatista reporte a una mascota perdida. Esto incluye que el backend se fije si es con QR o sin QR. Si es con QR se tiene que notificar al dueño. Tambien
-       hay que procesar las imagenes.
-[3] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
+[1] Pantalla voluntario
+[2] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
 [3] Cerrar sesiones
 [4] Probar la pantalla principal del admin
 [5] La contraseña se tiene que validar en el backend (lo de las 10K passwords solo se valida en el back). Ahora funciona mal el login. Interpretar exceptions en el front.
@@ -18,9 +17,10 @@ Cosas NO importantes para hacer:
 [5] Hacer pantalla Organizaciones.
 [6] Agregar el "repetir contraseña" en el registrar de standard user
 [7] Agregar validaciones a formulario de datos personales.
+[8] Mostrar QR??
+
 ********************************************************************************************
 
 En proceso:
-
-[Caro] Registrar mascota: falta asociar las mascotas al usuario si tiene usuario y validar datos en front.
+[Caro] Hacer que un rescatista reporte a una mascota perdida. Esto incluye que el backend se fije si es con QR o sin QR. Si es con QR se tiene que notificar al dueño.
 [Facu] Pantallas de Dar En Adopcion (son 3 en total).
