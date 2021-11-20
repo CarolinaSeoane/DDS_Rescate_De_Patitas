@@ -14,11 +14,12 @@ Cosas NO importantes para hacer:
 [2] Chequear que las pantallas que muestran publicaciones recientes muestren las últimas.
 [3] Hacer un Menu único para todas las pantallas y que muestre Mi Usuario si se inicio sesion.
 [4] Hacer "mostrar" contraseña en registrarse e iniciar sesion
+[5] Hacer pantalla Organizaciones.
+[6] Agregar el "repetir contraseña" en el registrar de standard user
 
 ********************************************************************************************
 
 En proceso:
 
-[Caro] Registrar mascota: estan hechas las pantallas, hay que conectarlas.
-[Caro] Al registrarse te debe pedir los datos personales.
+[Caro] Registrar mascota: falta asociar las mascotas al usuario si tiene usuario y validar datos en front.
 [Facu] Pantallas de Dar En Adopcion (son 3 en total).
