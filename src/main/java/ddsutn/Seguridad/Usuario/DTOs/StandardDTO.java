@@ -1,6 +1,5 @@
 package ddsutn.Seguridad.Usuario.DTOs;
 
-import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Persona.Duenio;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

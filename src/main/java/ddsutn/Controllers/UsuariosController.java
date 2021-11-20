@@ -1,5 +1,6 @@
 package ddsutn.Controllers;
 
+import ddsutn.Business.Persona.Duenio;
 import ddsutn.Seguridad.Sesion.LoginResponse;
 import ddsutn.Seguridad.Sesion.SesionManager;
 import ddsutn.Seguridad.Usuario.Administrador;
@@ -90,9 +91,18 @@ public class UsuariosController {
 
         StandardUser estandar = standardSvc.findStandardByUsuario(usr.getUsuario()); // Con el nombre de usuario obtengo todos los datos de ese usuario
 
-        StandardDTO standardDTO = estandar.toDTO();   //                      // Paso esos datos a un DTO
+        StandardDTO standardDTO = estandar.toDTO();                                  // Paso esos datos a un DTO
 
         return ResponseEntity.status(200).body(standardDTO);                       // Retorno el DTO
+    }
+
+    @PostMapping(value = "/datos-estandar/actualizar")
+    public ResponseEntity<StandardDTO> actualizarMisDatosEstandar(@RequestBody Duenio duenio, @RequestHeader("Authorization") String idSesion) {
+        SesionManager sesionManager = SesionManager.get();
+        Usuario usr = (Usuario) sesionManager.obtenerAtributo(idSesion);
+        StandardUser estandar = standardSvc.findStandardByUsuario(usr.getUsuario());
+        estandar.setDuenioAsociado(duenio);
+        return ResponseEntity.status(HttpStatus.CREATED).body(standardSvc.save(estandar).toDTO());
     }
 
 }

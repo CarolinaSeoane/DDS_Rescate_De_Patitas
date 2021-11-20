@@ -29,7 +29,7 @@ public class StandardUser extends Usuario {
 	}
 
 	public StandardDTO toDTO() {
-		return new StandardDTO(this.id, this.usuario, this.password, this.duenioAsociado);
+		return new StandardDTO(this.id, this.password, this.usuario, this.duenioAsociado);
 	}
 
 }
