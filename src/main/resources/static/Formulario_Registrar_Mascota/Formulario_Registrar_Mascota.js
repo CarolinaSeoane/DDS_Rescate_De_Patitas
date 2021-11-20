@@ -1,6 +1,7 @@
 const apiRegistrar = "http://localhost:5000/api/dueño/registrar";
 const apiOrganizaciones = "http://localhost:5000/api/organizaciones";
 const apiSesion = "http://localhost:5000/sesion/validar";
+const apiAgregarMascota = "http://localhost:5000/api/mascota/agregar-mascota";
 
 new Vue({
     el: '#app',
@@ -36,7 +37,8 @@ new Vue({
             }]
         },
         organizaciones: [],
-        sesionInvalida: true
+        sesionInvalida: true,
+        idSesion: ''
     },
 
     created() {
@@ -47,16 +49,16 @@ new Vue({
         })
 
         /* Valido la sesion, si hay */
-        var idSesion = localStorage.getItem("IDSESION");
-        console.log(idSesion);
+        this.idSesion = localStorage.getItem("IDSESION");
+        console.log(this.idSesion);
 
-        if(idSesion == null) {
+        if(this.idSesion == null) {
             this.sesionInvalida = true
         } else {
             fetch(apiSesion, {
                 method: "GET",
                 headers: {
-                    "Authorization": idSesion
+                    "Authorization": this.idSesion
                 }
             })
             .then(response => response.json())
@@ -67,9 +69,6 @@ new Vue({
     },
 
     methods: {
-
-    /* FUNCIONES PARA ENVIAR DATOS AL SERVIDOR Y FUNCIONES DE COMPORTAMIENTO DE BOTONES */
-
         enviar() {
             this.duenio.formasNotificacion = (this.duenio.formasNotificacion1).join(', ');
 
@@ -79,11 +78,35 @@ new Vue({
 
             console.log(this.duenio);
 
+            if(this.sesionInvalida) {
             axios.post(apiRegistrar, this.duenio)
                 .then((result) => {
                     alert("¡Se ha registrado a su mascota correctamente! Pulse aceptar para volver a la pantalla principal");
                     window.location.href = 'index.html';
                 })
+            } else {
+                fetch(apiAgregarMascota, {
+                     method: "POST",
+                     headers: {
+                        'Content-Type': 'application/json',
+                        "Authorization": this.idSesion
+                     },
+                     body: JSON.stringify(this.duenio.mascotas)
+                })
+                .then(data => {
+                    console.log('status: ', data.status);
+
+                    switch (data.status) {
+                        case 200:
+                            alert("¡Se han guardado sus datos correctamente! Pulse aceptar para volver a la pantalla principal");
+                            window.location.href = 'index.html';
+                        break;
+                        default:
+                            console.log('error');
+                        break;
+                    }
+                })
+            }
         },
 
         addContacto() {
@@ -140,19 +163,6 @@ new Vue({
                     this.duenio.mascotas[i].fotos.push(request);
                     })
             }
-        },
-
-        /* FUNCIONES PARA AUTOCOMPLETADO DE DATOS */
-
-        disable: function() {
-        	let duenioNombre = document.getElementById("duenioNombre")
-        	let duenioApellido = document.getElementById("duenioApellido")
-        	duenioNombre.disabled = true
-            duenioApellido.disabled = true
         }
-
-        /* FUNCIONES PARA VALIDACION DE DATOS */
-
-
     }
 })

@@ -47,4 +47,8 @@ public class Duenio extends Persona {
         }
     }
 
+    public void agregarMascotas(List<Mascota> mascotas) {
+            this.mascotas.addAll(mascotas);
+    }
+
 }

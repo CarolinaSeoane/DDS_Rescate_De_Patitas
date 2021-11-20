@@ -27,11 +27,11 @@
 
 			<!-- PERSONA -->
 
-			<h3 class="sub-titulo">Datos Personales</h3>
+			<h3 class="sub-titulo" v-if="sesionInvalida">Datos Personales</h3>
 
 			<section class="formulario">
 
-				<section>
+				<section v-if="sesionInvalida">
 					<div class="input misma-linea">
 						<p class="texto-simple pregunta">Nombre</p>
 						<input type="text" class="input-completo texto-simple" v-model="duenio.nombre" id="duenioNombre" required>
@@ -90,7 +90,7 @@
 
 				<!-- CONTACTOS -->
 
-				<div> <!-- Este div tiene que estar encerrando al for porque sino la :key interfiere con la key de la seccion de abajo-->
+				<div v-if="sesionInvalida"> <!-- Este div tiene que estar encerrando al for porque sino la :key interfiere con la key de la seccion de abajo-->
 					<h3 class="sub-titulo contactos">Mis Contactos</h3>
 					<div v-for="(contacto, counter) in duenio.otrosContactos" :key="counter" class="nuevo-cuadro">
 

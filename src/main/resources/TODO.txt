@@ -5,6 +5,7 @@ Cosas importantes para hacer:
 [3] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
 [3] Cerrar sesiones
 [4] Probar la pantalla principal del admin
+[5] La contraseña se tiene que validar en el backend (lo de las 10K passwords solo se valida en el back). Ahora funciona mal el login. Interpretar exceptions en el front.
 
 ********************************************************************************************
 
@@ -16,7 +17,7 @@ Cosas NO importantes para hacer:
 [4] Hacer "mostrar" contraseña en registrarse e iniciar sesion
 [5] Hacer pantalla Organizaciones.
 [6] Agregar el "repetir contraseña" en el registrar de standard user
-
+[7] Agregar validaciones a formulario de datos personales.
 ********************************************************************************************
 
 En proceso:

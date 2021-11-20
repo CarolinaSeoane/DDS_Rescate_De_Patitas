@@ -1,5 +1,6 @@
 package ddsutn.Controllers;
 
+import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Persona.Duenio;
 import ddsutn.Seguridad.Sesion.LoginResponse;
 import ddsutn.Seguridad.Sesion.SesionManager;
@@ -21,6 +22,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.persistence.DiscriminatorValue;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin
