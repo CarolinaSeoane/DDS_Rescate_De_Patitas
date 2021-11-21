@@ -1,0 +1,80 @@
+/* HEADER */
+
+header {
+    background: url("img/img.png");
+    height: 550px;
+    background-color: #f49d96;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.contenedor-texto-header {
+  display: flex;
+  justify-content: left;
+  margin-top: 250px;
+}
+
+.contenedor-texto-header .texto {
+  text-align: right;
+  max-width: 50%;
+}
+
+.titulo-principal {
+  color: white;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 55px;
+  margin: 0;
+}
+
+/* ACERCA DE */
+
+.acerca-de .contenedor-base {
+    overflow: visible;
+    text-align: center;
+    align-content: center;
+}
+
+.acerca-de .contenedor-base .logo {
+  margin-top: -60px;
+}
+
+.acerca-de img {
+  vertical-align: top;
+  border-radius: 50%;
+  border: 7px solid rgba(255, 255, 255, 0.2);
+  width: 150px;
+  height: 150px;
+
+}
+
+.main .acerca-de .contenedor-base .texto {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  padding-right: 85px;
+  padding-left: 85px;
+}
+
+.main .acerca-de .contenedor-base .texto .texto-simple {
+  margin-top: 40px;
+}
+
+/* DATOS */
+
+h3 {
+    border-bottom: 1px solid #C1C0C5;
+    padding: 20px;
+    color: #C04335;
+}
+
+.texto-simple {
+    margin: 15px;
+}
+
+.datos-personales {
+    margin-top: 80px;
+    border: 1px solid  #C1C0C5;
+    border-radius: 15px;
+        text-align: center;
+        align-content: center;
+}
