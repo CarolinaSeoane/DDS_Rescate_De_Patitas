@@ -27,7 +27,7 @@ class MenuUsuario extends HTMLElement {
 
                     <nav class="menu">
                         <a v-if="sesionInvalida" href="Iniciar_Sesion.html">Iniciar Sesión</a>
-                        <a v-if="!sesionInvalida" href="index.html">Mi Usuario</a>
+                        <a v-if="!sesionInvalida" href="Mi_Usuario.html">Mi Usuario</a>
                         <a href="index.html">Página Principal</a>
                         <a href="Organizaciones.html">Organizaciones</a>
                     </nav>

@@ -23,7 +23,6 @@ public class OrganizacionController {
 
     @PostMapping(value = "/modificar")
     public ResponseEntity modificarParametros(@RequestBody Organizacion organizacion) {
-
         organizacionSvc.save(organizacion);
         return ResponseEntity.status(200).build();
     }

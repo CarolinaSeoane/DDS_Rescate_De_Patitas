@@ -1,6 +1,10 @@
 package ddsutn.Controllers;
 
+import com.google.zxing.NotFoundException;
+import com.google.zxing.WriterException;
 import ddsutn.Business.Mascota.DTOs.MascotaDTO;
+import ddsutn.Business.Mascota.Foto.Foto;
+import ddsutn.Business.Mascota.Foto.QR;
 import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Persona.Duenio;
 import ddsutn.Seguridad.Sesion.SesionManager;
@@ -13,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,6 +31,8 @@ public class MascotaController {
 
     @Autowired
     private StandardSvc standardSvc;
+
+    private QR QR = new QR();
 
     @PostMapping("/registrar")
     public ResponseEntity<Object> crearMascota(@RequestBody Mascota mascota) {
@@ -66,4 +73,16 @@ public class MascotaController {
 
     }
 
+    @ResponseBody
+    @GetMapping(value="/obtener-QR")
+    public ResponseEntity<Foto> obtenerQRMascota() throws NotFoundException, IOException, WriterException {
+        String qr_bs64 = QR.generarQR("dffds");
+        Foto foto = new Foto();
+        foto.setContenidoBase64(qr_bs64);
+        try {
+            return ResponseEntity.status(200).body(foto);
+        } catch (Exception ex) {
+            return ResponseEntity.status(400).build();
+        }
+    }
 }
