@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,19 +13,20 @@
     <link rel="stylesheet" href="../static/Resources/normalize.css">
     <link rel="stylesheet" href="../static/Resources/Boton.css">
     <link rel="stylesheet" href="../static/Resources/Formulario.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 
 <body>
 
-    <main-menu></main-menu>
+    <main-menu-usuario></main-menu-usuario>
 
     <section class="main">
         <div class="contenedor-base" id="app">
 
             <!-- MASCOTA. Agregar tipo (gato o perro) -->
-
+            <br><br><br>
             <h3 class="sub-titulo">Datos de la Mascota</h3>
 
             <section class="formulario">
@@ -76,6 +77,7 @@
 
     <script src="../static/Footer/Footer.js"></script>
     <script src="../static/Menu/Menu.js"></script>
+    <script src="../static/Resources/ValidarUsuario.js"></script>
     <script src="../static/Datos_Mascota_Perdida/map.js"></script>
 
 </body>

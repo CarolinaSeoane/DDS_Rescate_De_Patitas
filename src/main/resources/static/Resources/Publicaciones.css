@@ -17,31 +17,6 @@ h3 {
     text-align: center;
 }
 
-/* HEADER */
-
-header .contenedor-base {
-    overflow: hidden;
-}
-
-.menu {
-  margin: 40px 0;
-  text-align: left;
-}
-
-.menu a {
-  margin-right: 40px;
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 10px;
-}
-
-.menu a:hover {
- border-bottom: 2px solid white;
-}
-
-
 /* ACERCA DE */
 
 .main .acerca-de {
@@ -53,7 +28,6 @@ header .contenedor-base {
 .main .acerca-de .texto-simple {
   margin-top: 40px;
 }
-
 
 /* PUBLICACIONES RECIENTES */
 

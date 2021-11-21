@@ -30,28 +30,10 @@ header {
   height: 550px;
 }
 
-header .menu {
-  margin: 40px 0;
-  text-align: left;
-}
-
-header .menu a {
-  margin-right: 40px;
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 10px;
-}
-
-header .menu a:hover {
- border-bottom: 2px solid white;
-}
-
 header .contenedor-texto-header {
   width: 30%;
   float: right;
-  margin-top: 80px;
+  margin-top: 180px;
 }
 
 header .contenedor-texto-header .titulo-principal {

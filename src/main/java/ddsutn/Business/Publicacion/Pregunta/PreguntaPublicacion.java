@@ -2,9 +2,7 @@ package ddsutn.Business.Publicacion.Pregunta;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
-
 import lombok.*;
-
 import javax.persistence.*;
 
 @Getter

@@ -1,49 +1,47 @@
 .contenedor-base {
-  width: 100%;
-  max-width: 1000px;
-  margin: auto;
-  overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
 }
 
 /* MENU */
-
-header {
-  background-color: #57565B;
+.menu-bar {
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 40px;
+    width: 100%;
+    position: fixed;
+    display: inline-block;
+    z-index: 9999;
 }
 
-header .contendor-base {
-  position: relative;
+.menu {
+    margin: 30px 0;
+    text-align: left;
+    display: inline-block;
 }
 
-header .menu {
-  margin: 40px 0;
-  text-align: left;
-  position: absolute;
-  vertical-align: center;
+.menu a {
+    margin-right: 40px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 10px;
 }
 
-header .menu a {
-  margin-right: 40px;
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 10px;
+.menu a:hover {
+    border-bottom: 2px solid white;
 }
 
-header .menu a:hover {
-  border-bottom: 2px solid white;
+.logo-menu {
+    width: 65px;
+    height: 65px;
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
 }
 
-header .logo {
-  width: 65px;
-  height: 65px;
-  float: right;
-  position: relative;
-  margin-top: 19px;
-  margin-bottom: 18px;
-}
-
-header .logo img {
-  width: 100%
+.logo-menu img {
+    width: 100%
 }

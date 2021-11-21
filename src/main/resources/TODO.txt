@@ -12,9 +12,7 @@ Cosas NO importantes para hacer:
 
 [1] Hacer que ande el filtro en la pantalla Buscar Hogar.
 [2] Chequear que las pantallas que muestran publicaciones recientes muestren las últimas.
-[3] Hacer un Menu único para todas las pantallas y que muestre Mi Usuario si se inicio sesion.
 [4] Hacer "mostrar" contraseña en registrarse e iniciar sesion
-[5] Hacer pantalla Organizaciones.
 [6] Agregar el "repetir contraseña" en el registrar de standard user
 [7] Agregar validaciones a formulario de datos personales.
 [8] Mostrar QR??
@@ -23,4 +21,6 @@ Cosas NO importantes para hacer:
 
 En proceso:
 [Caro] Hacer que un rescatista reporte a una mascota perdida. Esto incluye que el backend se fije si es con QR o sin QR. Si es con QR se tiene que notificar al dueño.
+[Caro] Hacer pantalla Organizaciones.
+[Caro] Hacer un Menu único para todas las pantallas y que muestre Mi Usuario si se inicio sesion.
 [Facu] Pantallas de Dar En Adopcion (son 3 en total).

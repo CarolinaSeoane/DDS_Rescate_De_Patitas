@@ -12,4 +12,5 @@ public interface PreguntaRepo extends CrudRepository<Pregunta, Long> {
 
 	@Query(value = "SELECT * FROM pregunta WHERE id_organizacion IS NULL", nativeQuery = true)
 	List<Pregunta> findAllGlobales();
+
 }

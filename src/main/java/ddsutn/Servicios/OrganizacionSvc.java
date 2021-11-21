@@ -19,8 +19,8 @@ public class OrganizacionSvc {
         return (List<Organizacion>) organizacionRepo.findAll();
     }
 
-
 	public void save(Organizacion organizacion) {
     	organizacionRepo.save(organizacion);
 	}
+
 }
