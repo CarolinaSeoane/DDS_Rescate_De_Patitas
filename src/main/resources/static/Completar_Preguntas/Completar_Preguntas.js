@@ -47,7 +47,7 @@ var app1 = new Vue({
     	enviarPreguntas() {
     		console.log(this.publicacion)
     		axios.post(apiUrlGuardarPub, this.publicacion).then((result) => {console.log(result);})
-            //window.location.href = 'Todo_Listo.html';
+            window.location.href = 'Todo_Listo.html?id=' + this.publicacion.mascota.id;
     	}
     },
     created() {
