@@ -5,6 +5,7 @@ Cosas importantes para hacer:
 [3] Cerrar sesiones
 [4] Probar la pantalla principal del admin
 [5] La contraseña se tiene que validar en el backend (lo de las 10K passwords solo se valida en el back). Ahora funciona mal el login. Interpretar exceptions en el front.
+[6] Agregar boton en la pantalla del administrador para normalizar las fotos
 
 ********************************************************************************************
 

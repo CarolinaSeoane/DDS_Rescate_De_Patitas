@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../static/Footer/Footer.css">
     <link rel="stylesheet" href="../static/Resources/normalize.css">
     <link rel="stylesheet" href="../static/Resources/Boton.css">
-    <link rel="stylesheet" href="../static/Resources/Formulario.css">
+    <link rel="stylesheet" href="../static/Formulario_Registrar_Mascota/Formulario_Registrar_Mascota.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
@@ -31,20 +31,23 @@
 
             <section class="formulario">
 
-                <div class="input">
+                <div class="input misma-linea">
+                    <p class="texto-simple pregunta">ID de la mascota (sólo complete en caso de tenerlo)</p>
+                    <input type="text" class="input-completo texto-simple" v-model="">
+                </div>
+
+                <div class="">
                     <p class="texto-simple pregunta">Describa el estado en el cual la encontró</p>
                     <p><textarea name="mensaje"></textarea></p>
                 </div>
 
                 <div class="">
                     <p class="texto-simple pregunta">Adjunte fotos de la mascota</p>
-                    <div class="fotos">
-                        <input type="file" class="texto-simple" id="foto"><br>
-                    </div>
-
                     <br>
-
+                    <input type="file" accept="image/png, image/jpeg" @change="subirFotos($event, i)" multiple>
                 </div>
+
+                <br>
 
                 <div class="input">
                     <p class="texto-simple pregunta">Seleccione la ubicación en donde la encontró</p>
@@ -63,12 +66,117 @@
                         <p class="texto-simple pregunta">Longitud</p>
                         <input type="text" class="texto-simple input_lat_long" id="lng" readonly="yes">
                     </div>
-
                 </form>
 
-                <button @click="" class="botonAzul boton">Finalizar</button>
+                <!-- RESCATISTA -->
+
+                <h3 class="sub-titulo">Datos Personales</h3>
+
+                <section>
+                    <div class="input misma-linea">
+                        <p class="texto-simple pregunta">Nombre</p>
+                        <input type="text" class="input-completo texto-simple" v-model="duenio.nombre" id="duenioNombre" required>
+                    </div>
+
+                    <div class="input misma-linea">
+                        <p class="texto-simple pregunta">Apellido</p>
+                        <input type="text" class="input-completo" v-model="duenio.apellido" id="duenioApellido" required>
+                    </div>
+
+                    <div class="input misma-linea">
+                        <p class="texto-simple pregunta">Teléfono</p>
+                        <input type="text" class="input-completo" v-model="duenio.telefono" required>
+                    </div>
+
+                    <div class="input misma-linea">
+                        <p class="texto-simple pregunta">Email</p>
+                        <input type="text" class="input-completo" v-model="duenio.email" required>
+                    </div>
+
+                    <div class="input misma-linea">
+                        <p class="texto-simple pregunta">Número de documento</p>
+                        <input type="number" class="input-completo" v-model="duenio.nroDocumento" required>
+                    </div>
+
+                    <div class="input misma-linea">
+                        <label class="texto-simple">Tipo de documento</label>
+                        <select class="texto-simple tipoDoc pregunta" v-model="duenio.tipoDocumento" required>
+                            <option>DNI</option>
+                            <option>PASAPORTE</option>
+                            <option>CUIT</option>
+                            <option>CUIL</option>
+                        </select>
+                    </div>
+
+                    <div class="input">
+                        <p class="texto-simple pregunta">Domicilio</p>
+                        <input type="text" class="input-completo" v-model="duenio.domicilio" required>
+                    </div>
+
+                    <div class="input">
+                        <p class="texto-simple pregunta titulo-inline">Quiero ser notificado por</p>
+                        <div class="opciones-inline">
+                            <p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="WPP">  WhatsApp</p>
+                            <p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="SMS">  SMS</p>
+                            <p class="texto-simple"><input type="checkbox" v-model="duenio.formasNotificacion1" value="EMAIL">  EMAIL</p>
+                        </div>
+                    </div>
+
+                    <div class="input">
+                        <p class="texto-simple pregunta fecha-inline">Fecha de nacimiento</p>
+                        <input type="date" class="fecha texto-simple pregunta" v-model="duenio.fechaDeNacimiento" required>
+                    </div>
 
                 </section>
+
+                <!-- CONTACTOS -->
+
+                <div> <!-- Este div tiene que estar encerrando al for porque sino la :key interfiere con la key de la seccion de abajo-->
+                    <h3 class="sub-titulo contactos">Mis Contactos</h3>
+                    <div v-for="(contacto, counter) in duenio.otrosContactos" :key="counter" class="nuevo-cuadro">
+
+                        <h2 class="texto-simple contacto-numero">Contacto #{{counter+1}}</h2>
+                        <span @click="deleteContacto(counter)">Eliminar</span>
+
+                        <br>
+
+                        <div class="input misma-linea">
+                            <p class="texto-simple pregunta">Nombre</p>
+                            <input type="text" class="input-completo" v-model="contacto.nombre" required>
+                        </div>
+
+                        <div class="input misma-linea">
+                            <p class="texto-simple pregunta">Apellido</p>
+                            <input type="text" class="input-completo" v-model="contacto.apellido" required>
+                        </div>
+
+                        <div class="input misma-linea">
+                            <p class="texto-simple pregunta">Teléfono</p>
+                            <input type="text" class="input-completo" v-model="contacto.telefono" required>
+                        </div>
+
+                        <div class="input misma-linea">
+                            <p class="texto-simple pregunta">Email</p>
+                            <input type="text" class="input-completo" v-model="contacto.email" required>
+                        </div>
+
+                        <div class="input">
+                            <p class="texto-simple pregunta titulo-inline">Quiere ser notificado por</p>
+                            <div class="opciones-inline">
+                                <p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="WPP">  WhatsApp</p>
+                                <p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="SMS">  SMS</p>
+                                <p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="EMAIL">  EMAIL</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <button @click="" class="botonAzul boton">Finalizar</button>
+
+                </section>
+
+
             </div>
         </div>
     </section>

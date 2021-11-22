@@ -10,11 +10,10 @@
 
 .input_lat_long {
     width: 200px;
-    height: 60px;
+    height: 50px;
     border: 1px solid #C1C0C5;
     box-sizing: border-box;
     border-radius: 5px;
     padding-left: 10px;
-    margin-bottom: 100px;
     margin-right: 20px;
 }
