@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8"/>
@@ -60,9 +60,24 @@
             </section>
 
             <section class="datos-mascotas">
-                <img :src="foto.contenidoBase64" alt="QR mascota">
+                <h3 class="sub-titulo" v-if="">Mis Mascotas</h3>
+                <div class="contenedor-grande">
+                    <div class="contenedor-mascotas">
+                        <div v-for="mascota in usuario.duenioAsociado.mascotas">
+                            <div class="contenedor-mascota">
+                                <p class="texto-simple">Nombre: {{mascota.nombre}}</p>
+                                <p class="texto-simple">Apodo: {{mascota.apodo}}</p>
+                                <p class="texto-simple">Edad: {{mascota.edad}}</p>
+                                <p class="texto-simple">Tipo: {{mascota.tipo}}</p>
+                                <p class="texto-simple">Sexo: {{mascota.sexo}}</p>
+                                <div class="imagen">
+                                    <img :src="mascota.id_QR" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-
         </section>
     </div>
 

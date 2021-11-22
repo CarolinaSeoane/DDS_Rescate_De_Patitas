@@ -1,6 +1,8 @@
 package ddsutn.Controllers;
 
-import ddsutn.Business.Mascota.Mascota;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.WriterException;
+import ddsutn.Business.Mascota.Foto.QR;
 import ddsutn.Business.Persona.Duenio;
 import ddsutn.Seguridad.Sesion.LoginResponse;
 import ddsutn.Seguridad.Sesion.SesionManager;
@@ -22,8 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.persistence.DiscriminatorValue;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
-import java.util.UUID;
+import java.io.IOException;
 
 @RestController
 @CrossOrigin
@@ -41,6 +42,8 @@ public class UsuariosController {
 
     @Autowired
     private VoluntarioSvc voluntarioSvc;
+
+    private QR QR = new QR();
 
     //Creacion de usuarios
     @PostMapping(value = "/registrar-admin")
@@ -97,6 +100,29 @@ public class UsuariosController {
         StandardDTO standardDTO = estandar.toDTO();                                  // Paso esos datos a un DTO
 
         return ResponseEntity.status(200).body(standardDTO);                       // Retorno el DTO
+    }
+
+    // Es igual que el de arriba pero en vez de retornar el id_qr retorna el QR en base 64
+    @GetMapping(value="/datos-estandar-qr")
+    public ResponseEntity<StandardDTO> obtenerQRMascota(@RequestHeader("Authorization") String idSesion) throws NotFoundException, IOException, WriterException {
+        SesionManager sesionManager = SesionManager.get();
+        Usuario usr = (Usuario) sesionManager.obtenerAtributo(idSesion);
+        StandardUser estandar = standardSvc.findStandardByUsuario(usr.getUsuario());
+
+        StandardDTO standardDTO = estandar.toDTO();
+        standardDTO.getDuenioAsociado().getMascotas().forEach(mascota -> {
+            try {
+                mascota.setId_QR(QR.generarQR(mascota.getId_QR()));
+            } catch (WriterException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        return ResponseEntity.status(200).body(standardDTO);
+
     }
 
     @PostMapping(value = "/datos-estandar/actualizar")
