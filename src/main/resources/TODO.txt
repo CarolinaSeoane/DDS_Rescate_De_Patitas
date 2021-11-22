@@ -19,6 +19,5 @@ Cosas NO importantes para hacer:
 ********************************************************************************************
 
 En proceso:
-[Caro] Hacer pantalla Mi Usuario.
 [Caro] Hacer que un rescatista reporte a una mascota perdida. Esto incluye que el backend se fije si es con QR o sin QR. Si es con QR se tiene que notificar al dueño.
 [Facu] Pantallas de Dar En Adopcion (son 3 en total).
