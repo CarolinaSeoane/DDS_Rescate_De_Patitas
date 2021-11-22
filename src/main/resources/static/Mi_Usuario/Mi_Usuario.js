@@ -1,32 +1,55 @@
-const apiQR = "http://localhost:5000/api/mascota/obtener-QR";
-const apiUrlUsuario = "http://localhost:5000/usuarios/datos-estandar";
+const apiUrlUsuario = "http://localhost:5000/usuarios/datos-estandar-qr";
 
 new Vue({
         el: '#app',
         data() {
-            return{
-                foto: {},
-                usuario: {}
+            return {
+                usuario: {
+                    duenioAsociado : {
+                        nombre: '',
+                        apellido: '',
+                        telefono: '',
+                        email: '',
+                        formasNotificacion1: [],
+                        formasNotificacion: '',
+                        fechaDeNacimiento: '',
+                        tipoDocumento: '',
+                        nroDocumento: '',
+                        domicilio: '',
+                        otrosContactos: [{
+                            nombre: '',
+                            apellido: '',
+                            telefono: '',
+                            email: '',
+                            formasNotificacion1: [],
+                            formasNotificacion: ''
+                        }],
+                        mascotas: [{
+                            nombre: '',
+                            apodo: '',
+                            edad: '',
+                            sexo: '',
+                            descripcion: '',
+                            caracteristicas: [],
+                            fotos: [],
+                            organizacion: {},
+                            id_QR: ''
+                        }]
+                    }
+                }
             }
         },
-        created() {
-            fetch(apiQR)
-                .then(response => response.json())
-                .then(qrObtenido => {
-                    this.foto = qrObtenido;
-                    console.log(this.QR);
-            })
 
+        created() {
             var idSesion = localStorage.getItem("IDSESION");
 
             fetch(apiUrlUsuario, {
                 headers: {
                     "Authorization": idSesion //se envia el IDSESION para identificar al usuario en backend
                 }})
-            .then(response =>{ return response.json()})
-            .then(estandar => {
-                this.usuario = estandar;
-            })
-
+                .then(response => response.json())
+                .then(usrObtenido => {
+                    this.usuario = usrObtenido;
+            });
         }
     })
