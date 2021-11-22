@@ -21,4 +21,6 @@ public class PublicacionDarEnAdopcionSvc {
         return publicacionDarEnAdopcionRepo.findById(id);
     }
 
+	public PublicacionDarEnAdopcion save(PublicacionDarEnAdopcion pub) { return publicacionDarEnAdopcionRepo.save(pub);
+	}
 }

@@ -8,6 +8,7 @@ import ddsutn.Business.Persona.Duenio;
 import ddsutn.Business.Publicacion.Pregunta.PreguntaPublicacion;
 import ddsutn.Business.Persona.Contacto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "publicacion_dar_en_adopcion")
@@ -42,7 +44,6 @@ public class PublicacionDarEnAdopcion {
 	public PublicacionDarEnAdopcion(Organizacion organizacion, Mascota mascota) {
 		this.organizacion = organizacion;
 		this.mascota = mascota;
-		//this.preguntas = this.obtenerPreguntasObligatorias(organizacion);
 	}
 	/*
     Si esta persona encuentra a su mascota apropiada entre las publicadas, el sistema debera notificarle
@@ -61,19 +62,5 @@ public class PublicacionDarEnAdopcion {
 		Duenio duenioMascota = this.mascota.getDuenio();
 		duenioMascota.notificarAMisContactos(mensaje);
 	}
-/*
-	private List<PreguntasPublicacion> obtenerPreguntasObligatorias(Organizacion organizacion) {
-		Sistema sistema = Sistema.getInstance();
-		List<String> preguntas = sistema.getPublicaciones().getPreguntasObligatorias();
-		List<PreguntasPublicacion> preguntasPublicacion = new ArrayList<>();
-		for(String pregunta : preguntas) {
-			PreguntasPublicacion preg = new PreguntasPublicacion(pregunta, null);
-			preguntasPublicacion.add(preg);
-		}
-		for(String pregunta : organizacion.getPreguntasAdicionales()) {
-			PreguntasPublicacion preg = new PreguntasPublicacion(pregunta, null);
-			preguntasPublicacion.add(preg);
-		}
-		return preguntasPublicacion;
-	}*/
+
 }

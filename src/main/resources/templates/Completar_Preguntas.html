@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset="UTF-8">
@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="../static/Footer/Footer.css">
 	<link rel="stylesheet" href="../static/Resources/normalize.css">
 	<link rel="stylesheet" href="../static/Resources/Boton.css">
-	<link rel="stylesheet" href="../static/Resources/Formulario.css">
 	<link rel="icon" href="../static/Resources/img/logo.png" type="image/icon type">
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -37,18 +36,19 @@
 			</div>
 		</div>
 
+
 		<div class="contenedor-preguntas">
 
-			<div class="contenedor-pregunta" v-for="pregunta in this.preguntas">
+			<div class="contenedor-pregunta" v-for="pregunta in this.publicacion.preguntas">
 
 				<div class="pregunta">
 					<p class="pregunta-texto">{{pregunta.pregunta}}</p>
-					<p><textarea name="respuesta" class="texto-simple" placeholder="Su respuesta..." required></textarea></p>
+					<p><textarea name="respuesta" class="texto-simple" placeholder="Su respuesta..."  v-model="pregunta.respuesta" required></textarea></p>
 				</div>
 
 			</div>
 
-			<button @click="" class="botonAzul boton continuar">Continuar</button>
+			<button @click="enviarPreguntas" class="botonAzul boton continuar">Continuar</button>
 
 		</div>
 
