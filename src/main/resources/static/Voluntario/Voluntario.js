@@ -15,5 +15,14 @@ new Vue({
 			.then(response => response.json())
 			.then(publicaciones => { this.publicaciones = publicaciones;})
 	},
-	methods: {}
+	methods: {
+		aceptar(publicacion) {
+			publicacion.aceptada = true
+			axios.post(apiUrlPublicaciones, publicacion)
+			alert("¡Publicación aceptada con éxito!")
+		},
+		todasAceptadas() {
+			return this.publicaciones.filter(pub => pub.aceptada == false).length == 0
+		}
+	}
 })

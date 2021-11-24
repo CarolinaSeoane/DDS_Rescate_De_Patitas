@@ -31,7 +31,12 @@
 		<br><br><br>
 		<h3 class="sub-titulo titulo">Publicaciones pendientes</h3>
 
+		<div class="sin-publicaciones" v-if="todasAceptadas()">
+			<a class="texto-sin-publicaciones">¡Buen trabajo! No hay más publicaciones para evaluar en este momento. </a>
+		</div>
+
 		<div class="contenedor-publicaciones">
+
 
 			<div v-for="publicacion in this.publicaciones" v-show="!publicacion.aceptada">
 
@@ -67,12 +72,8 @@
 
 							<div class="note botones">
 
-								<a class="botones">
+								<a class="botones" @click="aceptar(publicacion)">
 									<button class="botonAzul">Aceptar</button>
-								</a>
-
-								<a class="botones">
-									<button class="botonRojo">Rechazar</button>
 								</a>
 
 							</div>

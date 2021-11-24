@@ -21,4 +21,6 @@ public class PublicacionMascotaEncontradaSvc {
         return publicacionMascotaEncontradaRepo.findById(id);
     }
 
+	public PublicacionMascotaEncontrada save(PublicacionMascotaEncontrada publicacionMascotaEncontrada) { return publicacionMascotaEncontradaRepo.save(publicacionMascotaEncontrada);
+	}
 }
