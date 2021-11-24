@@ -37,6 +37,7 @@ public class OrganizacionController {
 
     @GetMapping(value = "/normalizar-fotos")
     public ResponseEntity normalizarFotos(@RequestHeader("Authorization") String idSesion) {
+
         try {
 
             SesionManager sesionManager = SesionManager.get();
@@ -45,6 +46,7 @@ public class OrganizacionController {
             administrador.getOrganizacion().normalizarFotos();
             organizacionSvc.save(administrador.getOrganizacion());
             return ResponseEntity.status(200).build();
+
         } catch(Exception ex) {
             return ResponseEntity.status(400).build();
         }
