@@ -74,3 +74,15 @@
 .texto-item {
 	padding-right: 10px;
 }
+
+/* CREACION DE USUARIOS Y NORMALIZACION DE FOTOS */
+
+.usuario-fotos {
+	display: flex;
+	justify-content: space-between;
+}
+
+.recuadro {
+	padding: 10px 20px;
+    border: dashed 2px #78909C;
+}

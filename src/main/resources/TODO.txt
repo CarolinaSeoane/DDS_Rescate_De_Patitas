@@ -5,8 +5,7 @@ Cosas importantes para hacer:
 [3] Cerrar sesiones
 [4] Probar la pantalla principal del admin
 [5] La contraseña se tiene que validar en el backend (lo de las 10K passwords solo se valida en el back). Ahora funciona mal el login. Interpretar exceptions en el front.
-[6] Agregar boton en la pantalla del administrador para normalizar las fotos
-[7] Completar el proceso de guardar una publicacion. Spring no detecta las preguntas y no las persiste en la tabla de muchos a muchos
+[6] Completar el proceso de guardar una publicacion. Spring no detecta las preguntas y no las persiste en la tabla de muchos a muchos
 
 ********************************************************************************************
 
@@ -17,6 +16,7 @@ Cosas NO importantes para hacer:
 [4] Hacer "mostrar" contraseña en registrarse e iniciar sesion
 [6] Agregar el "repetir contraseña" en el registrar de standard user
 [7] Agregar validaciones a formulario de datos personales.
+[8] Cuando se normalizan las fotos, ver cómo evitar que la transaccion sea muy grande porque SQL la rechaza.
 
 ********************************************************************************************
 

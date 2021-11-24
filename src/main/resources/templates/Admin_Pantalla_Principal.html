@@ -70,13 +70,26 @@
 
 
 
-            <!-- CREACION DE USUARIOS -->
 
-            <h3 class="sub-titulo">Creación de Usuarios</h3>
+            <div class="usuario-fotos">
+                <!-- CREACION DE USUARIOS -->
+                <section class="recuadro">
+                    <h3 class="sub-titulo">Creación de Usuarios</h3>
 
-            <a class="botones" href="Admin_Crear_Usuario.html">
-                <button class="botonAzul">+ Crear Usuario</button>
-            </a>
+                    <a class="botones" href="Admin_Crear_Usuario.html">
+                        <button class="botonAzul">+ Crear Usuario</button>
+                    </a>
+                </section>
+
+                <!-- NORMALIZACION DE FOTOS -->
+                <section class="recuadro">
+                    <h3 class="sub-titulo">Normalización de Fotos</h3>
+
+                    <a class="botones" @click="normalizarFotos()">
+                        <button class="botonAzul">Normalizar Fotos</button>
+                    </a>
+                </section>
+            </div>
 
         </div>
     </section>

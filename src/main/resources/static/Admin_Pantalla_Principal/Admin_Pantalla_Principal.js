@@ -1,6 +1,7 @@
 const apiUrlDatosAdmin = "http://localhost:5000/usuarios/datos-administrador";
 const apiCaracteristicasGlobales = "http://localhost:5000/api/caracteristicas";
-const apiUrlOrganizacion = "http://localhost:5000/api/organizaciones/modificar"
+const apiUrlOrganizacion = "http://localhost:5000/api/organizaciones/modificar";
+const apiNormalizarFotos = "http://localhost:5000/api/organizaciones/normalizar-fotos";
 
 new Vue({
 	el: '#app',
@@ -79,6 +80,23 @@ new Vue({
 				alert("Los pixeles de alto y de ancho deben ser mayores que 0")
 			}
 
+		},
+		normalizarFotos() {
+			var idSesion = localStorage.getItem("IDSESION");
+			fetch(apiNormalizarFotos, {
+				headers: {
+					"Authorization": idSesion
+				}
+			})
+			.then(function(response) {
+                if(response.ok) {
+                  	alert("¡Las fotos se normalizarion con éxito!")
+                }})
+			.catch(function (error) {
+                if (error.response.status == 400) {
+                	alert("El servidor no pudo procesar la solicitud. Inténtelo de nuevo")
+                }
+            });
 		}
 	},
     created() {
