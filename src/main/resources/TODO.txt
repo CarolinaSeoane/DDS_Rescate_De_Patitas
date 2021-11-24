@@ -1,11 +1,10 @@
 Cosas importantes para hacer:
 
-[1] Pantalla voluntario
-[2] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
-[3] Cerrar sesiones
-[4] Probar la pantalla principal del admin
-[5] La contraseña se tiene que validar en el backend (lo de las 10K passwords solo se valida en el back). Ahora funciona mal el login. Interpretar exceptions en el front.
-[6] Completar el proceso de guardar una publicacion. Spring no detecta las preguntas y no las persiste en la tabla de muchos a muchos
+[1] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
+[2] Cerrar sesiones
+[3] Solucionar el check de caracteristicas en la pantalla del admin
+[4] La contraseña se tiene que validar en el backend (lo de las 10K passwords solo se valida en el back). Ahora funciona mal el login. Interpretar exceptions en el front.
+[5] Completar el proceso de guardar una publicacion. Spring no detecta las preguntas y no las persiste en la tabla de muchos a muchos
 
 ********************************************************************************************
 
@@ -22,3 +21,4 @@ Cosas NO importantes para hacer:
 
 En proceso:
 [Caro] Hacer que un rescatista reporte a una mascota perdida. Esto incluye que el backend se fije si es con QR o sin QR. Si es con QR se tiene que notificar al dueño.
+[Facu] Pantalla Voluntario
