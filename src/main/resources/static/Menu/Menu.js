@@ -1,20 +1,22 @@
 class MenuAdmin extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-			<header>
-        		<div class="contenedor-base">
+	        <div class="menu-bar">
+                <div class="contenedor-base">
 
-        			<nav class="menu">
-        				<a href="Admin_Pantalla_Principal.html">Página Principal</a>
-        				<a href=".">Cerrar Sesión</a>
-        			</nav>
+                    <nav class="menu">
+                        <a href="Admin_Pantalla_Principal.html">Página Principal</a>
+                        <a href=".">Cerrar Sesión</a>
+                    </nav>
 
-        			<div class="logo">
-        					<img src="../static/Menu/img/logo_blanco.png" alt="Logo">
-        			</div>
+                    <a href="Admin_Pantalla_Principal.html">
+                        <div class="logo-menu">
+                            <img src="../static/Menu/img/logo_blanco.png" alt="Logo">
+                        </div>
+                    </a>
 
-        		</div>
-        	</header>
+                </div>
+            </div>
     `;
     }
 }
@@ -32,9 +34,11 @@ class MenuUsuario extends HTMLElement {
                         <a href="Organizaciones.html">Organizaciones</a>
                     </nav>
 
-                    <div class="logo-menu">
-                        <img src="../static/Menu/img/logo_blanco.png" alt="Logo">
-                    </div>
+                    <a href="index.html">
+                        <div class="logo-menu">
+                            <img src="../static/Menu/img/logo_blanco.png" alt="Logo">
+                        </div>
+                    </a>
 
                 </div>
             </div>
