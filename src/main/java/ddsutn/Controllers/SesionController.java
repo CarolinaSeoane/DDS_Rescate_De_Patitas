@@ -20,4 +20,12 @@ public class SesionController {
 
     }
 
+    @GetMapping(value = "/eliminar")
+    public void eliminarSesion(@RequestHeader("Authorization") String idSesion) {
+
+        SesionManager sesionManager = SesionManager.get();
+        sesionManager.eliminar(idSesion);
+
+    }
+
 }
