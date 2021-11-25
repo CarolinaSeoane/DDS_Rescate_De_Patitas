@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Organizacion.Organizacion;
 
 import ddsutn.Business.Publicacion.PublicacionMascotaEncontrada;
+import ddsutn.Seguridad.Usuario.DTOs.VoluntarioDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,5 +37,9 @@ public class Voluntario extends Usuario {
     public void validarPublicacion(PublicacionMascotaEncontrada publicacion){
         publicacion.aceptarPublicacionMascotaEncontrada(); // cambiarlo por id
     }
+
+    public VoluntarioDTO toDTO() {
+    	return new VoluntarioDTO(this.id, this.usuario, this.password, this.organizacion);
+	}
 
 }

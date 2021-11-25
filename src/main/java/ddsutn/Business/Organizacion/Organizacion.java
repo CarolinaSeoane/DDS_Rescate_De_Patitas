@@ -112,4 +112,9 @@ public class Organizacion {
         return preguntasAdicionales.contains(pregunta);
     }
 
+    public void normalizarFotos() {
+    	for(Mascota mascota : mascotasRegistradas) {
+    		mascota.getFotos().forEach(foto -> foto.convertirFoto(this));
+		}
+	}
 }
