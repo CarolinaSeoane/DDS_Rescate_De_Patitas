@@ -5,7 +5,6 @@ import ddsutn.Servicios.PublicacionInteresadoSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,6 +18,7 @@ public class PublicacionInteresadoController {
 	@PostMapping("/crear")
 	public ResponseEntity<Object> guardar_publicacion(@RequestBody PublicacionInteresado publicacionInteresado) {
 		try {
+			publicacionInteresado.otorgarLinkDeBajaAlInteresado();
 			publicacionInteresadoSvc.save(publicacionInteresado);
 			return new ResponseEntity<Object>(HttpStatus.OK);
 		} catch(Exception ex) {
