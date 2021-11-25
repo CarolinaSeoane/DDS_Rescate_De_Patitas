@@ -131,13 +131,13 @@ INSERT INTO mascota_perdida (posee_qr, estado, tipo, id_rescatista, id_ubicacion
     ('sin_QR', 'La encontramos sola en la plaza. Tiene la cara un poco lastimada.', 'PERRO', 10, 10, NULL);
 
 INSERT INTO publicacion_mascota_encontrada (aceptada, id_mascota, id_organizacion, id_rescatista) VALUES
-    (0, 1, NULL, 2),
-    (1, 2, NULL, 4),
-    (0, 3, NULL, 5),
-    (1, 4, NULL, 7),
-    (1, 5, NULL, 8),
-    (1, 6, NULL, 9),
-    (1, 7, NULL, 10);
+    (0, 1, 1, 2),
+    (1, 2, 2, 4),
+    (0, 3, 3, 5),
+    (1, 4, 3, 7),
+    (1, 5, 5, 8),
+    (1, 6, 2, 9),
+    (1, 7, 5, 10);
 
 INSERT INTO caracteristica_x_organizacion (id_organizacion, id_caracteristica) VALUES
 	(1, 1),

@@ -32,6 +32,8 @@ public class PerdidasController {
     @PostMapping("/publicaciones")
     public ResponseEntity guardarPublicacion(@RequestBody PublicacionMascotaEncontrada publicacionMascotaEncontrada) {
         try{
+            PublicacionMascotaEncontrada pub = publicacionMascotaEncontradaSvc.findById(publicacionMascotaEncontrada.getId()).orElse(null);
+            publicacionMascotaEncontrada.setOrganizacion(pub.getOrganizacion());
             publicacionMascotaEncontradaSvc.save(publicacionMascotaEncontrada);
             return ResponseEntity.status(200).build();
         }catch(Exception ex){

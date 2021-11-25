@@ -40,7 +40,9 @@ var app = new Vue({
 
             if(this.rol == "Administrador") {
                 window.location.href = 'Admin_Pantalla_Principal.html';
-            } else { // pongo else porque no vamos a hacer las pantallas de los voluntarios
+            } else if (this.rol == "Voluntario") {
+                window.location.href = 'Voluntario.html';
+            } else {
                 window.location.href = 'index.html';
             }
         }
