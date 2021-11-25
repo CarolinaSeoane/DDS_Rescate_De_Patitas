@@ -25,8 +25,8 @@ public class MascotaPerdidaSinQr extends MascotaPerdida {
 	@JsonBackReference
 	private PublicacionMascotaEncontrada publicacion;
 
-	public MascotaPerdidaSinQr(Set<Foto> fotos, String estado, Ubicacion ubicacion) {
-		super(fotos, estado, ubicacion);
+	public MascotaPerdidaSinQr(Set<Foto> fotos, String estado, Ubicacion ubicacion, TipoMascota tipo) {
+		super(fotos, estado, ubicacion, tipo);
 	}
 /*
     public PublicacionMascotaEncontrada generarPublicacion(Rescatista rescatista){

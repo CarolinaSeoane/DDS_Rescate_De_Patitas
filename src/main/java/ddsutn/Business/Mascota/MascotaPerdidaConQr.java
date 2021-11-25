@@ -24,8 +24,8 @@ public class MascotaPerdidaConQr extends MascotaPerdida {
 	@JoinColumn(name = "id_mascota")
 	private Mascota mascotaAsociada;
 
-	public MascotaPerdidaConQr(Set<Foto> fotos, String estado, Ubicacion ubicacion) {
-		super(fotos, estado, ubicacion);
+	public MascotaPerdidaConQr(Set<Foto> fotos, String estado, Ubicacion ubicacion, TipoMascota tipo) {
+		super(fotos, estado, ubicacion, tipo);
 	}
 
     /*public Mascota reconocerMascota(String/Integer id) {

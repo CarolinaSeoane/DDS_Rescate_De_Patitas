@@ -7,6 +7,7 @@ Cosas importantes para hacer:
 [5] La contraseña se tiene que validar en el backend (lo de las 10K passwords solo se valida en el back). Ahora funciona mal el login. Interpretar exceptions en el front.
 [6] Agregar boton en la pantalla del administrador para normalizar las fotos
 [7] Completar el proceso de guardar una publicacion. Spring no detecta las preguntas y no las persiste en la tabla de muchos a muchos
+[8] Limitar tamaño de imagenes a subir. Sino rompe.
 
 ********************************************************************************************
 

@@ -14,7 +14,7 @@ public class QR {
     public String generarQR(String id_qr_mascota) throws WriterException, IOException, NotFoundException {
 
         int imageSize = 200;
-        String data = "¡Estoy perdida! Para ayudarme a encontrar a mi dueño completá el siguiente formulario: (id mascota:" + id_qr_mascota + ")" + "  http://localhost:63342/TPDDS_Grupo5_K3002/demo/templates/Datos_Mascota_Perdida.html";
+        String data = "¡Estoy perdida! Para ayudarme a encontrar a mi dueño completá el siguiente formulario: http://localhost:63342/TPDDS_Grupo5_K3002/demo/templates/Datos_Mascota_Perdida.html?id=" + id_qr_mascota;
         BitMatrix matrix = new MultiFormatWriter().encode(data, BarcodeFormat.QR_CODE, imageSize, imageSize);
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         MatrixToImageWriter.writeToStream(matrix, "png", bos);

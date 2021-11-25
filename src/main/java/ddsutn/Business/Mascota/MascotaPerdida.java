@@ -4,12 +4,10 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Hogares.Ubicacion;
 import ddsutn.Business.Mascota.Foto.Foto;
 import ddsutn.Business.Persona.Rescatista;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DiscriminatorOptions;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -48,10 +46,11 @@ public abstract class MascotaPerdida {
 	@Enumerated(EnumType.STRING)
 	private TipoMascota tipo;
 
-	public MascotaPerdida(Set<Foto> foto, String estado, Ubicacion ubicacion) {
+	public MascotaPerdida(Set<Foto> foto, String estado, Ubicacion ubicacion, TipoMascota tipo) {
 		this.fotos = foto;
 		this.estado = estado;
 		this.ubicacion = ubicacion;
+		this.tipo = tipo;
 	}
 
 }
