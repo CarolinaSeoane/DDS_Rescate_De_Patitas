@@ -26,4 +26,24 @@ public class PublicacionInteresadoController {
 		}
 	}
 
+	@GetMapping("/obtener")
+	public ResponseEntity<PublicacionInteresado> obtener_publicacion(@RequestHeader("Authorization") String codigo) {
+		try {
+			PublicacionInteresado pub = publicacionInteresadoSvc.findByCodigo(codigo);
+			return ResponseEntity.status(200).body(pub);
+		} catch(Exception ex) {
+			return ResponseEntity.status(400).build();
+		}
+	}
+
+	@PostMapping("/borrar")
+	public ResponseEntity<Object> borrar_publicacion(@RequestBody PublicacionInteresado publicacionInteresado) {
+		try {
+			publicacionInteresadoSvc.delete(publicacionInteresado);
+			return new ResponseEntity<Object>(HttpStatus.OK);
+		} catch(Exception ex) {
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
 }
