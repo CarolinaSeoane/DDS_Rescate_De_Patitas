@@ -37,8 +37,8 @@
 
 						<div class="input">
 							<p class="texto-simple pregunta">Contraseña</p>
-							<input type="password" class="input-completo texto-simple" v-model="password" required>
-							<p class="texto-sub">Mostrar contraseña</p>
+							<input id="password" type="password" class="input-completo texto-simple" v-model="password" required>
+							<p @click="mostrarContraseña()" class="boton-mostrar">Mostrar contraseña</p>
 						</div>
 
 						<button @click="login" class="botonAzul boton">Iniciar Sesion</button>

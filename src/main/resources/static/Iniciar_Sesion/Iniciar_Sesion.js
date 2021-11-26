@@ -45,6 +45,14 @@ var app = new Vue({
             } else {
                 window.location.href = 'index.html';
             }
+        },
+        mostrarContraseña() {
+        	let password = document.getElementById("password")
+        	if(password.type == 'text') {
+        	    password.type = 'password'
+        	} else {
+        	    password.type = 'text'
+        	}
         }
 
     }

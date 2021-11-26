@@ -13,8 +13,8 @@ import lombok.Setter;
 public class AdministradorDTO {
 
     private Long id;
-    private String password;
     private String usuario;
+    private String password;
     private Organizacion organizacion;
 
 }
