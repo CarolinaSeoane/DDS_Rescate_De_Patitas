@@ -20,7 +20,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.persistence.DiscriminatorValue;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RestController
@@ -61,7 +60,7 @@ public class UsuariosController {
     //Sign in
 
     @PostMapping(value = "/iniciar-sesion")
-    public LoginResponse login(@RequestBody UsuarioSigninDTO usuarioSigninDTO, HttpServletResponse response) {
+    public ResponseEntity<LoginResponse> login(@RequestBody UsuarioSigninDTO usuarioSigninDTO) {
 
         Usuario usr = usuarioSvc.signinUsuario(usuarioSigninDTO);                       // se valida contraseña y nombre de usuario. no importa el rol
 
@@ -70,7 +69,9 @@ public class UsuariosController {
 
         String idSesion = sesionManager.crear(usr);                                     // La idea en el Sesion Manager (por ahora) es vincular al idSesion con un usuario y contraseña (sin importar su rol)
 
-        return new LoginResponse(idSesion, rol);                                        // Como respuesta devuelvo el idSesion para guardarlo en localStorage y el rol lo paso para que Vue sepa a que pantalla principal redirigir al usuario
+        return ResponseEntity.status(HttpStatus.OK).body(new LoginResponse(idSesion, rol));
+
+        //return new LoginResponse(idSesion, rol);                                         Como respuesta devuelvo el idSesion para guardarlo en localStorage y el rol lo paso para que Vue sepa a que pantalla principal redirigir al usuario
     }
 
     @GetMapping(value = "/datos-administrador") // usando sesion

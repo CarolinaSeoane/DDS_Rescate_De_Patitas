@@ -78,7 +78,18 @@ new Vue({
                                     window.location.href = 'Admin_Pantalla_Principal.html';
                                     })
             }
-	    }
+	    },
+	    mostrarContraseñas() {
+        	let password = document.getElementById("password")
+        	let secondPassword = document.getElementById("secondPassword")
+        	if(password.type == 'text') {
+        	    password.type 		= 'password'
+        	    secondPassword.type = 'password'
+        	} else {
+        	    password.type 		= 'text'
+        	    secondPassword.type = 'text'
+        	}
+        }
 	}
 
 })

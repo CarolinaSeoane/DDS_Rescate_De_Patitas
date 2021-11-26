@@ -28,9 +28,13 @@ public class UsuarioSvc {
 
         if(usuario != null) {
             if (!encoder.matches(body.getPassword(), usuario.getPassword())) {
+                System.out.println("Contraseña incorrecta");
                 throw new RuntimeException();
             }
-        } else throw new RuntimeException();
+        } else {
+            System.out.println("El usuario no existe");
+            throw new RuntimeException();
+        }
 
         return usuario;
     }

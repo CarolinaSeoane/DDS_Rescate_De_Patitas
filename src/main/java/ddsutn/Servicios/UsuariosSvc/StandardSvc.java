@@ -1,6 +1,7 @@
 package ddsutn.Servicios.UsuariosSvc;
 
 import ddsutn.Repositorio.UsuarioRepo;
+import ddsutn.Seguridad.Password.ValidatePassword;
 import ddsutn.Seguridad.Usuario.StandardUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,10 +26,19 @@ public class StandardSvc {
     }
 
     public StandardUser signupStandardUser(StandardUser body){
-        body.setPassword(encoder.encode(body.getPassword()));
+        ValidatePassword validator = new ValidatePassword();
 
-        if(findStandardByUsuario(body.getUsuario()) != null)
+        if(validator.validatePassword(body.getPassword()))
+            body.setPassword(encoder.encode(body.getPassword()));
+        else{
+            System.out.println("Contraseña invalida");
             throw new RuntimeException();
+        }
+
+        if(findStandardByUsuario(body.getUsuario()) != null){
+            System.out.println("Usuario ya existente");
+            throw new RuntimeException();
+        }
 
         return save(new StandardUser(body));
     }

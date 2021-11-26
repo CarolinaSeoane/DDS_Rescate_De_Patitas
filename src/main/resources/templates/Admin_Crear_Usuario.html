@@ -37,7 +37,7 @@
 
                 <div class="input">
                     <p class="texto-simple pregunta">Contraseña</p>
-                    <input type="password" class="input-completo" v-model="form.password" required>
+                    <input id="password" type="password" class="input-completo texto-simple" v-model="form.password" required>
 
                     <div v-if='passwordValidation.errors.length > 0 && !submitted && form.password!=""' class="hints">
                         <p class="hint" v-for='error in passwordValidation.errors'>{{error}}</p>
@@ -47,12 +47,14 @@
 
                 <div class="input">
                     <p class="texto-simple pregunta">Repetir Contraseña</p>
-                    <input type="password" class="input-completo" v-model='checkPassword' required>
+                    <input id="secondPassword" type="password" class="input-completo texto-simple" v-model='checkPassword' required>
 
                     <div v-if='checkPassword!="" && notSamePasswords' class="hints">
                         <p class="hint">Las contraseñas no coinciden</p>
                     </div>
                 </div>
+
+                <p @click="mostrarContraseñas()" class="boton-mostrar mostrar-contraseña texto-simple">Mostrar contraseñas</p>
 
                 <div class="input">
                     <p class="texto-simple pregunta titulo-inline">Rol del nuevo usuario</p>
