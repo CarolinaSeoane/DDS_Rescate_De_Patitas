@@ -27,14 +27,20 @@ var app = new Vue({
                     password: this.password
                 })
             })
-            .then(response => response.json())
-            .then(datos => {
-                localStorage.setItem("IDSESION", datos.idSesion); //guarda ID
-                this.rol = datos.rol;
+            .then(function (response){
+                if(!response.ok){
+                    alert("Usuario o constraseña incorrectos");
+                    throw new Error("Status: " + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('logged in');
+                localStorage.setItem("IDSESION", data.idSesion); //guarda ID
+                this.rol = data.rol;
                 this.redirect();
             })
         },
-
         redirect: function() {
             var idSesion = localStorage.getItem("IDSESION") //recupera ID
 
