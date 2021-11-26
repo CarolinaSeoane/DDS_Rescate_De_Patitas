@@ -17,4 +17,12 @@ public class PublicacionInteresadoSvc {
 		publicacionInteresadoRepo.save(publicacionInteresado);
 	}
 
+	public PublicacionInteresado findByCodigo(String codigo) {
+		return publicacionInteresadoRepo.findByCod_Baja(codigo).orElse(null);
+	}
+
+	public void delete(PublicacionInteresado publicacionInteresado) {
+		publicacionInteresadoRepo.delete(publicacionInteresado);
+	}
+
 }

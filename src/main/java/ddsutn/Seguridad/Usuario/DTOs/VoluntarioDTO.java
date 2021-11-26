@@ -10,11 +10,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdministradorDTO {
+public class VoluntarioDTO {
 
-    private Long id;
-    private String usuario;
-    private String password;
-    private Organizacion organizacion;
+	private Long id;
+	private String password;
+	private String usuario;
+	private Organizacion organizacion;
 
 }

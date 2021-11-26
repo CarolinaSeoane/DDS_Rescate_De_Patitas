@@ -21,7 +21,7 @@
 <body>
 
 
-<main-menu-admin></main-menu-admin>
+<main-menu-voluntario></main-menu-voluntario>
 
 
 
@@ -38,7 +38,7 @@
 		<div class="contenedor-publicaciones">
 
 
-			<div v-for="publicacion in this.publicaciones" v-show="!publicacion.aceptada">
+			<div v-for="publicacion in this.voluntario.organizacion.publicacionesMascotasEncontradas" v-show="!publicacion.aceptada">
 
 				<div class="tarjeta">
 
@@ -92,6 +92,7 @@
 <script src="../static/Footer/Footer.js"></script>
 <script src="../static/Menu/Menu.js"></script>
 <script src="../static/Voluntario/Voluntario.js"></script>
+<script src="../static/Resources/ValidarUsuario.js"></script>
 
 </body>
 </html>

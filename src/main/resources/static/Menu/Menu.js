@@ -1,12 +1,12 @@
 class MenuAdmin extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-	        <div class="menu-bar">
+	        <div class="menu-bar" id="app-sesion">
                 <div class="contenedor-base">
 
                     <nav class="menu">
                         <a href="Admin_Pantalla_Principal.html">Página Principal</a>
-                        <a href=".">Cerrar Sesión</a>
+                        <a @click=eliminarSesion() href="index.html">Cerrar Sesión</a>
                     </nav>
 
                     <a href="Admin_Pantalla_Principal.html">
@@ -46,5 +46,29 @@ class MenuUsuario extends HTMLElement {
     }
 }
 
+class MenuVoluntario extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+	        <div class="menu-bar" id="app-sesion">
+                <div class="contenedor-base">
+
+                    <nav class="menu">
+                        <a href="Voluntario.html">Página Principal</a>
+                        <a @click=eliminarSesion() href="index.html">Cerrar Sesión</a>
+                    </nav>
+
+                    <a href="Voluntario.html">
+                        <div class="logo-menu">
+                            <img src="../static/Menu/img/logo_blanco.png" alt="Logo">
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+    `;
+    }
+}
+
 customElements.define('main-menu-admin', MenuAdmin);
 customElements.define('main-menu-usuario', MenuUsuario);
+customElements.define('main-menu-voluntario', MenuVoluntario);

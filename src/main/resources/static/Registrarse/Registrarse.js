@@ -16,14 +16,17 @@ new Vue({
             	password: '',
 			},
 			submitted: false,
-			status: ''
+			status: '',
+			checkPassword: ''
 		}
 	},
 	computed: {
 		passwordsFilled () {
 			return (this.form.password !== '');
 		},
-
+		notSamePasswords () {
+        	return (this.form.password !== this.checkPassword)
+       	},
 		passwordValidation () {
 			let errors = []
 			for (let condition of this.rules) {
@@ -73,6 +76,17 @@ new Vue({
                             }
                         })
 	        }
+	    },
+	    mostrarContraseñas() {
+	    	let password = document.getElementById("password")
+	    	let secondPassword = document.getElementById("secondPassword")
+	    	if(password.type == 'text') {
+	    		password.type 		= 'password'
+	    		secondPassword.type = 'password'
+	    	} else {
+	    		password.type 		= 'text'
+	    		secondPassword.type = 'text'
+	    	}
 	    }
     }
 })

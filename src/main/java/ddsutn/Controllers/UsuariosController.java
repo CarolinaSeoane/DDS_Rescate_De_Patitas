@@ -7,10 +7,7 @@ import ddsutn.Business.Persona.Duenio;
 import ddsutn.Seguridad.Sesion.LoginResponse;
 import ddsutn.Seguridad.Sesion.SesionManager;
 import ddsutn.Seguridad.Usuario.Administrador;
-import ddsutn.Seguridad.Usuario.DTOs.AdministradorDTO;
-import ddsutn.Seguridad.Usuario.DTOs.StandardDTO;
-import ddsutn.Seguridad.Usuario.DTOs.UsuarioRDTO;
-import ddsutn.Seguridad.Usuario.DTOs.UsuarioSigninDTO;
+import ddsutn.Seguridad.Usuario.DTOs.*;
 import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Seguridad.Usuario.Usuario;
 import ddsutn.Seguridad.Usuario.Voluntario;
@@ -134,6 +131,18 @@ public class UsuariosController {
         estandar.setDuenioAsociado(duenio);
         return ResponseEntity.status(HttpStatus.CREATED).body(standardSvc.save(estandar).toDTO());
     }
+
+    @GetMapping(value = "/datos-voluntario")
+    public ResponseEntity<VoluntarioDTO> obtenerMisDatosVoluntario(@RequestHeader("Authorization") String idSesion) {
+
+        SesionManager sesionManager = SesionManager.get();
+        Usuario usr = (Usuario) sesionManager.obtenerAtributo(idSesion);
+        Voluntario voluntario = voluntarioSvc.findVoluntarioByUsuario(usr.getUsuario());
+        VoluntarioDTO voluntarioDTO = voluntario.toDTO();
+        return ResponseEntity.status(200).body(voluntarioDTO);
+
+    }
+
 
 }
 

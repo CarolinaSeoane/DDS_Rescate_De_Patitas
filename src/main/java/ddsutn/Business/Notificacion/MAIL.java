@@ -21,7 +21,7 @@ public class MAIL implements Notificar {
     public void notificar(Contacto contacto, String mensaje) throws IOException {
 
         Properties prop = new Properties();
-        InputStream input = new FileInputStream("src/main/java/Services/Config/MAIL.prop");
+        InputStream input = new FileInputStream("src/main/java/ddsutn/Business/Notificacion/Config/MAIL.prop");
         prop.load(input);
 
         String to = contacto.getEmail();

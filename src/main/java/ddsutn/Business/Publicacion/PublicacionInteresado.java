@@ -8,6 +8,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -30,6 +31,8 @@ public class PublicacionInteresado {
 	@JoinColumn(name = "id_preferencias")
 	private Preferencias preferencias;
 
+	@Column
+	private String cod_Baja;
 
 	public void notificarAlInteresado(String mensaje) {
 		MAIL notificacionMail = new MAIL();
@@ -45,8 +48,10 @@ public class PublicacionInteresado {
 
 	}
 
-	public void otorgarLinkDeBajaAlInteresado(String link) {
-		this.notificarAlInteresado(link);
+	public void otorgarLinkDeBajaAlInteresado() {
+		this.cod_Baja = UUID.randomUUID().toString();
+		this.notificarAlInteresado("Felicitaciones! Estás un paso mas cerca de adoptar una mascota! La publicación se ha creado correctamente. \nTe dejamos este link por si en algún momento deseas darla de baja: " + "http://localhost:63342/TPDDS_Grupo5_K3002/demo/templates/Bajar_Publicacion.html?cod=" + cod_Baja);
+		// El link no funciona. Con el deploy hay que actualizarlo
 	}
 
 	/* *** Recomendaciones *** */

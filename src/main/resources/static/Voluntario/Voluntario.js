@@ -1,19 +1,68 @@
-const apiUrlPublicaciones ="http://localhost:5000/api/perdidas/publicaciones";
+const apiDatosVoluntario = "http://localhost:5000/usuarios/datos-voluntario";
+const apiUrlPublicaciones = "http://localhost:5000/api/perdidas/publicaciones";
 
 new Vue({
 	el: '#app',
 	data: {
-		publicaciones: [{
+		voluntario: {
 			id: null,
-			mascota: {},
-			rescatista: {},
-			aceptada: null
-		}]
+			usuario: null,
+			password: null,
+			organizacion: {
+				id: null,
+				nombre: null,
+				ubicacion: null,
+				resolucion: null,
+				calidad: null,
+				administradores: [],
+				voluntarios: [],
+				mascotasRegistradas: [],
+				preguntasAdicionales: [],
+				publicacionesDarEnAdopcion: [],
+				publicacionesMascotasEncontradas: [{
+					id: null,
+					mascota: {
+						id: null,
+						fotos: [{
+							id: null,
+							contenidoBase64: null,
+							normalizada: null
+						}],
+						estado: null,
+						ubicacion: {
+							id: null,
+							direccion: null,
+							lat: null,
+							long: null
+						},
+						rescatista: {},
+						tipo: null
+					},
+					rescatista: {
+						id: null,
+						tipoDocumento: null,
+						nroDocumento: null,
+						fechaDeNacimiento: null,
+						otrosContactos: [],
+						domicilio: null,
+						nombre: null,
+						apellido: null,
+						telefono: null,
+						email: null,
+						formasDeNotificacion: [],
+						formasNotificacion: []
+					},
+					aceptada: null
+				}],
+				caracPropias: []
+			}
+		}
 	},
 	created() {
-		fetch(apiUrlPublicaciones)
+		var idSesion = localStorage.getItem("IDSESION")
+		fetch(apiDatosVoluntario, {headers: { "Authorization": idSesion}})
 			.then(response => response.json())
-			.then(publicaciones => { this.publicaciones = publicaciones;})
+			.then(voluntario => { this.voluntario = voluntario;})
 	},
 	methods: {
 		aceptar(publicacion) {
@@ -22,7 +71,7 @@ new Vue({
 			alert("¡Publicación aceptada con éxito!")
 		},
 		todasAceptadas() {
-			return this.publicaciones.filter(pub => pub.aceptada == false).length == 0
+			return this.voluntario.organizacion.publicacionesMascotasEncontradas.filter(pub => pub.aceptada == false).length == 0
 		}
 	}
 })
