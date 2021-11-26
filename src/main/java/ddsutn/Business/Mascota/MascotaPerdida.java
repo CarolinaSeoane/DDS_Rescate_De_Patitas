@@ -16,12 +16,9 @@ import java.util.Set;
 @NoArgsConstructor
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "posee_qr", discriminatorType = DiscriminatorType.STRING)
 @Table(name = "mascota_perdida")
-@DiscriminatorOptions(force = true)
 
-public abstract class MascotaPerdida {
+public class MascotaPerdida {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,13 +35,19 @@ public abstract class MascotaPerdida {
 	@JoinColumn(name = "id_ubicacion")
 	private Ubicacion ubicacion;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_rescatista")
 	@JsonManagedReference(value = "rescatistaPerdida")
 	private Rescatista rescatista;
 
 	@Enumerated(EnumType.STRING)
 	private TipoMascota tipo;
+
+	// Si es con QR
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_mascota")
+	@JsonManagedReference(value = "mascAsociada")
+	private Mascota mascotaAsociada;
 
 	public MascotaPerdida(Set<Foto> foto, String estado, Ubicacion ubicacion, TipoMascota tipo) {
 		this.fotos = foto;

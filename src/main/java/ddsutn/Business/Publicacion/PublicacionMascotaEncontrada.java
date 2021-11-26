@@ -1,16 +1,12 @@
 package ddsutn.Business.Publicacion;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import ddsutn.Business.Mascota.MascotaPerdidaSinQr;
+import ddsutn.Business.Mascota.MascotaPerdida;
 import ddsutn.Business.Organizacion.Organizacion;
-import ddsutn.Business.Persona.Rescatista;
 import ddsutn.Business.Persona.Contacto;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Getter
@@ -30,13 +26,9 @@ public class PublicacionMascotaEncontrada {
 	@JsonBackReference(value = "encontradas")
 	private Organizacion organizacion;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_mascota")
-	private MascotaPerdidaSinQr mascota;
-
-	@OneToOne
-	@JoinColumn(name = "id_rescatista")
-	private Rescatista rescatista;
+	private MascotaPerdida mascota;
 
 	@Column(name = "aceptada")
 	private Boolean aceptada;
@@ -80,7 +72,7 @@ public class PublicacionMascotaEncontrada {
                 duenioAparecido.getApellido(),
                 duenioAparecido.getTelefono(),
                 duenioAparecido.getEmail());
-        this.rescatista.notificarAMisContactos(mensaje);
+        this.getMascota().getRescatista().notificarAMisContactos(mensaje);
     }
 
 }

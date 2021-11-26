@@ -24,4 +24,8 @@ public class MascotaSvc {
     	return mascotaRepo.findById(id).orElse(null);
 	}
 
+    public Mascota findById_QR(String id_qr) {
+        return mascotaRepo.findById_QR(id_qr).orElse(null);
+    }
+
 }

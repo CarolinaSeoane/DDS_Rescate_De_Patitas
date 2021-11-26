@@ -121,23 +121,23 @@ INSERT INTO publicacion_dar_en_adopcion (id_mascota, id_organizacion) VALUES
     (5, 3),
     (6, 3);
 
-INSERT INTO mascota_perdida (posee_qr, estado, tipo, id_rescatista, id_ubicacion, id_mascota) VALUES
-    ('sin_QR', 'La encontré caminado en la calle. Está tranquila y en buen estado.', 'PERRO', 2, 6, NULL),
-    ('sin_QR', 'Violenta y asustada. Estaba caminando sola en el parque sin correa ni collar.', 'PERRO', 4, 7, NULL),
-    ('sin_QR', 'Se encuentra bien. Cuando la encontré estaba escondida debajo de un auto.', 'GATO', 5, 8, NULL),
-    ('sin_QR', 'Hace unos días está dando vueltas por el barrio. Se encuentra bien.', 'GATO', 7, 7, NULL),
-    ('sin_QR', 'Tiene una pata lastimada pero está mejorando. La encontramos sentada en la puerta de un supermercado.', 'GATO', 8, 8, NULL),
-    ('sin_QR', 'Apareció en mi patio. Está bien ciudada pero no podemos encontrar al dueño.', 'PERRO', 9, 9, NULL),
-    ('sin_QR', 'La encontramos sola en la plaza. Tiene la cara un poco lastimada.', 'PERRO', 10, 10, NULL);
+INSERT INTO mascota_perdida (estado, tipo, id_rescatista, id_ubicacion, id_mascota) VALUES
+    ('La encontré caminado en la calle. Está tranquila y en buen estado.', 'PERRO', 2, 6, NULL),
+    ('Violenta y asustada. Estaba caminando sola en el parque sin correa ni collar.', 'PERRO', 4, 7, NULL),
+    ('Se encuentra bien. Cuando la encontré estaba escondida debajo de un auto.', 'GATO', 5, 8, NULL),
+    ('Hace unos días está dando vueltas por el barrio. Se encuentra bien.', 'GATO', 7, 7, NULL),
+    ('Tiene una pata lastimada pero está mejorando. La encontramos sentada en la puerta de un supermercado.', 'GATO', 8, 8, NULL),
+    ('Apareció en mi patio. Está bien ciudada pero no podemos encontrar al dueño.', 'PERRO', 9, 9, NULL),
+    ('La encontramos sola en la plaza. Tiene la cara un poco lastimada.', 'PERRO', 10, 10, NULL);
 
-INSERT INTO publicacion_mascota_encontrada (aceptada, id_mascota, id_organizacion, id_rescatista) VALUES
-    (0, 1, 1, 2),
-    (1, 2, 2, 4),
-    (0, 3, 3, 5),
-    (1, 4, 3, 7),
-    (1, 5, 5, 8),
-    (1, 6, 2, 9),
-    (1, 7, 5, 10);
+INSERT INTO publicacion_mascota_encontrada (aceptada, id_mascota, id_organizacion) VALUES
+    (0, 1, 1),
+    (1, 2, 2),
+    (0, 3, 3),
+    (1, 4, 3),
+    (1, 5, 5),
+    (1, 6, 2),
+    (1, 7, 5);
 
 INSERT INTO caracteristica_x_organizacion (id_organizacion, id_caracteristica) VALUES
 	(1, 1),

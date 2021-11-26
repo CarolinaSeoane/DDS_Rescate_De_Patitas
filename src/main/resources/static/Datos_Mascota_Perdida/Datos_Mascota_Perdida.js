@@ -1,36 +1,41 @@
-const apiRescatista = "http://localhost:5000/api/rescatista/registrar";
+const apiSinQR = "http://localhost:5000/api/perdidas/crear";
+const apiConQR = "http://localhost:5000/api/mascota-perdida/crear";
 
 new Vue({
 	el: '#app',
     data: {
-        rescatista : {
-            nombre: '',
-            apellido: '',
-            telefono: '',
-            email: '',
-            formasNotificacion1: [],
-            formasNotificacion: '',
-            fechaDeNacimiento: '',
-            tipoDocumento: '',
-            nroDocumento: '',
-            domicilio: '',
-            otrosContactos: [{
-                nombre: '',
-                apellido: '',
-                telefono: '',
-                email: '',
-                formasNotificacion1: [],
-                formasNotificacion: ''
-            }],
-            mascotaPerdida: {
+        publicacion: {
+            organizacion: null,
+            aceptada: false,
+            mascota: {
                 fotos: [],
                 estado: '',
                 ubicacion: {
-                    direccion: '',
                     lat: '',
-                    long: ''
+                    _long: ''
                 },
-                tipo: ''
+                tipo: '',
+                mascotaAsociada: null,
+                rescatista: {
+                    nombre: '',
+                    apellido: '',
+                    telefono: '',
+                    email: '',
+                    formasNotificacion1: [],
+                    formasNotificacion: '',
+                    fechaDeNacimiento: '',
+                    tipoDocumento: '',
+                    nroDocumento: '',
+                    domicilio: '',
+                    otrosContactos: [{
+                        nombre: '',
+                        apellido: '',
+                        telefono: '',
+                        email: '',
+                        formasNotificacion1: [],
+                        formasNotificacion: ''
+                    }]
+                }
             }
         },
         id_qr: ''
@@ -39,27 +44,35 @@ new Vue({
     created() {
 		const id = new URLSearchParams(window.location.search).get("id");
         if(id != null) {
-            // console.log(id);
             this.id_qr = id;
-            console.log(this.id_qr);
         }
     },
 
     methods: {
         enviar() {
-            this.rescatista.formasNotificacion = (this.rescatista.formasNotificacion1).join(', ');
+            this.publicacion.mascota.rescatista.formasNotificacion = (this.publicacion.mascota.rescatista.formasNotificacion1).join(', ');
 
-            for (let i = 0; i < this.rescatista.otrosContactos.length; i++) {
-                this.rescatista.otrosContactos[i].formasNotificacion = (this.rescatista.otrosContactos[i].formasNotificacion1).join(', ');
+            for (let i = 0; i < this.publicacion.mascota.rescatista.otrosContactos.length; i++) {
+                this.publicacion.mascota.rescatista.otrosContactos[i].formasNotificacion = (this.publicacion.mascota.rescatista.otrosContactos[i].formasNotificacion1).join(', ');
             }
 
-            fetch(apiRescatista, {
+            this.publicacion.mascota.ubicacion.lat = document.getElementById('lat').value;
+            this.publicacion.mascota.ubicacion._long = document.getElementById('lng').value;
+
+            var api;
+            if(this.id_qr == '') {
+                api = apiSinQR;
+            } else {
+                api = apiConQR;
+            }
+
+            fetch(api, {
                  method: "POST",
                  headers: {
                     'Content-Type': 'application/json',
                     "Authorization": this.id_qr
                  },
-                 body: JSON.stringify(this.rescatista)
+                 body: JSON.stringify(this.publicacion)
             })
             .then(data => {
                 console.log('status: ', data.status);
@@ -77,7 +90,7 @@ new Vue({
         },
 
         addContacto() {
-            this.duenio.otrosContactos.push({
+            this.publicacion.mascota.rescatista.otrosContactos.push({
                                     nombre: '',
                                     apellido: '',
                                     telefono: '',
@@ -88,7 +101,7 @@ new Vue({
         },
 
         deleteContacto(counter) {
-              this.duenio.otrosContactos.splice(counter,1);
+              this.publicacion.mascota.rescatista.otrosContactos.splice(counter,1);
         },
 
         getBase64: function (file) {
@@ -111,7 +124,7 @@ new Vue({
                     var request = {
                         contenidoBase64: img
                     }
-                    this.rescatista.mascotaPerdida.fotos.push(request);
+                    this.publicacion.mascota.fotos.push(request);
                     })
             }
         }

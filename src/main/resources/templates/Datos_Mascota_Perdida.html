@@ -54,15 +54,15 @@
 
                 <div class="">
                     <p class="texto-simple pregunta">Describa el estado en el cual la encontró</p>
-                    <p><textarea name="mensaje" v-model="rescatista.mascotaPerdida.estado"></textarea></p>
+                    <p><textarea name="mensaje" v-model="publicacion.mascota.estado"></textarea></p>
                 </div>
 
                 <div class="input misma-linea">
                     <p class="texto-simple pregunta titulo-inline">Tipo</p>
                     <div class="opciones-inline">
-                        <input type="radio" id="Gato" value="GATO" v-model="rescatista.mascotaPerdida.tipo">
+                        <input type="radio" id="Gato" value="GATO" v-model="publicacion.mascota.tipo">
                         <label class="texto-simple option" for="Gato">Gato</label><br>
-                        <input type="radio" id="Perro" value="PERRO" v-model="rescatista.mascotaPerdida.tipo">
+                        <input type="radio" id="Perro" value="PERRO" v-model="publicacion.mascota.tipo">
                         <label class="texto-simple option" for="Perro">Perro</label><br>
                     </div>
                 </div>
@@ -80,32 +80,32 @@
 
                 <div class="input misma-linea">
                     <p class="texto-simple pregunta">Nombre</p>
-                    <input type="text" class="input-completo texto-simple" v-model="rescatista.nombre" required>
+                    <input type="text" class="input-completo texto-simple" v-model="publicacion.mascota.rescatista.nombre" required>
                 </div>
 
                 <div class="input misma-linea">
                     <p class="texto-simple pregunta">Apellido</p>
-                    <input type="text" class="input-completo" v-model="rescatista.apellido" required>
+                    <input type="text" class="input-completo" v-model="publicacion.mascota.rescatista.apellido" required>
                 </div>
 
                 <div class="input misma-linea">
                     <p class="texto-simple pregunta">Teléfono</p>
-                    <input type="text" class="input-completo" v-model="rescatista.telefono" required>
+                    <input type="text" class="input-completo" v-model="publicacion.mascota.rescatista.telefono" required>
                 </div>
 
                 <div class="input misma-linea">
                     <p class="texto-simple pregunta">Email</p>
-                    <input type="text" class="input-completo" v-model="rescatista.email" required>
+                    <input type="text" class="input-completo" v-model="publicacion.mascota.rescatista.email" required>
                 </div>
 
                 <div class="input misma-linea">
                     <p class="texto-simple pregunta">Número de documento</p>
-                    <input type="number" class="input-completo" v-model="rescatista.nroDocumento" required>
+                    <input type="number" class="input-completo" v-model="publicacion.mascota.rescatista.nroDocumento" required>
                 </div>
 
                 <div class="input misma-linea">
                     <label class="texto-simple">Tipo de documento</label>
-                    <select class="texto-simple tipoDoc pregunta" v-model="rescatista.tipoDocumento" required>
+                    <select class="texto-simple tipoDoc pregunta" v-model="publicacion.mascota.rescatista.tipoDocumento" required>
                         <option>DNI</option>
                         <option>PASAPORTE</option>
                         <option>CUIT</option>
@@ -115,28 +115,28 @@
 
                 <div class="input">
                     <p class="texto-simple pregunta">Domicilio</p>
-                    <input type="text" class="input-completo" v-model="rescatista.domicilio" required>
+                    <input type="text" class="input-completo" v-model="publicacion.mascota.rescatista.domicilio" required>
                 </div>
 
                 <div class="input">
                     <p class="texto-simple pregunta titulo-inline">Quiero ser notificado por</p>
                     <div class="opciones-inline">
-                        <p class="texto-simple"><input type="checkbox" v-model="rescatista.formasNotificacion1" value="WPP">  WhatsApp</p>
-                        <p class="texto-simple"><input type="checkbox" v-model="rescatista.formasNotificacion1" value="SMS">  SMS</p>
-                        <p class="texto-simple"><input type="checkbox" v-model="rescatista.formasNotificacion1" value="EMAIL">  EMAIL</p>
+                        <p class="texto-simple"><input type="checkbox" v-model="publicacion.mascota.rescatista.formasNotificacion1" value="WPP">  WhatsApp</p>
+                        <p class="texto-simple"><input type="checkbox" v-model="publicacion.mascota.rescatista.formasNotificacion1" value="SMS">  SMS</p>
+                        <p class="texto-simple"><input type="checkbox" v-model="publicacion.mascota.rescatista.formasNotificacion1" value="EMAIL">  EMAIL</p>
                     </div>
                 </div>
 
                 <div class="input">
                     <p class="texto-simple pregunta fecha-inline">Fecha de nacimiento</p>
-                    <input type="date" class="fecha texto-simple pregunta" v-model="rescatista.fechaDeNacimiento" required>
+                    <input type="date" class="fecha texto-simple pregunta" v-model="publicacion.mascota.rescatista.fechaDeNacimiento" required>
                 </div>
 
                 <!-- CONTACTOS -->
 
                 <div> <!-- Este div tiene que estar encerrando al for porque sino la :key interfiere con la key de la seccion de abajo-->
                     <h3 class="sub-titulo contactos">Mis Contactos</h3>
-                    <div v-for="(contacto, counter) in rescatista.otrosContactos" :key="counter" class="nuevo-cuadro">
+                    <div v-for="(contacto, counter) in publicacion.mascota.rescatista.otrosContactos" :key="counter" class="nuevo-cuadro">
 
                         <h2 class="texto-simple contacto-numero">Contacto #{{counter+1}}</h2>
                         <span @click="deleteContacto(counter)">Eliminar</span>

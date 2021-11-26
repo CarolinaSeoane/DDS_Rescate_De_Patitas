@@ -65,6 +65,10 @@ public class Mascota {
 	@JsonBackReference(value = "mascota")
 	private Organizacion organizacion;
 
+	@OneToOne(mappedBy = "mascotaAsociada")
+	@JsonBackReference(value = "mascAsociada")
+	private MascotaPerdida mascotaPerdida;
+
 	public void meEncontraron() throws IOException {
         duenio.mascotaEncontrada();
     }
