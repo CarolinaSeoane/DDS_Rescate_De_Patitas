@@ -78,8 +78,12 @@ new Vue({
                 console.log('status: ', data.status);
 
                 switch (data.status) {
-                    case 201:
-                        alert("¡Se han guardado sus datos correctamente! Pulse aceptar para volver a la pantalla principal");
+                    case 200:
+                        if(this.id_qr == '') {
+                            alert("¡Se han guardado sus datos correctamente! Pulse aceptar para volver a la pantalla principal");
+                        } else {
+                            alert("¡Se han guardado sus datos correctamente y se ha notificado el dueño! Pulse aceptar para volver a la pantalla principal");
+                        }
                         window.location.href = 'index.html';
                     break;
                     default:

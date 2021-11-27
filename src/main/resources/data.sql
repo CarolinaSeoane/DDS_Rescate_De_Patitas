@@ -58,7 +58,7 @@ INSERT INTO pregunta (pregunta, id_organizacion) VALUES
 INSERT INTO persona (rol, domicilio, fecha_de_nacimiento, nro_documento, tipo_documento, apellido, email, formas_notificacion, nombre, telefono) VALUES
     ('Duenio', 'Calle123', CURRENT_DATE, '43025544', 'DNI', 'Diaz', 'mauroD@yahoo.com', 'WPP', 'Mauro', '1566547546'),
     ('Rescatista', 'Nazca 5487', CURRENT_DATE, '44445544', 'DNI', 'Bianco', 'Bianco007@yahoo.com', 'WPP, SMS, MAIL', 'Fernando', '1566777546'),
-    ('Duenio', 'Campana 3455', CURRENT_DATE, '44445889', 'DNI', 'Sola', 'sol@yahoo.com', 'EMAIL', 'Sol', '1787547546'),
+    ('Duenio', 'Campana 3455', CURRENT_DATE, '44445889', 'DNI', 'Sola', 'carolina.b.seoane@gmail.com', 'EMAIL, WPP, SMS', 'Sol', '+541162803731'),
     ('Rescatista', 'Libertador 741', CURRENT_DATE, '44443324', 'DNI', 'Gabo', 'gabRuth@yahoo.com', 'SMS', 'Ruth', '45032104'),
     ('Rescatista', 'Corrientes 456', CURRENT_DATE, '44446664', 'DNI', 'Paulin', 'GabiPaul@gmail.com', 'WPP, SMS, EMAIL', 'Gabriel', '1566511146'),
     ('Duenio', 'Gaona 4452', CURRENT_DATE, '22346664', 'DNI', 'Marian', 'elsiMarian@yahoo.com', 'EMAIL', 'Elsa', '45024450'),

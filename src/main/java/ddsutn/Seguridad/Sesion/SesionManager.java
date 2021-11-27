@@ -21,11 +21,6 @@ public class SesionManager {
         return instancia;
     }
 
-    /*public String crear() {
-        return this.crear(new HashMap<>());
-    }*/
-
-
     public String crear(Object usuarioSesion) {
         String id = UUID.randomUUID().toString();
         this.sesiones.put(id, usuarioSesion);
@@ -35,7 +30,6 @@ public class SesionManager {
     public Object obtenerAtributo(String id) {
         return this.sesiones.get(id);
     }
-
 
     public Object eliminar(String id) {
         //esto no elimina la cookie del frontend

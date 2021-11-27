@@ -117,4 +117,5 @@ public class Organizacion {
     		mascota.getFotos().forEach(foto -> foto.convertirFoto(this));
 		}
 	}
+
 }

@@ -9,6 +9,7 @@ import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Organizacion.OrganizacionDTO;
 import ddsutn.Business.Persona.Duenio;
 
+import ddsutn.Business.Persona.Rescatista;
 import lombok.*;
 
 import javax.persistence.*;
@@ -69,8 +70,8 @@ public class Mascota {
 	@JsonBackReference(value = "mascAsociada")
 	private MascotaPerdida mascotaPerdida;
 
-	public void meEncontraron() throws IOException {
-        duenio.mascotaEncontrada();
+	public void meEncontraron(Rescatista rescatista) throws IOException {
+        duenio.mascotaEncontrada(this.nombre, rescatista);
     }
 
     public MascotaDTO toDTO() {

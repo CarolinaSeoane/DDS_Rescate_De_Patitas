@@ -23,17 +23,6 @@ public class Administrador extends Usuario {
     @JsonBackReference(value = "organizacion")
     private Organizacion organizacion;
 
-
-	//Solves error 415
-	/*
-	public Administrador(String usuario, String password, Organizacion organizacion){
-		this.setId(null);
-		this.usuario = usuario;
-		this.password = password;
-		this.organizacion = organizacion;
-	}*/
-
-
     public Administrador(Administrador body) {
         this.usuario = body.getUsuario();
         this.password = body.getPassword();

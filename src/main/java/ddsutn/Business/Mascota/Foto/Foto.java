@@ -23,7 +23,7 @@ import java.util.Base64;
 @Entity
 @Table(name = "foto")
 
-public class Foto {
+public class  Foto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

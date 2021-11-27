@@ -1,8 +1,6 @@
 package ddsutn.Business.Notificacion;
 
 import ddsutn.Business.Persona.Contacto;
-import ddsutn.Business.Notificacion.Notificar;
-
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.InputStream;

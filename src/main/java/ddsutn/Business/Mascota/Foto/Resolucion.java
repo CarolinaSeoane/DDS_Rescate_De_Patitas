@@ -3,7 +3,6 @@ package ddsutn.Business.Mascota.Foto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.Embeddable;
 
 @Data

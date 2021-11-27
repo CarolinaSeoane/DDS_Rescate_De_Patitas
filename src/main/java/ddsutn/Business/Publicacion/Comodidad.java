@@ -1,7 +1,6 @@
 package ddsutn.Business.Publicacion;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @Getter

@@ -2,9 +2,7 @@ package ddsutn.Business.Publicacion;
 
 import ddsutn.Business.Persona.Contacto;
 import ddsutn.Business.Notificacion.MAIL;
-
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.IOException;
 import java.util.List;

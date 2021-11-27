@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Getter
@@ -29,7 +28,6 @@ public class Ubicacion {
 	@Column(name = "longitud")
 	@JsonProperty("long")
 	private double _long;
-
 
 	public Ubicacion(String direccion, double lat, double _long) {
 		this.direccion = direccion;

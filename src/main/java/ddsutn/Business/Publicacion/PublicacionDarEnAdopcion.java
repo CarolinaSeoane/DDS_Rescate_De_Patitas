@@ -51,6 +51,7 @@ public class PublicacionDarEnAdopcion {
     entablar una conversacion por fuera de la plataforma.
      */
 
+	/* ??*/
 	public void notificarDuenioSobreInteresado(Contacto contactoDelInteresado) {
 		String mensaje = String.format("Hay un interesado en adoptar a %s!\nComunicarse con %s %s: Tel. %s - Email %s",
 				this.mascota.getNombre(),
@@ -62,6 +63,7 @@ public class PublicacionDarEnAdopcion {
 		Duenio duenioMascota = this.mascota.getDuenio();
 		duenioMascota.notificarAMisContactos(mensaje);
 	}
+
 	public void notificarDuenioSobreInteresado(Duenio duenio) {
 		String mensaje = String.format("Hay un interesado en adoptar a %s!\nComunicarse con %s %s: Tel. %s - Email %s",
 				this.mascota.getNombre(),
@@ -73,4 +75,5 @@ public class PublicacionDarEnAdopcion {
 		Duenio duenioMascota = this.mascota.getDuenio();
 		duenioMascota.notificarAMisContactos(mensaje);
 	}
+
 }

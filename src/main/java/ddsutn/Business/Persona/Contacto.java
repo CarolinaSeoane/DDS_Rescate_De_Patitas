@@ -5,9 +5,7 @@ import ddsutn.Business.Notificacion.MAIL;
 import ddsutn.Business.Notificacion.Notificar;
 import ddsutn.Business.Notificacion.SMS;
 import ddsutn.Business.Notificacion.WPP;
-
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +43,7 @@ public class Contacto {
 
 	public void recibirNotificacion(String mensaje) {
 
-		if(formasDeNotificacion ==null){
+		if(formasDeNotificacion == null){
 			convertirFormasNotificacion();
 		}
 
@@ -62,6 +60,7 @@ public class Contacto {
 		formasDeNotificacion.forEach(unaFormaDeNotificacion -> formasNotificacion = formasNotificacion.concat(unaFormaDeNotificacion.getClass().getSimpleName()).concat(","));
 		formasNotificacion = formasNotificacion.substring(0, formasNotificacion.length()-1); // Para sacar la ultima coma que se agregue
 	}
+
 	public void convertirFormasNotificacion() {
 		formasDeNotificacion = new ArrayList<>();
 		Arrays.asList(formasNotificacion.split(",")).forEach( forma ->{
@@ -75,6 +74,6 @@ public class Contacto {
 				formasDeNotificacion.add(new SMS()) ;
 			}
 		});
-
 	}
+
 }

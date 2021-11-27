@@ -7,7 +7,6 @@ import ddsutn.Business.Persona.Rescatista;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.DiscriminatorOptions;
 import javax.persistence.*;
 import java.util.Set;
 

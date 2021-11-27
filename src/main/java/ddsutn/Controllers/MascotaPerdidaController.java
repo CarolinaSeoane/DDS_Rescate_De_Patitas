@@ -1,5 +1,6 @@
 package ddsutn.Controllers;
 
+import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Mascota.MascotaPerdida;
 import ddsutn.Business.Publicacion.PublicacionMascotaEncontrada;
 import ddsutn.Servicios.MascotaPerdidaSvc;
@@ -24,15 +25,17 @@ public class MascotaPerdidaController {
     public ResponseEntity<Object> crearMascotaEncontradaConQR(@RequestBody PublicacionMascotaEncontrada body, @RequestHeader("Authorization") String id_qr) {
 
         MascotaPerdida mascotaPerdida = body.getMascota();
-        mascotaPerdida.setMascotaAsociada(mascotaSvc.findById_QR(id_qr));
+        Mascota mascotaQR = mascotaSvc.findById_QR(id_qr); // exception?
+        mascotaPerdida.setMascotaAsociada(mascotaQR);
 
         try {
             mascotaPerdidaSvc.save(mascotaPerdida);
+            mascotaQR.meEncontraron(body.getMascota().getRescatista());
             return new ResponseEntity<Object>(HttpStatus.OK);
         } catch(Exception ex) {
             return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
         }
 
     }
-    
+
 }
