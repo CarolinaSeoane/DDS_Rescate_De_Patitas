@@ -85,9 +85,8 @@
 
         </div>
 
-        <div class="contenedor-botones" id="adoptar">
-            <p :style="'color:'+ colorText "> {{estado_Solicitud}} </p>
-
+        <div v-if="solicitudIniciada" class="contenedor-estado">
+            <p :style="'color:'+ colorText ">{{estado_Solicitud}} </p>
         </div>
 
     </section>

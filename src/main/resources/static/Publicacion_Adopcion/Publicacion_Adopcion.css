@@ -1,8 +1,8 @@
 .main{
     display: flex;
-    width: 60%;
+    width: 700px;
     margin: 0 auto 50px;
-    padding: 150px ;
+    padding-top: 150px ;
     flex-direction: column;
 }
 .main .titulo{
@@ -47,10 +47,20 @@
 }
 
 .main .contenedor-botones{
+    margin: 50px auto;
     width: 55%;
     display: flex;
     justify-content: space-between;
 }
+
+.main .contenedor-estado{
+    background-color: #F2F2F2;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: 20px;
+    text-align: center;
+}
+
 .botonVolver{
     background: #FFFFFF;
     color: #C6C5CA;

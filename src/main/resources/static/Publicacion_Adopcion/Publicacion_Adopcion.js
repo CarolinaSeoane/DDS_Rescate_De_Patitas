@@ -8,6 +8,7 @@ new Vue({
     el: '#publicacionAdopcion',
     data () {
         return{
+            solicitudIniciada: false,
             estado_Solicitud: "",
             colorText:"red",
             fotos:[{
@@ -49,6 +50,7 @@ new Vue({
     },
     methods:{
         adoptar: function (){
+            this.solicitudIniciada = true;
             var idSesion = localStorage.getItem("IDSESION");
             this.colorText = "#4ba0dd";
             this.estado_Solicitud = "Procesando solicitud"
