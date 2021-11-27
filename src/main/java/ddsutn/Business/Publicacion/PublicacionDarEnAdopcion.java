@@ -62,5 +62,15 @@ public class PublicacionDarEnAdopcion {
 		Duenio duenioMascota = this.mascota.getDuenio();
 		duenioMascota.notificarAMisContactos(mensaje);
 	}
+	public void notificarDuenioSobreInteresado(Duenio duenio) {
+		String mensaje = String.format("Hay un interesado en adoptar a %s!\nComunicarse con %s %s: Tel. %s - Email %s",
+				this.mascota.getNombre(),
+				duenio.getNombre(),
+				duenio.getApellido(),
+				duenio.getTelefono(),
+				duenio.getEmail());
 
+		Duenio duenioMascota = this.mascota.getDuenio();
+		duenioMascota.notificarAMisContactos(mensaje);
+	}
 }

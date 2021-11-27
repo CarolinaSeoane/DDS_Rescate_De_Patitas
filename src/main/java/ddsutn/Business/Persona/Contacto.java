@@ -1,13 +1,17 @@
 package ddsutn.Business.Persona;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import ddsutn.Business.Notificacion.MAIL;
 import ddsutn.Business.Notificacion.Notificar;
-import ddsutn.Business.Persona.Persona;
+import ddsutn.Business.Notificacion.SMS;
+import ddsutn.Business.Notificacion.WPP;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Getter
@@ -40,6 +44,11 @@ public class Contacto {
 	private String formasNotificacion;
 
 	public void recibirNotificacion(String mensaje) {
+
+		if(formasDeNotificacion ==null){
+			convertirFormasNotificacion();
+		}
+
 		formasDeNotificacion.forEach(formaNotificacion -> {
 			try {
 				formaNotificacion.notificar(this, mensaje);
@@ -53,5 +62,19 @@ public class Contacto {
 		formasDeNotificacion.forEach(unaFormaDeNotificacion -> formasNotificacion = formasNotificacion.concat(unaFormaDeNotificacion.getClass().getSimpleName()).concat(","));
 		formasNotificacion = formasNotificacion.substring(0, formasNotificacion.length()-1); // Para sacar la ultima coma que se agregue
 	}
+	public void convertirFormasNotificacion() {
+		formasDeNotificacion = new ArrayList<>();
+		Arrays.asList(formasNotificacion.split(",")).forEach( forma ->{
+			if (forma.equals("WPP")){
+				formasDeNotificacion.add(new WPP()) ;
+			}
+			if (forma.equals("MAIL") || forma.equals("EMAIL") ){
+				formasDeNotificacion.add(new MAIL()) ;
+			}
+			if (forma.equals("SMS")){
+				formasDeNotificacion.add(new SMS()) ;
+			}
+		});
 
+	}
 }

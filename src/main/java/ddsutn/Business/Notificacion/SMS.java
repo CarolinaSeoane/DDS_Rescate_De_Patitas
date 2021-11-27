@@ -20,7 +20,7 @@ public class SMS implements Notificar {
     public void notificar(Contacto contacto, String mensaje) throws IOException {
 
         Properties prop = new Properties();
-        InputStream input = new FileInputStream("src/main/java/Services/Config/SMS.prop");
+        InputStream input = new FileInputStream("src/main/java/ddsutn/Business/Notificacion/Config/SMS.prop");
         prop.load(input);
 
         RestClient client = new RestClient(prop.getProperty("username"), prop.getProperty("token"));
