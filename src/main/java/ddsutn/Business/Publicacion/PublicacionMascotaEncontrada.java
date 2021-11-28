@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import ddsutn.Business.Mascota.MascotaPerdida;
 import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Persona.Contacto;
+import ddsutn.Business.Persona.Duenio;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -74,5 +75,14 @@ public class PublicacionMascotaEncontrada {
                 duenioAparecido.getEmail());
         this.getMascota().getRescatista().notificarAMisContactos(mensaje);
     }
+
+	public void notificarDuenioAparecido(Duenio duenioAparecido) {
+		String mensaje = String.format("Ha aparecido el duenio de la mascota que ha rescatado!\nComunicarse con %s %s: Tel. %s - Email %s",
+				duenioAparecido.getNombre(),
+				duenioAparecido.getApellido(),
+				duenioAparecido.getTelefono(),
+				duenioAparecido.getEmail());
+		this.getMascota().getRescatista().notificarAMisContactos(mensaje);
+	}
 
 }

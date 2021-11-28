@@ -49,7 +49,7 @@
 			  <p class="sub-titulo">Publicaciones Recientes</p>
 
 			  <div class="fotos">
-				  <a   v-for="publicacion in recientes" :href="'Publicacion_Adopcion.html?mascota=' + publicacion.id"  class="foto" >
+				  <a   v-for="publicacion in recientes" :href="'Publicacion_Adopcion.html?publicacion=' + publicacion.id"  class="foto" >
 					  <div class="square-box">
 						  <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo">
 					  </div>
@@ -120,7 +120,7 @@
 		  <section class="publicaciones">
 			  <div class="contenedor-grande">
 				  <div th:action="@{/cargar-mas}" method="get" class="fotos">
-					  <a :href="'Publicacion_Adopcion.html?mascota=' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
+					  <a :href="'Publicacion_Adopcion.html?publicacion=' + publicacion.id"  class="foto" v-for="publicacion in publicacionesMacotas">
 						  <div class="square-box">
 							  <img class="square-content" v-bind:src="publicacion.mascota.fotos[0].contenidoBase64" :alt="publicacion.mascota.apodo"/>
 						  </div>

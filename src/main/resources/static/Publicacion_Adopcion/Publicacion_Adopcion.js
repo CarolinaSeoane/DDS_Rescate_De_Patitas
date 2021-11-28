@@ -2,7 +2,7 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 
-const apiUrl ="http://localhost:5000/api/adoptar/publicaciones/"+ urlParams.get('mascota');
+const apiUrl ="http://localhost:5000/api/adoptar/publicaciones/"+ urlParams.get('publicacion');
 
 new Vue({
     el: '#publicacionAdopcion',
