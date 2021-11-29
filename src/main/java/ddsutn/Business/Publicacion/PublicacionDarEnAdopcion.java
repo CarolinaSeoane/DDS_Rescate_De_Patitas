@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Persona.Duenio;
 import ddsutn.Business.Publicacion.Pregunta.PreguntaPublicacion;
-import ddsutn.Business.Persona.Contacto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,26 +40,10 @@ public class PublicacionDarEnAdopcion {
     entablar una conversacion por fuera de la plataforma.
      */
 
-	/* ??*/
-	public void notificarDuenioSobreInteresado(Contacto contactoDelInteresado) {
-		String mensaje = String.format("Hay un interesado en adoptar a %s!\nComunicarse con %s %s: Tel. %s - Email %s",
+	public void notificarDuenioSobreInteresado(String emailDelInteresado) {
+		String mensaje = String.format("Hay un interesado en adoptar a %s!\nComunicarse por mail a esta direccion: %s ",
 				this.mascota.getNombre(),
-				contactoDelInteresado.getNombre(),
-				contactoDelInteresado.getApellido(),
-				contactoDelInteresado.getTelefono(),
-				contactoDelInteresado.getEmail());
-
-		Duenio duenioMascota = this.mascota.getDuenio();
-		duenioMascota.notificarAMisContactos(mensaje);
-	}
-
-	public void notificarDuenioSobreInteresado(Duenio duenio) {
-		String mensaje = String.format("Hay un interesado en adoptar a %s!\nComunicarse con %s %s: Tel. %s - Email %s",
-				this.mascota.getNombre(),
-				duenio.getNombre(),
-				duenio.getApellido(),
-				duenio.getTelefono(),
-				duenio.getEmail());
+				emailDelInteresado);
 
 		Duenio duenioMascota = this.mascota.getDuenio();
 		duenioMascota.notificarAMisContactos(mensaje);

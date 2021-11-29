@@ -58,8 +58,9 @@ public class PublicacionInteresado {
 		String mensajeRecomendaciones = "Hiciste match con las siguientes mascotas: \n";
 		for(PublicacionDarEnAdopcion pub : recomendaciones) {
 			String nombreMascota = pub.getMascota().getNombre();
-			mensajeRecomendaciones = mensajeRecomendaciones.concat(nombreMascota+"! Mira su publicación: \n");
+			mensajeRecomendaciones = mensajeRecomendaciones.concat("¡" + nombreMascota + "!\n");
 		}
+		mensajeRecomendaciones = mensajeRecomendaciones.concat("Puedes ingresar en la web: https://patitashtml.herokuapp.com/Publicaciones_Adopcion.html \n¡Aquí encontrarás su publicación para continuar con la adopción! \n");
 		this.notificarAlInteresado(mensajeRecomendaciones);
 	}
 

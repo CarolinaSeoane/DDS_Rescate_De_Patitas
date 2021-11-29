@@ -1,6 +1,5 @@
 package ddsutn.Controllers;
 
-import ddsutn.Business.Persona.Contacto;
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
 import ddsutn.Seguridad.Sesion.SesionManager;
 import ddsutn.Seguridad.Usuario.StandardUser;
@@ -39,7 +38,7 @@ public class AdoptarController {
         Optional<PublicacionDarEnAdopcion> publicacion = publicacionDarEnAdopcionSvc.findById(id);
 
         if( publicacion.isPresent() && usr != null){
-            publicacion.get().notificarDuenioSobreInteresado(usr.getDuenioAsociado());
+            publicacion.get().notificarDuenioSobreInteresado(usr.getDuenioAsociado().getEmail());
         }else{
             return false;
         }
