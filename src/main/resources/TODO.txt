@@ -3,8 +3,7 @@ Cosas importantes para hacer:
 [1] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
 [2] Solucionar el check de caracteristicas en la pantalla del admin
 [3] La contraseña se tiene que validar en el backend (lo de las 10K passwords solo se valida en el back). Ahora funciona mal el login. Interpretar exceptions en el front. --> Resuelto
-[4] Completar el proceso de guardar una publicacion. Spring no detecta las preguntas y no las persiste en la tabla de muchos a muchos
-[5] Limitar tamaño de imagenes a subir. Sino rompe.
+[4] Limitar tamaño de imagenes a subir. Sino rompe.
 
 ********************************************************************************************
 
