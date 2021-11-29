@@ -9,6 +9,7 @@ import ddsutn.Repositorio.PublicacionDarEnAdopcionRepo;
 import ddsutn.Repositorio.PublicacionInteresadoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,11 @@ public class RecomendacionesService {
 	private PublicacionDarEnAdopcionRepo publicacionDarEnAdopcionRepo;
 
 	public void ejecutar() {
-		this.buscarMatchEntrePublicaciones();
+		try{
+			this.buscarMatchEntrePublicaciones();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void buscarMatchEntrePublicaciones() {
