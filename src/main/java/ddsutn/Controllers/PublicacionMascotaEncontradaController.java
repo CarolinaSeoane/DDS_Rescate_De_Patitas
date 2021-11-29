@@ -2,6 +2,8 @@ package ddsutn.Controllers;
 
 import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Publicacion.PublicacionMascotaEncontrada;
+import ddsutn.Seguridad.Sesion.SesionManager;
+import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Servicios.PublicacionMascotaEncontradaSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -72,6 +74,23 @@ public class PublicacionMascotaEncontradaController {
             return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
         }
 
+    }
+
+    @GetMapping(value = "/publicaciones/{id}/contactar")
+    @ResponseBody
+    public Boolean contactar(@RequestHeader("Authorization") String idSesion,@PathVariable Long id) {
+
+        SesionManager sesionManager = SesionManager.get();
+        StandardUser usr = (StandardUser) sesionManager.obtenerAtributo(idSesion);
+        Optional<PublicacionMascotaEncontrada> publicacion = publicacionMascotaEncontradaSvc.findById(id);
+
+        if( publicacion.isPresent() && usr != null){
+            publicacion.get().notificarDuenioAparecido(usr.getDuenioAsociado());
+        }else{
+            return false;
+        }
+
+        return true;
     }
 
 
