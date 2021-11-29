@@ -1,8 +1,10 @@
 package ddsutn.Business.SchedulerRecomendaciones;
 
+import ddsutn.Servicios.PublicacionMascotaEncontradaSvc;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class RecomendacionesJob implements Job {
 

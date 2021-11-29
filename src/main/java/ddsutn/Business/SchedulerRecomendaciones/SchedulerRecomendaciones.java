@@ -2,7 +2,6 @@ package ddsutn.Business.SchedulerRecomendaciones;
 
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-
 import static org.quartz.JobBuilder.newJob;
 
 public class SchedulerRecomendaciones {

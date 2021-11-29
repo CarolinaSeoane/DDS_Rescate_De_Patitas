@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.coobird.thumbnailator.Thumbnails;
-
 import javax.persistence.*;
 import java.io.File;
 import java.nio.file.Files;

@@ -112,14 +112,13 @@ INSERT INTO usuario (tipo_usuario, password, usuario, id_organizacion, id_person
     ('Voluntario', '$2a$10$fUjWfYP3aMBDN.sEB.zu0e2B9sxMugfYuc7jXGfDfaIrRNV6c1Gbi', 'JuanMamani', 4, NULL),          /* Contraseña: vdfaa321FSD8_        */
     ('Voluntario', '$2a$10$S16Ssd1d3rEu/1IYZr2c4.v68NyPkvV2t01tepultzbHvR9jSH7vK', 'RamiroGonzalez', 1, NULL);      /* Contraseña: fdsf5623DdD?         */
 
-/* La organizacion puede obtenerse de la mascota */
-INSERT INTO publicacion_dar_en_adopcion (id_mascota, id_organizacion) VALUES
-    (1, 1),
-    (2, 2),
-    (3, 3),
-    (4, 3),
-    (5, 3),
-    (6, 3);
+INSERT INTO publicacion_dar_en_adopcion (id_mascota) VALUES
+    (1),
+    (2),
+    (3),
+    (4),
+    (5),
+    (6);
 
 INSERT INTO mascota_perdida (estado, tipo, id_rescatista, id_ubicacion, id_mascota) VALUES
     ('La encontré caminado en la calle. Está tranquila y en buen estado.', 'PERRO', 2, 6, NULL),

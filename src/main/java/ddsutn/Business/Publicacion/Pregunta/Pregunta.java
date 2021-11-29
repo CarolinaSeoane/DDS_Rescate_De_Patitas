@@ -29,7 +29,7 @@ public class Pregunta {
 	@JsonBackReference(value = "pregunta")
 	private Organizacion organizacion;
 
-	@OneToMany(mappedBy = "pregunta")
+	@OneToMany(mappedBy = "pregunta", cascade = {CascadeType.ALL})
 	@JsonManagedReference(value = "preguntas")
 	private Set<PreguntaPublicacion> preguntasPublicacion;
 

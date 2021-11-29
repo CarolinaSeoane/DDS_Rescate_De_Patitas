@@ -8,10 +8,8 @@ import ddsutn.Business.Mascota.Foto.Foto;
 import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Organizacion.OrganizacionDTO;
 import ddsutn.Business.Persona.Duenio;
-
 import ddsutn.Business.Persona.Rescatista;
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.IOException;
 import java.util.Set;

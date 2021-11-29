@@ -42,7 +42,7 @@
 			<div class="contenedor-pregunta" v-for="pregunta in this.publicacion.preguntas">
 
 				<div class="pregunta">
-					<p class="pregunta-texto">{{pregunta.pregunta}}</p>
+					<p class="pregunta-texto">{{pregunta.pregunta.pregunta}}</p>
 					<p><textarea name="respuesta" class="texto-simple" placeholder="Su respuesta..."  v-model="pregunta.respuesta" required></textarea></p>
 				</div>
 

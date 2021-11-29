@@ -1,10 +1,6 @@
 package ddsutn.Controllers;
 
-import com.google.zxing.NotFoundException;
-import com.google.zxing.WriterException;
 import ddsutn.Business.Mascota.DTOs.MascotaDTO;
-import ddsutn.Business.Mascota.Foto.Foto;
-import ddsutn.Business.Mascota.Foto.QR;
 import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Persona.Duenio;
 import ddsutn.Seguridad.Sesion.SesionManager;

@@ -1,11 +1,9 @@
 package ddsutn.Business.Notificacion;
 
 import ddsutn.Business.Persona.Contacto;
-import ddsutn.Business.Notificacion.Notificar;
 import com.textmagic.sdk.RestClient;
 import com.textmagic.sdk.RestException;
 import com.textmagic.sdk.resource.instance.*;
-
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Arrays;

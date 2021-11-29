@@ -57,10 +57,6 @@ public class Organizacion {
 	@JsonManagedReference(value = "pregunta")
 	private Set<Pregunta> preguntasAdicionales;
 
-	@OneToMany(mappedBy = "organizacion", cascade = {CascadeType.ALL})
-	@JsonManagedReference(value = "publicacion")
-	private Set<PublicacionDarEnAdopcion> publicacionesDarEnAdopcion;
-
 	@OneToMany(mappedBy = "organizacion")
 	@JsonManagedReference(value = "encontradas")
 	private Set<PublicacionMascotaEncontrada> publicacionesMascotasEncontradas;

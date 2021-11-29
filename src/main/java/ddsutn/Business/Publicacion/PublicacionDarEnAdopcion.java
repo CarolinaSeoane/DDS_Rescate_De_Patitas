@@ -1,18 +1,14 @@
 package ddsutn.Business.Publicacion;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Persona.Duenio;
 import ddsutn.Business.Publicacion.Pregunta.PreguntaPublicacion;
 import ddsutn.Business.Persona.Contacto;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -28,21 +24,15 @@ public class PublicacionDarEnAdopcion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne
-	@JoinColumn(name = "id_organizacion")
-	@JsonBackReference(value = "publicacion")
-	private Organizacion organizacion;
-
 	@OneToOne
 	@JoinColumn(name = "id_mascota")
 	private Mascota mascota;
 
-	@OneToMany(mappedBy = "publicacion")
+	@OneToMany(mappedBy = "publicacion", cascade = {CascadeType.ALL})
 	@JsonManagedReference(value = "pubAdopcion")
 	private Set<PreguntaPublicacion> preguntas;
 
-	public PublicacionDarEnAdopcion(Organizacion organizacion, Mascota mascota) {
-		this.organizacion = organizacion;
+	public PublicacionDarEnAdopcion(Mascota mascota) {
 		this.mascota = mascota;
 	}
 	/*

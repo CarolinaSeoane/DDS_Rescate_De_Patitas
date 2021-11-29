@@ -19,12 +19,12 @@ public class PreguntaPublicacion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "id_publicacion")
 	@JsonBackReference(value = "pubAdopcion")
 	private PublicacionDarEnAdopcion publicacion;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "id_pregunta")
 	@JsonBackReference(value = "preguntas")
 	private Pregunta pregunta;

@@ -12,10 +12,9 @@ Cosas NO importantes para hacer:
 
 [1] Hacer que ande el filtro en la pantalla Buscar Hogar.
 [2] Chequear que las pantallas que muestran publicaciones recientes muestren las últimas.
-[3] Agregar validaciones a formulario de datos personales.
 [4] Cuando se normalizan las fotos, ver cómo evitar que la transaccion sea muy grande porque SQL la rechaza.
 
 ********************************************************************************************
 
 En proceso:
-[Caro] Hacer que un rescatista reporte a una mascota perdida. Esto incluye que el backend se fije si es con QR o sin QR. Si es con QR se tiene que notificar al dueño.
+[Caro] Agregar validaciones a formulario de datos personales.

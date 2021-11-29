@@ -2,48 +2,16 @@ const apiUrlMascota = "http://localhost:5000/api/mascota/obtener/"
 const apiPreguntasGlobales = "http://localhost:5000/api/preguntas/obtener"
 const apiUrlGuardarPub = "http://localhost:5000/api/dar-en-adopcion/guardar"
 
-var app1 = new Vue({
+new Vue({
 	el: '#app',
     data: {
     	publicacion: {
-    		mascota: {
-    			id: null,
-    			id_QR: null,
-    			tipo: null,
-    			sexo: null,
-    			nombre: null,
-    			apodo: null,
-    			edad: null,
-    			descripcion: null,
-    			fotos: [],
-    			caracteristicas: [],
-    			organizacion: {
-					id: null,
-					nombre: null,
-					ubicacion: null,
-					resolucion: null,
-					calidad: null,
-					preguntasAdicionales: [{
-						id: null,
-						preguntasPublicacion: [],
-						pregunta: null
-					}],
-					caracPropias: []
-    			}
-    		},
-    		preguntas: []
-    	},
-    	preguntasGlobales: [{
-    		id: null,
-    		preguntasPublicacion: [],
-    		pregunta: null
-    	}]
+    	    mascota: null,
+    		preguntas: [],
+    		organizacion: null
+    	}
     },
     methods: {
-    	pasarPreguntas() {
-			this.publicacion.preguntas = this.publicacion.mascota.organizacion.preguntasAdicionales.slice();
-			this.publicacion.preguntas = this.preguntasGlobales.slice();
-    	},
     	enviarPreguntas() {
     		console.log(this.publicacion)
     		axios.post(apiUrlGuardarPub, this.publicacion).then((result) => {console.log(result);})
@@ -56,12 +24,30 @@ var app1 = new Vue({
 
 		fetch(apiUrlMascota + urlParams.get("id"))
 			.then(response => response.json())
-			.then(mascotaObtenida => {this.publicacion.mascota = mascotaObtenida})
+			.then(mascotaObtenida => {
+			    this.publicacion.mascota = mascotaObtenida;
+			    this.publicacion.organizacion = mascotaObtenida.organizacion;
+
+                for(let i = 0; i < mascotaObtenida.organizacion.preguntasAdicionales.length; i++) {
+                    var pregPub = {
+                        pregunta: mascotaObtenida.organizacion.preguntasAdicionales[i],
+                        respuesta: '',
+                        publicacion: null
+                    }
+                    this.publicacion.preguntas.push(pregPub);
+                }
+			})
 			.then(fetch(apiPreguntasGlobales)
         		.then(response => response.json())
             	.then(preguntasGlobales => {
-            		this.preguntasGlobales = preguntasGlobales
-            		this.pasarPreguntas()
+                for(let i = 0; i < preguntasGlobales.length; i++) {
+                    var pregPub = {
+                        pregunta: preguntasGlobales[i],
+                        respuesta: '',
+                        publicacion: null
+                    }
+                    this.publicacion.preguntas.push(pregPub);
+                }
             })
 		)
     }

@@ -1,10 +1,5 @@
 package ddsutn.Controllers;
 
-import ddsutn.Business.Mascota.Foto.Resolucion;
-import ddsutn.Business.Mascota.Mascota;
-import ddsutn.Business.Publicacion.DTOs.PubDarEnAdopcionDTO;
-import ddsutn.Business.Publicacion.Pregunta.PreguntaPublicacion;
-import ddsutn.Business.Publicacion.DTOs.PreguntaPublicacionDTO;
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
 import ddsutn.Servicios.MascotaSvc;
 import ddsutn.Servicios.PublicacionDarEnAdopcionSvc;
@@ -20,15 +15,10 @@ public class PublicacionDarEnAdopcionController {
 	@Autowired
 	private PublicacionDarEnAdopcionSvc publicacionDarEnAdopcionSvc;
 
-	@Autowired
-	private MascotaSvc mascotaSvc;
-
 	@PostMapping(value = "/guardar")
-	public ResponseEntity guardarPublicacion(@RequestBody PubDarEnAdopcionDTO publicacion) {
+	public ResponseEntity guardarPublicacion(@RequestBody PublicacionDarEnAdopcion pub) {
 
 		try {
-			Mascota mascota = mascotaSvc.findById(publicacion.getMascota().getId());
-			PublicacionDarEnAdopcion pub = publicacion.toPublicacionDarEnAdopcion(mascota);
 			publicacionDarEnAdopcionSvc.save(pub);
 			return ResponseEntity.status(200).build();
 		} catch (Exception ex) {
