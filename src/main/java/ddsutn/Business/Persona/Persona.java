@@ -34,7 +34,7 @@ public class Persona {
 	protected String nroDocumento;
 	protected Date fechaDeNacimiento;
 
-	@OneToMany(mappedBy = "persona", cascade = {CascadeType.ALL})
+	@OneToMany(mappedBy = "persona", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JsonManagedReference
 	protected List<Contacto> otrosContactos;
 
