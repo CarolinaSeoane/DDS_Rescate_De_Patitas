@@ -1,7 +1,6 @@
 package ddsutn.Controllers;
 
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
-import ddsutn.Servicios.MascotaSvc;
 import ddsutn.Servicios.PublicacionDarEnAdopcionSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

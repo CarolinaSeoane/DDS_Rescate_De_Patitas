@@ -88,6 +88,17 @@
 						<input type="date" class="fecha texto-simple pregunta" v-model="duenio.fechaDeNacimiento" required>
 					</div>
 
+					<div v-if="errorsDuenio.length">
+						<div class="tarjeta-error">
+							<img src="../static/Crear_Publicacion/img/error.png" alt="Error" height="100">
+							<b class="texto-error">¡Atención! Tienes datos personales incorrectos:</b>
+							<br>
+							<br>
+							<ul>
+								<li v-for="error in errorsDuenio" class="texto-simple">{{ error }}</li>
+							</ul>
+						</div>
+					</div>
 				</section>
 
 				<!-- CONTACTOS -->
@@ -127,6 +138,18 @@
 								<p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="WPP">  WhatsApp</p>
 								<p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="SMS">  SMS</p>
 								<p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="EMAIL">  EMAIL</p>
+							</div>
+						</div>
+
+						<div v-if="contacto.errorContacto.length">
+							<div class="tarjeta-error">
+								<img src="../static/Crear_Publicacion/img/error.png" alt="Error" height="100">
+								<b class="texto-error">¡Atención! Tu contacto tiene datos incorrectos:</b>
+								<br>
+								<br>
+								<ul>
+									<li v-for="error in contacto.errorContacto" class="texto-simple">{{ error }}</li>
+								</ul>
 							</div>
 						</div>
 
@@ -217,6 +240,18 @@
 							</div>
 						</div>
 
+						<div v-if="mascota.errorMascota.length">
+							<div class="tarjeta-error">
+								<img src="../static/Crear_Publicacion/img/error.png" alt="Error" height="100">
+								<b class="texto-error">¡Atención! Tu mascota tiene datos incorrectos:</b>
+								<br>
+								<br>
+								<ul>
+									<li v-for="error in mascota.errorMascota" class="texto-simple">{{ error }}</li>
+								</ul>
+							</div>
+						</div>
+
 					</div>
 				</div>
 
@@ -226,7 +261,6 @@
 
 			<button @click="enviar" class="botonAzul boton">Enviar</button>
 
-			</div>
 		</div>
 	</section>
 
