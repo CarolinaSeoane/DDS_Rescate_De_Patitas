@@ -44,16 +44,16 @@ INSERT INTO organizacion (calidad, nombre, pixeles_alto, pixeles_ancho, id_ubica
     ('png', 'Imperio Animal', 500, 1000, 9);
 
 INSERT INTO pregunta (pregunta, id_organizacion) VALUES
-	('¿Tiene mascotas actualmente en su hogar?', NULL),
-	('¿Es la primera vez que adopta?', 1),
-	('¿Tiene chicos en su hogar?', 1),
-	('¿El animal que va a adoptar es para usted o para un tercero?', 2),
-	('¿Ha pensado qué hará con el animal en vacaciones?', 3),
-	('En caso de mudanza ¿qué haría con el animal?', NULL),
-	('¿Tiene los recursos para cubrir sus necesidades?', NULL),
+	('¿Hace cuánto está a cargo de esta mascota?', NULL),
+	('¿Tiene vacunas aplicadas?', 1),
+	('¿Está castrada?', 1),
+	('¿Cual es el motivo que lo llevó a tomar esta decisión?', NULL),
+	('¿La mascota tuvo problemas? (Peleas con otros animales, que se haya escapado, etc.)', 3),
+	('¿La mascota tiene alguna enfermedad o dificultad que se deba mencionar?', NULL),
+	('¿Con cuánta urgencia necesitaría que encuentre un nuevo hogar?', 2),
 	('¿Tiene alergias?', 2),
-	('¿Su familia está de acuerdo con la adopción?', NULL),
-	('¿Tiene el espacio físico adecuado y seguro para el perro o gato?', 2);
+	('¿Su familia está de acuerdo?', NULL),
+	('¿Consideraría volver a adoptar en otro momento?', 2);
 
 INSERT INTO persona (rol, domicilio, fecha_de_nacimiento, nro_documento, tipo_documento, apellido, email, formas_notificacion, nombre, telefono) VALUES
     ('Duenio', 'Calle123', CURRENT_DATE, '43025544', 'DNI', 'Diaz', 'aca_pone_tu_mail_para_probar_scheduler@gmail.com', 'EMAIL', 'Mauro', '1566547546'),
@@ -67,10 +67,10 @@ INSERT INTO persona (rol, domicilio, fecha_de_nacimiento, nro_documento, tipo_do
     ('Rescatista', 'Cuenca 4212', CURRENT_DATE, '42346777', 'DNI', 'Jonse', 'jj@yahoo.com', 'EMAIL', 'Juan', '45034850'),
     ('Rescatista', 'Llavallol 879', CURRENT_DATE, '25744001', 'DNI', 'Martínez', 'martinezMax@yahoo.com', 'WPP', 'Máximo', '45024666');
 
-INSERT INTO contacto (apellido,	email, formas_notificacion, nombre,	telefono, id_persona) VALUES
-    ('Diaz', 'martuu@gmail.com', 'WPP, SMS', 'Martina', '1544447546', 1),
+INSERT INTO contacto (apellido,	email, formas_notificacion, nombre, telefono, id_persona) VALUES
+    ('Diaz', 'martuu@gmail.com', 'WPP, SMS', 'Martina', '+541131887886', 1),
     ('Diaz', 'jessi@gmail.com', 'MAIL', 'Jessica', '45125447', 1),
-    ('Sola', 'vicSola@gmail.com', 'EMAIL, SMS', 'Victoria', '1566547546', 3),
+    ('Sola', 'vicSola@gmail.com', 'EMAIL, SMS', 'Victoria', '+541131887886', 3),
     ('Sola', 'Manu54@yahoo.com', 'WPP', 'Manuel', '1565667546', 3),
     ('Sola', 'SylSolaa@yahoo.com', 'WPP', 'Sylvina', '45067546', 3),
     ('Marian', 'micaaMarian@yahoo.com', 'WPP', 'Micaela', '45027546', 6);

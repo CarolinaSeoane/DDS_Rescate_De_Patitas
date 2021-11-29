@@ -30,8 +30,7 @@ public class DemoApplication implements ApplicationListener {
 	public void onApplicationEvent(ApplicationEvent event) {
 		if (event instanceof ApplicationStartedEvent) {
 			ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(5);
-			scheduler.scheduleWithFixedDelay(javaJob::jobWithDelay, 0, 2, TimeUnit.MINUTES);
-			// scheduler.scheduleWithFixedDelay(javaJob::jobWithDelay, 0, 7, TimeUnit.DAYS);
+			scheduler.scheduleWithFixedDelay(javaJob::jobWithDelay, 0, 7, TimeUnit.DAYS);
 		}
 	}
 
