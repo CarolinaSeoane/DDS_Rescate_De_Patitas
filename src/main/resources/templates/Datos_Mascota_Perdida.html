@@ -74,6 +74,18 @@
                     <input type="file" accept="image/png, image/jpeg" @change="subirFotos($event)" multiple>
                 </div>
 
+                <div v-if="publicacion.mascota.errorsMascota.length">
+                    <div class="tarjeta-error">
+                        <img src="../static/Crear_Publicacion/img/error.png" alt="Error" height="100">
+                        <b class="texto-error">¡Atención! Tu mascota tiene datos incorrectos:</b>
+                        <br>
+                        <br>
+                        <ul>
+                            <li v-for="error in publicacion.mascota.errorsMascota" class="texto-simple">{{ error }}</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <!-- RESCATISTA -->
 
                 <h3 class="sub-titulo">Datos Personales</h3>
@@ -132,6 +144,18 @@
                     <input type="date" class="fecha texto-simple pregunta" v-model="publicacion.mascota.rescatista.fechaDeNacimiento" required>
                 </div>
 
+                <div v-if="publicacion.mascota.rescatista.errorsRescatista.length">
+                    <div class="tarjeta-error">
+                        <img src="../static/Crear_Publicacion/img/error.png" alt="Error" height="100">
+                        <b class="texto-error">¡Atención! Tienes datos personales incorrectos:</b>
+                        <br>
+                        <br>
+                        <ul>
+                            <li v-for="error in publicacion.mascota.rescatista.errorsRescatista" class="texto-simple">{{ error }}</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <!-- CONTACTOS -->
 
                 <div> <!-- Este div tiene que estar encerrando al for porque sino la :key interfiere con la key de la seccion de abajo-->
@@ -169,6 +193,18 @@
                                 <p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="WPP">  WhatsApp</p>
                                 <p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="SMS">  SMS</p>
                                 <p class="texto-simple"><input type="checkbox" v-model="contacto.formasNotificacion1" value="EMAIL">  EMAIL</p>
+                            </div>
+                        </div>
+
+                        <div v-if="contacto.errorsContacto.length">
+                            <div class="tarjeta-error">
+                                <img src="../static/Crear_Publicacion/img/error.png" alt="Error" height="100">
+                                <b class="texto-error">¡Atención! Tu contacto tiene datos incorrectos:</b>
+                                <br>
+                                <br>
+                                <ul>
+                                    <li v-for="error in contacto.errorsContacto" class="texto-simple">{{ error }}</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -16,4 +16,4 @@ Cosas NO importantes para hacer:
 ********************************************************************************************
 
 En proceso:
-[Caro] Agregar validaciones a formulario de datos personales.
+[Caro] Ver de nuevo el tema de la ubicacion de mascota perdida y asignacion de organizacion mas cercana.
