@@ -27,11 +27,11 @@
             <div class="fotos">
 
                 <div class="foto-principal">
-                    <img class="elemento" v-bind:src=" fotoPrincipal.contenidoBase64"></img>
+                    <img class="elemento" v-bind:src=" fotoPrincipal.contenidoBase64">
                 </div>
                 <div class="foto " style="width: 33%" v-for=" foto in fotos">
                     <div class="square-box">
-                        <img class="square-content" style="cursor: pointer;" v-bind:src="foto.contenidoBase64" @click="setFirst(foto)"  value></img>
+                        <img class="square-content" style="cursor: pointer;" v-bind:src="foto.contenidoBase64" @click="setFirst(foto)"  value>
                     </div>
                 </div>
 
