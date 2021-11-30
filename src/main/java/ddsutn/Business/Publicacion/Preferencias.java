@@ -32,7 +32,7 @@ public class Preferencias {
 	private int edadMin;
 	private int edadMax;
 
-	@ManyToMany(cascade = {CascadeType.MERGE})
+	@ManyToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "caracteristica_X_preferencia",
 			joinColumns = { @JoinColumn(name = "id_preferencia") },

@@ -9,7 +9,6 @@ import ddsutn.Repositorio.PublicacionDarEnAdopcionRepo;
 import ddsutn.Repositorio.PublicacionInteresadoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,9 +50,6 @@ public class RecomendacionesService {
 
 		if (!recomendaciones.isEmpty()) {
 			publInteresado.notificarRecomendacionesSemanales(recomendaciones);
-			for (PublicacionDarEnAdopcion pub : recomendaciones) {
-				pub.notificarDuenioSobreInteresado(publInteresado.getEmailDelInteresado());
-			}
 		}
 	}
 
@@ -61,8 +57,8 @@ public class RecomendacionesService {
 		return
 				mascotaBuscada.getTipoMascota().equals(mascotaEnAdopcion.getTipo()) &&
 						mascotaBuscada.getSexo().equals(mascotaEnAdopcion.getSexo()) &&
-						this.coincidenLasEdades(mascotaBuscada.getEdadMax(), mascotaBuscada.getEdadMin(), mascotaEnAdopcion.getEdad())
-						// && this.tieneXEnComun(mascotaBuscada.getCaracteristicas(), mascotaEnAdopcion.getCaracteristicas(), 1)
+						this.coincidenLasEdades(mascotaBuscada.getEdadMax(), mascotaBuscada.getEdadMin(), mascotaEnAdopcion.getEdad()) &&
+						this.tieneXEnComun(mascotaBuscada.getCaracteristicas(), mascotaEnAdopcion.getCaracteristicas(), 1)
 		;
 	}
 
