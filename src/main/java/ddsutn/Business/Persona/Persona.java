@@ -90,7 +90,7 @@ public class Persona {
 
 	public void convertirFormasNotificacion() {
 		formasDeNotificacion = new ArrayList<>();
-		Arrays.asList(formasNotificacion.split(",")).forEach(forma ->{
+		Arrays.asList(formasNotificacion.split(", ")).forEach(forma ->{
 			if (forma.equals("WPP")){
 				formasDeNotificacion.add(new WPP()) ;
 			}
