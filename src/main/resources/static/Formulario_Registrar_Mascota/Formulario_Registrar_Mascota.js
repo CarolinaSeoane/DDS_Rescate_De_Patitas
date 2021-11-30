@@ -31,6 +31,7 @@ new Vue({
                 apodo: '',
                 edad: '',
                 sexo: '',
+                tipo: '',
                 descripcion: '',
                 caracteristicas: [],
                 fotos: [],
@@ -131,7 +132,7 @@ new Vue({
         },
 
         validAge: function (age) {
-            var re = /(0?[1-9]|[1-2][0-9]|30)/;
+            var re = /^(0?[1-9]|[1-2][0-9]|30)$/;
             return re.test(age)
         },
 
@@ -233,8 +234,23 @@ new Vue({
                     esValido = false
                 }
 
+                if(this.duenio.mascotas[i].tipo == '' || this.duenio.mascotas[i].sexo == '') {
+                    this.duenio.mascotas[i].errorMascota.push("El tipo y sexo son obligatorios.");
+                    esValido = false
+                }
+
                 if(this.duenio.mascotas[i].fotos.length == 0) {
                     this.duenio.mascotas[i].errorMascota.push("Debes subir al menos una foto de la mascota.");
+                    esValido = false
+                }
+
+                if(this.duenio.mascotas[i].organizacion.nombre == null) {
+                    this.duenio.mascotas[i].errorMascota.push("Debes elegir una organización.");
+                    esValido = false
+                }
+
+                if(this.duenio.mascotas[i].caracteristicas.length == 0) {
+                    this.duenio.mascotas[i].errorMascota.push("Debes seleccionar al menos una característica.");
                     esValido = false
                 }
 
@@ -259,6 +275,7 @@ new Vue({
                                     nombre: '',
                                     apodo: '',
                                     edad: '',
+                                    tipo: '',
                                     descripcion: '',
                                     fotos: [],
                                     organizacion: {},

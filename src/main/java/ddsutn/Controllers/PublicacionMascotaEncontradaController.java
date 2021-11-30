@@ -78,7 +78,7 @@ public class PublicacionMascotaEncontradaController {
 
     @GetMapping(value = "/publicaciones/{id}/contactar")
     @ResponseBody
-    public Boolean contactar(@RequestHeader("Authorization") String idSesion,@PathVariable Long id) {
+    public Boolean contactar(@RequestHeader("Authorization") String idSesion, @PathVariable Long id) {
 
         SesionManager sesionManager = SesionManager.get();
         StandardUser usr = (StandardUser) sesionManager.obtenerAtributo(idSesion);
