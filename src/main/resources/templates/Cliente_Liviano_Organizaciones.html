@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Organizaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/Resources/Letras.css}">
+    <link rel="stylesheet" th:href="@{/Resources/normalize.css}">
+    <link rel="stylesheet" th:href="@{/Footer/Footer.css}">
+    <link rel="stylesheet" th:href="@{/Menu/Menu.css}">
+    <link rel="stylesheet" th:href="@{/Organizaciones/Organizaciones.css}">
+    <link rel="icon" type="image/icon type" th:href="@{/Resources/img/logo.png}">
+</head>
+
+<body>
+
+    <div class="menu-bar">
+        <div class="contenedor-base">
+
+            <nav class="menu">
+                <a>Iniciar Sesión</a>
+                <a>Página Principal</a>
+                <a>Organizaciones</a>
+            </nav>
+
+            <a href="index.html">
+                <div class="logo-menu">
+                    <img th:src="@{/Menu/img/logo_blanco.png}" alt="Logo">
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <header>
+        <div class="contenedor-base">
+            <div class="contenedor-texto-header">
+                <div class="texto">
+                    <h1 class="titulo-principal">Conoce a nuestras organizaciones</h1>
+                    <h2 class="descripcion-sistema">Nuestro sistema está integrado por varias asociaciones sin fines de lucro que buscan rescatar mascotas y encontrar familias responsables para su adopción</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="main">
+        <div class="contenedor-grande">
+            <div class="contenedor-organizaciones">
+
+                <th:block th:each="organizacion: ${organizaciones}">
+                    <div class="contenedor-organizacion">
+                        <p class="sub-titulo"><td th:text="${organizacion.nombre}"/></p><br>
+                        <p class="texto-simple"><td th:text="${organizacion.ubicacion.direccion}"/></p>
+                    </div>
+                </th:block>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="contenedor-base">
+            <div class="imagenes-footer">
+                <a href="https://twitter.com">
+                    <div class="img-footer twitter">
+                        <img th:src="@{/Footer/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/">
+                    <div class="img-footer facebook">
+                        <img th:src="@{/Footer/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
+                    </div>
+                </a>
+                <a href="https://mail.google.com/">
+                    <div class="img-footer gmail">
+                        <img th:src="@{/Footer/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
