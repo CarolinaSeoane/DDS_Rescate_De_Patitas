@@ -1,6 +1,7 @@
 package ddsutn.Servicios.UsuariosSvc;
 
 import ddsutn.Repositorio.UsuarioRepo;
+import ddsutn.Seguridad.Password.ValidatePassword;
 import ddsutn.Seguridad.Usuario.Administrador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,10 +25,19 @@ public class AdministradorSvc {
     }
 
     public Administrador signupAdmin(Administrador body){
-        body.setPassword(encoder.encode(body.getPassword()));
+        ValidatePassword validator = new ValidatePassword();
 
-        if(findAdminByUsuario(body.getUsuario()) != null)
+        if(validator.validatePassword(body.getPassword()))
+            body.setPassword(encoder.encode(body.getPassword()));
+        else{
+            System.out.println("Contraseña invalida");
             throw new RuntimeException();
+        }
+
+        if(findAdminByUsuario(body.getUsuario()) != null){
+            System.out.println("Usuario ya existente");
+            throw new RuntimeException();
+        }
 
         return save(new Administrador(body));
     }

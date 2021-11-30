@@ -44,18 +44,31 @@ public class UsuariosController {
     //Creacion de usuarios
     @PostMapping(value = "/registrar-admin")
     public ResponseEntity<AdministradorDTO> signupAdmin(@RequestBody Administrador body) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(administradorSvc.signupAdmin(body).toDTO());
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(administradorSvc.signupAdmin(body).toDTO());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 
     @PostMapping(value = "/registrar-estandar")
-    public ResponseEntity<UsuarioRDTO> signupStandardUser(@RequestBody StandardUser body) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(standardSvc.signupStandardUser(body).toRDTO());
+    public ResponseEntity<StandardDTO> signupStandardUser(@RequestBody StandardUser body) {
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(standardSvc.signupStandardUser(body).toDTO());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 
     @PostMapping(value = "/registrar-voluntario")
-    public ResponseEntity<UsuarioRDTO> signupVoluntario(@RequestBody Voluntario body) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(voluntarioSvc.signupVoluntario(body).toRDTO());
+    public ResponseEntity<VoluntarioDTO> signupVoluntario(@RequestBody Voluntario body) {
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(voluntarioSvc.signupVoluntario(body).toDTO());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
+
 
     //Sign in
 
