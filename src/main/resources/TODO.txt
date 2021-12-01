@@ -1,30 +1,6 @@
-Cosas para hacer:
-
-[1] Calcular distancia no funciona.
-[2] Limitar tamaño de imagenes a subir. Sino rompe.
-[3] Hacer que ande el filtro en la pantalla Buscar Hogar.
-[4] Cuando se normalizan las fotos, ver cómo evitar que la transaccion sea muy grande porque SQL la rechaza.
-
 ********************************************************************************************
 
-En proceso:
-[Caro] Solucionar el check de caracteristicas en la pantalla del admin
-[Facu] Mostrar preguntas en las publicaciones de adoptar
-
-********************************************************************************************
-Cosas pendientes de cada entrega:
-
-Entrega 1:
-
-- Un req de seguridad es no usar credenciales por defecto, pero si alguien usa mismo usuario y contraseña lo dejamos pasar (si la contraseña pasa los controles)
-- No implementamos WPP
-- No limitamos o incrementamos el tiempo de respuesta por inicio de sesión fallido
-
-Entrega 2:
+Cosas pendientes:
 
 - Actualizar link de qr cuando este deployado
-
-Entrega 3:
-
-- Podríamos mostrar las preguntas en las publicaciones (según enunciado)
-- Cuando terminemos el deploy, actualizar el link para dar de baja la publicacion
+- Actualizar el link para dar de baja la publicacion
