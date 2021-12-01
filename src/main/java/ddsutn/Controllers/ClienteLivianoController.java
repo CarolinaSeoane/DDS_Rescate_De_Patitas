@@ -3,6 +3,7 @@ package ddsutn.Controllers;
 import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
 import ddsutn.Seguridad.Sesion.SesionManager;
+import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Seguridad.Usuario.Usuario;
 import ddsutn.Servicios.OrganizacionSvc;
 import ddsutn.Servicios.PublicacionDarEnAdopcionSvc;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
@@ -79,5 +81,49 @@ public class ClienteLivianoController {
         model.addAttribute("publicacion",  publicacionMascotaEncontradaSvc.findById(id).get());
         return "Cliente_Liviano_Publicacion_Mascota_Perdida";
 
+    }
+
+
+    @RequestMapping("/adoptar/publicacion/{id}")
+    public String publicacionAdopcion(Model model, @PathVariable Long id,@RequestParam String sesion) {
+
+        model.addAttribute("publicacion",  publicacionDarEnAdopcionSvc.findById(id).get());
+
+        if(validarSesion(sesion)){
+            model.addAttribute("sesion","login");
+        }else{
+            model.addAttribute("sesion","logout");
+        }
+
+
+        model.addAttribute("estado","pendiente");
+        return "Cliente_Liviano_Publicacion_Adopcion";
+    }
+
+
+    @RequestMapping("/adoptar/publicacion/{id}/adoptar")
+    public String publicacionAdopcionAdoptar(Model model, @PathVariable Long id,@RequestParam String sesion) {
+
+        if(validarSesion(sesion)){
+            model.addAttribute("sesion","login");
+        }else{
+            model.addAttribute("sesion","logout");
+        }
+        SesionManager sesionManager = SesionManager.get();
+        StandardUser usr = (StandardUser) sesionManager.obtenerAtributo(sesion);
+        Optional<PublicacionDarEnAdopcion> publicacion = publicacionDarEnAdopcionSvc.findById(id);
+
+        String estado ;
+
+        if( publicacion.isPresent() && usr!=null ){
+            publicacion.get().notificarDuenioSobreInteresado(usr.getDuenioAsociado().getEmail());
+            estado = "ok";
+
+        }else{
+            estado="error";
+        }
+        model.addAttribute("estado",estado);
+        model.addAttribute("publicacion",  publicacionDarEnAdopcionSvc.findById(id).get());
+        return "Cliente_Liviano_Publicacion_Adopcion";
     }
 }

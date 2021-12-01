@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>${publicacion.mascota.nombre}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/Resources/Letras.css}">
+    <link rel="stylesheet" th:href= "@{/Resources/Boton.css}">
+    <link rel="stylesheet" th:href="@{/Resources/normalize.css}">
+    <link rel="stylesheet" th:href="@{/Footer/Footer.css}">
+    <link rel="stylesheet" th:href="@{/Menu/Menu.css}">
+    <link rel="stylesheet" th:href="@{/Resources/Publicaciones.css}">
+    <link rel="stylesheet" th:href="@{/Publicacion_Adopcion/Publicacion_Adopcion.css}">
+    <link rel="icon" type="image/icon type" th:href="@{/Resources/img/logo.png}">
+    <link rel="stylesheet" th:href="@{/carrusel/carrusel.css}">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+
+</head>
+<body>
+    <div class="menu-bar">
+        <div class="contenedor-base">
+
+            <nav class="menu">
+                <th:block th:if="${sesion} == 'logout'">
+                    <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Iniciar_Sesion.html'">Iniciar Sesión</a>
+                </th:block>
+
+                <th:block th:if="${sesion} == 'login'">
+                    <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Mi_Usuario.html'">Mi usuario</a>
+                </th:block>
+
+                <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/index.html'">Página Principal</a>
+                <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Organizaciones.html'">Organizaciones</a>
+            </nav>
+
+            <a href="index.html">
+                <div class="logo-menu">
+                    <img th:src="@{/Menu/img/logo_blanco.png}" alt="Logo">
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+
+<section class="main">
+        <div class="titulo">
+            <p>¡Conoce a [[${publicacion.mascota.nombre}]]!  </p>
+        </div>
+
+        <!--  CARRUSEL-->
+
+        <div th:fragment="carrusel" class="contenedor-carrusel">
+
+            <div class="carousel center-align">
+                <th:block th:each="foto: ${publicacion.mascota.fotos}">
+                    <div class="carousel-item">
+                        <img th:src="@{ ${foto.contenidoBase64} }" class="image-slide" alt="...">
+                    </div>
+                </th:block>
+            </div>
+
+        </div>
+
+    <!--  CARRUSEL-->
+
+    <div class="info-mascota">
+        <div class="renglon">
+            <p class="palabra-start">Nombre</p>
+            <p class="guion">-</p>
+            <p class="palabra-end">[[${publicacion.mascota.nombre}]]</p>
+        </div>
+        <div class="renglon">
+            <p class="palabra-start">Tipo</p>
+            <p class="guion">-</p>
+            <p class="palabra-end">[[${publicacion.mascota.tipo}]]</p>
+        </div>
+        <div class="renglon">
+            <p class="palabra-start">Sexo</p>
+            <p class="guion">-</p>
+            <p class="palabra-end">[[${publicacion.mascota.sexo}]]</p>
+        </div>
+        <div class="renglon">
+            <p class="palabra-start">Edad</p>
+            <p class="guion">-</p>
+            <p class="palabra-end">[[${publicacion.mascota.edad}]] años</p>
+        </div>
+        <div class="renglon">
+            <p class="palabra-start">Caracteristicas</p>
+            <p class="guion">-</p>
+            <p class="palabra-end"><th:block th:each="caracteristica: ${publicacion.mascota.caracteristicas}">
+                [[${caracteristica.caracteristica}]]  <span th:if="${!caracteristicaStat.last}">-</span>
+            </th:block></p>
+
+        </div>
+    </div>
+
+        <div class="contenedor-botones" id="adoptar">
+
+            <input class="botonVolver boton " type="button" onclick="window.location.href='http://localhost:63342/TPDDS_Grupo5_K3002/templates/Publicaciones_Adopcion.html'"  value="Volver">
+            <input class="botonAzul boton" type="button" th:onclick="'adoptar(\'' + ${publicacion.id} + '\');'" value="Adoptar">
+
+
+        </div>
+
+    <th:block th:if="${estado} =='error' and ${sesion} == 'logout'">
+        <div class="aviso-usuario contenedor-base">
+            <div class="contenedor-error">
+                <img class="img" th:src="@{/Publicacion_Adopcion/img/usuario.png}" alt="usuario" width="100">
+                <h3 class="sub-titulo">Parece que no tienes usuario</h3>
+                <p class="texto-simple">Hemos notado que aún no has iniciado sesión o no te has registrado. Por favor hazlo y luego vuelve a intentarlo.</p>
+                <div class="botones">
+                    <button onclick="goToRegistrarse();"  class="botonGris">Registrarme</button>
+                    <button  onclick="gotoIniciarSesion();"  class="botonAzul">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </th:block>
+
+    <th:block th:if="${estado} == 'ok'">
+        <div class="contenedor-estado" >
+            <p style='color:green;'>se envio la notificacion al dueño </p>
+        </div>
+    </th:block>
+    <th:block th:if="${estado} == 'error'">
+        <div class="contenedor-estado" >
+            <p style='color:red;'> hubo un error </p>
+        </div>
+    </th:block>
+
+
+
+    </section>
+
+    <section class="footer">
+        <div class="contenedor-base">
+            <div class="imagenes-footer">
+                <a href="https://twitter.com">
+                    <div class="img-footer twitter">
+                        <img th:src="@{/Footer/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/">
+                    <div class="img-footer facebook">
+                        <img th:src="@{/Footer/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
+                    </div>
+                </a>
+                <a href="https://mail.google.com/">
+                    <div class="img-footer gmail">
+                        <img th:src="@{/Footer/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script src="../../static/Publicacion_Adopcion/Publicacion_Adopcion_Liviano.js" th:src="@{/Publicacion_Adopcion/Publicacion_Adopcion_Liviano.js}" ></script>></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" th:src="|https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js|"></script>
+    <script src="../../static/Resources/carrusel/carrusel.js"  th:src="@{/carrusel/carrusel_Liviano.js}" ></script>
+
+
+</body>
+
+</html>
