@@ -1,4 +1,5 @@
 const apiUrlUsuario = "http://localhost:5000/usuarios/datos-estandar-qr";
+const apiUrlEliminarSesion = "http://localhost:5000/sesion/eliminar";
 
 new Vue({
         el: '#app',
@@ -51,5 +52,13 @@ new Vue({
                 .then(usrObtenido => {
                     this.usuario = usrObtenido;
             });
+        },
+        methods: {
+        	cerrarSesion() {
+            	var idSesion = localStorage.getItem("IDSESION");
+            	fetch(apiUrlEliminarSesion, {headers: { "Authorization": idSesion}})
+            	localStorage.removeItem("IDSESION");
+            	window.location.href = 'index.html';
+            }
         }
     })

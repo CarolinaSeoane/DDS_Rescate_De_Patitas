@@ -106,7 +106,27 @@ h3 {
     max-width : 100%;
 }
 
+.cerrar-sesion {
+	text-align: center;
+	margin-bottom: 5%;
+}
+
 .datos-mascotas {
     margin-bottom: 100px;
 }
 
+.botonRojo {
+	background: red;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 14px 30px;
+}
+
+.botonRojo:hover {
+    background: #fff;
+    color: red;
+    border: 1px solid red;
+    border-radius: 3px;
+   	padding: 14px 30px;
+}
