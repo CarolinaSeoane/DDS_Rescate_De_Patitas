@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>${publicacion.mascota.nombre}</title>
+    <title th:text="${publicacion.mascota.nombre}"></title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/Resources/Letras.css}">
     <link rel="stylesheet" th:href= "@{/Resources/Boton.css}">
@@ -19,32 +19,9 @@
 
 </head>
 <body>
-    <div class="menu-bar">
-        <div class="contenedor-base">
+<header th:replace="fragments/menu"></header>
 
-            <nav class="menu">
-                <th:block th:if="${sesion} == 'logout'">
-                    <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Iniciar_Sesion.html'">Iniciar Sesión</a>
-                </th:block>
-
-                <th:block th:if="${sesion} == 'login'">
-                    <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Mi_Usuario.html'">Mi usuario</a>
-                </th:block>
-
-                <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/index.html'">Página Principal</a>
-                <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Organizaciones.html'">Organizaciones</a>
-            </nav>
-
-            <a href="index.html">
-                <div class="logo-menu">
-                    <img th:src="@{/Menu/img/logo_blanco.png}" alt="Logo">
-                </div>
-            </a>
-
-        </div>
-    </div>
-
-
+    <input type="hidden" id="idSesion" th:value="${session.idSesion}"/>
 <section class="main">
         <div class="titulo">
             <p>¡Conoce a [[${publicacion.mascota.nombre}]]!  </p>
@@ -105,7 +82,7 @@
 
         </div>
 
-    <th:block th:if="${estado} =='error' and ${sesion} == 'logout'">
+    <th:block th:if="${estado} =='error' and ${session.idSesion} == null">
         <div class="aviso-usuario contenedor-base">
             <div class="contenedor-error">
                 <img class="img" th:src="@{/Publicacion_Adopcion/img/usuario.png}" alt="usuario" width="100">

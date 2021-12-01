@@ -1,6 +1,5 @@
 adoptar = function (id){
-    var idsesion = urlParams = new URLSearchParams(window.location.search).get('sesion');
-
+    var idsesion = document.getElementById("idSesion").value;
     this.solicitudIniciada = true;
     this.colorText = "#4ba0dd";
     this.estado_Solicitud = "Procesando solicitud";
@@ -10,7 +9,7 @@ adoptar = function (id){
 
 };
 goToRegistrarse= function() {
-    window.location.href = 'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Iniciar_Sesion.html';
+    window.location.href = 'http://localhost:5000/cliente-liviano/inicio_sesion';
 };
 gotoIniciarSesion= function() {
     window.location.href = 'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Registrarse.html';

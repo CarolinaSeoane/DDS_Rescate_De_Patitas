@@ -17,7 +17,7 @@
 <body>
 
 	<header>
-		<main-menu-usuario></main-menu-usuario>
+		<header th:replace="fragments/menu"></header>
 		<div class="contenedor-base">
 			<div class="contenedor-texto-header">
 				<div class="texto">
@@ -65,7 +65,7 @@
 
 					<div class="opcion">
 						<div class="foto-opcion">
-							<a href="Adoptar_Mascota.html">
+							<a href="/cliente-liviano/publicaciones">
 								<img th:src="@{/Pagina_Principal/img/adoptar2.jpg }" alt="Adoptar">
 							</a>
 						</div>
@@ -125,11 +125,7 @@
 
 	</section>
 
-	<main-footer></main-footer>
-
-	<script th:href="@{/Footer/Footer.js}"></script>
-	<script th:href="@{/Menu/Menu.js}"></script>
-	<script th:href="@{/Resources/ValidarUsuario.js}"></script>
+	<section th:replace="fragments/footer"></section>
 
 </body>
 </html>

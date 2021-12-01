@@ -16,8 +16,7 @@
 </head>
 
 <body>
-
-	<main-menu-usuario></main-menu-usuario>
+	<header th:replace="fragments/menu"></header>
 
 	<section class="main">
 			<div class="contenedor-base">
@@ -25,22 +24,22 @@
 
 					<h3 class="sub-titulo">Iniciar Sesión</h3>
 
-					<section class="formulario" id="app">
+					<form class="formulario" th:action="@{/cliente-liviano/iniciar-sesion}" th:object="${usuarioSigninDTO}" method="post" >
 
 						<div class="input">
 							<p class="texto-simple pregunta">Nombre de usuario</p>
-							<input type="text" class="input-completo texto-simple" v-model="usuario" required>
+							<input type="text" class="input-completo texto-simple"  th:field="*{usuario}" required>
 						</div>
 
 						<div class="input">
 							<p class="texto-simple pregunta">Contraseña</p>
-							<input id="password" type="password" class="input-completo texto-simple" v-model="password" required>
-							<p @click="mostrarContraseña()" class="boton-mostrar texto-simple">Mostrar contraseña</p>
+							<input id="password" name="password" type="password" class="input-completo texto-simple" th:field="*{password}" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$/%!_*?¿-]).{8,64}$" title="La contraseña debe tener entre 8 y 64 caracteres y contener como mínimo una mayúscula, un número y un caracter especial." required>
+							<p onclick="mostrar()" id="mostrarContraseña" class="boton-mostrar texto-simple">Mostrar contraseña</p>
 						</div>
 
-						<button @click="login" class="botonAzul boton">Iniciar Sesion</button>
+						<input type="submit" class="botonAzul boton" value="Iniciar Sesión">
 
-					</section>
+					</form>
 
 					<p class="texto-sub">¿Olvidaste tu contraseña?</p>
 
@@ -48,12 +47,27 @@
 			</div>
 	</section>
 
-	<main-footer></main-footer>
+	<section th:replace="fragments/footer"></section>
+	<script  type = "text/javascript">
+		var contraseña;
+		var mostrarContraseña;
+		document.addEventListener('DOMContentLoaded', function() {
+			contraseña = document.getElementsByName("password")[0];
+			mostrarContraseña = document.getElementById("mostrarContraseña");
+			mostrarContraseña.innerHTML  = "Mostrar contraseña"
+		}, false);
 
-	<script src="../static/Footer/Footer.js"></script>
-	<script src="../static/Menu/Menu.js"></script>
-	<script src="../static/Resources/ValidarUsuario.js"></script>
-	<script src="../static/Iniciar_Sesion/Iniciar_Sesion.js"></script>
 
+		function mostrar() {
+			if(contraseña.getAttribute("type") == "password"){
+				contraseña.setAttribute('type','text');
+				mostrarContraseña.innerHTML    = "Ocultar contraseña";
+			}else{
+				contraseña.setAttribute('type','password');
+				mostrarContraseña.innerHTML    = "Mostrar contraseña";
+			}
+		}
+
+	</script>
 </body>
 </html>

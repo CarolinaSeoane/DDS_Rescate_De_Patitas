@@ -17,31 +17,8 @@
 
 </head>
 <body th:with="ubicacion=${publicacion.mascota.ubicacion}">
-    <div class="menu-bar">
-        <div class="contenedor-base">
-
-            <nav class="menu">
-                <th:block th:if="${sesion} == 'logout'">
-                    <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Iniciar_Sesion.html'">Iniciar Sesión</a>
-                </th:block>
-
-                <th:block th:if="${sesion} == 'login'">
-                    <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Mi_Usuario.html'">Mi usuario</a>
-                </th:block>
-
-                <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/index.html'">Página Principal</a>
-                <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Organizaciones.html'">Organizaciones</a>
-            </nav>
-
-            <a href="index.html">
-                <div class="logo-menu">
-                    <img th:src="@{/Menu/img/logo_blanco.png}" alt="Logo">
-                </div>
-            </a>
-
-        </div>
-    </div>
-
+<header th:replace="fragments/menu"></header>
+<input type="hidden" id="idSesion" th:value="${session.idSesion}"/>
     <section class="main">
         <div class="informacion_Mascota">
             <input type="hidden" id="lat" th:value="${publicacion.mascota.ubicacion.lat}"/>
@@ -78,7 +55,7 @@
             <p>¿Crees que es tu macota?</p>
             <p>Contacta al rescatista</p>
 
-            <input class="botonAzul boton" type="button"  onclick="contactar()" value="Contactar">
+            <input class="botonAzul boton" type="button"   th:onclick="'contactar(\'' + ${publicacion.id} + '\');'" value="Contactar">
 
             <th:block th:if="${estado} == 'ok'">
                 <div class="contenedor-estado" >
@@ -119,7 +96,7 @@
         </div>
     </section>
 
-    <script src="../../static/Publicacion_Mascota_Perdida/Publicacion_Mascota_Perdida_Liviano.js" th:src="@{/Publicacion_Mascota_Perdida/Publicacion_Mascota_Perdida_Liviano.js}" th:inline="javascript" ></script>
+    <script src="../../static/Publicacion_Mascota_Perdida/Publicacion_Mascota_Perdida_Liviano.js" th:src="@{/Publicacion_Mascota_Perdida/Publicacion_Mascota_Perdida_Liviano.js}" ></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9yX6NFzg2Hl47X8d-vE3IAKvcfThBUXg&callback=initMap&libraries=&v=weekly" th:src="|https://maps.googleapis.com/maps/api/js?key=AIzaSyA9yX6NFzg2Hl47X8d-vE3IAKvcfThBUXg&callback=initMap&libraries=&v=weekly|"></script>
 
 

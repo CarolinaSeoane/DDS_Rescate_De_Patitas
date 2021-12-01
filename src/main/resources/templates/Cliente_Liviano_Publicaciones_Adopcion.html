@@ -20,23 +20,7 @@
 
 
 <body>
-    <div class="menu-bar">
-        <div class="contenedor-base">
-
-            <nav class="menu">
-                <a>Iniciar Sesión</a>
-                <a>Página Principal</a>
-                <a>Organizaciones</a>
-            </nav>
-
-            <a href="index.html">
-                <div class="logo-menu">
-                    <img th:src="@{/Menu/img/logo_blanco.png}" alt="Logo">
-                </div>
-            </a>
-
-        </div>
-    </div>
+<header th:replace="fragments/menu"></header>
     <header>
         <div class="contenedor-base">
             <div class="contenedor-texto-header">
@@ -67,7 +51,7 @@
 
                 <div class="fotos">
                     <th:block th:each="publicacion: ${recientes}">
-                        <a class="foto">
+                        <a th:href="'/cliente-liviano/adoptar/publicacion/' + ${publicacion.id}" class="foto">
                             <div class="square-box">
                                 <img class="square-content" th:src="${publicacion.mascota.fotos[0].contenidoBase64}" alt="Mascota">
                             </div>
@@ -141,7 +125,7 @@
                 <div class="contenedor-grande">
                     <div class="fotos">
                         <th:block th:each="pub: ${publicaciones}">
-                            <a class="foto">
+                            <a th:href="'/cliente-liviano/adoptar/publicacion/' +  ${pub.id}" class="foto">
                                 <div class="square-box">
                                     <img th:src="${pub.mascota.fotos[0].contenidoBase64}" alt="Mascota" class="square-content">
                                 </div>
@@ -165,27 +149,7 @@
 
     </section>
 
-    <section class="footer">
-        <div class="contenedor-base">
-            <div class="imagenes-footer">
-                <a href="https://twitter.com">
-                    <div class="img-footer twitter">
-                        <img th:src="@{/Footer/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
-                    </div>
-                </a>
-                <a href="https://www.facebook.com/">
-                    <div class="img-footer facebook">
-                        <img th:src="@{/Footer/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
-                    </div>
-                </a>
-                <a href="https://mail.google.com/">
-                    <div class="img-footer gmail">
-                        <img th:src="@{/Footer/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+<section th:replace="fragments/footer"></section>
 
 </body>
 </html>
