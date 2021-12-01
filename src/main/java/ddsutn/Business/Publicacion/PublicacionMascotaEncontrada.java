@@ -60,12 +60,6 @@ public class PublicacionMascotaEncontrada {
         this.aceptada = true;
     }
 
-    /*
-    TODO
-    - Metodo para mostrar las fotos de esta MascotaPerdida.
-    - Ubicacion como atributo.
-    - Metodo para asignar la asociacion segun ubicacion.
-     */
 
     public void notificarDuenioAparecido(Contacto duenioAparecido) {
         String mensaje = String.format("Ha aparecido el duenio de la mascota que ha rescatado!\nComunicarse con %s %s: Tel. %s - Email %s",

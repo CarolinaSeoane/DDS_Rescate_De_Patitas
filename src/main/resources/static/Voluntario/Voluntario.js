@@ -18,7 +18,6 @@ new Vue({
 				voluntarios: [],
 				mascotasRegistradas: [],
 				preguntasAdicionales: [],
-				publicacionesDarEnAdopcion: [],
 				publicacionesMascotasEncontradas: [{
 					id: null,
 					mascota: {
@@ -35,22 +34,20 @@ new Vue({
 							lat: null,
 							long: null
 						},
-						rescatista: {},
+						rescatista: {
+							id: null,
+							tipoDocumento: null,
+							nroDocumento: null,
+							fechaDeNacimiento: null,
+							otrosContactos: null,
+							domicilio: null,
+							nombre: null,
+							apellido: null,
+							telefono: null,
+							email: null,
+							formasNotificacion: null
+						},
 						tipo: null
-					},
-					rescatista: {
-						id: null,
-						tipoDocumento: null,
-						nroDocumento: null,
-						fechaDeNacimiento: null,
-						otrosContactos: [],
-						domicilio: null,
-						nombre: null,
-						apellido: null,
-						telefono: null,
-						email: null,
-						formasDeNotificacion: [],
-						formasNotificacion: []
 					},
 					aceptada: null
 				}],
