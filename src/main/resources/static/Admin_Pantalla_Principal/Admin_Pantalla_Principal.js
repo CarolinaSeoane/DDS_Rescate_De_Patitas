@@ -90,7 +90,7 @@ new Vue({
 			})
 			.then(function(response) {
                 if(response.ok) {
-                  	alert("¡Las fotos se normalizarion con éxito!")
+                  	alert("¡Las fotos se normalizaron con éxito!")
                 }})
 			.catch(function (error) {
                 if (error.response.status == 400) {

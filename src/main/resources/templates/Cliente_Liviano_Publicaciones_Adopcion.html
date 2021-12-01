@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head >
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Publicaciones Adopcion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/Resources/Letras.css}">
+    <link rel="stylesheet" th:href="@{/Resources/Boton.css}">
+    <link rel="stylesheet" th:href="@{/Resources/normalize.css}">
+    <link rel="stylesheet" th:href="@{/Footer/Footer.css}">
+    <link rel="stylesheet" th:href="@{/Menu/Menu.css}">
+    <link rel="stylesheet" th:href="@{/Resources/Filtro.css}">
+    <link rel="stylesheet" th:href="@{/Resources/Publicaciones.css}">
+    <link rel="stylesheet" th:href="@{/Publicaciones_Adopcion/Publicaciones_Adopcion.css}">
+    <link rel="icon" th:href="@{/Resources/img/logo.png}" type="image/icon type">
+
+</head>
+
+
+<body>
+    <div class="menu-bar">
+        <div class="contenedor-base">
+
+            <nav class="menu">
+                <a>Iniciar Sesión</a>
+                <a>Página Principal</a>
+                <a>Organizaciones</a>
+            </nav>
+
+            <a href="index.html">
+                <div class="logo-menu">
+                    <img th:src="@{/Menu/img/logo_blanco.png}" alt="Logo">
+                </div>
+            </a>
+
+        </div>
+    </div>
+    <header>
+        <div class="contenedor-base">
+            <div class="contenedor-texto-header">
+                <div class="">
+                    <h1 class="titulo-principal">Mascotas en Adopción</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="main">
+
+        <!-- ACERCA - DE -->
+
+        <section class="acerca-de">
+            <div class="contenedor-base">
+
+                <h3 class="sub-titulo">¿Buscas una Mascota para Adoptar?</h3>
+
+            </div>
+        </section>
+
+        <!-- PUBLICACIONES RECIENTES -->
+
+        <section class="recientes">
+            <div class="contenedor-base">
+                <p class="sub-titulo">Publicaciones Recientes</p>
+
+                <div class="fotos">
+                    <th:block th:each="publicacion: ${recientes}">
+                        <a class="foto">
+                            <div class="square-box">
+                                <img class="square-content" th:src="${publicacion.mascota.fotos[0].contenidoBase64}" alt="Mascota">
+                            </div>
+                        </a>
+                    </th:block>
+                </div>
+            </div>
+        </section>
+
+        <!-- TODAS LAS PUBLICACIONES -->
+
+        <section class="publicaciones">
+
+            <!-- FILTROS -->
+
+            <section class="filtro">
+                <div class="contenedor-base">
+                    <div class="contenedor-opciones">
+
+                        <p class="sub-titulo">Todas las Publicaciones</p>
+
+                        <a class="dropdownOrdenar">
+                            <button class="dropbtn">
+                                <p class="texto-boton">Ordenar</p>
+                                <img th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
+                            </button>
+                        </a>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <p class="texto-boton">Filtrar</p>
+                                <img th:src="@{/Publicaciones_Adopcion/img/filtro.png}" alt="Ordenar">
+                            </button>
+
+                            <div class="dropdown-content">
+
+                                <div class="seccion-filtro">
+                                    <div class="titulo-check">
+                                        <label>Especie</label>
+                                    </div>
+
+                                    <div class="opciones-check">
+                                        <input type="checkbox" id="GATO" name="gato" value="GATO">
+                                        <label class="texto-simple">Gato</label>
+
+                                        <input type="checkbox" id="PERRO" name="perro" value="PERRO">
+                                        <label class="texto-simple">Perro</label>
+                                    </div>
+                                </div>
+
+                                <div class="reset-filtros">
+                                    <div class="texto-borrar">
+                                        <button class="boton-filtro" value="Borrar Filtros" style="color: #B93122;">Borrar Filtros</button>
+                                    </div>
+                                    <div class="texto-fin">
+                                        <button class="boton-filtro" value="Cancelar" style="color:#57565B">Cancelar</button>
+                                    </div>
+                                    <div class="texto-fin">
+                                        <button  class="boton-filtro" style="color:#1DA1F2" >Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PUBLICACIONES -->
+
+            <section class="publicaciones">
+                <div class="contenedor-grande">
+                    <div class="fotos">
+                        <th:block th:each="pub: ${publicaciones}">
+                            <a class="foto">
+                                <div class="square-box">
+                                    <img th:src="${pub.mascota.fotos[0].contenidoBase64}" alt="Mascota" class="square-content">
+                                </div>
+                                <p class="texto-simple"><td th:text="${pub.mascota.apodo}" /> </p>
+                            </a>
+                        </th:block>
+
+                    </div>
+                    <p class="boton-mas">Cargar mas</p>
+                </div>
+
+            </section>
+        </section>
+
+        <section class="crear">
+            <h3 class="sub-titulo">¿No encontraste tu mascota ideal? ¡No hay problema!</h3>
+            <a href="">
+                <input class="botonAzul boton" type="submit" value="Crear Publicación">
+            </a>
+        </section>
+
+    </section>
+
+    <section class="footer">
+        <div class="contenedor-base">
+            <div class="imagenes-footer">
+                <a href="https://twitter.com">
+                    <div class="img-footer twitter">
+                        <img th:src="@{/Footer/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/">
+                    <div class="img-footer facebook">
+                        <img th:src="@{/Footer/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
+                    </div>
+                </a>
+                <a href="https://mail.google.com/">
+                    <div class="img-footer gmail">
+                        <img th:src="@{/Footer/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
