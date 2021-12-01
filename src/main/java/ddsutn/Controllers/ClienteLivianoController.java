@@ -2,12 +2,18 @@ package ddsutn.Controllers;
 
 import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
+import ddsutn.Seguridad.Sesion.SesionManager;
+import ddsutn.Seguridad.Usuario.Usuario;
 import ddsutn.Servicios.OrganizacionSvc;
 import ddsutn.Servicios.PublicacionDarEnAdopcionSvc;
+import ddsutn.Servicios.PublicacionMascotaEncontradaSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +27,18 @@ public class ClienteLivianoController {
 
     @Autowired
     private PublicacionDarEnAdopcionSvc publicacionDarEnAdopcionSvc;
+
+    @Autowired
+    private PublicacionMascotaEncontradaSvc publicacionMascotaEncontradaSvc;
+
+    public Boolean validarSesion(String idSesion) {
+
+        SesionManager sesionManager = SesionManager.get();
+        Usuario usr = (Usuario) sesionManager.obtenerAtributo(idSesion);
+
+        return (usr != null);
+
+    }
 
     @RequestMapping("/organizaciones")
     public String organizaciones(Model model) {
@@ -43,4 +61,23 @@ public class ClienteLivianoController {
         return "Cliente_Liviano_Publicaciones_Adopcion";
     }
 
+
+
+    @RequestMapping("/perdidas/publicacion/{id}")
+    public String publicacionMascotaPerdida(Model model, @PathVariable Long id, @RequestParam String sesion) {
+
+
+
+        if(validarSesion(sesion)){
+            model.addAttribute("sesion","login");
+        }else{
+            model.addAttribute("sesion","logout");
+        }
+
+
+        model.addAttribute("estado","pendiente");
+        model.addAttribute("publicacion",  publicacionMascotaEncontradaSvc.findById(id).get());
+        return "Cliente_Liviano_Publicacion_Mascota_Perdida";
+
+    }
 }
