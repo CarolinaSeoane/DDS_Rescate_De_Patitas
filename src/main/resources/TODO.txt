@@ -1,20 +1,14 @@
-Cosas importantes para hacer:
+Cosas para hacer:
 
-[1] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
-[3] Limitar tamaño de imagenes a subir. Sino rompe.
-
-********************************************************************************************
-
-Cosas NO importantes para hacer:
-
-[1] Hacer que ande el filtro en la pantalla Buscar Hogar.
-[2] Chequear que las pantallas que muestran publicaciones recientes muestren las últimas.
-[3] Cuando se normalizan las fotos, ver cómo evitar que la transaccion sea muy grande porque SQL la rechaza.
+[1] Calcular distancia no funciona.
+[2] Limitar tamaño de imagenes a subir. Sino rompe.
+[3] Hacer que ande el filtro en la pantalla Buscar Hogar.
+[4] Cuando se normalizan las fotos, ver cómo evitar que la transaccion sea muy grande porque SQL la rechaza.
 
 ********************************************************************************************
 
 En proceso:
-[Facu] Ver de nuevo el tema de la ubicacion de mascota perdida y asignacion de organizacion mas cercana.
+[Facu] Agregar cartel para que inicie sesion en las pantallas de publicaciones
 [Caro] Solucionar el check de caracteristicas en la pantalla del admin
 
 ********************************************************************************************
@@ -29,11 +23,9 @@ Entrega 1:
 
 Entrega 2:
 
-- No funciona la parte donde se tiene que contactar al rescatista porque vieron la publicacion que hizo (si es porq si o si hay que iniciar sesion está bien)
 - Actualizar link de qr cuando este deployado
 
 Entrega 3:
 
 - Podríamos mostrar las preguntas en las publicaciones (según enunciado)
 - Cuando terminemos el deploy, actualizar el link para dar de baja la publicacion
-- Cuando alguien quiere adoptar una mascota de las que hay en adopcion, el boton contactar tira error (si es porq si o si hay que iniciar sesion está bien)
