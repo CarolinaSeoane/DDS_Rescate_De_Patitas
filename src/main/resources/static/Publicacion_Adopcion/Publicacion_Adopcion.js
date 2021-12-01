@@ -9,6 +9,7 @@ new Vue({
     data () {
         return{
             solicitudIniciada: false,
+            unlocked: false,
             estado_Solicitud: "",
             colorText:"red",
             fotos:[{
@@ -50,28 +51,39 @@ new Vue({
     },
     methods:{
         adoptar: function (){
-            this.solicitudIniciada = true;
+
             var idSesion = localStorage.getItem("IDSESION");
-            this.colorText = "#4ba0dd";
-            this.estado_Solicitud = "Procesando solicitud"
-            fetch("http://localhost:5000/api/adoptar/publicaciones/"+ + this.publicacion.id +"/adoptar", {
-                method: "GET",
-                headers: {
-                    "Authorization": idSesion
-                }
-            })
+            if(idSesion == null) {
+            	this.unlocked = true
+            } else {
+            	this.solicitudIniciada = true;
+            	this.colorText = "#4ba0dd";
+            	this.estado_Solicitud = "Procesando solicitud"
+            	fetch("http://localhost:5000/api/adoptar/publicaciones/"+ + this.publicacion.id +"/adoptar", {
+                	method: "GET",
+                	headers: {
+                    	"Authorization": idSesion
+                	}
+            	})
                 .then(response => response.json())
                 .then(estado =>{
-                if (estado){
-                    this.colorText = "green";
-                    this.estado_Solicitud = "Se notifico al dueño de la mascota";
-                }else{
-                    this.colorText = "red";
-                    this.estado_Solicitud = "Hubo un error";
-                }
+                	if (estado){
+                   		this.colorText = "green";
+                    	this.estado_Solicitud = "Se notifico al dueño de la mascota";
+                	}else{
+                    	this.colorText = "red";
+                    	this.estado_Solicitud = "Hubo un error";
+               		}
 
-            });
+           		});
+           	}
 
+        },
+        goToRegistrarse: function() {
+        	window.location.href = 'Registrarse.html';
+        },
+        gotoIniciarSesion: function() {
+        	window.location.href = 'Iniciar_Sesion.html';
         }
     }
 });
