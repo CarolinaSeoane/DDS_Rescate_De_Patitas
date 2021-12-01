@@ -8,15 +8,14 @@ Cosas para hacer:
 ********************************************************************************************
 
 En proceso:
-[Facu] Agregar cartel para que inicie sesion en las pantallas de publicaciones
 [Caro] Solucionar el check de caracteristicas en la pantalla del admin
+[Facu] Mostrar preguntas en las publicaciones de adoptar
 
 ********************************************************************************************
 Cosas pendientes de cada entrega:
 
 Entrega 1:
 
-- El TP dice q las fotos se deben normalizar antes de guardarse
 - Un req de seguridad es no usar credenciales por defecto, pero si alguien usa mismo usuario y contraseña lo dejamos pasar (si la contraseña pasa los controles)
 - No implementamos WPP
 - No limitamos o incrementamos el tiempo de respuesta por inicio de sesión fallido
