@@ -42,6 +42,12 @@ public class ClienteLivianoController {
 
     }
 
+    @RequestMapping("/")
+    public String inicio(Model model) {
+        return "Cliente_Liviano_index";
+    }
+
+
     @RequestMapping("/organizaciones")
     public String organizaciones(Model model) {
         List<Organizacion> organizacionList = organizacionSvc.findAll();
