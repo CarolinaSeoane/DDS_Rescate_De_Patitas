@@ -24,7 +24,7 @@
             <div class="contenedor-base">
                 <div class="contenedor-texto-header">
                     <div class="texto">
-                        <h1 class="titulo-principal">Hola {{usuario.usuario}}</h1>
+                        <h1 class="titulo-principal">¡Hola, {{usuario.usuario}}!</h1>
                     </div>
                 </div>
             </div>
@@ -78,6 +78,10 @@
                     </div>
                 </div>
             </section>
+        </section>
+
+        <section class="cerrar-sesion">
+            <button @click="cerrarSesion" class="botonRojo boton">Cerrar Sesión</button>
         </section>
     </div>
 
