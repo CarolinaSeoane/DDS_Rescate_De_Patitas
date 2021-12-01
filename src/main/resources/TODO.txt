@@ -1,7 +1,6 @@
 Cosas importantes para hacer:
 
 [1] En todas las pantallas que muestran publicaciones: hacer click en una debe llevar a otra pantalla con los datos de la publicacion.
-[2] Solucionar el check de caracteristicas en la pantalla del admin
 [3] Limitar tamaño de imagenes a subir. Sino rompe.
 
 ********************************************************************************************
@@ -15,4 +14,26 @@ Cosas NO importantes para hacer:
 ********************************************************************************************
 
 En proceso:
-[Caro] Ver de nuevo el tema de la ubicacion de mascota perdida y asignacion de organizacion mas cercana.
+[Facu] Ver de nuevo el tema de la ubicacion de mascota perdida y asignacion de organizacion mas cercana.
+[Caro] Solucionar el check de caracteristicas en la pantalla del admin
+
+********************************************************************************************
+Cosas pendientes de cada entrega:
+
+Entrega 1:
+
+- El TP dice q las fotos se deben normalizar antes de guardarse
+- Un req de seguridad es no usar credenciales por defecto, pero si alguien usa mismo usuario y contraseña lo dejamos pasar (si la contraseña pasa los controles)
+- No implementamos WPP
+- No limitamos o incrementamos el tiempo de respuesta por inicio de sesión fallido
+
+Entrega 2:
+
+- No funciona la parte donde se tiene que contactar al rescatista porque vieron la publicacion que hizo (si es porq si o si hay que iniciar sesion está bien)
+- Actualizar link de qr cuando este deployado
+
+Entrega 3:
+
+- Podríamos mostrar las preguntas en las publicaciones (según enunciado)
+- Cuando terminemos el deploy, actualizar el link para dar de baja la publicacion
+- Cuando alguien quiere adoptar una mascota de las que hay en adopcion, el boton contactar tira error (si es porq si o si hay que iniciar sesion está bien)

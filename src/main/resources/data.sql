@@ -28,13 +28,15 @@ INSERT INTO caracteristica (caracteristica) VALUES
 	('Fiel'),
 	('Traicionero'),
 	('Comilón'),
-	('Vago');
+	('Vago'),
+	('Castrada');
 
 INSERT INTO comodidad (comodidad) VALUES
     ('Patio'),
     ('Balcon'),
     ('Terraza'),
-	('Campo');
+	('Campo'),
+	('Tengo más animales a cargo');
 
 INSERT INTO organizacion (calidad, nombre, pixeles_alto, pixeles_ancho, id_ubicacion) VALUES
     ('png', 'Pelusas', 500, 500, 1),
@@ -110,7 +112,11 @@ INSERT INTO usuario (tipo_usuario, password, usuario, id_organizacion, id_person
     ('Voluntario', '$2a$10$bkUkxaYd0fn1hD7AzQucx.PUmWuMcoA2CeE7FQgfjRYDg5DBuNzfa', 'Eva', 2, NULL),                 /* Contraseña: 123456+-abdD         */
     ('Voluntario', '$2a$10$pYu3e25YWokn18MR3RRYIe05pOrcl9ergY8m/PP2Mel9CusRGhOmC', 'Juana', 3, NULL),               /* Contraseña: Brit900$             */
     ('Voluntario', '$2a$10$fUjWfYP3aMBDN.sEB.zu0e2B9sxMugfYuc7jXGfDfaIrRNV6c1Gbi', 'JuanMamani', 4, NULL),          /* Contraseña: vdfaa321FSD8_        */
-    ('Voluntario', '$2a$10$S16Ssd1d3rEu/1IYZr2c4.v68NyPkvV2t01tepultzbHvR9jSH7vK', 'RamiroGonzalez', 1, NULL);      /* Contraseña: fdsf5623DdD?         */
+    ('Voluntario', '$2a$10$S16Ssd1d3rEu/1IYZr2c4.v68NyPkvV2t01tepultzbHvR9jSH7vK', 'RamiroGonzalez', 1, NULL),      /* Contraseña: fdsf5623DdD?         */
+    ('Administrador', '$2a$10$X9GJvyxvKniuQKL99jjysuU4OEWNkdF8GSuchVNTC830hsN/jFEYi', 'lucianoAdmin', 1, NULL),     /* Contraseña: LUCHO123*            */
+    ('Administrador', '$2a$10$eY6dhRdU0aMXMD7Br7eRsud5oPM55H8uaFokseOxHC26X1S2Qb.q.', 'jonnyAdmin', 1, NULL),       /* Contraseña: JONNY123*            */
+    ('Voluntario', '$2a$10$X9GJvyxvKniuQKL99jjysuU4OEWNkdF8GSuchVNTC830hsN/jFEYi', 'lucianoVoluntario', 1, NULL),   /* Contraseña: LUCHO123*            */
+    ('Voluntario', '$2a$10$eY6dhRdU0aMXMD7Br7eRsud5oPM55H8uaFokseOxHC26X1S2Qb.q.', 'jonnyVoluntario', 1, NULL);     /* Contraseña: JONNY123*            */
 
 INSERT INTO publicacion_dar_en_adopcion (id_mascota) VALUES
     (1),
@@ -163,7 +169,10 @@ INSERT INTO caracteristica_x_organizacion (id_organizacion, id_caracteristica) V
 	(5, 9),
 	(5, 10),
 	(5, 11),
-	(5, 12);
+	(5, 12),
+	(1, 14),
+	(2, 14),
+	(3, 14);
 
 INSERT INTO caracteristica_x_preferencia (id_preferencia, id_caracteristica) VALUES
 	(1, 1),
