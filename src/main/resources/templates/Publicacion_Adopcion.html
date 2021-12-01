@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>adopcion</title>
+    <title>Publicación de adopción</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 
@@ -83,6 +83,18 @@
 
             <input class="botonAzul boton" type="button"  @click="adoptar" value="Adoptar">
 
+        </div>
+
+        <div class="aviso-usuario contenedor-base" v-show="unlocked">
+            <div class="contenedor-error">
+                <img class="img" src="../static/Publicacion_Adopcion/img/usuario.png" alt="usuario" width="100">
+                <h3 class="sub-titulo">Parece que no tienes usuario</h3>
+                <p class="texto-simple">Hemos notado que aún no has iniciado sesión o no te has registrado. Por favor hazlo y luego vuelve a intentarlo.</p>
+                <div class="botones">
+                    <button @click="goToRegistrarse" class="botonGris">Registrarme</button>
+                    <button @click="gotoIniciarSesion" class="botonAzul">Iniciar Sesión</button>
+                </div>
+            </div>
         </div>
 
         <div v-if="solicitudIniciada" class="contenedor-estado">

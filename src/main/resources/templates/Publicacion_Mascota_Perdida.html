@@ -29,7 +29,7 @@
                 <div class="foto-principal">
                     <img class="elemento" v-bind:src=" fotoPrincipal.contenidoBase64">
                 </div>
-                <div class="foto " style="width: 33%" v-for=" foto in fotos">
+                <div class="foto " style="width: 50%" v-for=" foto in fotos">
                     <div class="square-box">
                         <img class="square-content" style="cursor: pointer;" v-bind:src="foto.contenidoBase64" @click="setFirst(foto)"  value>
                     </div>
@@ -53,7 +53,19 @@
             <p>¿Crees que es tu macota?</p>
             <p>Contacta al rescatista</p>
 
-            <input class="botonAzul boton" type="button"  @click="contactar" value="Contactar">
+            <input class="botonAzul boton" type="button"  @click="contactar" value="Contactar" v-show="!unlocked">
+
+            <div class="aviso-usuario contenedor-base" v-show="unlocked">
+                <div class="contenedor-error">
+                    <img class="img" src="../static/Publicacion_Adopcion/img/usuario.png" alt="usuario" width="100">
+                    <h3 class="sub-titulo">Parece que no tienes usuario</h3>
+                    <p class="texto-simple">Hemos notado que aún no has iniciado sesión o no te has registrado. Por favor hazlo y luego vuelve a intentarlo.</p>
+                    <div class="botones">
+                        <button @click="goToRegistrarse" class="botonGris">Registrarme</button>
+                        <button @click="gotoIniciarSesion" class="botonAzul">Iniciar Sesión</button>
+                    </div>
+                </div>
+            </div>
 
             <div v-if="solicitudIniciada" class="contenedor-estado">
                 <p :style="'color:'+ colorText ">{{estado_Solicitud}} </p>

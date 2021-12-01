@@ -11,9 +11,6 @@
     font-size: 18px;
 }
 
-
-
-
 .image-slide{
     margin: auto;
     height: 300px !important;
@@ -74,3 +71,25 @@
 .botonVolver:hover {
     background-color: #faf9fb
 }
+
+.contenedor-base {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.contenedor-error {
+    max-width: 60%;
+    margin: auto;
+    border-radius: 15px;
+    border: 3px solid black;
+    margin-bottom: 100px;
+    padding: 10px;
+    text-align: center;
+}
+
+.botones {
+	padding-top: 10px;
+}
+

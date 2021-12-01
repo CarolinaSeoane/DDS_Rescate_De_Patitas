@@ -34,40 +34,8 @@ public class PublicacionMascotaEncontrada {
 	@Column(name = "aceptada")
 	private Boolean aceptada;
 
-
- /*   public PublicacionMascotaEncontrada(Rescatista rescatista , MascotaPerdidaSinQr mascota) {
-        Sistema sistema = Sistema.getInstance();
-        this.organizacion = sistema.getOrganizaciones().stream().min((organizacionA, organizacionB) ->
-        {
-            double numero = organizacionA.getUbicacion().calcularDistancia(mascota.getUbicacion()) -
-                organizacionB.getUbicacion().calcularDistancia(mascota.getUbicacion());
-
-            if (numero<0){
-                return 1;
-            }else if(numero == 0){
-                return 0;
-            }
-            return -1;
-        }).orElse(null);        //hacerlo mas bonito en algún futuro
-
-        this.aceptadaPorVoluntario = false;
-        this.rescatista = rescatista;
-        this.mascota = mascota;
-        sistema.getPublicaciones().agregarPublMascotaEncontrada(this);
-    }*/
-
     public void aceptarPublicacionMascotaEncontrada() {
         this.aceptada = true;
-    }
-
-
-    public void notificarDuenioAparecido(Contacto duenioAparecido) {
-        String mensaje = String.format("Ha aparecido el duenio de la mascota que ha rescatado!\nComunicarse con %s %s: Tel. %s - Email %s",
-                duenioAparecido.getNombre(),
-                duenioAparecido.getApellido(),
-                duenioAparecido.getTelefono(),
-                duenioAparecido.getEmail());
-        this.getMascota().getRescatista().notificarAMisContactos(mensaje);
     }
 
 	public void notificarDuenioAparecido(Duenio duenioAparecido) {

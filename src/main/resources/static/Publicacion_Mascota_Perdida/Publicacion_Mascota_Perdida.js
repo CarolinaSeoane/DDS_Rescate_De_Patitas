@@ -23,6 +23,7 @@ new Vue({
     data () {
         return{
             solicitudIniciada: false,
+            unlocked: false,
             estado_Solicitud: "",
             colorText:"red",
             fotoPrincipal:{},
@@ -51,16 +52,20 @@ new Vue({
             this.fotoPrincipal = foto;
         },
         contactar: function (){
-            this.solicitudIniciada = true;
+
             var idSesion = localStorage.getItem("IDSESION");
-            this.colorText = "#4ba0dd";
-            this.estado_Solicitud = "Procesando solicitud"
-            fetch("http://localhost:5000/api/perdidas/publicaciones/"+ + this.publicacion.id +"/contactar", {
-                method: "GET",
-                headers: {
-                    "Authorization": idSesion
-                }
-            })
+            if(idSesion == null) {
+            	this.unlocked = true
+        	} else {
+            	this.solicitudIniciada = true;
+            	this.colorText = "#4ba0dd";
+            	this.estado_Solicitud = "Procesando solicitud"
+            	fetch("http://localhost:5000/api/perdidas/publicaciones/"+ + this.publicacion.id +"/contactar", {
+                	method: "GET",
+                	headers: {
+                	    "Authorization": idSesion
+                	}
+            	})
                 .then(response => response.json())
                 .then(estado =>{
                     if (estado){
@@ -72,6 +77,13 @@ new Vue({
                     }
 
                 });
+            }
+        },
+        goToRegistrarse: function() {
+        	window.location.href = 'Registrarse.html';
+        },
+        gotoIniciarSesion: function() {
+        	window.location.href = 'Iniciar_Sesion.html';
         }
     }
 });
