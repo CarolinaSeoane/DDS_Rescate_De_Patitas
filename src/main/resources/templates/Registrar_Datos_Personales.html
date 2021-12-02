@@ -79,6 +79,18 @@
                         <input type="date" class="fecha texto-simple pregunta" v-model="duenio.fechaDeNacimiento" required>
                     </div>
 
+                    <div v-if="errorsDuenio.length">
+                        <div class="tarjeta-error">
+                            <img src="../static/Crear_Publicacion/img/error.png" alt="Error" height="100">
+                            <b class="texto-error">¡Atención! Tienes datos personales incorrectos:</b>
+                            <br>
+                            <br>
+                            <ul>
+                                <li v-for="error in errorsDuenio" class="texto-simple">{{ error }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </section>
 
                 <!-- CONTACTOS -->
@@ -121,10 +133,23 @@
                             </div>
                         </div>
 
+                        <div v-if="contacto.errorContacto.length">
+                            <div class="tarjeta-error">
+                                <img src="../static/Crear_Publicacion/img/error.png" alt="Error" height="100">
+                                <b class="texto-error">¡Atención! Tu contacto tiene datos incorrectos:</b>
+                                <br>
+                                <br>
+                                <ul>
+                                    <li v-for="error in contacto.errorContacto" class="texto-simple">{{ error }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
 
                     <button class="botonGris gris" @click="addContacto">+ Agregar más contactos</button>
                 </div>
+
             </section>
 
             <button @click="enviar" class="botonAzul boton">Enviar</button>

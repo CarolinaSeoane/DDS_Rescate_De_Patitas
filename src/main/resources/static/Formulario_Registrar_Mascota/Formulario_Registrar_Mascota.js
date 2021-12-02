@@ -131,6 +131,10 @@ new Vue({
             return re.test(email);
         },
 
+        validTel: function (telefono) {
+            var re = /^\+5411([0-9]){8}$/
+            return re.test(telefono);
+        },
         validAge: function (age) {
             var re = /^(0?[1-9]|[1-2][0-9]|30)$/;
             return re.test(age)
@@ -145,10 +149,11 @@ new Vue({
         		esValido = false
         	}
 
-        	if(this.duenio.telefono == '') {
-        		this.errorsDuenio.push("El teléfono es obligatorio.");
-        		esValido = false
-        	}
+
+            if(!this.validTel(this.duenio.telefono) ) {
+                this.errorsDuenio.push("El teléfono es invalido, debe comenzar con +5411 y luego 8 digitos");
+                esValido = false
+            }
 
         	if(this.duenio.email == '') {
         		this.errorsDuenio.push("El correo electrónico es obligatorio.");
@@ -190,8 +195,8 @@ new Vue({
                     esValido = false
                 }
 
-                if(this.duenio.otrosContactos[i].telefono == '') {
-                    this.duenio.otrosContactos[i].errorContacto.push("El teléfono es obligatorio.");
+                if(!this.validTel(this.duenio.otrosContactos[i].telefono) ) {
+                    this.duenio.otrosContactos[i].errorContacto.push("El teléfono es invalido, debe comenzar con +5411 y luego 8 digitos");
                     esValido = false
                 }
 
