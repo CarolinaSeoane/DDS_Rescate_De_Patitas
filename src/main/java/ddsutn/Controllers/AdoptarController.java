@@ -32,7 +32,7 @@ public class AdoptarController {
     @GetMapping(value = "/publicaciones/{id}/adoptar") // usando sesion
     @ResponseBody
     public Boolean adoptarMascota(@RequestHeader("Authorization") String idSesion,@PathVariable Long id) {
-
+        System.out.println("Se quiere adoptar una mascota");
         SesionManager sesionManager = SesionManager.get();
         StandardUser usr = (StandardUser) sesionManager.obtenerAtributo(idSesion);
         Optional<PublicacionDarEnAdopcion> publicacion = publicacionDarEnAdopcionSvc.findById(id);

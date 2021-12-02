@@ -35,10 +35,14 @@ public class Ubicacion {
 		this._long = _long;
 	}
 
+	private double radianes(double num){
+		return num * Math.PI /180;
+	}
 	public Double calcularDistancia(Ubicacion ubicacion){
-		double x = _long - ubicacion.get_long();
-		double y = lat - ubicacion.getLat();
-		return Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+		double distanciaLat = radianes(lat) - radianes(ubicacion.getLat());
+		double distanciaLong = radianes(_long) - radianes(ubicacion.get_long());
+		double distancia = 2 *Math.asin(Math.sqrt(Math.pow(Math.sin(distanciaLat/2),2)+Math.cos(radianes(lat))*Math.cos(radianes(ubicacion.getLat()))*Math.pow(Math.sin(distanciaLong/2),2)))* 6378137 /1000 ;
+		return Math.round(distancia*100.0)/100.0;
 	}
 
 }
