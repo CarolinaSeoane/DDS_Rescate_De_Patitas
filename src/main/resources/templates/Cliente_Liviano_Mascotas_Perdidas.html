@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head >
+<head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Publicaciones Adopcion</title>
+    <title>Mascotas Perdidas</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/Resources/Letras.css}">
-    <link rel="stylesheet" th:href="@{/Resources/Boton.css}">
     <link rel="stylesheet" th:href="@{/Resources/normalize.css}">
     <link rel="stylesheet" th:href="@{/Footer/Footer.css}">
     <link rel="stylesheet" th:href="@{/Menu/Menu.css}">
     <link rel="stylesheet" th:href="@{/Resources/Filtro.css}">
+    <link rel="stylesheet" th:href="@{/Resources/Boton.css}">
     <link rel="stylesheet" th:href="@{/Resources/Publicaciones.css}">
-    <link rel="stylesheet" th:href="@{/Publicaciones_Adopcion/Publicaciones_Adopcion.css}">
+    <link rel="stylesheet" th:href="@{/Mascotas_Perdidas/Mascotas_Perdidas.css}">
     <link rel="icon" th:href="@{/Resources/img/logo.png}" type="image/icon type">
-
 </head>
 
-
 <body>
-<section th:replace="fragments/menu"></section>
+    <section th:replace="fragments/menu"></section>
     <header>
         <div class="contenedor-base">
             <div class="contenedor-texto-header">
-                <div class="">
-                    <h1 class="titulo-principal">Mascotas en Adopción</h1>
-                </div>
+                <h1 class="titulo-principal">Encontrá a Tu Mascota</h1>
             </div>
         </div>
     </header>
 
-    <section class="main">
+    <section class="main" id="app">
 
         <!-- ACERCA - DE -->
 
         <section class="acerca-de">
             <div class="contenedor-base">
 
-                <h3 class="sub-titulo">¿Buscas una Mascota para Adoptar?</h3>
+            <h3 class="sub-titulo">¿Tu Mascota Está Perdida?</h3>
+            <p class="texto-simple">En esta sección encontrarás publicaciones con mascotas que han sido encontradas sin su dueño. Si tu mascota se ha perdido y no tenía collar, puedes buscarla aquí. Si encuentras a tu mascota en las publicaciones, clickea en ella y ponte en contacto con su rescatista.</p>
 
             </div>
         </section>
@@ -47,11 +44,12 @@
 
         <section class="recientes">
             <div class="contenedor-base">
+
                 <p class="sub-titulo">Publicaciones Recientes</p>
 
                 <div class="fotos">
                     <th:block th:each="publicacion: ${recientes}">
-                        <a th:href="'/cliente-liviano/adoptar/publicacion/' + ${publicacion.id}" class="foto">
+                        <a th:href="'/cliente-liviano/perdidas/publicacion/' + ${publicacion.id}" class="foto">
                             <div class="square-box">
                                 <img class="square-content" th:src="${publicacion.mascota.fotos[0].contenidoBase64}" alt="Mascota">
                             </div>
@@ -63,7 +61,7 @@
 
         <!-- TODAS LAS PUBLICACIONES -->
 
-        <section class="publicaciones">
+        <section class="todas-publicaciones">
 
             <!-- FILTROS -->
 
@@ -73,44 +71,44 @@
 
                         <p class="sub-titulo">Todas las Publicaciones</p>
 
-                        <a class="dropdownOrdenar">
-                            <button class="dropbtn">
+                        <div class="dropdownOrdenar">
+                            <button class="dropbtn" @click="orderByName">
                                 <p class="texto-boton">Ordenar</p>
-                                <img th:src="@{/Publicaciones_Adopcion/img/ordenar.png}" alt="Ordenar">
+                                <img th:src="@{/Buscar_Hogar/img/ordenar.png}" alt="Ordenar">
                             </button>
-                        </a>
+                        </div>
 
                         <div class="dropdown">
                             <button class="dropbtn">
                                 <p class="texto-boton">Filtrar</p>
-                                <img th:src="@{/Publicaciones_Adopcion/img/filtro.png}" alt="Ordenar">
+                                <img th:src="@{/Buscar_Hogar/img/filtro.png}" alt="Filtrar">
                             </button>
-
                             <div class="dropdown-content">
-
                                 <div class="seccion-filtro">
+
                                     <div class="titulo-check">
                                         <label>Especie</label>
                                     </div>
 
                                     <div class="opciones-check">
-                                        <input type="checkbox" id="GATO" name="gato" value="GATO">
+                                        <input type="checkbox" id="GATO" name="gato" value="GATO"  v-model="check">
                                         <label class="texto-simple">Gato</label>
 
-                                        <input type="checkbox" id="PERRO" name="perro" value="PERRO">
+                                        <input type="checkbox" id="PERRO" name="perro" value="PERRO"  v-model="check">
                                         <label class="texto-simple">Perro</label>
                                     </div>
+
                                 </div>
 
                                 <div class="reset-filtros">
                                     <div class="texto-borrar">
-                                        <button class="boton-filtro" value="Borrar Filtros" style="color: #B93122;">Borrar Filtros</button>
+                                        <input class="boton-filtro" type="submit" @click="reset" value="Borrar Filtros" style="color: #B93122;">
                                     </div>
                                     <div class="texto-fin">
-                                        <button class="boton-filtro" value="Cancelar" style="color:#57565B">Cancelar</button>
+                                        <input class="boton-filtro" type="submit" @click="cancelar" value="Cancelar" style="color:#57565B">
                                     </div>
                                     <div class="texto-fin">
-                                        <button  class="boton-filtro" style="color:#1DA1F2" >Aceptar</button>
+                                        <input class="boton-filtro" type="submit" value="Aceptar" @click="filtrar" style="color:#1DA1F2">
                                     </div>
                                 </div>
                             </div>
@@ -123,33 +121,24 @@
 
             <section class="publicaciones">
                 <div class="contenedor-grande">
-                    <div class="fotos">
+                    <div th:action="@{/cargar-mas}" method="get" class="fotos">
                         <th:block th:each="pub: ${publicaciones}">
-                            <a th:href="'/cliente-liviano/adoptar/publicacion/' +  ${pub.id}" class="foto">
+                            <a th:href="'/cliente-liviano/perdidas/publicacion/' +  ${pub.id}" class="foto">
                                 <div class="square-box">
                                     <img th:src="${pub.mascota.fotos[0].contenidoBase64}" alt="Mascota" class="square-content">
                                 </div>
-                                <p class="texto-simple"><td th:text="${pub.mascota.apodo}" /> </p>
+                                <p class="texto-simple"><td th:text="${pub.mascota.ubicacion.direccion}" /> </p>
                             </a>
                         </th:block>
-
                     </div>
-                    <p class="boton-mas">Cargar mas</p>
-                </div>
+                    <p @click="agregar" class="boton-mas">Cargar mas</p>
 
+                </div>
             </section>
         </section>
-
-        <section class="crear">
-            <h3 class="sub-titulo">¿No encontraste tu mascota ideal? ¡No hay problema!</h3>
-            <a href="">
-                <input class="botonAzul boton" type="submit" value="Crear Publicación">
-            </a>
-        </section>
-
     </section>
 
-<section th:replace="fragments/footer"></section>
+    <section th:replace="fragments/footer"></section>
 
 </body>
 </html>

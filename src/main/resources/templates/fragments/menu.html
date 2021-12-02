@@ -7,7 +7,7 @@
 <body>
 
 <section th:fragment="menu">
-    <div class="menu-bar">
+    <div class="menu-bar" >
         <div class="contenedor-base">
 
             <nav class="menu">
@@ -16,14 +16,14 @@
                 </th:block>
 
                 <th:block th:if="${session.idSesion} != null">
-                    <a th:href="'http://localhost:63342/TPDDS_Grupo5_K3002/templates/Mi_Usuario.html'">Mi usuario</a>
+                    <a th:href="'http://localhost:5000/cliente-liviano/Mi_Usuario'">Mi usuario</a>
                 </th:block>
 
                 <a th:href="'http://localhost:5000/cliente-liviano/'">Página Principal</a>
                 <a th:href="'http://localhost:5000/cliente-liviano/organizaciones'">Organizaciones</a>
             </nav>
 
-            <a href="index.html">
+            <a href="http://localhost:5000/cliente-liviano/adoptar/publicacion/index.html">
                 <div class="logo-menu">
                     <img th:src="@{/Menu/img/logo_blanco.png}" alt="Logo">
                 </div>

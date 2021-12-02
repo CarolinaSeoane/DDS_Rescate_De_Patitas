@@ -1,5 +1,7 @@
 /*----------------FILTROS------------------------------*/
-
+.filtro .contenedor-base {
+    overflow: visible;
+}
 .texto-boton {
 	margin: 0 7px;
 }

@@ -15,9 +15,8 @@
 </head>
 
 <body>
-
+	<section th:replace="fragments/menu"></section>
 	<header>
-		<header th:replace="fragments/menu"></header>
 		<div class="contenedor-base">
 			<div class="contenedor-texto-header">
 				<div class="texto">
@@ -109,7 +108,7 @@
 
 					<div class="opcion">
 						<div class="foto-opcion">
-							<a href="Mascotas_Perdidas.html">
+							<a href="/cliente-liviano/mascotas_perdidas">
 								<img th:src="@{/Pagina_Principal/img/perroPerdido.jpg}" alt="Buscar a Mi Mascota Perdida">
 							</a>
 						</div>

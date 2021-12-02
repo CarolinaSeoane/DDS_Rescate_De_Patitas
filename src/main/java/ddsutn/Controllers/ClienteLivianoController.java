@@ -1,16 +1,23 @@
 package ddsutn.Controllers;
 
+import com.google.zxing.NotFoundException;
+import com.google.zxing.WriterException;
+import ddsutn.Business.Mascota.DTOs.MascotaDTO;
+import ddsutn.Business.Mascota.Foto.QR;
+import ddsutn.Business.Mascota.Mascota;
 import ddsutn.Business.Organizacion.Organizacion;
 import ddsutn.Business.Publicacion.PublicacionDarEnAdopcion;
 import ddsutn.Business.Publicacion.PublicacionMascotaEncontrada;
 import ddsutn.Seguridad.Sesion.LoginResponse;
 import ddsutn.Seguridad.Sesion.SesionManager;
+import ddsutn.Seguridad.Usuario.DTOs.StandardDTO;
 import ddsutn.Seguridad.Usuario.DTOs.UsuarioSigninDTO;
 import ddsutn.Seguridad.Usuario.StandardUser;
 import ddsutn.Seguridad.Usuario.Usuario;
 import ddsutn.Servicios.OrganizacionSvc;
 import ddsutn.Servicios.PublicacionDarEnAdopcionSvc;
 import ddsutn.Servicios.PublicacionMascotaEncontradaSvc;
+import ddsutn.Servicios.UsuariosSvc.StandardSvc;
 import ddsutn.Servicios.UsuariosSvc.UsuarioSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +28,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +51,11 @@ public class ClienteLivianoController {
     @Autowired
     private UsuarioSvc usuarioSvc;
 
+    @Autowired
+    private StandardSvc standardSvc;
+
+    private ddsutn.Business.Mascota.Foto.QR QR = new QR();
+
     public Boolean validarSesion(String idSesion) {
 
         SesionManager sesionManager = SesionManager.get();
@@ -51,7 +65,7 @@ public class ClienteLivianoController {
 
     }
 
-    @RequestMapping("/")
+    @RequestMapping("")
     public String inicio(HttpServletRequest request,Model model) {
 
         return "Cliente_Liviano_index";
@@ -92,6 +106,30 @@ public class ClienteLivianoController {
         return "Cliente_Liviano_Organizaciones";
     }
 
+    @RequestMapping("/Mi_Usuario")
+    public String Mi_Usuario(Model model,HttpServletRequest request) {
+        SesionManager sesionManager = SesionManager.get();
+        Usuario usr = (Usuario) sesionManager.obtenerAtributo((String) request.getSession().getAttribute("idSesion"));
+        StandardUser estandar = standardSvc.findStandardByUsuario(usr.getUsuario());
+        StandardDTO standardDTO = estandar.toDTO();
+        standardDTO.getDuenioAsociado().getMascotas().forEach(mascota -> {
+            try {
+                mascota.setId_QR(QR.generarQR(mascota.getId_QR()));
+            } catch (WriterException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+
+        model.addAttribute("usuario", estandar);
+
+        return "Cliente_Liviano_Mi_Usuario";
+    }
+
+
     @RequestMapping("/publicaciones")
     public String Mascotas_En_Adopción(Model model) {
         List<PublicacionDarEnAdopcion> publicaciones = publicacionDarEnAdopcionSvc.findAll();
@@ -106,6 +144,19 @@ public class ClienteLivianoController {
         return "Cliente_Liviano_Publicaciones_Adopcion";
     }
 
+    @RequestMapping("/mascotas_perdidas")
+    public String Mascotas_Perdidas(Model model) {
+        List<PublicacionMascotaEncontrada> publicaciones = publicacionMascotaEncontradaSvc.findAll();
+        model.addAttribute("recientes",publicaciones.stream()
+                .sorted(Comparator.comparingLong( PublicacionMascotaEncontrada::getId )
+                        .reversed())
+                .limit(4)
+                .collect(Collectors.toList()));
+        model.addAttribute("publicaciones",publicaciones.stream().limit(4).collect(Collectors.toList()));
+        model.addAttribute("cantidad",4);
+        model.addAttribute("ordenado","");
+        return "Cliente_Liviano_Mascotas_Perdidas";
+    }
 
 
     @RequestMapping("/perdidas/publicacion/{id}")

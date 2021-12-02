@@ -19,10 +19,10 @@
 
 </head>
 <body>
-<header th:replace="fragments/menu"></header>
+    <section th:replace="fragments/menu"></section>
 
     <input type="hidden" id="idSesion" th:value="${session.idSesion}"/>
-<section class="main">
+    <section class="main">
         <div class="titulo">
             <p>¡Conoce a [[${publicacion.mascota.nombre}]]!  </p>
         </div>
@@ -111,27 +111,7 @@
 
     </section>
 
-    <section class="footer">
-        <div class="contenedor-base">
-            <div class="imagenes-footer">
-                <a href="https://twitter.com">
-                    <div class="img-footer twitter">
-                        <img th:src="@{/Footer/img/twitter.png}" width="45" alt="Twitter @RescateDePatitas">
-                    </div>
-                </a>
-                <a href="https://www.facebook.com/">
-                    <div class="img-footer facebook">
-                        <img th:src="@{/Footer/img/fb.png}" width="45" alt="Facebook @RescateDePatitas">
-                    </div>
-                </a>
-                <a href="https://mail.google.com/">
-                    <div class="img-footer gmail">
-                        <img th:src="@{/Footer/img/gmail.png}" width="45" alt="Gmail RescateDePatitas@gmail.com">
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+    <section th:replace="fragments/footer"></section>
     <script src="../../static/Publicacion_Adopcion/Publicacion_Adopcion_Liviano.js" th:src="@{/Publicacion_Adopcion/Publicacion_Adopcion_Liviano.js}" ></script>></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" th:src="|https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js|"></script>
     <script src="../../static/Resources/carrusel/carrusel.js"  th:src="@{/carrusel/carrusel_Liviano.js}" ></script>
