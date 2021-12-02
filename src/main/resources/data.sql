@@ -139,7 +139,7 @@ INSERT INTO publicacion_mascota_encontrada (aceptada, id_mascota, id_organizacio
     (0, 1, 1),
     (1, 2, 2),
     (0, 3, 3),
-    (1, 4, 3),
+    (0, 4, 3),
     (1, 5, 5),
     (1, 6, 2),
     (1, 7, 5);

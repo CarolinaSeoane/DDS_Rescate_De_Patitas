@@ -48,7 +48,7 @@ public class PublicacionInteresado {
 
 	public void otorgarLinkDeBajaAlInteresado() {
 		this.cod_Baja = UUID.randomUUID().toString();
-		this.notificarAlInteresado("Felicitaciones! Estás un paso mas cerca de adoptar una mascota! La publicación se ha creado correctamente. \nTe dejamos este link por si en algún momento deseas darla de baja: " + "http://localhost:63342/TPDDS_Grupo5_K3002/demo/templates/Bajar_Publicacion.html?cod=" + cod_Baja);
+		this.notificarAlInteresado("Felicitaciones! Estás un paso mas cerca de adoptar una mascota! La publicación se ha creado correctamente. \nTe dejamos este link por si en algún momento deseas darla de baja: " + "https://patitashtml.herokuapp.com/Bajar_Publicacion.html?cod=" + cod_Baja);
 		// El link no funciona. Con el deploy hay que actualizarlo
 	}
 
